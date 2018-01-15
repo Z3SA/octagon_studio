@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:octagon_studio.dicts">
+    <Style x:Key="StartupBlock" TargetType="{x:Type StackPanel}">
+        <Setter Property="Margin" Value="90,125,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="StartupTitle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="#FFEBEBEB"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0,0,0,20"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="StartupProjectLink" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="0,0,0,15"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.75"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="StartupProjectLinkText" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="#FF95989A"/>
+        <Setter Property="Padding" Value="13,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="StartupProjectImage_New" TargetType="{x:Type Image}">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Source" Value="../resources/__startup/startup-new-project.png"/>
+    </Style>
+</ResourceDictionary>

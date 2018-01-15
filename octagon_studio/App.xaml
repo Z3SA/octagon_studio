@@ -1,0 +1,23 @@
+﻿<Application x:Class="octagon_studio.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:octagon_studio"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Ресурсы базовых компонентов студии / Basic components' resources -->
+                <ResourceDictionary Source="dicts/Basic.xaml"/>
+                <!-- Ресурсы главного окна -->
+                <ResourceDictionary Source="dicts/MainWindow.xaml"/>
+                <ResourceDictionary Source="dicts/Startup.xaml"/>
+                
+                <!-- Ресурсы окна "Создать проект" / Window "Create project" resources -->
+                <ResourceDictionary Source="dicts/CreateProject.xaml"/>
+                
+                <!-- Ресурсы окна "Параметры программы" / Window "Program parameters" resources -->
+                <ResourceDictionary Source="dicts/ProgParams.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

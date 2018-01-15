@@ -1,0 +1,93 @@
+﻿<Window x:Class="octagon_studio.windows.CreateProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:octagon_studio.windows"
+        mc:Ignorable="d"
+        Title="{Binding Path=TITLE}"
+        Style="{StaticResource CreateProjectWin}" Height="437.333">
+    <Grid>
+        <!-- Margins -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Style="{StaticResource CreateProjectCont}">
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.NAME}"/>
+                <StackPanel Style="{StaticResource CreateProjectRightCell}">
+                    <TextBox x:Name="projectName" Style="{StaticResource CreateProjectTextField}"/>
+                    <TextBlock Text="{Binding Path=LABELS.NAME_HINT}" Style="{StaticResource CreateProjectHint}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.WORK_ID}"></TextBlock>
+                <StackPanel Style="{StaticResource CreateProjectRightCell}">
+                    <TextBox x:Name="projectID" Style="{StaticResource CreateProjectTextField}"/>
+                    <TextBlock Text="{Binding Path=LABELS.WORK_ID_HINT}" Style="{StaticResource CreateProjectHint}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.FOLDER}"></TextBlock>
+                <StackPanel Style="{StaticResource CreateProjectRightCell}">
+                    <StackPanel Style="{StaticResource CreateProjectRightCell}" Orientation="Horizontal">
+                        <TextBox x:Name="projectFolder" Style="{StaticResource CreateProjectTextField}" Width="245"/>
+                        <Button x:Name="projectFindFolder" Style="{StaticResource Btn_findFolder}" Click="FindFolder"/>
+                    </StackPanel>
+                    <TextBlock Text="{Binding Path=LABELS.FOLDER_HINT}" Style="{StaticResource CreateProjectHint}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.PLATFORM_TYPE}"></TextBlock>
+                <ComboBox x:Name="projectPlatform" Style="{StaticResource CreateProjectRightCell}" Width="264">
+                    <ComboBoxItem IsSelected="True">
+                        <TextBlock>Call of Chernobyl</TextBlock>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock>Call of Pripyat</TextBlock>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.PLATFORM_VERSION}"></TextBlock>
+                <ComboBox x:Name="projectVersion" Style="{StaticResource CreateProjectRightCell}" Width="264">
+                    <ComboBoxItem IsSelected="True">
+                        <TextBlock>1.4.22</TextBlock>
+                    </ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.KEEP_MULTIPLAYER}"></TextBlock>
+                <StackPanel Style="{StaticResource CreateProjectRightCell}" Orientation="Horizontal">
+                    <RadioButton x:Name="projectMultiplayerEnabled" Style="{StaticResource CreateProjectInput}" GroupName="isMultiplayerEnabled" Content="Да"/>
+                    <RadioButton x:Name="projectMultiplayerDisabled" Style="{StaticResource CreateProjectInput}" GroupName="isMultiplayerEnabled" Content="Нет" IsChecked="True"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <TextBlock Style="{StaticResource CreateProjectLabel}" Text="{Binding Path=LABELS.AUTHORS}"></TextBlock>
+                <StackPanel Style="{StaticResource CreateProjectRightCell}">
+                    <TextBox x:Name="projectAuthors" Style="{StaticResource CreateProjectTextField}"/>
+                    <TextBlock Style="{StaticResource CreateProjectHint}" Text="{Binding Path=LABELS.AUTHORS_HINT}"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource CreateProjectRow}">
+                <Button x:Name="projectCreate" Content="Создать проект" Style="{StaticResource CreateProjectSubmit}" HorizontalAlignment="Center" Click="NewProject"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

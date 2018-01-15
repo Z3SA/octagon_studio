@@ -1,0 +1,60 @@
+﻿<Window x:Class="octagon_studio.windows.ProgParams"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:octagon_studio.windows"
+        mc:Ignorable="d"
+        Title="{Binding Path=TITLE}"
+        Style="{StaticResource ProgParamsWin}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*" MinWidth="150"/>
+            <ColumnDefinition Width="345*" MinWidth="400"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="300"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Style="{StaticResource ProgParamsFooterBorder}"/>
+
+        <ListBox Style="{StaticResource ProgParamsNav}">
+            <ListBoxItem>
+                <TextBlock Text="{Binding Path=MENU.MAIN}"/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <TextBlock Text="{Binding Path=MENU.LAUNCH_N_DEBUG}"/>
+            </ListBoxItem>
+        </ListBox>
+
+        <StackPanel Style="{StaticResource ProgParamsFooter}">
+            <Button Style="{StaticResource ProgParamsFooterBtn}">
+                <TextBlock Text="{Binding Path=BOTTOM_BTNS.APPLY}"/>
+            </Button>
+            <Button Style="{StaticResource ProgParamsFooterBtn}">
+                <TextBlock Text="{Binding Path=BOTTOM_BTNS.CANCEL}"/>
+            </Button>
+            <Button Style="{StaticResource ProgParamsFooterBtn}">
+                <TextBlock Text="OK"/>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource ProgParamsCont}">
+            <!-- Settings page - Main -->
+            <StackPanel Style="{StaticResource ProgParamsPage}" x:Name="ParamsPageWin">
+                <TextBlock Style="{StaticResource ProgParamsPageTitle}" Text="{Binding Path=MAIN.INTERFACE.TITLE}"/>
+                <StackPanel>
+                    <TextBlock Margin="0,5,0,0" Text="{Binding Path=MAIN.INTERFACE.LANGUAGE}"/>
+                    <ComboBox x:Name="ParamsLanguage">
+                        <ComboBoxItem IsSelected="True">
+                            <TextBlock Text="Русский"/>
+                        </ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

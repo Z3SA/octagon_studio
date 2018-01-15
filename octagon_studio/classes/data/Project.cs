@@ -44,11 +44,8 @@ namespace Octagon
             Directory.CreateDirectory(octagonDir);
 
             string projectXML = octagonDir + @"\Project.xml";
-            OMSXml.CreateXml(projectXML, "Project");
 
-            XDocument projectXMLDoc = XDocument.Load(projectXML);
-
-            XElement inXmlProject = projectXMLDoc.Element("Project");
+            XElement inXmlProject = new XElement("Project");
 
             inXmlProject.Add(new XElement("Name", Name));
             inXmlProject.Add(new XElement("WorkID", Id));
@@ -67,7 +64,7 @@ namespace Octagon
             inXmlProject.Add(new XAttribute("OctagonVersion", octagon_studio.App.octagon.Version));
             inXmlProject.Add(new XAttribute("OctagonLang", octagon_studio.App.octagon.Lang));
 
-            projectXMLDoc.Save(projectXML);
+            OMSXml.WriteXml(projectXML, inXmlProject);
         }
     }
 }

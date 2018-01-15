@@ -21,39 +21,50 @@
 
         <Rectangle Style="{StaticResource ProgParamsFooterBorder}"/>
 
-        <ListBox Style="{StaticResource ProgParamsNav}">
-            <ListBoxItem>
+        <ListBox Style="{StaticResource ProgParamsNav}" x:Name="ParamsNav" SelectionChanged="TabSelected">
+            <ListBoxItem Tag="0">
                 <TextBlock Text="{Binding Path=MENU.MAIN}"/>
             </ListBoxItem>
-            <ListBoxItem>
-                <TextBlock Text="{Binding Path=MENU.LAUNCH_N_DEBUG}"/>
+            
+            <ListBoxItem Tag="1">
+                <TextBlock Text="{Binding Path=MENU.PLATFORMS}"/>
+            </ListBoxItem>
+
+            <ListBoxItem Tag="2">
+                <TextBlock Text="{Binding Path=MENU.AUTHORITY}"/>
             </ListBoxItem>
         </ListBox>
 
         <StackPanel Style="{StaticResource ProgParamsFooter}">
-            <Button Style="{StaticResource ProgParamsFooterBtn}">
-                <TextBlock Text="{Binding Path=BOTTOM_BTNS.APPLY}"/>
+            <Button Style="{StaticResource ProgParamsFooterBtn}" Click="ParamsApply">
+                <TextBlock Text="{Binding Path=BOTTOM_BTNS.APPLY}" x:Name="ProgParamsApply"/>
             </Button>
-            <Button Style="{StaticResource ProgParamsFooterBtn}">
-                <TextBlock Text="{Binding Path=BOTTOM_BTNS.CANCEL}"/>
+            <Button Style="{StaticResource ProgParamsFooterBtn}" Click="ParamsCancel">
+                <TextBlock Text="{Binding Path=BOTTOM_BTNS.CANCEL}" x:Name="ProgParamsCancel"/>
             </Button>
-            <Button Style="{StaticResource ProgParamsFooterBtn}">
-                <TextBlock Text="OK"/>
+            <Button Style="{StaticResource ProgParamsFooterBtn}" Click="ParamsOk">
+                <TextBlock Text="OK" x:Name="ProgParamsOK"/>
             </Button>
         </StackPanel>
 
-        <StackPanel Style="{StaticResource ProgParamsCont}">
+        <StackPanel Style="{StaticResource ProgParamsCont}" x:Name="ParamsCont">
             <!-- Settings page - Main -->
-            <StackPanel Style="{StaticResource ProgParamsPage}" x:Name="ParamsPageWin">
+            <StackPanel Style="{StaticResource ProgParamsPage}" x:Name="ParamsPageMain" IsVisibleChanged="LoadPageMain">
                 <TextBlock Style="{StaticResource ProgParamsPageTitle}" Text="{Binding Path=MAIN.INTERFACE.TITLE}"/>
-                <StackPanel>
-                    <TextBlock Margin="0,5,0,0" Text="{Binding Path=MAIN.INTERFACE.LANGUAGE}"/>
-                    <ComboBox x:Name="ParamsLanguage">
-                        <ComboBoxItem IsSelected="True">
-                            <TextBlock Text="Русский"/>
-                        </ComboBoxItem>
-                    </ComboBox>
-                </StackPanel>
+                
+                <TextBlock Margin="0,5,0,3" Text="{Binding Path=MAIN.INTERFACE.LANGUAGE}"/>
+                <ComboBox x:Name="ParamsLanguage" Width="200" SelectionChanged="LangChanged" HorizontalAlignment="Left"/>
+                <TextBlock Margin="0,3,0,0" Text="{Binding Path=MAIN.INTERFACE.LANGUAGE_WARNING}" x:Name="ParamsUncompleteLang" Visibility="Hidden"/>
+            </StackPanel>
+            
+            <!-- Settings page - Platforms -->
+            <StackPanel Style="{StaticResource ProgParamsPage}" x:Name="ParamsPagePlatforms">
+                <TextBlock Style="{StaticResource ProgParamsPageTitle}" Text="{Binding Path=PLATFORMS.TITLE}"/>
+            </StackPanel>
+            
+            <!-- Settings page - Authority -->
+            <StackPanel Style="{StaticResource ProgParamsPage}" x:Name="ParamsPageAuthority">
+                <TextBlock Style="{StaticResource ProgParamsPageTitle}" Text="{Binding Path=AUTHORITY.TITLE}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

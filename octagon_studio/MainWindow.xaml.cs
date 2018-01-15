@@ -19,8 +19,11 @@ namespace octagon_studio
         {
             InitializeComponent();
 
+            // Choosing language pack of window
             dynamic LANG_MAIN_WINDOW = App.language.MAIN_WINDOW;
             DataContext = LANG_MAIN_WINDOW;
+            // Writing version of program in status bar
+            StatusBarVersion.Text = "Octagon Modmaking Studio " + App.octagon.Version;
         }
         
         // Click event of button "Close"
@@ -52,20 +55,20 @@ namespace octagon_studio
             var window = this;
             window.WindowState = WindowState.Minimized;
         }
-        
-        // Checking window's size for excluding exceeding the work area
-        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (WindowState == System.Windows.WindowState.Maximized)
-            {
-                WindowState = System.Windows.WindowState.Normal;
-                Left = 0;
-                Top = 0;
-                Height = SystemParameters.WorkArea.Height;
-                Width = SystemParameters.WorkArea.Width;
-            }
-        }
-        
+
+        //Checking window's size for excluding exceeding the work area
+        //private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    if (WindowState == System.Windows.WindowState.Maximized)
+        //    {
+        //        WindowState = System.Windows.WindowState.Normal;
+        //        Left = 0;
+        //        Top = 0;
+        //        Height = SystemParameters.WorkArea.Height;
+        //        Width = SystemParameters.WorkArea.Width;
+        //    }
+        //}
+
         // Opening window "Create project"
         private void MainWindow_createProject(object sender, RoutedEventArgs e)
         {

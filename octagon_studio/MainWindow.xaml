@@ -29,14 +29,6 @@
         <Menu x:Name="menu" Style="{StaticResource MainWindowTopMenu}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0">
             <MenuItem Header="{Binding Path=TOP_MENU.FILE_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
                 <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_CREATE}" Command="local:MainWindowCommands.OpenCreateProjectWindow" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                <!--
-                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_OPEN}" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_LOAD_FROM}" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.CLOSE_PROJECT}" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_SAVE}" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_SAVE_AS}" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_SAVE_ALL}" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
-                -->
             </MenuItem>
             <MenuItem Header="{Binding Path=TOP_MENU.EDIT_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
                 <MenuItem Header="{Binding Path=TOP_MENU.EDIT_LIST.EDIT_PROG_PARAMS}" Style="{StaticResource MainWindowTopMenuSubitem}" Command="local:MainWindowCommands.OpenProgramParamsWindow"/>
@@ -149,7 +141,9 @@
 
         <!-- Status bar start -->
         <StatusBar Grid.ColumnSpan="4" Grid.Row="2" Style="{StaticResource MainWindowStatusBar}">
-            <StatusBarItem Style="{StaticResource MainWindowStatusBarItem}">OMS v0.0.5</StatusBarItem>
+            <StatusBarItem Style="{StaticResource MainWindowStatusBarItem}">
+                <TextBlock x:Name="StatusBarVersion"/>
+            </StatusBarItem>
             <StatusBarItem Style="{StaticResource MainWindowStatusBarItem}">
                 <TextBlock Text="{Binding Path=STATUS_BAR.BUILD_STATUS.PRE_ALPHA}"></TextBlock>
             </StatusBarItem>

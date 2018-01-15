@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
+using Octagon.Workers;
 
 namespace Octagon
 {
@@ -22,13 +23,10 @@ namespace Octagon
 
         public static OMS LoadConfig()
         {
-            string version = "0.0.0";
+            string version = "Mk 0";
             string lang = "en";
 
-            XmlDocument config = new XmlDocument();
-            config.Load(octagon_studio.App.appData + "Octagon.xml");
-
-            XmlNode octagonCfg = config.FirstChild.NextSibling;
+            XmlNode octagonCfg = OMSXml.ReadXml(octagon_studio.App.appData + "Octagon.xml");
 
             if (octagonCfg.HasChildNodes)
             {

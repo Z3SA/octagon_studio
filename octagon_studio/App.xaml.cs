@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Newtonsoft.Json;
 using System.IO;
 using Octagon;
 
@@ -17,8 +16,11 @@ namespace octagon_studio
     /// </summary>
     public partial class App : Application
     {
+        // Appliction Data folder of program
         public static string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Octagon Studio/";
+        // Loading config of program (Octagon.xml in AppData/Roaming/Octagon Studio)
         public static OMS octagon = OMS.LoadConfig();
+        // Saving language pack of current language by user or by default
         public static dynamic language = octagon.Lang.Data;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
+using System.Xml.Linq;
 
 namespace Octagon.Workers
 {
@@ -19,24 +20,21 @@ namespace Octagon.Workers
             this.path = path;
         }
 
-        // Creating new XML file 
-        public void CreateXml(string rootElem)
+        // Writing XML file
+        public static void WriteXml(string path, XElement content)
         {
-            XmlTextWriter projectXMLWriter = new XmlTextWriter(path, Encoding.UTF8);
-            projectXMLWriter.WriteStartDocument();
-            projectXMLWriter.WriteStartElement(rootElem);
-            projectXMLWriter.WriteEndElement();
-            projectXMLWriter.Close();
+            XDocument xml = new XDocument();
+            xml.Add(content);
+            xml.Save(path);
         }
 
-        // Creating new XML file (static version)
-        public static void CreateXml(string path, string rootElem)
+        // Reading XML file and return main tag (first element after element with XML version and encode)
+        public static XmlNode ReadXml(string path)
         {
-            XmlTextWriter projectXMLWriter = new XmlTextWriter(path, Encoding.UTF8);
-            projectXMLWriter.WriteStartDocument();
-            projectXMLWriter.WriteStartElement(rootElem);
-            projectXMLWriter.WriteEndElement();
-            projectXMLWriter.Close();
+            XmlDocument file = new XmlDocument();
+            file.Load(path);
+
+            return file.FirstChild.NextSibling;
         }
     }
 }

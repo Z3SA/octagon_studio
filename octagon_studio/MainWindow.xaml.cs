@@ -56,18 +56,18 @@ namespace octagon_studio
             window.WindowState = WindowState.Minimized;
         }
 
-        //Checking window's size for excluding exceeding the work area
-        //private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        //{
-        //    if (WindowState == System.Windows.WindowState.Maximized)
-        //    {
-        //        WindowState = System.Windows.WindowState.Normal;
-        //        Left = 0;
-        //        Top = 0;
-        //        Height = SystemParameters.WorkArea.Height;
-        //        Width = SystemParameters.WorkArea.Width;
-        //    }
-        //}
+        // Checking window's size for excluding exceeding the work area
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+                Left = 0;
+                Top = 0;
+                Height = SystemParameters.WorkArea.Height;
+                Width = SystemParameters.WorkArea.Width;
+            }
+        }
 
         // Opening window "Create project"
         private void MainWindow_createProject(object sender, RoutedEventArgs e)
@@ -84,6 +84,7 @@ namespace octagon_studio
         }
     }
 
+    // Main window commands
     public class MainWindowCommands
     {
         public static RoutedCommand OpenCreateProjectWindow { get; set; }

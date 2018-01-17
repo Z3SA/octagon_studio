@@ -1,0 +1,140 @@
+﻿{
+  // Informacje o języku
+  "INFO": {
+  	"NAME": "polski",
+  	"ABBR": "pl",
+  	"IS_COMPLETED": "true"
+  },
+  // Główne okno
+  "MAIN_WINDOW": {
+    // Punkty górnego menu
+    "TOP_MENU": {
+      "FILE_NAME": "Plik",
+      "FILE_LIST": {
+        "FILE_CREATE": "Utworzyć...",
+        "FILE_OPEN": "Otworzyć...",
+        "FILE_LOAD_FROM": "Załadować z...",
+        "CLOSE_PROJECT": "Zamknąć projekt",
+        "FILE_SAVE": "Zapisz",
+        "FILE_SAVE_AS": "Zapisz jak...",
+        "FILE_SAVE_ALL": "Zapisz wszystkie"
+      },
+      "VIEW_NAME": "Widok",
+      "EDIT_NAME": "Redagowanie",
+      "EDIT_LIST": {
+        "EDIT_PROG_PARAMS": "Ustawienia programu"
+      }
+    },
+
+    // Zwiń / Rozwiń / Zamknąć
+    "TOP_CONTROLLERS": {
+      "MINIMIZE": "Zwiń",
+      "FULLSCREEN": "Na cały ekran",
+      "CLOSE": "Zamknąć"
+    },
+
+    // Lewe menu
+    "LEFT_MENU": {
+      "COMPONENT_STRUCTURE": "Struktura składników"
+    },
+
+    // Nawigator
+    "NAVIGATOR": {
+      "BUTTONS": {
+        "FILES": "Pliki",
+        "COMPS": "Składniki",
+        "ATTRS": "Właściwości"
+      }
+    },
+
+    // Status-bar
+    "STATUS_BAR": {
+      "BUILD_STATUS": {
+        "PRE_ALPHA": "Pre-alpha build",
+        "ALPHA": "Alpha build",
+        "BETA": "Бета билд",
+        "OPEN_BETA": "Open beta build",
+        "RELEASE": "Release build",
+        "DEBUG": "Debug build"
+      },
+      "CURRENT_FOCUS": {
+        "START_FRAME": "Ekran główny"
+      },
+      "PROG_STATUS": {
+        "READY": "Gotowe",
+        "DEBUG_BUILDING": "Budowanie debug build'a modyfikacji",
+        "RELEASE_BUILDING": "Budowanie release build'a modyfikacji",
+        "FATAL": "Błąd krytyczny",
+        "PROJECT_LOADING": "Załadowanie projektu",
+        "PROJECT_SAVING": "Zapisywanie projektu",
+        "COMP_OPENING": "Otwieranie edytora"
+      }
+    },
+
+    "START_FRAME": {
+      "START_TITLE": "Rozpocząć pracę",
+      "CREATE_NEW_PROJECT": "Utworzyć nowy projekt"
+    }
+  },
+
+  // Okno "Utwórzyć projekt"
+  "CREATE_PROJECT": {
+    "TITLE": "Nowy projekt",
+    "LABELS": {
+      "NAME": "Nazwa projektu:",
+      "NAME_HINT": "Pełna nazwa projektu",
+      "WORK_ID": "Roboczy ID projektu:",
+      "WORK_ID_HINT": "Identyfikator projektu wewnątrz OMS. Dozwolone są tylko znaki łacińskie, cyfry, '_' i '-'. Jest wrażliwy na wielkość liter",
+      "FOLDER": "Folder projektu:",
+      "FOLDER_HINT": "Niezbędne minimum 9 Gb wolnego miejsca",
+      "PLATFORM_TYPE": "Typ platformy:",
+      "PLATFORM_VERSION": "Wersja platformy",
+      "KEEP_MULTIPLAYER": "Zostawić multiplayer?",
+      "AUTHORS": "Autorzy",
+      "AUTHORS_HINT": "Wpisywać oddzielając je przecinkami"
+    },
+    "PROCESS": {
+      "ERROR__WRONG_NAME": "Nieprawidłowa nazwa projektu",
+      "ERROR__WRONG_ID": "Nieprawidłowy roboczy ID projektu",
+      "ERROR__WRONG_DIR": "Nieprawidłowy folder projektu",
+      "ERROR__DISK_NOT_READY": "Dysk nie jest gotowy do pracy lub zablokowany dostęp do niego",
+      "ERROR__NOT_ENOUGH_SPACE": "Na wybranym rozdziałe brak miejsca dla testowej wersji platformy",
+      "ERROR__ALREADY_EXISTS": "W określonym katalogu istnieje już projekt"
+    }
+  },
+
+  // Okno "Ustawienia programu"
+  "PROG_PARAMS": {
+    "TITLE": "Ustawienia programu",
+
+    // Punkty menu
+    "MENU": {
+      "MAIN": "Podstawowe ustawienia",
+      "LAUNCH_N_DEBUG": "Uruchamianie i debugowanie"
+    },
+
+    // Przyciski w dolnej części okna
+    "BOTTOM_BTNS": {
+      "CANCEL": "Anuluj",
+      "APPLY": "Zastosuj"
+    },
+
+    // Strona "Ustawienia podstawowe"
+    "MAIN": {
+      "INTERFACE": {
+        "TITLE": "Interface",
+        "LANGUAGE": "Język:"
+      },
+      "AUTHOR": {
+        "TITLE": "Autorstwo",
+        "AUTHOR": "Imię lub nickname:",
+        "TEAM": "Zespół deweloperow:"
+      }
+    },
+
+    // Strona "Platformy"
+    "PLATFORMS": {
+    	"TITLE": "Platformy"
+    }
+  }
+}

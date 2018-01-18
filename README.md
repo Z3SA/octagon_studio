@@ -1,4 +1,4 @@
-# О Octagon Modmaking Studio
+# Об Octagon Modmaking Studio
 
 Octagon Modmaking Studio - программный комплекс, предназначенный для упрощённого создания модификаций для игры S.T.A.L.K.E.R.: Call of Pripyat, а также для модификации S.T.A.L.K.E.R.: Call of Chernobyl. На данный момент комплекс находится в начальной стадии разработки.
 

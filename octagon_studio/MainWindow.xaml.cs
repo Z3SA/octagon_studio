@@ -6,6 +6,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using Octagon.Workers;
+using System.IO;
+using Octagon;
 
 namespace octagon_studio
 {
@@ -14,13 +17,14 @@ namespace octagon_studio
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Choosing language pack of window
+        dynamic LANG_MAIN_WINDOW = App.language.MAIN_WINDOW;
+
         // Window init
         public MainWindow()
         {
             InitializeComponent();
 
-            // Choosing language pack of window
-            dynamic LANG_MAIN_WINDOW = App.language.MAIN_WINDOW;
             DataContext = LANG_MAIN_WINDOW;
             // Writing version of program in status bar
             StatusBarVersion.Text = "Octagon Modmaking Studio " + App.octagon.Version;
@@ -82,6 +86,28 @@ namespace octagon_studio
             windows.ProgParams PPWin = new windows.ProgParams();
             PPWin.Show();
         }
+
+        // Opening window "Open project"
+        private void MainWindow_openProject(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string folder = OMSFile.FindFolder();
+
+                new OMSProject(folder);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Opening window "Project parameters"
+        private void MainWindow_projectParams(object sender, RoutedEventArgs e)
+        {
+            windows.ProjectParams PPWin = new windows.ProjectParams();
+            PPWin.Show();
+        }
     }
 
     // Main window commands
@@ -89,11 +115,15 @@ namespace octagon_studio
     {
         public static RoutedCommand OpenCreateProjectWindow { get; set; }
         public static RoutedCommand OpenProgramParamsWindow { get; set; }
+        public static RoutedCommand OpenOpenProjectWindow { get; set; }
+        public static RoutedCommand OpenProjectParamsWindow { get; set; }
 
         static MainWindowCommands()
         {
             OpenCreateProjectWindow = new RoutedCommand("OpenCreateProjectWindow", typeof(MainWindow));
             OpenProgramParamsWindow = new RoutedCommand("OpenProgramParamsWindow", typeof(MainWindow));
+            OpenOpenProjectWindow = new RoutedCommand("OpenOpenProjectWindow", typeof(MainWindow));
+            OpenProjectParamsWindow = new RoutedCommand("OpenProjectParamsWindow", typeof(MainWindow));
         }
     }
 }

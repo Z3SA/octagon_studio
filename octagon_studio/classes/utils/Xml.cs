@@ -28,6 +28,14 @@ namespace Octagon.Workers
             xml.Save(path);
         }
 
+        public XmlNode ReadXml()
+        {
+            XmlDocument file = new XmlDocument();
+            file.Load(path);
+
+            return file.FirstChild.NextSibling;
+        }
+
         // Reading XML file and return main tag (first element after element with XML version and encode)
         public static XmlNode ReadXml(string path)
         {

@@ -65,13 +65,15 @@
     <Compile Include="classes\data\Platform.cs" />
     <Compile Include="classes\data\Project.cs" />
     <Compile Include="classes\utils\File.cs" />
-    <Compile Include="classes\utils\Interface.cs" />
     <Compile Include="classes\utils\Xml.cs" />
     <Compile Include="windows\CreateProject.xaml.cs">
       <DependentUpon>CreateProject.xaml</DependentUpon>
     </Compile>
     <Compile Include="windows\ProgParams.xaml.cs">
       <DependentUpon>ProgParams.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\ProjectParams.xaml.cs">
+      <DependentUpon>ProjectParams.xaml</DependentUpon>
     </Compile>
     <Page Include="dicts\Basic.xaml">
       <SubType>Designer</SubType>
@@ -110,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="windows\ProgParams.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\ProjectParams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

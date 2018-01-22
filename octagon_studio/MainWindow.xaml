@@ -29,9 +29,13 @@
         <Menu x:Name="menu" Style="{StaticResource MainWindowTopMenu}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0">
             <MenuItem Header="{Binding Path=TOP_MENU.FILE_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
                 <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_CREATE}" Command="local:MainWindowCommands.OpenCreateProjectWindow" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
+                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_OPEN}" Command="local:MainWindowCommands.OpenOpenProjectWindow" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
+                <MenuItem Header="{Binding Path=TOP_MENU.FILE_LIST.FILE_PROG_PARAMS}" Style="{StaticResource MainWindowTopMenuSubitem}" Command="local:MainWindowCommands.OpenProgramParamsWindow"/>
+            </MenuItem>
+            <MenuItem Header="{Binding Path=TOP_MENU.PROJECT_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
+                <MenuItem Header="{Binding Path=TOP_MENU.PROJECT_LIST.PROJECT_PARAMS}" Command="local:MainWindowCommands.OpenProjectParamsWindow" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
             </MenuItem>
             <MenuItem Header="{Binding Path=TOP_MENU.EDIT_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
-                <MenuItem Header="{Binding Path=TOP_MENU.EDIT_LIST.EDIT_PROG_PARAMS}" Style="{StaticResource MainWindowTopMenuSubitem}" Command="local:MainWindowCommands.OpenProgramParamsWindow"/>
             </MenuItem>
         </Menu>
 
@@ -173,9 +177,13 @@
     <Window.CommandBindings>
         <CommandBinding Command="local:MainWindowCommands.OpenCreateProjectWindow" Executed="MainWindow_createProject"/>
         <CommandBinding Command="local:MainWindowCommands.OpenProgramParamsWindow" Executed="MainWindow_progParams"/>
+        <CommandBinding Command="local:MainWindowCommands.OpenOpenProjectWindow" Executed="MainWindow_openProject"/>
+        <CommandBinding Command="local:MainWindowCommands.OpenProjectParamsWindow" Executed="MainWindow_projectParams"/>
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="local:MainWindowCommands.OpenCreateProjectWindow" Gesture="Ctrl+N"/>
         <KeyBinding Command="local:MainWindowCommands.OpenProgramParamsWindow" Gesture="F12"/>
+        <KeyBinding Command="local:MainWindowCommands.OpenOpenProjectWindow" Gesture="Ctrl+O"/>
+        <KeyBinding Command="local:MainWindowCommands.OpenProjectParamsWindow" Gesture="F8"/>
     </Window.InputBindings>
 </Window>

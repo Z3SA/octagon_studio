@@ -10,11 +10,34 @@ namespace Octagon
     // Class: Project
     public class OMSProject
     {
+        private string folder;
+
         public string Name { get; set; }
         public string Id { get; set; }
         public OMSPlatform Platform { get; set; }
         public List<string> Authors { get; set; }
         public List<string> DevFolders { get; set; }
+
+        public string Folder
+        {
+            get
+            {
+                return folder;
+            }
+
+            set
+            {
+                folder = value + "\\.octagon";
+            }
+        }
+
+        public string ProjectXml
+        {
+            get
+            {
+                return (folder == null) ? null : Folder + "\\Project.xml";
+            }
+        }
 
         // Empty constructor
         public OMSProject() {
@@ -34,6 +57,26 @@ namespace Octagon
             Authors = authors;
             DevFolders = devFolders;
         }
+
+        // Constructor from project folder
+        public OMSProject(string projectFolder)
+        {
+            if (projectFolder != "")
+            {
+                string Folder = projectFolder;
+                dynamic EXCEPTIONS = octagon_studio.App.language.MAIN_WINDOW.TOP_MENU.FILE_EXCEPTIONS;
+
+                if (!Directory.Exists(Folder))
+                {
+                    throw new Exception("" + EXCEPTIONS.DIR_NOT_OF_PROJECT);
+                }
+
+                if (!File.Exists(Folder + "\\Octagox.xml"))
+                {
+                    throw new Exception("" + EXCEPTIONS.DIR_NOT_HAVE_OCTAGON_XML);
+                }
+            }
+        } 
 
         // Creating new project in some folder
         public void CreateNew(string folder)

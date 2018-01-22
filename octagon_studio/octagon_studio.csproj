@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,6 +65,7 @@
     <Compile Include="classes\data\Octagon.cs" />
     <Compile Include="classes\data\Platform.cs" />
     <Compile Include="classes\data\Project.cs" />
+    <Compile Include="classes\data\Session.cs" />
     <Compile Include="classes\utils\File.cs" />
     <Compile Include="classes\utils\Xml.cs" />
     <Compile Include="windows\CreateProject.xaml.cs">

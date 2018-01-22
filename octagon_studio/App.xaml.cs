@@ -19,7 +19,8 @@ namespace octagon_studio
         // Appliction Data folder of program
         public static string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Octagon Studio/";
         // Loading config of program (Octagon.xml in AppData/Roaming/Octagon Studio)
-        public static OMS octagon = OMS.LoadConfig();
+        public static OMS octagon = new OMS();
+        public static OMSSession session = octagon.Session;
         // Saving language pack of current language by user or by default
         public static dynamic language = octagon.Lang.Data;
     }

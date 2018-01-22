@@ -8,6 +8,8 @@
     Title="Octagon Modmaking Studio" 
     WindowStartupLocation="CenterScreen" 
     Style="{StaticResource MainWindowStyle}"
+    Closing="SaveCurrentSession"
+    SizeChanged="MainWindow_SizeChanged"
 >
     <Grid x:Name="mainGrid">
         <!-- Main grid -->

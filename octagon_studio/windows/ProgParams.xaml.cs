@@ -89,20 +89,11 @@ namespace octagon_studio.windows
 
         private void SaveAll()
         {
-            XElement octagonCfg = new XElement("Octagon");
-
-            octagonCfg.Add(new XElement("Version", App.octagon.Version));
-
+            // Saving language settings
             ComboBoxItem currentLangItem = (ComboBoxItem)ParamsLanguage.SelectedItem;
             string langAbbr = currentLangItem.Tag.ToString().Split(';')[0];
 
-            if (langAbbr == null)
-            {
-                langAbbr = App.octagon.Lang.Abbr;
-            }
-
-            octagonCfg.Add(new XElement("Language", langAbbr));
-            OMSXml.WriteXml(App.appData + @"\Octagon.xml", octagonCfg);
+            App.octagon.Save(langAbbr);
         }
 
         // Showing message about uncomplete language pack if neccessary

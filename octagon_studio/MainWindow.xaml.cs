@@ -28,6 +28,13 @@ namespace octagon_studio
             DataContext = LANG_MAIN_WINDOW;
             // Writing version of program in status bar
             StatusBarVersion.Text = "Octagon Modmaking Studio " + App.octagon.Version;
+
+            OMSSession currentSession = App.octagon.Session;
+
+            Width = currentSession.WinWidth;
+            Height = currentSession.WinHeight;
+            Left = currentSession.WinPosLeft;
+            Top = currentSession.WinPosTop;
         }
         
         // Click event of button "Close"
@@ -107,6 +114,11 @@ namespace octagon_studio
         {
             windows.ProjectParams PPWin = new windows.ProjectParams();
             PPWin.Show();
+        }
+
+        private void SaveCurrentSession(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            OMSSession.SaveSession((int)Width, (int)Height, (int)Left, (int)Top);
         }
     }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Windows;
 using Octagon.Workers;
+using System.Xml.Linq;
 
 namespace Octagon
 {
@@ -14,19 +15,15 @@ namespace Octagon
     {
         public string Version { get; set; }
         public OMSLanguage Lang { get; set; }
+        public OMSSession Session { get; set; }
+        private static string octagonXml = octagon_studio.App.appData + "Octagon.xml";
 
-        public OMS(string version, OMSLanguage lang)
-        {
-            Version = version;
-            Lang = lang;
-        }
-
-        public static OMS LoadConfig()
+        public OMS()
         {
             string version = "Mk 0";
             string lang = "en";
 
-            XmlNode octagonCfg = OMSXml.ReadXml(octagon_studio.App.appData + "Octagon.xml");
+            XmlNode octagonCfg = OMSXml.ReadXml(octagonXml);
 
             if (octagonCfg.HasChildNodes)
             {
@@ -45,7 +42,27 @@ namespace Octagon
                 }
             }
 
-            return new OMS(version, OMSLanguage.LoadLanguage(lang));
+            Version = version;
+            Lang = OMSLanguage.LoadLanguage(lang);
+            Session = new OMSSession();
+        }
+
+        public OMS(string version, OMSLanguage lang)
+        {
+            Version = version;
+            Lang = lang;
+        }
+
+        public void Save(string lang)
+        {
+            string currentLang = (lang == null) ? Lang.Abbr : lang;
+
+            XElement octagonCfg = new XElement("Octagon");
+
+            octagonCfg.Add(new XElement("Version", Version));
+            octagonCfg.Add(new XElement("Language", currentLang));
+
+            OMSXml.WriteXml(octagonXml, octagonCfg);
         }
     }
 }

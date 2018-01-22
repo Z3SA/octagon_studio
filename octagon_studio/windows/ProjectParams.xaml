@@ -48,8 +48,11 @@
             <StackPanel Style="{StaticResource ProgParamsPage}" x:Name="ParamsPageMain" IsVisibleChanged="LoadPageMain">
                 <TextBlock Style="{StaticResource ProgParamsPageTitle}" Text="{Binding Path=MAIN.TITLE}"/>
 
-                <TextBlock Margin="0,5,0,3" Text="{Binding Path=MAIN.INTERFACE.PROJECT_NAME}"/>
+                <TextBlock Margin="0,5,0,3" Text="{Binding Path=MAIN.PROJECT_NAME}"/>
                 <TextBox x:Name="ParamsProjectName" Width="200" HorizontalAlignment="Left"/>
+
+                <TextBlock Margin="0,5,0,3" Text="{Binding Path=MAIN.PROJECT_ID}"/>
+                <TextBox x:Name="ParamsProjectID" Width="200" HorizontalAlignment="Left"/>
             </StackPanel>
         </StackPanel>
     </Grid>

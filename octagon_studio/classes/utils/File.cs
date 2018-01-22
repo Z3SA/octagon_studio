@@ -48,7 +48,7 @@ namespace Octagon.Workers
                 }
             } catch(Exception e)
             {
-                throw;
+                MessageBox.Show(e.Message);
             }
         }
     }

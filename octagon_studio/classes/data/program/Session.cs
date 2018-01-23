@@ -1,26 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using Octagon.Workers;
+using Octagon.Project;
 using System.Xml;
 using System.Windows;
 using System.Xml.Linq;
 
-namespace Octagon
+namespace Octagon.Program
 {
     public class OMSSession
     {
+        // Window width
         public int WinWidth { get; set; }
+        // Window height
         public int WinHeight { get; set; }
+        // Window position - top
         public int WinPosTop { get; set; }
+        // Window position - left
         public int WinPosLeft { get; set; }
+        // Last or current project of session
         public OMSProject Project { get; set; }
+        // Last 10 opened projects in program
         public Queue<OMSProject> LastProjects { get; set; }
+        // Path to Session.xml 
         private static string sessionXml = octagon_studio.App.appData + "Session.xml";
 
+        // Loading last session from Session.xml or making fullscreen if Session.xml doesn't exist
         public OMSSession()
         {
             WinWidth = (int)SystemParameters.WorkArea.Width;
@@ -57,6 +63,7 @@ namespace Octagon
             }
         }
 
+        // Saving session on closing of program
         public static void SaveSession(int winWidth, int winHeight, int winPosLeft, int winPosTop)
         {
             XElement session = new XElement("Session");

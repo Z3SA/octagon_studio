@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Octagon
+﻿namespace Octagon.Program
 {
     // Class: S.T.A.L.K.E.R. plaform
     public class OMSPlatform

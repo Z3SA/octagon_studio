@@ -1,42 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using Octagon.Workers;
+using Octagon.Program;
 using System.IO;
-using System.Xml;
 using System.Xml.Linq;
 
-namespace Octagon
+namespace Octagon.Project
 {
     // Class: Project
     public class OMSProject
     {
-        private string folder;
-
         public string Name { get; set; }
         public string Id { get; set; }
         public OMSPlatform Platform { get; set; }
         public List<string> Authors { get; set; }
+        public string Folder { get; set; }
 
-        public string FolderOctagon
-        {
-            get
-            {
-                return folder;
-            }
-
-            set
-            {
-                folder = value + "\\.octagon";
-            }
-        }
-
-        public string ProjectXml
-        {
-            get
-            {
-                return (folder == null) ? null : Folder + "\\Project.xml";
-            }
-        }
+        public string FolderOctagon => Folder + "\\.octagon";
+        public string ProjectXml => (Folder == null) ? null : FolderOctagon + "\\Project.xml";
 
         // Empty constructor
         public OMSProject() {
@@ -47,12 +28,13 @@ namespace Octagon
         }
 
         // Full constructor
-        public OMSProject(string name, string id, OMSPlatform platform, List<string> authors)
+        public OMSProject(string name, string id, OMSPlatform platform, List<string> authors, string folder)
         {
             Name = name;
             Id = id;
             Platform = platform;
             Authors = authors;
+            Folder = folder;
         }
 
         // Constructor from project folder
@@ -60,15 +42,15 @@ namespace Octagon
         {
             if (projectFolder != "")
             {
-                string Folder = projectFolder;
+                string folder = projectFolder;
                 dynamic EXCEPTIONS = octagon_studio.App.language.MAIN_WINDOW.TOP_MENU.FILE_EXCEPTIONS;
 
-                if (!Directory.Exists(Folder))
+                if (!Directory.Exists(folder))
                 {
                     throw new Exception("" + EXCEPTIONS.DIR_NOT_OF_PROJECT);
                 }
 
-                if (!File.Exists(Folder + "\\Octagox.xml"))
+                if (!File.Exists(folder + "\\Octagox.xml"))
                 {
                     throw new Exception("" + EXCEPTIONS.DIR_NOT_HAVE_OCTAGON_XML);
                 }
@@ -89,8 +71,8 @@ namespace Octagon
 
             inXmlProject.Add(new XElement("Name", Name));
             inXmlProject.Add(new XElement("WorkID", Id));
-            inXmlProject.Add(new XElement("Platform", Platform.Type));
-            inXmlProject.Add(new XElement("Version", Platform.Version));
+            inXmlProject.Add(new XElement("PlatformName", Platform.Type));
+            inXmlProject.Add(new XElement("PlatformVersion", Platform.Version));
 
             XElement inXmlAuthors = new XElement("Authors");
 
@@ -102,7 +84,7 @@ namespace Octagon
             inXmlProject.Add(inXmlAuthors);
 
             inXmlProject.Add(new XAttribute("OctagonVersion", octagon_studio.App.octagon.Version));
-            inXmlProject.Add(new XAttribute("OctagonLang", octagon_studio.App.octagon.Lang));
+            inXmlProject.Add(new XAttribute("OctagonLang", octagon_studio.App.octagon.Lang.Abbr));
 
             OMSXml.WriteXml(projectXML, inXmlProject);
         }

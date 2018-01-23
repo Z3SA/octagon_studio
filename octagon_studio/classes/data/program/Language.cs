@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Octagon
+namespace Octagon.Program
 {
     public class OMSLanguage
     {
+        // Name of language (on that language)
         public string Name { get; set; }
+        // Abbreviation of language (for files and other functions)
         public string Abbr { get; set; }
+        // Language is completed or not (for notification in program settings)
         public bool IsCompleted { get; set; }
+        // Language content
         public dynamic Data { get; set; }
 
         public OMSLanguage(string name, string abbr, bool isCompleted)
@@ -30,7 +30,8 @@ namespace Octagon
             Data = data;
         }
 
-        public static OMSLanguage LoadLanguage(string abbr)
+        // Constructor of object - loading from file by abbreviation
+        public OMSLanguage(string abbr)
         {
             string langFolder = octagon_studio.App.appData + "/langs/";
             string langPath = langFolder + abbr + ".json";
@@ -40,9 +41,10 @@ namespace Octagon
                 langPath = langFolder + "en.json";
             }
 
-            dynamic language = JsonConvert.DeserializeObject(File.ReadAllText(langPath));
-            OMSLanguage lang = new OMSLanguage(null, null, false, language);
-            return lang;
+            Data = JsonConvert.DeserializeObject(File.ReadAllText(langPath));
+            Name = Data.INFO.NAME;
+            Abbr = Data.INFO.ABBR;
+            IsCompleted = Convert.ToBoolean(Data.INFO.IS_COMPLETED);
         }
     }
 }

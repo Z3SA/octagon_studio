@@ -1,21 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
-using System.Collections;
-using System.Xml.Linq;
-using Octagon.Workers;
 
 namespace octagon_studio.windows
 {
@@ -24,8 +11,11 @@ namespace octagon_studio.windows
     /// </summary>
     public partial class ProgParams : Window
     {
+        // Language pack of window
         dynamic LANG_PROG_PARAMS;
+        // First list item in left menu
         ListBoxItem firstPos;
+        // All pages of settings
         UIElementCollection paramsPages;
 
         public ProgParams()
@@ -36,8 +26,8 @@ namespace octagon_studio.windows
             LANG_PROG_PARAMS = App.language.PROG_PARAMS;
             DataContext = LANG_PROG_PARAMS;
 
-            firstPos = (ListBoxItem)ParamsNav.Items[0];
             // Making selection on first tab in navigation panel
+            firstPos = (ListBoxItem)ParamsNav.Items[0];
             firstPos.IsSelected = true;
         }
 
@@ -57,6 +47,7 @@ namespace octagon_studio.windows
             paramsPages[Convert.ToInt32(currentTab.Tag)].Visibility = Visibility.Visible;
         }
 
+        // Loading content for first page
         private void LoadPageMain(object sender, DependencyPropertyChangedEventArgs e)
         {
             // Getting all language packs

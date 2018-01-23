@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.IO;
+﻿using System.Xml;
 using System.Xml.Linq;
 
 namespace Octagon.Workers
@@ -28,6 +22,7 @@ namespace Octagon.Workers
             xml.Save(path);
         }
 
+        // Reading XML file and returning main tag (first element after element with XML version and encode)
         public XmlNode ReadXml()
         {
             XmlDocument file = new XmlDocument();
@@ -36,7 +31,7 @@ namespace Octagon.Workers
             return file.FirstChild.NextSibling;
         }
 
-        // Reading XML file and return main tag (first element after element with XML version and encode)
+        // Reading XML file and returning main tag (static)
         public static XmlNode ReadXml(string path)
         {
             XmlDocument file = new XmlDocument();

@@ -8,16 +8,21 @@ using System.Windows;
 using Octagon.Workers;
 using System.Xml.Linq;
 
-namespace Octagon
+namespace Octagon.Program
 {
     // Class contains data about current build of Octagon Studio
     public class OMS
     {
+        // Version of program
         public string Version { get; set; }
+        // Current language pack (from Octagon.xml)
         public OMSLanguage Lang { get; set; }
+        // Last session (Session.xml) (if not exist, will be create new session)
         public OMSSession Session { get; set; }
+        // Path to Octagon.xml
         private static string octagonXml = octagon_studio.App.appData + "Octagon.xml";
 
+        // Loading octagon config from Octagon.xml
         public OMS()
         {
             string version = "Mk 0";
@@ -43,16 +48,18 @@ namespace Octagon
             }
 
             Version = version;
-            Lang = OMSLanguage.LoadLanguage(lang);
+            Lang = new OMSLanguage(lang);
             Session = new OMSSession();
         }
 
+        // Basic constructor
         public OMS(string version, OMSLanguage lang)
         {
             Version = version;
             Lang = lang;
         }
 
+        // Saving configuration to Octagon.xml
         public void Save(string lang)
         {
             string currentLang = (lang == null) ? Lang.Abbr : lang;

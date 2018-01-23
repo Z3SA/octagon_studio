@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using Octagon.Workers;
-using System.IO;
 using Octagon;
 
 namespace octagon_studio
@@ -101,7 +95,7 @@ namespace octagon_studio
             {
                 string folder = OMSFile.FindFolder();
 
-                new OMSProject(folder);
+                App.ChangeProject(new OMSProject(folder));
             }
             catch (Exception ex)
             {

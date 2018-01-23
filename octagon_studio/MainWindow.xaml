@@ -37,8 +37,6 @@
             <MenuItem Header="{Binding Path=TOP_MENU.PROJECT_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
                 <MenuItem Header="{Binding Path=TOP_MENU.PROJECT_LIST.PROJECT_PARAMS}" Command="local:MainWindowCommands.OpenProjectParamsWindow" Style="{DynamicResource MainWindowTopMenuSubitem}"/>
             </MenuItem>
-            <MenuItem Header="{Binding Path=TOP_MENU.EDIT_NAME}" Style="{StaticResource MainWindowTopMenuItem}">
-            </MenuItem>
         </Menu>
 
         <!-- Top controllers -->

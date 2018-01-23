@@ -16,9 +16,8 @@ namespace Octagon
         public string Id { get; set; }
         public OMSPlatform Platform { get; set; }
         public List<string> Authors { get; set; }
-        public List<string> DevFolders { get; set; }
 
-        public string Folder
+        public string FolderOctagon
         {
             get
             {
@@ -45,17 +44,15 @@ namespace Octagon
             Id = null;
             Platform = null;
             Authors = null;
-            DevFolders = null;
         }
 
         // Full constructor
-        public OMSProject(string name, string id, OMSPlatform platform, List<string> authors, List<string> devFolders)
+        public OMSProject(string name, string id, OMSPlatform platform, List<string> authors)
         {
             Name = name;
             Id = id;
             Platform = platform;
             Authors = authors;
-            DevFolders = devFolders;
         }
 
         // Constructor from project folder

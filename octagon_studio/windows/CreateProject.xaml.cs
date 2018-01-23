@@ -73,12 +73,9 @@ namespace octagon_studio.windows
                         for (int i = 0; i < currentAuthors.Length; i++) allAuthors.Add(currentAuthors[i]);
                     }
 
-                    List<string> folders = new List<string>();
-                    folders.Add(folder);
-
                     OMSPlatform currentPlatform = new OMSPlatform(projectPlatform.Text, projectVersion.Text, folder);
 
-                    OMSProject project = new OMSProject(projectName.Text, projectID.Text, currentPlatform, allAuthors, folders);
+                    OMSProject project = new OMSProject(projectName.Text, projectID.Text, currentPlatform, allAuthors);
                     project.CreateNew(folder);
                     Close();
                 }

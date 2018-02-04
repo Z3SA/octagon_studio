@@ -1,0 +1,38 @@
+﻿<Window x:Class="octagon_studio.windows.ProgramNotes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:octagon_studio.windows"
+        mc:Ignorable="d"
+        Title="{Binding Path=TITLE}"
+        Style="{StaticResource ProgNotesWin}"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="560"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Style="{StaticResource AddNoteStack}">
+            <Image Width="16" Height="16" Source="../resources/basic/add-circle-16.png" Opacity="0.75" Margin="0,0,5,0"/>
+            <TextBlock Text="{Binding Path=ADD_NOTE}"/>
+        </StackPanel>
+
+        <ListBox Style="{StaticResource NotesList}" Grid.Row="1">
+            <ListBoxItem>
+                <StackPanel Style="{StaticResource Note}">
+                    <TextBlock Text="Без названия" Style="{StaticResource NoteTitle}"/>
+                    <TextBlock Text="Текст заметки" Style="{StaticResource NoteText}"/>
+                    <DockPanel>
+                        <TextBlock Text="19.01.2018" DockPanel.Dock="Left"/>
+                        <StackPanel DockPanel.Dock="Right">
+                            <Button Style="{StaticResource Btn_edit}"/>
+                            <Button Style="{StaticResource Btn_remove}"/>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+    </Grid>
+</Window>

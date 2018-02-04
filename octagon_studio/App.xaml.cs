@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
-using Octagon;
+using Octagon.Program;
+using Octagon.Project;
 
 namespace octagon_studio
 {

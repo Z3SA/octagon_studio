@@ -61,11 +61,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="classes\data\Language.cs" />
-    <Compile Include="classes\data\Octagon.cs" />
-    <Compile Include="classes\data\Platform.cs" />
-    <Compile Include="classes\data\Project.cs" />
-    <Compile Include="classes\data\Session.cs" />
+    <Compile Include="classes\data\program\Language.cs" />
+    <Compile Include="classes\data\program\Note.cs" />
+    <Compile Include="classes\data\program\Octagon.cs" />
+    <Compile Include="classes\data\program\Platform.cs" />
+    <Compile Include="classes\data\project\Project.cs" />
+    <Compile Include="classes\data\program\Session.cs" />
     <Compile Include="classes\utils\File.cs" />
     <Compile Include="classes\utils\Xml.cs" />
     <Compile Include="windows\CreateProject.xaml.cs">
@@ -73,6 +74,9 @@
     </Compile>
     <Compile Include="windows\ProgParams.xaml.cs">
       <DependentUpon>ProgParams.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\ProgramNotes.xaml.cs">
+      <DependentUpon>ProgramNotes.xaml</DependentUpon>
     </Compile>
     <Compile Include="windows\ProjectParams.xaml.cs">
       <DependentUpon>ProjectParams.xaml</DependentUpon>
@@ -85,7 +89,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="dicts\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="dicts\ProgParams.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dicts\ProgramNotes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,6 +129,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="windows\ProgramNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="windows\ProjectParams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,7 +156,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="languages\ru.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -179,6 +194,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\basic\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="classes\data\components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\basic\add.png" />
+    <Resource Include="resources\basic\delete.png" />
+    <Resource Include="resources\basic\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\basic\add-circle-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

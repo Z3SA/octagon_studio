@@ -6,17 +6,23 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!-- Ресурсы базовых компонентов студии / Basic components' resources -->
+                <!-- Basic components' resources -->
                 <ResourceDictionary Source="dicts/Basic.xaml"/>
-                <!-- Ресурсы главного окна -->
+                <ResourceDictionary Source="dicts/Icons.xaml"/>
+
+                <!-- Main window resources -->
                 <ResourceDictionary Source="dicts/MainWindow.xaml"/>
                 <ResourceDictionary Source="dicts/Startup.xaml"/>
                 
-                <!-- Ресурсы окна "Создать проект" / Window "Create project" resources -->
+                <!-- Window "Create project" resources -->
                 <ResourceDictionary Source="dicts/CreateProject.xaml"/>
                 
-                <!-- Ресурсы окна "Параметры программы" / Window "Program parameters" resources -->
+                <!-- Window "Program parameters" resources -->
                 <ResourceDictionary Source="dicts/ProgParams.xaml"/>
+                
+                <!-- Window "Program notes" resources -->
+                <ResourceDictionary Source="dicts/ProgramNotes.xaml"/>
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

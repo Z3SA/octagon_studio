@@ -2,7 +2,8 @@
 using System.Windows;
 using System.Windows.Input;
 using Octagon.Workers;
-using Octagon;
+using Octagon.Program;
+using Octagon.Project;
 
 namespace octagon_studio
 {
@@ -78,6 +79,7 @@ namespace octagon_studio
         private void MainWindow_createProject(object sender, RoutedEventArgs e)
         {
             windows.CreateProject CPWin = new windows.CreateProject();
+            CPWin.Owner = this;
             CPWin.Show();
         }
 
@@ -85,6 +87,7 @@ namespace octagon_studio
         private void MainWindow_progParams(object sender, RoutedEventArgs e)
         {
             windows.ProgParams PPWin = new windows.ProgParams();
+            PPWin.Owner = this;
             PPWin.Show();
         }
 
@@ -107,7 +110,16 @@ namespace octagon_studio
         private void MainWindow_projectParams(object sender, RoutedEventArgs e)
         {
             windows.ProjectParams PPWin = new windows.ProjectParams();
+            PPWin.Owner = this;
             PPWin.Show();
+        }
+
+        // Opening window "Notes"
+        private void MainWindow_notes(object sender, RoutedEventArgs e)
+        {
+            windows.ProgramNotes PNWin = new windows.ProgramNotes();
+            PNWin.Owner = this;
+            PNWin.Show();
         }
 
         private void SaveCurrentSession(object sender, System.ComponentModel.CancelEventArgs e)
@@ -123,6 +135,7 @@ namespace octagon_studio
         public static RoutedCommand OpenProgramParamsWindow { get; set; }
         public static RoutedCommand OpenOpenProjectWindow { get; set; }
         public static RoutedCommand OpenProjectParamsWindow { get; set; }
+        public static RoutedCommand OpenNotesWindow { get; set; }
 
         static MainWindowCommands()
         {
@@ -130,6 +143,7 @@ namespace octagon_studio
             OpenProgramParamsWindow = new RoutedCommand("OpenProgramParamsWindow", typeof(MainWindow));
             OpenOpenProjectWindow = new RoutedCommand("OpenOpenProjectWindow", typeof(MainWindow));
             OpenProjectParamsWindow = new RoutedCommand("OpenProjectParamsWindow", typeof(MainWindow));
+            OpenNotesWindow = new RoutedCommand("OpenNotesWindow", typeof(MainWindow));
         }
     }
 }

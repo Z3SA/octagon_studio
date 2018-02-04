@@ -3,7 +3,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using Octagon;
+using Octagon.Project;
+using Octagon.Program;
 using Octagon.Workers;
 using System.IO;
 

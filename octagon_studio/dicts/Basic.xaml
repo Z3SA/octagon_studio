@@ -15,4 +15,34 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <!-- Button "Edit" -->
+    <Style x:Key="Btn_edit" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Source="../resources/basic/edit.png" Width="20" Height="20" Opacity="0.75"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button "Remove" -->
+    <Style x:Key="Btn_remove" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Source="../resources/basic/delete.png" Width="20" Height="20" Opacity="0.75"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

@@ -1,0 +1,26 @@
+{
+  "name": "octagon_studio",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "nf start -p 3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron . --version-string.FileDescription='Octagon Modmaking Studio'",
+    "electron-start": "node src/electron-wait-react",
+    "react-start": "react-scripts start"
+  },
+  "devDependencies": {
+    "electron": "^1.8.2",
+    "foreman": "^2.0.0",
+    "react-bootstrap": "^0.32.1"
+  },
+  "main": "src/electron-starter.js",
+  "homepage": "./"
+}

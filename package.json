@@ -19,7 +19,8 @@
   "devDependencies": {
     "electron": "^1.8.2",
     "foreman": "^2.0.0",
-    "react-bootstrap": "^0.32.1"
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
   },
   "main": "src/electron-starter.js",
   "homepage": "./"

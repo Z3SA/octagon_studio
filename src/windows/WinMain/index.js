@@ -6,7 +6,7 @@ export default class WinMain extends Component {
     render() {
         return (
             <main>
-                
+                <h1>hello world</h1>
             </main>
         );
     }

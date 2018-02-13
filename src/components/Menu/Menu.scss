@@ -8,19 +8,50 @@
 
     &__item {
         margin: 0;
-        padding: 10px;
+        padding: 7px 10px;
         display: inline-block;
         line-height: 1;
-        cursor: pointer;
+        cursor: pointer;        
+        border-radius: 5px;
 
         &:hover {
             background: $hover-reaction;
+
+            .menu--sub {
+                display: block;
+            }
         }
     }
 
     &--horizontal {
-        .menu-item {
+        > .menu-item {
             margin: 0 6px;
         }
+    }
+
+    &--vertical {
+        .menu-item {
+            width: 100%;
+        }
+    }
+
+    &--sub {
+        display: none;
+        position: absolute;
+        background: $background-dark-color;
+        max-width: 240px;
+        font-size: 12px;
+        margin: 8px 0 0 -10px;
+
+        .menu-item {
+            border: none;
+            padding: 10px;
+        }
+    }
+}
+
+.menu-item {
+    &__right {
+        float: right;
     }
 }

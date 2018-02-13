@@ -12,4 +12,14 @@
     &__logo {
         margin-right: 20px;
     }
+
+    &__menu {
+        li {
+            border: 1px solid transparent;
+
+            &:hover {
+                border-color: $border-color;
+            }
+        }
+    }
 }

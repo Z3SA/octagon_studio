@@ -10,7 +10,22 @@ let topMenu = [
         items: [
             {
                 type: "item",
-                name: "Создать..."
+                name: "Создать...",
+                rightPart: "Ctrl+N"
+            },
+            {
+                type: "item",
+                name: "Открыть...",
+                rightPart: "Ctrl+O"
+            },
+            {
+                type: "item",
+                name: "Закрыть проект",
+                rightPart: "Ctrl+Shift+W"
+            },
+            {
+                type: "item",
+                name: "Недавние проекты"
             }
         ]
     },

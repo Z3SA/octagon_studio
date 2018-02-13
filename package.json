@@ -48,12 +48,14 @@
     "test": "node scripts/test.js --env=jsdom",
     "electron": "electron . --version-string.FileDescription='Octagon Modmaking Studio'",
     "electron-start": "node src/electron-wait-react",
-    "react-start": "node scripts/start.js"
+    "react-start": "node scripts/start.js",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "electron": "^1.8.2",
     "foreman": "^2.0.0",
     "node-sass": "^4.7.2",
+    "react-scripts": "^1.1.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0"
   },

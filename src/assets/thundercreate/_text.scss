@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+// Headings
+
+h1 {
+	font-family: inherit;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+    margin: 0 0 $margin 0;
+    padding: 0;
+}
+
+h1 {
+	font-size: $font-size * 3.429;
+}
+
+h2 {
+	@extend h1;
+	font-size: $font-size * 2.857;
+}
+
+h3 {
+	@extend h1;
+	font-size: $font-size * 2.286;
+}
+
+h4 {
+	@extend h1;
+	font-size: $font-size * 1.714;
+}
+
+h5 {
+	@extend h1;
+	font-size: $font-size * 1.142;
+}
+
+h6 {
+	@extend h1;
+	font-size: $font-size;
+}
+
+// Html-inline elements
+
+p {
+	margin: 0 0 $margin 0;
+	padding: 0;
+}
+
+small {
+	font-size: .6em;
+}
+
+big {
+	font-size: 1.4em;
+}
+
+abbr {
+	cursor: help;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+address {
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: normal;
+	margin: $margin;
+}
+
+var { 
+    padding: 0 $padding - 7;
+    background: rgba(0,0,0,0.175); 
+}
+
+ins { 
+    border-bottom: 1px dashed rgba(0,0,0,0.8);
+    text-decoration: none; 
+}
+
+samp { 
+    opacity: 0.8; 
+}
+
+kbd { 
+    background: $color-main;
+    color: $color-back;
+    padding: $padding - 6;
+}
+
+img { 
+    max-width: 100%;
+    width: auto;
+    height: auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+figure, figcaption, pre {
+	padding: 0;
+	margin: 0;
+}

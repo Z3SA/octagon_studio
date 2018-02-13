@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+@mixin clr { // Clear styles for float elements
+
+	&::after, &::before {
+		content: " ";
+		display: table;
+	}
+
+	&::after {
+		clear: both;
+	}
+
+}
+
+@mixin cntr { // Center position on display
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+}
+
+@mixin grid_ext($letter) { // More styles for grid
+
+.col100#{$letter} {
+	width: 100%;
+}
+
+.col33#{$letter} {
+	width: 33.33%;
+}
+
+.col66#{$letter} {
+	width: 66.66%;
+}
+
+.col16#{$letter} {
+	width: 16.665%;
+}
+
+.col83#{$letter} {
+	width: 83.325%;
+}
+
+}
+
+@mixin grid_vsbl_hdn($lt1, $lt2, $lt3, $lt4) { // Visibility and hideness for different devices
+
+.hide-#{$lt1}, .vsbl-#{$lt2}, .vsbl-#{$lt3}, .vsbl-#{$lt4} {
+	display: none;
+}
+
+}
+
+@mixin mp-reset { // Margin and padding reset
+	margin: 0;
+	padding: 0;
+}

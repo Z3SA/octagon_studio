@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+.cont {
+	display: 		 flex;
+	display: -webkit-flex;
+	width: 100%;
+			flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	align-items: stretch;
+}
+
+.cont > * {
+	min-height: 1px;
+}
+
+$i: 5; // Mobile grid
+@while $i < 100 {
+  .col#{$i}p {
+  	width: 1% * $i; 
+  }
+  $i: $i + 5;
+}
+
+@include grid_ext(p);
+
+@media (min-width: $width-tablet) { // Tablet grid
+
+	$i: 10;
+	@while $i < 95 {
+  		.col#{$i}t {
+  			width: 1% * $i; 
+  		}
+  	$i: $i + 5;
+	}
+
+	@include grid_ext(t);
+
+}
+
+
+@media (min-width: $width-laptop) { // Laptop grid
+
+	$i: 5;
+	@while $i < 100 {
+  		.col#{$i}s {
+  			width: 1% * $i; 
+  		}
+  	$i: $i + 5;
+	}
+
+	@include grid_ext(s);
+
+}

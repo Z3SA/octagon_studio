@@ -1,4 +1,18 @@
+// Base imports
+@import 'assets/mixins',
+        'assets/vars';
+
+// Importing Thundercreate
+@import 'assets/thundercreate';
+
+// Removing access to select text
+* {
+    user-select: none;
+}
+
+// Base styles for all windows
 body {
-    margin: 0;
-    padding: 0;
+    background: $background-color;
+    color: $text-color;
+    cursor: default;
 }

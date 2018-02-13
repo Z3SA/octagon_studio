@@ -1,0 +1,26 @@
+@import '../../assets/mixins',
+        '../../assets/vars';
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        margin: 0;
+        padding: 10px;
+        display: inline-block;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            background: $hover-reaction;
+        }
+    }
+
+    &--horizontal {
+        .menu-item {
+            margin: 0 6px;
+        }
+    }
+}

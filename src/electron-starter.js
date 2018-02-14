@@ -8,6 +8,17 @@ const url = require('url');
 let mainWindow;
 
 function createWindow() {
+    // intro = new BrowserWindow({
+    //     width: 550,
+    //     height: 370,
+    //     center: true,
+    //     frame: false,
+    //     backgroundColor: '#80FFFFFF',
+    //     loadURL: 'windows/Intro/index.html',
+    //     skipTaskbar: true,
+    //     thickFrame: false
+    // });
+
     mainWindow = new BrowserWindow({
         width: 1200,
         height: 900,
@@ -29,6 +40,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
 
     mainWindow.once('ready-to-show', () => {
+        // intro.hide();
         mainWindow.show();
     });
 

@@ -1,0 +1,43 @@
+@import "vars";
+
+// Из пикселей в rem
+@function rem($font-size) {
+    @return $font-size / ($global-font-size / 1px) * 1rem;
+}
+
+// Миксин анимации
+@mixin transition($time) {
+    transition: all $time ease-in-out;
+}
+
+// Миксин кроссбраузерной трансформации
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+        -ms-transform: $transform;
+            transform: $transform;
+}
+
+@mixin flex($direction, $first-align, $second-align) {
+    display:         flex;
+    display: -webkit-flex;
+
+    @if $direction != row or $direction != null {
+                flex-direction: $direction;
+        -webkit-flex-direction: $direction;
+    }
+
+    @if $first-align != flex-start {
+        justify-content: $first-align;
+    }
+    
+    @if $second-align != flex-start {
+        align-items: $second-align;
+    }
+}
+
+@mixin flex-center() {
+    display:         flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}

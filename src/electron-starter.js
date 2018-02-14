@@ -13,7 +13,8 @@ function createWindow() {
         height: 900,
         icon: __dirname + "/images/oms_logo-square.ico",
         title: "Octagon Modmaking Studio",
-        icon: path.join(__dirname, '../images/oms_logo-square.png')
+        icon: path.join(__dirname, '../images/oms_logo-square.png'),
+        show: false
     });
 
     const startUrl = process.env.ELECTRON_START_URL || url.format({
@@ -26,6 +27,10 @@ function createWindow() {
     mainWindow.loadURL(startUrl);
 
     mainWindow.webContents.openDevTools();
+
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show();
+    });
 
     mainWindow.on('closed', () => {
         mainWindow = null;

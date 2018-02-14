@@ -8,7 +8,9 @@ import App from './windows/WinMain';
 // Importing register service
 import registerServiceWorker from './registerServiceWorker';
 
-const electron = window.require('electron');
+// Link to electron libs for working with OS
+// const electron = window.require('electron');
 
+// Rendering whole application
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

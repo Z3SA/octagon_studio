@@ -43,6 +43,14 @@ export default class WinMain extends Component {
                     <img className="main-header__logo" src={omsLogo} alt="Octagon Modmaking Studio" />
                     <Menu dir="horizontal" parent="main-header" items={topMenu} />
                 </header>
+
+                <section className="cont WinMain__cont main-cont">
+                
+                </section>
+
+                <footer className="cont WinMain__status-bar status-bar">
+                
+                </footer>
             </main>
         );
     }

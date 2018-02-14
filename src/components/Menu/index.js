@@ -24,7 +24,7 @@ export default class Menu extends Component {
         // Rendering menu items
         let items = this.props.items;
         let itemsRender = items.map((item) => {
-            if (item.type == "separator") {
+            if (item.type === "separator") {
                 return <MenuSeparator />
             } else {
                 return <MenuItem name={item.name} items={item.items} rightPart={item.rightPart} />

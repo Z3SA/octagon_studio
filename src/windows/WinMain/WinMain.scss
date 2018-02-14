@@ -6,6 +6,10 @@
         border-bottom: 1px solid $border-color;
         align-items: center;
     }
+
+    &__cont {
+        height: calc(100vh - 96px);
+    }
 }
 
 .main-header {

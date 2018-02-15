@@ -42,7 +42,8 @@ export default class WinMain extends Component {
                     <Menu dir="horizontal" parent="main-header" items={topMenu} />
                 </header>
 
-                <section className="cont WinMain__cont main-cont"></section>
+                <section className="cont WinMain__cont main-cont">
+                </section>
 
                 <StatusBar 
                     parent="WinMain" 

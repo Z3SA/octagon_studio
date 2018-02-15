@@ -1,4 +1,4 @@
-const electron   = require('electron');
+const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
@@ -8,16 +8,22 @@ const url = require('url');
 let mainWindow;
 
 function createWindow() {
-    // intro = new BrowserWindow({
-    //     width: 550,
-    //     height: 370,
-    //     center: true,
-    //     frame: false,
-    //     backgroundColor: '#80FFFFFF',
-    //     loadURL: 'windows/Intro/index.html',
-    //     skipTaskbar: true,
-    //     thickFrame: false
-    // });
+    intro = new BrowserWindow({
+        width: 499,
+        height: 319,
+        center: true,
+        frame: false,
+        backgroundColor: '#1b1b1b',
+        show: false
+    });
+
+    const introUrl = url.format({
+        pathname: path.join(__dirname, '/../static/intro/index.html'),
+        protocol: 'file:',
+        slashes: true
+    });
+
+    intro.loadURL(introUrl);
 
     mainWindow = new BrowserWindow({
         width: 1200,
@@ -39,9 +45,15 @@ function createWindow() {
 
     mainWindow.webContents.openDevTools();
 
+    intro.once('ready-to-show', () => {
+        intro.show();
+    });
+
     mainWindow.once('ready-to-show', () => {
-        // intro.hide();
-        mainWindow.show();
+        setTimeout(() => {
+            intro.hide();
+            mainWindow.show();
+        }, 3500);
     });
 
     mainWindow.on('closed', () => {

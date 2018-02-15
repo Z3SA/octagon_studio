@@ -10,7 +10,8 @@ import registerServiceWorker from './registerServiceWorker';
 import OMS from './data/app/OMS';
 
 // Link to electron libs for working with OS
-// const electron = window.require('electron');
+const electron = window.require('electron');
+const fs = electron.remote.require('fs');
 
 // Rendering whole application
 ReactDOM.render(<App />, document.getElementById('root'));

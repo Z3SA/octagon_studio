@@ -7,11 +7,11 @@ import './index.scss';
 import App from './windows/WinMain';
 // Importing register service
 import registerServiceWorker from './registerServiceWorker';
-import OMS from './data/app/OMS';
 
 // Link to electron libs for working with OS
 const electron = window.require('electron');
 const fs = electron.remote.require('fs');
+const ipcRenderer = electron.ipcRenderer;
 
 // Rendering whole application
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -6,8 +6,8 @@ export default class StatusBar extends Component {
         // Rendering status bar items
         var currentClass = "status-bar",
             items = this.props.items,
-            itemsRender = items.map(item => {
-                return <span className="status-bar__item">{item}</span>
+            itemsRender = items.map((item, i) => {
+                return <span key={i} className="status-bar__item">{item}</span>
             });
 
         // Parent of status bar

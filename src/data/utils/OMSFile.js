@@ -4,20 +4,19 @@ export default class OMSFile {
     static readJSON(file) {
         var result;
 
-        result= fs.readFileSync(file, (err, contents) => {
-            let fileResult;
+        result = fs.readFileSync(file, (err, contents) => {
+            console.log(file);
 
             if (!err) {
                 let str = contents.toString();
-                fileResult = JSON.parse(str);
+                result = JSON.parse(str);
             } else {
-                fileResult = "ERR (code 1): " + err;
+                result = "ERR (code 1): " + err;
             }
-
-            return fileResult;
+            
+            return result;
         });
-
-        console.log(result);
+        
         return result;
     }
 }

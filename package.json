@@ -1,5 +1,6 @@
 {
   "name": "octagon_studio",
+  "productName": "Octagon Modmaking Studio",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

@@ -1,12 +1,13 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
 const path = require('path');
 const url = require('url');
 
+// Setting name of app
 app.setName("Octagon Modmaking Studio");
 
+// Vars for windows
 let mainWindow, intro;
 
 function createWindow() {
@@ -16,7 +17,11 @@ function createWindow() {
         center: true,
         frame: false,
         backgroundColor: '#1b1b1b',
-        show: false
+        show: false,
+        alwaysOnTop: true,
+        webPreferences: {
+            nodeIntegration: false,
+        }
     });
 
     const introUrl = url.format({

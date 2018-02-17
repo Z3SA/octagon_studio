@@ -1,15 +1,15 @@
 import {paths} from '../paths';
 import OMSFile from '../utils/OMSFile';
+import OMSLanguage from './OMSLanguage';
 
 export default class OMS {
-    version = "Mk 0";
-    lang = "en";
-    session = null;
+    version;
+    lang;
+    session;
 
     constructor() {
         let octagonCfg = OMSFile.readJSON(paths.appData + paths.octagonCfg);
-        console.log(octagonCfg);
         this.version = octagonCfg.version || "Mk 0";
-        this.lang = octagonCfg.lang || "en"; 
+        this.lang = new OMSLanguage(octagonCfg.lang) || new OMSLanguage("en"); 
     }
 }

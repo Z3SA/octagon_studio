@@ -1,26 +1,41 @@
-'use strict';
+import { paths } from '../paths';
+import OMSFile from '../utils/OMSFile';
 
-import appData from '../paths';
-
-class OMSLanguage {
-    props = {
-        name, // Name of language
-        abbr, // Abbreviation of language (for files and functions)
-        isCompleted, // Language is completed or not (for notification in program settings)
-        data // Language content
-    }
+export default class OMSLanguage {
+    name;
+    abbr;
+    isCompleted;
+    data;
 
     // Basic constructor
-    constructor(name, abbr, isCompleted, data) {
-        this.name = name || "English";
-        this.abbr = abbr || "en";
-        this.isCompleted = isCompleted || false;
-        this.data = data;
+    constructor(_abbr, _name, _isCompleted, _data) {
+        if (_abbr != null) {
+            if (_name === undefined) {
+                let langPath = paths.appData + paths.langsFolder + _abbr + ".json";
+                console.log(langPath);
+                let langData = OMSFile.readJSON(langPath),
+                langInfo = langData.INFO;
+
+                console.log(langData);
+    
+                this.name = langInfo.NAME;
+                this.abbr = langInfo.ABBR;
+                this.isCompleted = (langInfo.IS_COMPLETED === "true") ? true : false;
+                this.data = langData;
+            } else {
+                this.name = _name;
+                this.abbr = _abbr;
+                this.isCompleted = _isCompleted;
+                this.data = _data;
+            }
+        }
     }
 
-    // Constructor-loader from language package file (%abbr%.json)
-    constructor(abbr) {
-        let langFolder = appData + "/langs/",
-            langPath = langFolder + abbr + ".json";
+    static loadInfo(_abbr) {
+        let langPath = paths.appData + paths.langsFolder + _abbr + ".json",
+        langData = OMSFile.readJSON(langPath),
+        langInfo = langData.INFO;
+
+        return langInfo;
     }
 }

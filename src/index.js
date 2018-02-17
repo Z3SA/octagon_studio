@@ -15,7 +15,7 @@ import OMS from './data/app/OMS';
 // export const fs = electron.remote.require('fs');
 // export const ipcRenderer = electron.ipcRenderer;
 
-const octagon = new OMS();
+export const octagon = new OMS();
 
 // Rendering whole application
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -5,7 +5,9 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
-let mainWindow;
+app.setName("Octagon Modmaking Studio");
+
+let mainWindow, intro;
 
 function createWindow() {
     intro = new BrowserWindow({
@@ -28,10 +30,12 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 1200,
         height: 900,
-        icon: __dirname + "/images/oms_logo-square.ico",
+        icon: __dirname + 'src/assets/images/oms_logo-square.ico',
         title: "Octagon Modmaking Studio",
-        icon: path.join(__dirname, '../images/oms_logo-square.png'),
-        show: false
+        show: false,
+        webPreferences: {
+            preload: __dirname + '/preload.js'
+        }
     });
 
     const startUrl = process.env.ELECTRON_START_URL || url.format({

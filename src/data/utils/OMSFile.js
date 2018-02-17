@@ -1,18 +1,23 @@
-import fs from '../env';
+import { fs } from '../../preload';
 
 export default class OMSFile {
     static readJSON(file) {
-        let result;
+        var result;
 
-        fs.readFile(file, (err, contents) => {
+        result= fs.readFileSync(file, (err, contents) => {
+            let fileResult;
+
             if (!err) {
                 let str = contents.toString();
-                result = JSON.parse(str);
+                fileResult = JSON.parse(str);
             } else {
-                result = "ERR (code 1): " + err;
+                fileResult = "ERR (code 1): " + err;
             }
+
+            return fileResult;
         });
 
+        console.log(result);
         return result;
     }
 }

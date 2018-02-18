@@ -1,0 +1,172 @@
+{
+    "INFO": {
+        "NAME": "русский",
+        "ABBR": "ru",
+        "IS_COMPLETED": "true"
+    },
+
+    "MAIN_WINDOW": {
+        "TOP_MENU": {
+            "FILE_NAME": "Файл",
+            "FILE_LIST": {
+                "FILE_CREATE": "Создать...",
+                "FILE_OPEN": "Открыть...",
+                "FILE_LOAD_FROM": "Загрузить из...",
+                "CLOSE_PROJECT": "Закрыть проект",
+                "FILE_SAVE": "Сохранить",
+                "FILE_SAVE_AS": "Сохранить как...",
+                "FILE_SAVE_ALL": "Сохранить всё",
+                "FILE_PROG_PARAMS": "Настройки программы",
+                "RECENT_PROJECTS": "Недавние проекты"
+            },
+
+            "FILE_EXCEPTIONS": {
+                "DIR_NOT_OF_PROJECT": "Выбранный каталог не является каталогом проекта.",
+                "DIR_NOT_HAVE_OCTAGON_XML": "Выбранный проект не имеет файл проекта."
+            },
+
+            "VIEW_NAME": "Вид",
+            "EDIT_NAME": "Редактирование",
+            "EDIT_LIST": {
+                "NOTES": "Заметки"
+            },
+            "PROJECT_NAME": "Проект",
+            "PROJECT_LIST": {
+                "PROJECT_PARAMS": "Параметры проекта"
+            }
+        },
+
+        "TOP_CONTROLLERS": {
+            "MINIMIZE": "Свернуть",
+            "FULLSCREEN": "На весь экран",
+            "CLOSE": "Закрыть"
+        },
+
+        "LEFT_MENU": {
+            "COMPONENT_STRUCTURE": "Структура компонентов"
+        },
+
+        "NAVIGATOR": {
+            "BUTTONS": {
+                "FILES": "Файлы",
+                "COMPS": "Компоненты",
+                "ATTRS": "Свойства"
+            }
+        },
+
+        "STATUS_BAR": {
+            "BUILD_STATUS": {
+                "PRE_ALPHA": "Пре-альфа билд",
+                "ALPHA": "Альфа билд",
+                "BETA": "Бета билд",
+                "OPEN_BETA": "Билд открытой беты",
+                "RELEASE": "Релизный билд",
+                "DEBUG": "Дебаг билд"
+            },
+            "CURRENT_FOCUS": {
+                "START_FRAME": "Начальный экран"
+            },
+            "PROG_STATUS": {
+                "READY": "Готово",
+                "DEBUG_BUILDING": "Сборка дебаг-билда модификации",
+                "RELEASE_BUILDING": "Сборка релиз-билда модификации",
+                "FATAL": "Критическая ошибка",
+                "PROJECT_LOADING": "Загрузка проекта",
+                "PROJECT_SAVING": "Сохранение проекта",
+                "COMP_OPENING": "Открытие редактора"
+            }
+        },
+
+        "START_FRAME": {
+            "START_TITLE": "Начать работу",
+            "CREATE_NEW_PROJECT": "Создать новый проект"
+        }
+    },
+
+    "CREATE_PROJECT": {
+        "TITLE": "Создать проект",
+        "LABELS": {
+            "NAME": "Название проекта:",
+            "NAME_HINT": "Полное название проекта",
+            "WORK_ID": "Рабочий ID проекта:",
+            "WORK_ID_HINT": "Идентификатор проекта внутри OMS. Разрешены только латинские символы, цифры, '_' и '-'. Чувствителен к регистру.",
+            "FOLDER": "Папка проекта:",
+            "FOLDER_HINT": "Необходимо минимум 9 гб свободного места",
+            "PLATFORM_TYPE": "Тип платформы:",
+            "PLATFORM_VERSION": "Версия платформы",
+            "KEEP_MULTIPLAYER": "Оставить мультиплеер?",
+            "AUTHORS": "Авторы",
+            "AUTHORS_HINT": "Вводить через запятую"
+        },
+        "PROCESS": {
+            "ERROR__WRONG_NAME": "Неверное название проекта",
+            "ERROR__WRONG_ID": "Неверный рабочий ID проекта",
+            "ERROR__WRONG_DIR": "Неверный каталог проекта",
+            "ERROR__DISK_NOT_READY": "Диск не готов к работе или заблокирован доступ к нему",
+            "ERROR__NOT_ENOUGH_SPACE": "На выбранном разделе недостаточно места для тестовой версии платформы",
+            "ERROR__ALREADY_EXISTS": "В указанном каталоге уже существует проект"
+        }
+    },
+
+    "PROG_PARAMS": {
+        "TITLE": "Параметры программы",
+
+        "MENU": {
+            "MAIN": "Основные настройки",
+            "LAUNCH_N_DEBUG": "Запуск и отладка",
+            "PLATFORMS": "Платформы",
+            "AUTHORITY": "Авторство"
+        },
+
+        "BOTTOM_BTNS": {
+            "CANCEL": "Отмена",
+            "APPLY": "Применить"
+        },
+
+        "MAIN": {
+            "INTERFACE": {
+                "TITLE": "Интерфейс",
+                "LANGUAGE": "Язык:",
+                "LANGUAGE_WARNING": "Язык не доработан. Программа может работать нестабильно."
+            },
+            "AUTHOR": {
+                "TITLE": "Авторство",
+                "AUTHOR": "Имя или никнейм:",
+                "TEAM": "Команда разработчиков:"
+            }
+        },
+
+        "PLATFORMS": {
+        	"TITLE": "Платформы"
+        },
+
+        "AUTHORITY": {
+        	"TITLE": "Авторство"
+        }
+    },
+
+    "PROJECT_PARAMS": {
+        "TITLE": "Параметры проекта",
+
+        "MENU": {
+            "MAIN": "Основные параметры",
+            "AUTHORITY": "Авторство"
+        },
+
+        "BOTTOM_BTNS": {
+            "CANCEL": "Отмена",
+            "APPLY": "Применить"
+        },
+
+        "MAIN": {
+            "TITLE": "Основные",
+            "PROJECT_NAME": "Название проекта",
+            "PROJECT_ID": "ID проекта"
+        }
+    },
+
+    "NOTES": {
+        "TITLE": "Заметки",
+        "ADD_NOTE": "Добавить заметку"
+    }
+}

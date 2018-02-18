@@ -11,12 +11,9 @@ export default class OMSLanguage {
     constructor(_abbr, _name, _isCompleted, _data) {
         if (_abbr != null) {
             if (_name === undefined) {
-                let langPath = paths.appData + paths.langsFolder + _abbr + ".json";
-                console.log(langPath);
+                let langPath = paths.appData + paths.langsFolder + "/" + _abbr + ".json";
                 let langData = OMSFile.readJSON(langPath),
                 langInfo = langData.INFO;
-
-                console.log(langData);
     
                 this.name = langInfo.NAME;
                 this.abbr = langInfo.ABBR;

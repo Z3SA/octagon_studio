@@ -7,35 +7,35 @@ import { octagon } from '../../index';
 
 export default class WinMain extends Component {
     render() {
-        // let WIN_LANG = octagon.lang.data.MAIN_WINDOW;
+        let WIN_LANG = octagon.lang.data.MAIN_WINDOW;
 
         let topMenu = [
             {
-                type: "item", name: "Файл",
+                type: "item", name: WIN_LANG.TOP_MENU.FILE_NAME,
                 items: [
                     {
-                        type: "item", name: "Создать...", rightPart: "Ctrl+N"
+                        type: "item", name: WIN_LANG.TOP_MENU.FILE_LIST.FILE_CREATE, rightPart: "Ctrl+N"
                     },
                     {
-                        type: "item", name: "Открыть...", rightPart: "Ctrl+O"
+                        type: "item", name: WIN_LANG.TOP_MENU.FILE_LIST.FILE_OPEN, rightPart: "Ctrl+O"
                     },
                     {
-                        type: "item", name: "Закрыть проект", rightPart: "Ctrl+Shift+W"
+                        type: "item", name: WIN_LANG.TOP_MENU.FILE_LIST.CLOSE_PROJECT, rightPart: "Ctrl+Shift+W"
                     },
                     {
-                        type: "item", name: "Недавние проекты"
+                        type: "item", name: WIN_LANG.TOP_MENU.FILE_LIST.RECENT_PROJECTS
                     }
                 ]
             },
             {
-                type: "item", name: "Редактирование"
+                type: "item", name: WIN_LANG.TOP_MENU.EDIT_NAME
             }
         ],
             statusInfo = {
             name: "Octagon Modmaking Studio",
             version: octagon.version,
-            buildStatus: "pre-alpha",
-            currentStatus: "Стартовый экран"
+            buildStatus: octagon.buildStatus,
+            currentStatus: WIN_LANG.STATUS_BAR.CURRENT_FOCUS.START_FRAME
         };
 
         return (

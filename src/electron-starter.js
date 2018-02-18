@@ -33,14 +33,11 @@ function createWindow() {
     intro.loadURL(introUrl);
 
     mainWindow = new BrowserWindow({
-        width: 1200,
-        height: 900,
+        width: 1000,
+        height: 600,
         icon: __dirname + 'src/assets/images/oms_logo-square.ico',
         title: "Octagon Modmaking Studio",
-        show: false,
-        webPreferences: {
-            preload: __dirname + '/preload.js'
-        }
+        show: false
     });
 
     const startUrl = process.env.ELECTRON_START_URL || url.format({

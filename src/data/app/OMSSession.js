@@ -6,9 +6,6 @@ export default class OMSSession {
     winHeight;
     winPosTop;
     winPosLeft;
-    // project;
-    // lastProject;
-    // lastProjects;
 
     constructor() {
         let sessionPath = paths.appData + paths.session,

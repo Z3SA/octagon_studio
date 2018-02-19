@@ -4,6 +4,16 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
+function createURL(_path) {
+    let fullPath = url.format({
+        pathname: path.join(__dirname + _path),
+        protocol: 'file:',
+        slashes: true
+    });
+
+    return fullPath; 
+}
+
 // Setting name of app
 app.setName("Octagon Modmaking Studio");
 
@@ -24,27 +34,19 @@ function createWindow() {
         }
     });
 
-    const introUrl = url.format({
-        pathname: path.join(__dirname, '/../static/intro/index.html'),
-        protocol: 'file:',
-        slashes: true
-    });
+    const introUrl = createURL('/../static/intro/index.html');
 
     intro.loadURL(introUrl);
 
     mainWindow = new BrowserWindow({
         width: 1000,
         height: 600,
-        icon: __dirname + 'src/assets/images/oms_logo-square.ico',
+        icon: createURL('/../src/assets/images/oms_logo-square.png'),
         title: "Octagon Modmaking Studio",
         show: false
     });
 
-    const startUrl = process.env.ELECTRON_START_URL || url.format({
-        pathname: path.join(__dirname, '/../build/index.html'),
-        protocol: 'file:',
-        slashes: true
-    });
+    const startUrl = process.env.ELECTRON_START_URL || createURL('/../build/index.html');
 
     mainWindow.setMenu(null);
     mainWindow.loadURL(startUrl);

@@ -1,0 +1,16 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+@import "~font-awesome/css/font-awesome.css";
+@import '~antd/dist/antd.css';
+
+/* Removing access to select text */
+* {
+    user-select: none;
+}
+
+/* Base styles for all windows */
+body {
+    cursor: default;
+}

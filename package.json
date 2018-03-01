@@ -118,6 +118,7 @@
     ]
   },
   "devDependencies": {
+    "antd": "^3.2.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.1.0",
@@ -191,7 +192,6 @@
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
-    "material-ui": "^1.0.0-beta.34",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0-beta.13",

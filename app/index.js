@@ -3,9 +3,9 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
-import './app.scss';
-import './app.global.css';
 import OMS from './data/app/OMS';
+import './.global.css';
+import './assets/themes/default/.global.scss';
 
 export const octagon = new OMS();
 

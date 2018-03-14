@@ -8,7 +8,7 @@ export default class App extends Component {
     render() {
         return (
             <Layout className="main-win">
-                <Header>
+                <Header className="main-win__header">
                     <img src={omsLogo} />
                 </Header>
                 <Layout>

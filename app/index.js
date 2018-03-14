@@ -5,7 +5,9 @@ import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
 import OMS from './data/app/OMS';
 import './.global.css';
-import './assets/themes/default/.global.scss';
+import './.global.less';
+// import './assets/themes/default/.global.scss';
+// import './antd/dist/antd.less';
 
 export const octagon = new OMS();
 

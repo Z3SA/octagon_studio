@@ -1,13 +1,13 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "electron-react-boilerplate",
-  "version": "1.0.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "name": "octagon_studio",
+  "productName": "Octagon Modmaking Studio",
+  "version": "0.1.1",
+  "description": "Octagon Modmaking Studio - visual editor for modification development on S.T.A.L.K.E.R. Call of Pripyat",
   "main": "./main.prod.js",
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "Octagon",
+    "email": "me@z3sa.ru",
+    "url": "https://github.com/Z3SA"
   },
   "scripts": {
     "electron-rebuild": "node -r babel-register ../internals/scripts/ElectronRebuild.js",

@@ -1,4 +1,5 @@
 // @flow
+// Now this file only for information about menu, hotkeys and etc. You can ignore this file
 import { app, Menu, shell, BrowserWindow } from 'electron';
 
 export default class MenuBuilder {

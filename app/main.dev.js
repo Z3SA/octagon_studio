@@ -10,16 +10,20 @@
  *
  * @flow
  */
+// Importing electron and menubuilder
 import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
 
+// Create main window 
 let mainWindow;
 
+// Creating map support to dll in prod
 if (process.env.NODE_ENV === 'production') {
     const sourceMapSupport = require('source-map-support');
     sourceMapSupport.install();
 }
 
+// Importing packages from ../node_modules in dev
 if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
     require('electron-debug')();
     const path = require('path');
@@ -27,23 +31,19 @@ if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true')
     require('module').globalPaths.push(p);
 }
 
+// Setting extensions on WebKit
 const installExtensions = async () => {
     const installer = require('electron-devtools-installer');
     const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
     const extensions = [
-        'REACT_DEVELOPER_TOOLS',
-        'REDUX_DEVTOOLS'
+        'REACT_DEVELOPER_TOOLS', // React tools
+        'REDUX_DEVTOOLS' // Redux tools
     ];
 
     return Promise
         .all(extensions.map(name => installer.default(installer[name], forceDownload)))
         .catch(console.log);
 };
-
-
-/**
- * Add event listeners...
- */
 
 app.on('window-all-closed', () => {
     // Respect the OSX convention of having the application in memory even
@@ -53,18 +53,21 @@ app.on('window-all-closed', () => {
     }
 });
 
-
+// On ready electron window
 app.on('ready', async () => {
+    // Setting dev extensions in dev mode
     if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
         await installExtensions();
     }
 
+    // Settings of main window
     mainWindow = new BrowserWindow({
         show: false,
         width: 1024,
         height: 728
     });
 
+    // Page in window
     mainWindow.loadURL(`file://${__dirname}/app.html`);
 
     // @TODO: Use 'ready-to-show' event
@@ -78,10 +81,12 @@ app.on('ready', async () => {
         mainWindow.focus();
     });
 
+    // Cleaning from mem on closing
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
 
+    // Setting menu
     const menuBuilder = new MenuBuilder(mainWindow);
     menuBuilder.buildMenu();
 });

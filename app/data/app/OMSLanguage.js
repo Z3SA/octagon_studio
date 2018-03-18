@@ -2,10 +2,10 @@ import { paths } from '../paths';
 import OMSFile from '../utils/OMSFile';
 
 export default class OMSLanguage {
-    name;
-    abbr;
-    isCompleted;
-    data;
+    name; // Full name of lang package
+    abbr; // Abbr of lang package for functions
+    isCompleted; // Is completed lang package or not
+    data; // Content of package
 
     // Basic constructor
     constructor(_abbr, _name, _isCompleted, _data) {
@@ -28,7 +28,7 @@ export default class OMSLanguage {
         }
     }
 
-    static loadInfo(_abbr) {
+    static loadInfo(_abbr) { // Loading lang package from file
         let langPath = paths.appData + paths.langsFolder + _abbr + ".json",
         langData = OMSFile.readJSON(langPath),
         langInfo = langData.INFO;

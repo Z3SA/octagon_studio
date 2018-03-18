@@ -1,10 +1,10 @@
 import fs from 'fs';
 
 export default class OMSFile {
-    static readJSON(file) {
+    static readJSON(file) { // Read json file and return JS-object
         var result;
 
-        result = fs.readFileSync(file, "utf8", (err, contents) => {         
+        result = fs.readFileSync(file, "utf8", (err, contents) => {    
             let fileResult;
 
             if (!err) {

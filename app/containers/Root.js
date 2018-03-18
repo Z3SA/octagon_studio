@@ -1,4 +1,5 @@
 // @flow
+// Main container of app with routes
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';

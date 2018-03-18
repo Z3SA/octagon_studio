@@ -1,14 +1,19 @@
+// Import all necessary react modules
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+
+// Importing Root and config
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
+
 import OMS from './data/app/OMS';
+
+// Importing styles
 import './.global.css';
 import './.global.less';
-// import './assets/themes/default/.global.scss';
-// import './antd/dist/antd.less';
 
+// Settings of program in octagon.json
 export const octagon = new OMS();
 
 const store = configureStore();

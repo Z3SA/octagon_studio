@@ -1,5 +1,9 @@
+// Importing antd styles
 @import '../node_modules/antd/dist/antd.less';
+// Importing theme styles
 @import './assets/themes/default/vars.less';
+// Importing mixins
+@import './assets/abstracts/mixins';
 
 // Main window
 .main-win {
@@ -8,5 +12,34 @@
     // Header of main window
     &__header {
         border-bottom: 1px solid @c-secondary-4;
+        .os-flex(flex-start, center, nowrap);
+    }
+
+    // Logo in top left
+    &__logo {
+        margin-right: 15px;
+    }
+
+    &__sub-menu {
+        min-width: 150px;
+    }
+}
+
+// Main window top nav
+.top-nav {
+    border-bottom: none;
+    background: none;
+
+    > li {
+        border-bottom: none !important;
+    }
+
+    &__hotkey {
+        float: right;
+    }
+
+    &__item-name {
+        min-width: 150px;
+        display: inline-block;
     }
 }

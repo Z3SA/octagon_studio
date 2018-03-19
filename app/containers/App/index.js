@@ -10,22 +10,68 @@ const MenuItem = Menu.Item;
 const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
 
-const LANG = octagon.lang.data
+let LANG, LANG__MAIN_WIN;
 
 export default class App extends Component {
     render() {
+        LANG = octagon.lang.data;
+        LANG__MAIN_WIN = LANG.MAIN_WINDOW;
+
+        // Content of top menu
+        let topMenu = [
+            // Menu "File"
+            {
+                name: LANG__MAIN_WIN.TOP_MENU.FILE_NAME,
+                items: [
+                    {
+                        name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_CREATE,
+                        hotkey: "Ctrl+N",
+                        key: "file__create"
+                    },
+                    {
+                        name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_OPEN,
+                        hotkey: "Ctrl+O",
+                        key: "file__open"
+                    }
+                ]
+            }
+        ],
+        // Render of top menu
+            topMenuRender = topMenu.map((item, i) => {
+            return (
+                <SubMenu title={item.name}>
+                    {
+                        item.items.map((item, i) => {
+                            let hotkeyRender = "";
+
+                            if (item.hotkey) {
+                                hotkeyRender = <span className="top-nav__hotkey">{item.hotkey}</span>;
+                            }
+
+                            return (
+                                <MenuItem key={item.key}>
+                                    <span className="top-nav__item-name">{item.name}</span>
+                                    {hotkeyRender}
+                                </MenuItem>
+                            );
+                        })
+                    }
+                </SubMenu>
+            );
+        });
+
         return (
             <Layout className="main-win">
                 <Header className="main-win__header">
-                    <img src={omsLogo} />
+                    <img src={omsLogo} className="main-win__logo"/>
 
-                    <Menu mode="horizontal">
-                        <MenuItem></MenuItem>
+                    <Menu mode="horizontal" className="main-win__top-nav top-nav">
+                        {topMenuRender}
                     </Menu>
                 </Header>
                 <Layout>
-                    <Content>content</Content>
-                    <Sider>side</Sider>
+                    <Content></Content>
+                    <Sider></Sider>
                 </Layout>
                 <Footer></Footer>
             </Layout>

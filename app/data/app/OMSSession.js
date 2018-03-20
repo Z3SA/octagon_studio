@@ -12,7 +12,6 @@ export default class OMSSession {
     winY; // Window position
     project; // Last project in program
     lastProjects; // Last 5 or 10 opened projects
-    sessionPath = paths.appData + paths.session;
 
     constructor() {
         this.winWidth = 1200;
@@ -20,7 +19,8 @@ export default class OMSSession {
         this.winX = 300;
         this.winY = 300;
         
-        let sessionData = OMSFile.readJSON(sessionPath);
+        let sessionPath = paths.appData + paths.session,
+            sessionData = OMSFile.readJSON(sessionPath);
 
         if (sessionData.type !== "error") {
             this.winWidth = sessionData.width;
@@ -36,7 +36,8 @@ export default class OMSSession {
             height: this.winHeight,
             x: this.winX,
             y: this.winY
-        };
+        },
+            sessionPath = paths.appData + paths.session;
 
         OMSFile.writeJSON(saveSession, sessionPath);
     }

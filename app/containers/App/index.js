@@ -21,6 +21,7 @@ export default class App extends Component {
             // Menu "File"
             {
                 name: LANG__MAIN_WIN.TOP_MENU.FILE_NAME,
+                key: "file-menu",
                 items: [
                     {
                         name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_CREATE,
@@ -38,7 +39,7 @@ export default class App extends Component {
         // Render of top menu
             topMenuRender = topMenu.map((item, i) => {
             return (
-                <SubMenu title={item.name}>
+                <SubMenu title={item.name} key={item.key}>
                     {
                         item.items.map((item, i) => {
                             let hotkeyRender = "";

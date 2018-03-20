@@ -1,6 +1,10 @@
 import { paths } from '../paths';
 import OMSFile from '../utils/OMSFile';
 
+/* 
+*  This class created for multi-language support on program. 
+*  Each language package is in %APPDATA% folder of app.
+*/
 export default class OMSLanguage {
     name; // Full name of lang package
     abbr; // Abbr of lang package for functions

@@ -22,4 +22,8 @@ export default class OMSFile {
 
         return JSON.parse(result);
     }
+
+    static writeJSON(content, file) {
+        fs.writeFileSync(file, JSON.stringify(content), "utf8");
+    }
 }

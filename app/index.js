@@ -16,6 +16,8 @@ import './.global.less';
 // Settings of program in octagon.json
 export const octagon = new OMS();
 
+export const LANG = octagon.lang.data;
+
 const store = configureStore();
 
 render(

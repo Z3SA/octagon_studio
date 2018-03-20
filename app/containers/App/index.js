@@ -3,18 +3,17 @@
 import React, { Component } from 'react';
 import omsLogo from '../../assets/images/winmain_logo.png';
 import { Layout, Menu } from 'antd';
-import { octagon } from '../../index';
+import { octagon, LANG } from '../../index';
 
 const { Header, Footer, Sider, Content } = Layout;
 const MenuItem = Menu.Item;
 const { SubMenu } = Menu;
 const MenuItemGroup = Menu.ItemGroup;
 
-let LANG, LANG__MAIN_WIN;
+let LANG__MAIN_WIN;
 
 export default class App extends Component {
     render() {
-        LANG = octagon.lang.data;
         LANG__MAIN_WIN = LANG.MAIN_WINDOW;
 
         // Content of top menu

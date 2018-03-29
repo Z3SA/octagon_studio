@@ -13,6 +13,9 @@
 // Importing electron and menubuilder
 import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
+import fs from 'fs';
+import { paths } from './data/paths';
+import OMSFile from './data/utils/OMSFile';
 
 // Create main window 
 let mainWindow, intro;
@@ -44,6 +47,11 @@ const installExtensions = async () => {
         .all(extensions.map(name => installer.default(installer[name], forceDownload)))
         .catch(console.log);
 };
+
+// Loading session val
+let sessionPath = paths.appData + paths.session
+
+let session = OMSFile.readJSON(sessionPath);
 
 app.on('window-all-closed', () => {
     // Respect the OSX convention of having the application in memory even
@@ -86,8 +94,8 @@ app.on('ready', async () => {
     // Settings of main window
     mainWindow = new BrowserWindow({
         show: false,
-        width: 1024,
-        height: 728,
+        width: session.width,
+        height: session.height,
         menu: false
     });
 

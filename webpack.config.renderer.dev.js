@@ -16,30 +16,17 @@ import { spawn, execSync } from 'child_process';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
+import { paths } from './app/data/paths';
+import OMSFile from './app/data/utils/OMSFile';
 
 CheckNodeEnv('development');
-
-// Loading theme val
-let themePath = process.env.APPDATA + '/Octagon Modmaking Studio/Data/theme.json' || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local') + '/Octagon Modmaking Studio/Data/theme.json';
-
-function getTheme() {
-    var data;
-
-    data = fs.readFileSync(themePath, 'utf8', (err, contents) => {
-        let fileData;
-
-        fileData = JSON.stringify(contents.trim());
-
-        return fileData;
-    });
-
-    return JSON.parse(data);
-}
 
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
 const dll = path.resolve(process.cwd(), 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
+
+let themePath = paths.appData + paths.theme;
 
 /**
  * Warn if the DLL is not built
@@ -139,7 +126,7 @@ export default merge.smart(baseConfig, {
                             ],
                             javascriptEnabled: true,
                             modifyVars: {
-                                '@theme': getTheme().theme
+                                '@theme': OMSFile.readJSON(themePath).theme
                             }
                         }
                     }

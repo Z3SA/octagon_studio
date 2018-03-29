@@ -19,6 +19,23 @@ import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
 
 CheckNodeEnv('development');
 
+// Loading theme val
+let themePath = process.env.APPDATA + '/Octagon Modmaking Studio/Data/theme.json' || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local') + '/Octagon Modmaking Studio/Data/theme.json';
+
+function getTheme() {
+    var data;
+
+    data = fs.readFileSync(themePath, 'utf8', (err, contents) => {
+        let fileData;
+
+        fileData = JSON.stringify(contents.trim());
+
+        return fileData;
+    });
+
+    return JSON.parse(data);
+}
+
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
 const dll = path.resolve(process.cwd(), 'dll');
@@ -120,7 +137,10 @@ export default merge.smart(baseConfig, {
                             paths: [
                                 path.resolve(__dirname, "node_modules")
                             ],
-                            javascriptEnabled: true
+                            javascriptEnabled: true,
+                            modifyVars: {
+                                '@theme': getTheme().theme
+                            }
                         }
                     }
                 ]

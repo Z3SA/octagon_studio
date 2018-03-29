@@ -9,6 +9,23 @@ import baseConfig from './webpack.config.base';
 import { dependencies } from './package.json';
 import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
 
+// Loading theme val
+let themePath = process.env.APPDATA + '/Octagon Modmaking Studio/Data/theme.json' || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local') + '/Octagon Modmaking Studio/Data/theme.json';
+
+function getTheme() {
+    var data;
+
+    data = fs.readFileSync(themePath, 'utf8', (err, contents) => {
+        let fileData;
+
+        fileData = JSON.stringify(contents.trim());
+
+        return fileData;
+    });
+
+    return JSON.parse(data);
+}
+
 CheckNodeEnv('development');
 
 const dist = path.resolve(process.cwd(), 'dll');
@@ -96,7 +113,10 @@ export default merge.smart(baseConfig, {
                             paths: [
                                 path.resolve(__dirname, "node_modules")
                             ],
-                            javascriptEnabled: true
+                            javascriptEnabled: true,
+                            modifyVars: {
+                                '@theme': getTheme().theme
+                            }
                         }
                     }
                 ]

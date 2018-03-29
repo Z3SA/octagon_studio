@@ -4,5 +4,6 @@ export const paths = {
     appData: app.getPath('appData') + "/Octagon Modmaking Studio/Data",
     octagonCfg: "/octagon.json",
     langsFolder: "/Languages",
-    session: "/session.json"
+    session: "/session.json",
+    theme: "/theme.json"
 };

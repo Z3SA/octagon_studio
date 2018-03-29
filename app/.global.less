@@ -1,9 +1,12 @@
+@theme: "default";
 // Importing antd styles
 @import '../node_modules/antd/dist/antd.less';
-// Importing theme styles
+// Importing default theme styles
 @import './assets/themes/default/vars.less';
 // Importing mixins
 @import './assets/abstracts/mixins';
+//Importing custom theme styles
+@import './assets/themes/@{theme}/vars.less';
 
 // Main window
 .main-win {

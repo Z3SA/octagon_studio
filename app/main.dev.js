@@ -15,7 +15,7 @@ import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
 
 // Create main window 
-let mainWindow;
+let mainWindow, intro;
 
 // Creating map support to dll in prod
 if (process.env.NODE_ENV === 'production') {
@@ -60,6 +60,29 @@ app.on('ready', async () => {
         await installExtensions();
     }
 
+    if (process.env.NODE_ENV === 'production') {
+        // Creating intro splash screen (preloader)
+        intro = new BrowserWindow({
+            width: 499,
+            height: 319,
+            center: true,
+            frame: false,
+            backgroundColor: '#1b1b1b',
+            show: false,
+            alwaysOnTop: true,
+            webPreferences: {
+                nodeIntegration: false
+            }
+        });
+
+        // Load page with splash screen
+        intro.loadURL(`file://${__dirname}/containers/intro/index.html`);
+
+        intro.once('ready-to-show', () => {
+            intro.show();
+        });
+    }
+
     // Settings of main window
     mainWindow = new BrowserWindow({
         show: false,
@@ -77,9 +100,19 @@ app.on('ready', async () => {
         if (!mainWindow) {
             throw new Error('"mainWindow" is not defined');
         }
+        
+        if (process.env.NODE_ENV === 'production') {
+            // 2,5 sec then main window'll show and splash'll hide
+            setTimeout(() => {
+                intro.hide();
 
-        mainWindow.show();
-        mainWindow.focus();
+                mainWindow.show();
+                mainWindow.focus();
+            }, 2500);
+        } else {
+            mainWindow.show();
+            mainWindow.focus();
+        }
     });
 
     // Cleaning from mem on closing

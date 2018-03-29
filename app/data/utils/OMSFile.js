@@ -26,4 +26,22 @@ export default class OMSFile {
     static writeJSON(content, file) {
         fs.writeFileSync(file, JSON.stringify(content), "utf8");
     }
+
+    static readDir(path) {
+        var result;
+
+        result = fs.readdirSync(path, (err, contents) => {
+            if (!err) {
+                return contents;
+            } else {
+                return {
+                    type: "error",
+                    code: "2",
+                    message: err
+                };
+            }
+        });
+
+        return result;
+    }
 }

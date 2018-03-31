@@ -19,8 +19,8 @@ export default class OMSFile {
             
             return fileResult;
         });
-
-        return JSON.parse(result);
+        
+        return JSON.parse(result.trim());
     }
 
     static writeJSON(content, file) {

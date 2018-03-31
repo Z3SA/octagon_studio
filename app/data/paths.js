@@ -1,7 +1,7 @@
 export const paths = {
     appData: process.env.APPDATA + "/Octagon Modmaking Studio/Data",
-    octagonCfg: "/octagon.json",
+    octagonCfg: "/octagon.omsdata",
     langsFolder: "/Languages",
-    session: "/session.json",
-    theme: "/theme.json"
+    session: "/session.omsdata",
+    theme: "/theme.omsdata"
 };

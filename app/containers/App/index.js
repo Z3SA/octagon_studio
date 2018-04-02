@@ -1,6 +1,6 @@
 // Main window
 import React, { Component } from 'react';
-import omsLogo from '../../assets/images/winmain_logo.png';
+//import omsLogo from '../../assets/images/winmain_logo.png';
 import { Layout, Menu } from 'antd';
 import { octagon, LANG } from '../../index';
 import Settings from '../Settings';
@@ -82,7 +82,7 @@ export default class App extends Component {
             <div>
                 <Layout className="main-win">
                     <Header className="main-win__header">
-                        <img src={omsLogo} className="main-win__logo"/>
+                        <span className="main-win__logo" />
 
                         <Menu mode="horizontal" className="main-win__top-nav top-nav" onClick={this.topMenuCallbacks}>
                             {topMenuRender}

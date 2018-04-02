@@ -74,7 +74,7 @@ export default class Settings extends Component {
         languages = languagesFiles.map((item) => {
             langsInfo.push(OMSFile.readJSON(langPath + item).INFO)
         }),
-        langsOptions = langsInfo.map((item) => <Option key={item.ABBR} isCompleted={(item.IS_COMPLETED == 'true')}>{item.NAME}</Option>);
+        langsOptions = langsInfo.map((item) => <Select.Option key={item.ABBR} isCompleted={(item.IS_COMPLETED == 'true')}>{item.NAME}</Select.Option>);
 
         // Theme variants
         let themesInfo = [
@@ -89,7 +89,7 @@ export default class Settings extends Component {
         ],
         // Render of theme variants
         themesOptions = themesInfo.map((item) => {
-            return <Option key={item.key}>{item.name}</Option>
+            return <Select.Option key={item.key}>{item.name}</Select.Option>
         });
 
         return(
@@ -103,27 +103,31 @@ export default class Settings extends Component {
                 >
                     <Layout>
                         <Sider>
-                            <Menu onClick={this.handleClick} mode="inline" footer={bottomBtns}>
+                            <Menu 
+                                onClick={this.handleClick} 
+                                mode="inline" 
+                                className="settings-win__menu"
+                            >
                                 {menuItemsRender}
                             </Menu>
                         </Sider>
 
-                        <Content>
+                        <Content className="settings-win__cont">
                             <div>
                                 <h2>{LANG__SETTINGS.INTERFACE.TITLE}</h2>
-                                <Divider />
+                                <Divider className="settings-win__divider" />
 
                                 <h4>{LANG__SETTINGS.INTERFACE.LANGUAGE.TITLE}</h4>
-                                <Select mode="combobox">
+                                <Select mode="combobox" style={{ width: 250 }}>
                                     {langsOptions}
                                 </Select>
-                                <Divider />
+                                <Divider className="settings-win__divider" />
 
                                 <h4>{LANG__SETTINGS.INTERFACE.THEME.TITLE}</h4>
-                                <Select mode="combobox" defaultValue="">
+                                <Select mode="combobox" defaultValue="" disabled style={{ width: 250 }}>
                                     {themesOptions}
                                 </Select>
-                                <Divider />
+                                <Divider className="settings-win__divider" />
                             </div>
                         </Content>
                     </Layout>

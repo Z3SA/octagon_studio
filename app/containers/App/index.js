@@ -11,11 +11,14 @@ const { SubMenu } = Menu;
 let LANG__MAIN_WIN;
 
 export default class App extends Component {
+    // Show modal window - Settings
     showSettings = () => {
-        this.setState({
-            settingsVisible: true
-        });
-    };
+        this.refs.modalSettings.showModal();;
+    }
+    // Top menu callbacks
+    topMenuCallbacks = (e) => {
+        e.item.props.event();
+    }
 
     render() {
         LANG__MAIN_WIN = LANG.MAIN_WINDOW;
@@ -56,26 +59,23 @@ export default class App extends Component {
         ],
         // Render of top menu
         topMenuRender = topMenu.map((item) => {
-            return (
-                <SubMenu title={item.name} key={item.key}>
-                    {
-                        item.items.map((item) => {
-                            let hotkeyRender = "";
+            let subItems = [];
+            item.items.map((item) => {
+                let hotkeyRender = "";
 
-                            if (item.hotkey) {
-                                hotkeyRender = <span className="top-nav__hotkey">{item.hotkey}</span>;
-                            }
+                if (item.hotkey) {
+                    hotkeyRender = <span className="top-nav__hotkey">{item.hotkey}</span>;
+                }
 
-                            return (
-                                <Menu.Item key={item.key} onClick={this.showSettings}>
-                                    <span className="top-nav__item-name">{item.name}</span>
-                                    {hotkeyRender}
-                                </Menu.Item>
-                            );
-                        })
-                    }
-                </SubMenu>
-            );
+                subItems.push(
+                    <Menu.Item key={item.key} event={item.event}>
+                        <span className="top-nav__item-name">{item.name}</span>
+                        {hotkeyRender}
+                    </Menu.Item>
+                );
+            });
+
+            return <SubMenu title={item.name} key={item.key} children={subItems} />;
         });
 
         return (
@@ -84,7 +84,7 @@ export default class App extends Component {
                     <Header className="main-win__header">
                         <img src={omsLogo} className="main-win__logo"/>
 
-                        <Menu mode="horizontal" className="main-win__top-nav top-nav">
+                        <Menu mode="horizontal" className="main-win__top-nav top-nav" onClick={this.topMenuCallbacks}>
                             {topMenuRender}
                         </Menu>
                     </Header>
@@ -93,7 +93,7 @@ export default class App extends Component {
                     </Layout>
                     <Footer></Footer>
                 </Layout>
-                <Settings />
+                <Settings ref="modalSettings" />
             </div>
         );
     }

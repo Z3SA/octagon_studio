@@ -18,9 +18,7 @@ export default class Settings extends Component {
     }
 
     showModal = () => {
-        this.setState({
-            visible: true
-        });
+        this.setState({ visible: true });
     }
 
     handleApply = () => {
@@ -28,15 +26,11 @@ export default class Settings extends Component {
     }
 
     handleOk = () => {
-        this.setState({
-            visible: false
-        });
+        this.setState({ visible: false });
     }
 
     handleCancel = () => {
-        this.setState({
-            visible: false
-        });
+        this.setState({ visible: false });
     }
 
     render() {

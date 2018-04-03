@@ -1,13 +1,11 @@
 ﻿{
-  // Language info
   "INFO": {
   	"NAME": "english",
   	"ABBR": "en",
   	"IS_COMPLETED": "false"
   },
-  // Main window
+  
   "MAIN_WINDOW": {
-    // Top menu list
     "TOP_MENU": {
       "FILE_NAME": "File",
       "FILE_LIST": {
@@ -26,19 +24,16 @@
       }
     },
 
-    // Minimize / Maximize / Close
     "TOP_CONTROLLERS": {
       "MINIMIZE": "Minimize",
       "FULLSCREEN": "Maximize",
       "CLOSE": "Close"
     },
 
-    // Left menu
     "LEFT_MENU": {
       "COMPONENT_STRUCTURE": "Component structure"
     },
 
-    // Navigator
     "NAVIGATOR": {
       "BUTTONS": {
         "FILES": "Files",
@@ -47,7 +42,6 @@
       }
     },
 
-    // Status bar
     "STATUS_BAR": {
       "BUILD_STATUS": {
         "PRE_ALPHA": "Pre-alpha build",
@@ -77,7 +71,6 @@
     }
   },
 
-  // Window "Create Project"
   "CREATE_PROJECT": {
     "TITLE": "Create project",
     "LABELS": {
@@ -103,11 +96,9 @@
     }
   },
 
-  // Window "Program parameters"
   "PROG_PARAMS": {
     "TITLE": "Program parameters",
 
-    // Menu list
     "MENU": {
       "MAIN": "Main settings",
       "LAUNCH_N_DEBUG": "Launch and debug",
@@ -115,13 +106,11 @@
       "AUTHORITY": "Authority"
     },
 
-    // Buttons in footer
     "BOTTOM_BTNS": {
       "CANCEL": "Cancel",
       "APPLY": "Apply"
     },
 
-    // Page "Main settings"
     "MAIN": {
       "INTERFACE": {
         "TITLE": "Interface",
@@ -135,12 +124,10 @@
       }
     },
 
-    // Page "Platforms"
     "PLATFORMS": {
     	"TITLE": "Платформы"
     },
 
-    // Page "Authority"
     "AUTHORITY": {
     	"TITLE": "Authority"
     }

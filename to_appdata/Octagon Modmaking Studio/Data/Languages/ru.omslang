@@ -28,7 +28,8 @@
             "VIEW_NAME": "Вид",
             "EDIT_NAME": "Редактирование",
             "EDIT_LIST": {
-                "NOTES": "Заметки"
+                "NOTES": "Заметки",
+                "SETTINGS": "Настройки"
             },
             "PROJECT_NAME": "Проект",
             "PROJECT_LIST": {

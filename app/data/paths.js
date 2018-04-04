@@ -3,5 +3,6 @@ export const paths = {
     octagonCfg: "/octagon.omsdata",
     langsFolder: "/Languages",
     session: "/session.omsdata",
-    theme: "/theme.omsdata"
+    theme: "/theme.omsdata",
+    user: "/user.omsdata"
 };

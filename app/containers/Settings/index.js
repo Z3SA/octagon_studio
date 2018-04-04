@@ -18,8 +18,8 @@ export default class Settings extends Component {
     state = {
         visible: false,
         language: octagon.lang.abbr,
-        author: "Никита Z3SA Букин",
-        devTeam: "ImeSense"
+        author: octagon.user.user,
+        devTeam: octagon.user.devTeam
     }
     // Showing modal
     showModal = () => {

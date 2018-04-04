@@ -6,10 +6,10 @@ import OMSFile from '../utils/OMSFile';
 *  Each language package is in %APPDATA% folder of app.
 */
 export default class OMSLanguage {
-    name; // Full name of lang package
-    abbr; // Abbr of lang package for functions
-    isCompleted; // Is completed lang package or not
-    data; // Content of package
+    name: string; // Full name of lang package
+    abbr: string; // Abbr of lang package for functions
+    isCompleted: boolean; // Is completed lang package or not
+    data: object; // Content of package
 
     // Basic constructor
     constructor(_abbr, _name, _isCompleted, _data) {

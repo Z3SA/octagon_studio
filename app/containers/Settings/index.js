@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { octagon, LANG } from '../../index';
 import { Modal, Layout, Menu, Icon, Divider, Select, Button } from 'antd';
 import OMSFile from '../../data/utils/OMSFile';
+import OMS from '../../data/app/OMS';
 import { paths } from '../../data/paths';
 
 const { Sider, Content } = Layout;
@@ -22,11 +23,20 @@ export default class Settings extends Component {
         this.setState({ visible: true });
     }
 
+    handleLangChange = (value) => {
+        this.setState({ language: value });
+    }
+
+    saveSettings = () => {
+        OMS.saveConfig(octagon.version, this.state.language, octagon.buildStatus);
+    }
+
     handleApply = () => {
-        
+        this.saveSettings();
     }
 
     handleOk = () => {
+        this.saveSettings();
         this.setState({ visible: false });
     }
 
@@ -119,7 +129,7 @@ export default class Settings extends Component {
                                 <Divider className="settings-win__divider" />
 
                                 <h4>{LANG__SETTINGS.INTERFACE.LANGUAGE.TITLE}</h4>
-                                <Select style={{ width: 250 }} defaultValue={this.state.language}>
+                                <Select style={{ width: 250 }} defaultValue={this.state.language} onChange={this.handleLangChange}>
                                     {langsOptions}
                                 </Select>
                                 <Divider className="settings-win__divider" />

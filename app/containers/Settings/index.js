@@ -1,6 +1,6 @@
 // Modal window with program settings
 import React, { Component } from 'react';
-import { LANG } from '../../index';
+import { octagon, LANG } from '../../index';
 import { Modal, Layout, Menu, Icon, Divider, Select, Button } from 'antd';
 import OMSFile from '../../data/utils/OMSFile';
 import { paths } from '../../data/paths';
@@ -14,7 +14,8 @@ let LANG__SETTINGS;
 export default class Settings extends Component {
     // States of window
     state = {
-        visible: false
+        visible: false,
+        language: octagon.lang.abbr
     }
 
     showModal = () => {
@@ -74,7 +75,7 @@ export default class Settings extends Component {
         languages = languagesFiles.map((item) => {
             langsInfo.push(OMSFile.readJSON(langPath + item).INFO)
         }),
-        langsOptions = langsInfo.map((item) => <Select.Option key={item.ABBR} isCompleted={(item.IS_COMPLETED == 'true')}>{item.NAME}</Select.Option>);
+        langsOptions = langsInfo.map((item) => <Select.Option key={item.ABBR} isCompleted={(item.IS_COMPLETED == 'true')} value={item.ABBR}>{item.NAME}</Select.Option>);
 
         // Theme variants
         let themesInfo = [
@@ -118,13 +119,13 @@ export default class Settings extends Component {
                                 <Divider className="settings-win__divider" />
 
                                 <h4>{LANG__SETTINGS.INTERFACE.LANGUAGE.TITLE}</h4>
-                                <Select mode="combobox" style={{ width: 250 }}>
+                                <Select style={{ width: 250 }} defaultValue={this.state.language}>
                                     {langsOptions}
                                 </Select>
                                 <Divider className="settings-win__divider" />
 
                                 <h4>{LANG__SETTINGS.INTERFACE.THEME.TITLE}</h4>
-                                <Select mode="combobox" defaultValue="" disabled style={{ width: 250 }}>
+                                <Select disabled style={{ width: 250 }}>
                                     {themesOptions}
                                 </Select>
                                 <Divider className="settings-win__divider" />
@@ -132,7 +133,6 @@ export default class Settings extends Component {
                         </Content>
                     </Layout>
                 </Modal>
-                {/* <Button type="primary" onClick={this.showModal} /> */}
             </div>
         );
     }

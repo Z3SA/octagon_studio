@@ -1,13 +1,14 @@
 // Modal window with program settings
 import React, { Component } from 'react';
 import { octagon, LANG } from '../../index';
-import { Modal, Layout, Menu, Icon, Divider, Select, Button } from 'antd';
+import { Modal, Layout, Icon, Divider, Select, Button, Tabs, Input } from 'antd';
 import OMSFile from '../../data/utils/OMSFile';
 import OMS from '../../data/app/OMS';
 import { paths } from '../../data/paths';
 
 const { Sider, Content } = Layout;
-const MenuItem = Menu.Item;
+const TabPane = Tabs.TabPane;
+const settingsDivider = <Divider className="settings-win__divider" />;
 
 // Language package of window
 let LANG__SETTINGS;
@@ -16,63 +17,51 @@ export default class Settings extends Component {
     // States of window
     state = {
         visible: false,
-        language: octagon.lang.abbr
+        language: octagon.lang.abbr,
+        author: "Никита Z3SA Букин",
+        devTeam: "ImeSense"
     }
-
+    // Showing modal
     showModal = () => {
         this.setState({ visible: true });
     }
-
+    //Hiding modal
+    hideModal = () => {
+        this.setState({ visible: false });
+    }
+    // Change value of language 
     handleLangChange = (value) => {
         this.setState({ language: value });
     }
-
+    // Change value of author
+    handleAuthorChange = (e) => {
+        this.setState({ author: e.target.value });
+    }
+    // Change value of dev team that included current user
+    handleDevTeamChange = (e) => {
+        this.setState({ devTeam: e.target.value });
+    }
+    // Saving settings
     saveSettings = () => {
         OMS.saveConfig(octagon.version, this.state.language, octagon.buildStatus);
     }
-
+    // Click on button "Apply"
     handleApply = () => {
         this.saveSettings();
     }
-
+    // Click on button "OK"
     handleOk = () => {
         this.saveSettings();
-        this.setState({ visible: false });
-    }
-
-    handleCancel = () => {
-        this.setState({ visible: false });
+        this.hideModal();
     }
 
     render() {
         // Link on language pack of window
         LANG__SETTINGS = LANG.SETTINGS;
 
-        // Items of left menu 
-        let menuItems = [
-            {
-                key: "interface",
-                icon: "layout",
-                text: LANG__SETTINGS.MENU.INTERFACE
-            },
-            {
-                key: "authority",
-                icon: "team",
-                text: LANG__SETTINGS.MENU.AUTHORITY
-            }
-        ],
-
-        // Render of items of left menu
-        menuItemsRender = menuItems.map((item) => (
-            <MenuItem key={item.key}>
-                <Icon type={item.icon} />
-                <span>{item.text}</span>
-            </MenuItem>
-        )),
-
         // All bottom btns
-        bottomBtns = [
-            <Button key="back" onClick={this.handleCancel}>{LANG__SETTINGS.BOTTOM_BTNS.CANCEL}</Button>,
+        let bottomBtns = [
+            <Button key="cancel" onClick={this.hideModal}>{LANG__SETTINGS.BOTTOM_BTNS.CANCEL}</Button>,
             <Button key="apply" onClick={this.handleApply}>{LANG__SETTINGS.BOTTOM_BTNS.APPLY}</Button>,
             <Button key="OK" type="primary" onClick={this.handleOk}>OK</Button>
         ];
@@ -108,40 +97,79 @@ export default class Settings extends Component {
                 <Modal 
                     title={LANG__SETTINGS.TITLE}
                     visible={this.state.visible}
-                    onCancel={this.handleCancel}
+                    onCancel={this.hideModal}
                     footer={bottomBtns}
                     width={800}
                 >
-                    <Layout>
-                        <Sider>
-                            <Menu 
-                                onClick={this.handleClick} 
-                                mode="inline" 
-                                className="settings-win__menu"
+                    <Tabs
+                        defaultActiveKey="interface"
+                        tabPosition="left"
+                    >
+                        <TabPane 
+                            tab={<span><Icon type="layout" /> {LANG__SETTINGS.MENU.INTERFACE}</span>} 
+                            key="interface"
+                        >
+                            <h2>{LANG__SETTINGS.INTERFACE.TITLE}</h2>
+                            {settingsDivider}
+
+                            <h4>{LANG__SETTINGS.INTERFACE.LANGUAGE.TITLE}</h4>
+                            <Select 
+                                style={{ width: 250 }} 
+                                defaultValue={this.state.language} 
+                                onChange={this.handleLangChange}
                             >
-                                {menuItemsRender}
-                            </Menu>
-                        </Sider>
+                                {langsOptions}
+                            </Select>
+                            <p className="settings-win__param-desc">
+                                {LANG__SETTINGS.INTERFACE.LANGUAGE.DESC}
+                            </p>
+                            {settingsDivider}
 
-                        <Content className="settings-win__cont">
-                            <div>
-                                <h2>{LANG__SETTINGS.INTERFACE.TITLE}</h2>
-                                <Divider className="settings-win__divider" />
+                            <h4>{LANG__SETTINGS.INTERFACE.THEME.TITLE}</h4>
+                            <Select 
+                                disabled 
+                                style={{ width: 250 }}
+                            >
+                                {themesOptions}
+                            </Select>
+                            <p className="settings-win__param-desc">
+                                {LANG__SETTINGS.INTERFACE.THEME.DESC}
+                            </p>
+                            {settingsDivider}
+                        </TabPane>
 
-                                <h4>{LANG__SETTINGS.INTERFACE.LANGUAGE.TITLE}</h4>
-                                <Select style={{ width: 250 }} defaultValue={this.state.language} onChange={this.handleLangChange}>
-                                    {langsOptions}
-                                </Select>
-                                <Divider className="settings-win__divider" />
+                        <TabPane 
+                            tab={<span><Icon type="contacts" /> {LANG__SETTINGS.MENU.AUTHORITY}</span>} 
+                            key="authority"
+                        >
+                            <h2>{LANG__SETTINGS.AUTHORITY.TITLE}</h2>
+                            {settingsDivider}
 
-                                <h4>{LANG__SETTINGS.INTERFACE.THEME.TITLE}</h4>
-                                <Select disabled style={{ width: 250 }}>
-                                    {themesOptions}
-                                </Select>
-                                <Divider className="settings-win__divider" />
-                            </div>
-                        </Content>
-                    </Layout>
+                            <h4>{LANG__SETTINGS.AUTHORITY.USER.TITLE}</h4>
+                            <Input 
+                                style={{ width: 250 }} 
+                                placeholder={LANG__SETTINGS.AUTHORITY.USER.PLACEHOLDER} 
+                                value={this.state.author}
+                                onChange={this.handleAuthorChange}
+                            />
+                            <p className="settings-win__param-desc">
+                                {LANG__SETTINGS.AUTHORITY.USER.DESC}
+                            </p>
+                            {settingsDivider}
+
+                            <h4>{LANG__SETTINGS.AUTHORITY.DEV_TEAM.TITLE}</h4>
+                            <Input
+                                style={{ width: 250 }}
+                                placeholder={LANG__SETTINGS.AUTHORITY.DEV_TEAM.PLACEHOLDER}
+                                value={this.state.devTeam}
+                                onChange={this.handleDevTeamChange}
+                            />
+                            <p className="settings-win__param-desc">
+                                {LANG__SETTINGS.AUTHORITY.DEV_TEAM.DESC}
+                            </p>
+                            {settingsDivider}
+                        </TabPane>
+                    </Tabs>
                 </Modal>
             </div>
         );

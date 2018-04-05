@@ -135,7 +135,6 @@ export default class Settings extends Component {
                             <p className="settings-win__param-desc">
                                 {LANG__SETTINGS.INTERFACE.THEME.DESC}
                             </p>
-                            {settingsDivider}
                         </TabPane>
 
                         <TabPane 
@@ -167,7 +166,6 @@ export default class Settings extends Component {
                             <p className="settings-win__param-desc">
                                 {LANG__SETTINGS.AUTHORITY.DEV_TEAM.DESC}
                             </p>
-                            {settingsDivider}
                         </TabPane>
                     </Tabs>
                 </Modal>

@@ -112,6 +112,10 @@
     "SETTINGS": {
         "TITLE": "Настройки",
 
+        "STATUS": {
+            "SUCCESS": "Настройки успешно сохранены"
+        },
+
         "MENU": {
             "MAIN": "Основные настройки",
             "INTERFACE": "Интерфейс",
@@ -140,7 +144,20 @@
         },
 
         "PLATFORMS": {
-        	"TITLE": "Платформы"
+        	"TITLE": "Платформы",
+
+            "MENU": {
+                "ADD_NEW": "Добавить новую платформу",
+                "ADD_FROM_FOLDER": "Добавить из папки",
+                "REFRESH": "Обновить"
+            },
+
+            "TABLE_HEADER": {
+                "NAME": "Название",
+                "VERSION": "Версия",
+                "DEBUG": "Дебаг",
+                "SDK": "SDK"
+            }
         },
 
         "AUTHORITY": {

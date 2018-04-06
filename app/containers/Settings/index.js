@@ -1,9 +1,10 @@
 // Modal window with program settings
 import React, { Component } from 'react';
 import { octagon, LANG } from '../../index';
-import { Modal, Layout, Icon, Divider, Select, Button, Tabs, Input } from 'antd';
+import { Modal, Layout, Icon, Divider, Select, Button, Tabs, Input, message } from 'antd';
 import OMSFile from '../../data/utils/OMSFile';
 import OMS from '../../data/app/OMS';
+import OMSUser from '../../data/app/OMSUser';
 import { paths } from '../../data/paths';
 
 const { Sider, Content } = Layout;
@@ -44,6 +45,8 @@ export default class Settings extends Component {
     // Saving settings
     saveSettings = () => {
         OMS.saveConfig(octagon.version, this.state.language, octagon.buildStatus);
+        OMSUser.saveUser(this.state.author, this.state.devTeam, octagon.user.appKey);
+        message.success(LANG__SETTINGS.STATUS.SUCCESS, 3);        
     }
     // Click on button "Apply"
     handleApply = () => {

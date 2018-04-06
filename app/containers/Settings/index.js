@@ -1,15 +1,31 @@
 // Modal window with program settings
+// Importing React
 import React, { Component } from 'react';
+// Importing Ant D components
+import { Modal, Layout, Icon, Divider, Select, Button, Tabs, Input, message, Tooltip, Table } from 'antd';
+// Importing other components
+import TabLabel from '../../components/TabLabel';
+// Importing Octagon classes and data
 import { octagon, LANG } from '../../index';
-import { Modal, Layout, Icon, Divider, Select, Button, Tabs, Input, message } from 'antd';
 import OMSFile from '../../data/utils/OMSFile';
 import OMS from '../../data/app/OMS';
 import OMSUser from '../../data/app/OMSUser';
 import { paths } from '../../data/paths';
+// Importing Font Awesome
+import FAIcon from '@fortawesome/react-fontawesome';
+import faPlus from '@fortawesome/fontawesome-free-solid/faPlus';
+import faDownload from '@fortawesome/fontawesome-free-solid/faDownload';
+import faRefresh from '@fortawesome/fontawesome-free-solid/faRedo';
+import faPlatforms from '@fortawesome/fontawesome-free-solid/faInbox';
+import faAuthority from '@fortawesome/fontawesome-free-solid/faAddressCard';
+import faInterface from '@fortawesome/fontawesome-free-solid/faWindowRestore';
+import faOk from '@fortawesome/fontawesome-free-solid/faCheck';
+import faNone from '@fortawesome/fontawesome-free-solid/faMinus';
 
 const { Sider, Content } = Layout;
 const TabPane = Tabs.TabPane;
 const settingsDivider = <Divider className="settings-win__divider" />;
+const ButtonGroup = Button.Group;
 
 // Language package of window
 let LANG__SETTINGS;
@@ -79,21 +95,53 @@ export default class Settings extends Component {
         }),
         langsOptions = langsInfo.map((item) => <Select.Option key={item.ABBR} isCompleted={(item.IS_COMPLETED == 'true')} value={item.ABBR}>{item.NAME}</Select.Option>);
 
-        // Theme variants
-        let themesInfo = [
+        // Platforms table - columns
+        let platformsDataColumns = [
             {
-                name: "Стандартная",
-                key: "default"
+                title: LANG__SETTINGS.PLATFORMS.TABLE_HEADER.NAME,
+                dataIndex: "title",
+                key: "title"    
             },
             {
-                name: "Белая",
-                key: "White"
+                title: LANG__SETTINGS.PLATFORMS.TABLE_HEADER.VERSION,
+                dataIndex: "version",
+                key: "version"
+            },
+            {
+                title: LANG__SETTINGS.PLATFORMS.TABLE_HEADER.DEBUG,
+                dataIndex: "debug",
+                key: "debug"
+            },
+            {
+                title: LANG__SETTINGS.PLATFORMS.TABLE_HEADER.SDK,
+                dataIndex: "sdk",
+                key: "sdk"
             }
         ],
-        // Render of theme variants
-        themesOptions = themesInfo.map((item) => {
-            return <Select.Option key={item.key}>{item.name}</Select.Option>
-        });
+
+        platformsData = [
+            {
+                key: "1",
+                title: "Call of Pripyat",
+                version: "1.6.02",
+                debug: <FAIcon icon={faOk} />,
+                sdk: <FAIcon icon={faOk} />
+            },
+            {
+                key: "2",
+                title: "Call of Chernobyl",
+                version: "1.5",
+                debug: <FAIcon icon={faNone} />,
+                sdk: <FAIcon icon={faOk} />
+            },
+            {
+                key: "3",
+                title: "xrOxygen",
+                version: "0.3",
+                debug: <FAIcon icon={faOk} />,
+                sdk: <FAIcon icon={faNone} />
+            }
+        ];
 
         return(
             <div>
@@ -104,12 +152,14 @@ export default class Settings extends Component {
                     footer={bottomBtns}
                     width={800}
                 >
+                    {/* All tabs */}
                     <Tabs
                         defaultActiveKey="interface"
                         tabPosition="left"
                     >
+                        {/* Tab "Interface" */}
                         <TabPane 
-                            tab={<span><Icon type="layout" /> {LANG__SETTINGS.MENU.INTERFACE}</span>} 
+                            tab={<TabLabel icon={faInterface} title={LANG__SETTINGS.MENU.INTERFACE} />} 
                             key="interface"
                         >
                             <h2>{LANG__SETTINGS.INTERFACE.TITLE}</h2>
@@ -126,22 +176,11 @@ export default class Settings extends Component {
                             <p className="settings-win__param-desc">
                                 {LANG__SETTINGS.INTERFACE.LANGUAGE.DESC}
                             </p>
-                            {settingsDivider}
-
-                            <h4>{LANG__SETTINGS.INTERFACE.THEME.TITLE}</h4>
-                            <Select 
-                                disabled 
-                                style={{ width: 250 }}
-                            >
-                                {themesOptions}
-                            </Select>
-                            <p className="settings-win__param-desc">
-                                {LANG__SETTINGS.INTERFACE.THEME.DESC}
-                            </p>
                         </TabPane>
-
+                
+                        {/* Tab "Authority" */}
                         <TabPane 
-                            tab={<span><Icon type="contacts" /> {LANG__SETTINGS.MENU.AUTHORITY}</span>} 
+                            tab={<TabLabel icon={faAuthority} title={LANG__SETTINGS.MENU.AUTHORITY} />} 
                             key="authority"
                         >
                             <h2>{LANG__SETTINGS.AUTHORITY.TITLE}</h2>
@@ -169,6 +208,31 @@ export default class Settings extends Component {
                             <p className="settings-win__param-desc">
                                 {LANG__SETTINGS.AUTHORITY.DEV_TEAM.DESC}
                             </p>
+                        </TabPane>
+                        
+                        {/* Tab "Platforms" */}
+                        <TabPane
+                            tab={<TabLabel icon={faPlatforms} title={LANG__SETTINGS.MENU.PLATFORMS} />}
+                            key="platforms"
+                        >
+                            <h2>{LANG__SETTINGS.PLATFORMS.TITLE}</h2>
+                            {settingsDivider}
+
+                            <ButtonGroup className="settings-win__platforms-btn">
+                                <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.ADD_NEW}>
+                                    <Button><FAIcon icon={faPlus} /></Button>
+                                </Tooltip>
+                                <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.ADD_FROM_FOLDER}>
+                                    <Button><FAIcon icon={faDownload} /></Button>
+                                </Tooltip>
+                                <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.REFRESH}>
+                                    <Button><FAIcon icon={faRefresh} /></Button>
+                                </Tooltip>
+                            </ButtonGroup>
+
+                            <Table columns={platformsDataColumns} dataSource={platformsData}>
+
+                            </Table>
                         </TabPane>
                     </Tabs>
                 </Modal>

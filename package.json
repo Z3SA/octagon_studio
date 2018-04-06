@@ -192,6 +192,8 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/react-fontawesome": "0.0.18",
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",

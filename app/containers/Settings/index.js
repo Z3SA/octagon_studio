@@ -64,6 +64,10 @@ export default class Settings extends Component {
         this.hideModal();
     }
 
+    chooseFolder = () => {
+        console.log(OMSFile.chooseDir());
+    }
+
     render() {
         // Link on language pack of window
         LANG__SETTINGS = LANG.SETTINGS;
@@ -204,7 +208,7 @@ export default class Settings extends Component {
                                 <Button><FAIcon icon={faPlus} /></Button>
                             </Tooltip>
                             <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.ADD_FROM_FOLDER}>
-                                <Button><FAIcon icon={faDownload} /></Button>
+                                <Button onClick={this.chooseFolder}><FAIcon icon={faDownload} /></Button>
                             </Tooltip>
                             <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.REFRESH}>
                                 <Button><FAIcon icon={faRefresh} /></Button>

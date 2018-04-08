@@ -7,12 +7,14 @@ export default class OMSUser {
     devTeam: string;
     appKey: string;
     appIsValid: boolean;
+    platforms: array;
 
     constructor() {
         let currentUser = OMSFile.readJSON(paths.appData + paths.user);
 
         this.user = currentUser.user;
         this.devTeam = currentUser.dev_team;
+        this.platforms = currentUser.platforms;
         this.appIsValid = true;
 
         if (currentUser.app_key === "") {
@@ -37,11 +39,12 @@ export default class OMSUser {
         OMSFile.writeJSON(config, paths.appData + paths.user);
     }
 
-    static saveUser(user, devTeam, appKey) {
+    static saveUser(user, devTeam, platforms, appKey) {
         let config = {
+            app_key: appKey,
             user: user,
             dev_team: devTeam,
-            app_key: appKey
+            platforms: platforms
         }
 
         OMSFile.writeJSON(config, paths.appData + paths.user);

@@ -13,7 +13,7 @@ let LANG__MAIN_WIN;
 export default class App extends Component {
     // Show modal window - Settings
     showSettings = () => {
-        this.refs.modalSettings.showModal();;
+        this.refs.modalSettings.showModal();
     }
     // Top menu callbacks
     topMenuCallbacks = (e) => {

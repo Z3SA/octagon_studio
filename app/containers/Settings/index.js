@@ -48,18 +48,6 @@ export default class Settings extends Component {
     hideModal = () => {
         this.setState({ visible: false });
     }
-    // Change value of language 
-    handleLangChange = (value) => {
-        this.setState({ language: value });
-    }
-    // Change value of author
-    handleAuthorChange = (e) => {
-        this.setState({ author: e.target.value });
-    }
-    // Change value of dev team that included current user
-    handleDevTeamChange = (e) => {
-        this.setState({ devTeam: e.target.value });
-    }
     // Saving settings
     saveSettings = () => {
         OMS.saveConfig(octagon.version, this.state.language, octagon.buildStatus);
@@ -164,7 +152,7 @@ export default class Settings extends Component {
                             <Select 
                                 style={{ width: 250 }} 
                                 defaultValue={this.state.language} 
-                                onChange={this.handleLangChange}
+                                onChange={(value) => { this.setState({ language: value }) }}
                             >
                                 {langsOptions}
                             </Select>
@@ -186,7 +174,7 @@ export default class Settings extends Component {
                                 style={{ width: 250 }} 
                                 placeholder={LANG__SETTINGS.AUTHORITY.USER.PLACEHOLDER} 
                                 value={this.state.author}
-                                onChange={this.handleAuthorChange}
+                                onChange={(e) => { this.setState({ author: e.target.value }) }}
                             />
                         </SettingsParameter>
 
@@ -198,7 +186,7 @@ export default class Settings extends Component {
                                 style={{ width: 250 }}
                                 placeholder={LANG__SETTINGS.AUTHORITY.DEV_TEAM.PLACEHOLDER}
                                 value={this.state.devTeam}
-                                onChange={this.handleDevTeamChange}
+                                onChange={(e) => { this.setState({ devTeam: e.target.value }) }}
                             />
                         </SettingsParameter>
                     </TabPane>
@@ -222,8 +210,6 @@ export default class Settings extends Component {
                                 <Button><FAIcon icon={faRefresh} /></Button>
                             </Tooltip>
                         </ButtonGroup>
-
-                        <input type="file" ref="folderInput" />
 
                         <Table columns={platformsDataColumns} dataSource={this.state.platforms} />
                     </TabPane>

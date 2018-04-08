@@ -7,15 +7,15 @@ import { AppContainer } from 'react-hot-loader';
 import Root from './containers/Root';
 import { configureStore, history } from './store/configureStore';
 
+// Import OMS class
 import OMS from './data/app/OMS';
 
 // Importing styles
 import './.global.css';
 import './.global.less';
 
-// Settings of program in octagon.json
+// Settings of program in octagon.omsdata
 export const octagon = new OMS();
-
 export const LANG = octagon.lang.data;
 
 const store = configureStore();

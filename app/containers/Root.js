@@ -1,20 +1,24 @@
 // @flow
 // Main container of app with routes
+// Import React components
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { Switch, Route } from 'react-router';
-import Routes from '../routes';
+// Import locale provider of Ant D
 import { LocaleProvider } from 'antd';
 import ru_RU from 'antd/lib/locale-provider/ru_RU';
+// Import main window class
+import App from './App';
 
 export default class Root extends Component {
     render() {
+        const { store, history } = this.props;
         return (
             <LocaleProvider locale={ru_RU}>
-                <Provider store={this.props.store}>
-                    <ConnectedRouter history={this.props.history}>
-                        <Routes />
+                <Provider store={store}>
+                    <ConnectedRouter history={history}>
+                        <App />
                     </ConnectedRouter>
                 </Provider>
             </LocaleProvider>

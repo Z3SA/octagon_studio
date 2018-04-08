@@ -13,7 +13,6 @@
 // Importing electron and menubuilder
 import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
-import fs from 'fs';
 import { paths } from './data/paths';
 import OMSFile from './data/utils/OMSFile';
 
@@ -36,9 +35,9 @@ if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true')
 
 // Setting extensions on WebKit
 const installExtensions = async () => {
-    const installer = require('electron-devtools-installer');
-    const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-    const extensions = [
+    const installer = require('electron-devtools-installer'),
+    forceDownload = !!process.env.UPGRADE_EXTENSIONS,
+    extensions = [
         'REACT_DEVELOPER_TOOLS', // React tools
         'REDUX_DEVTOOLS' // Redux tools
     ];
@@ -68,6 +67,7 @@ app.on('ready', async () => {
         await installExtensions();
     }
 
+    // Intro will be shown only in production mode
     if (process.env.NODE_ENV === 'production') {
         // Creating intro splash screen (preloader)
         intro = new BrowserWindow({
@@ -86,6 +86,7 @@ app.on('ready', async () => {
         // Load page with splash screen
         intro.loadURL(`file://${__dirname}/containers/intro/index.html`);
 
+        // Show intro
         intro.once('ready-to-show', () => {
             intro.show();
         });
@@ -102,9 +103,8 @@ app.on('ready', async () => {
     // Page in window
     mainWindow.loadURL(`file://${__dirname}/app.html`);
 
-    // @TODO: Use 'ready-to-show' event
-    //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-    mainWindow.webContents.on('did-finish-load', () => {
+    // Setting main window to visible
+    mainWindow.once('ready-to-show', () => {
         if (!mainWindow) {
             throw new Error('"mainWindow" is not defined');
         }

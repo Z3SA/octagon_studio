@@ -80,8 +80,6 @@ export default class Settings extends Component {
         // Link on language pack of window
         LANG__SETTINGS = LANG.SETTINGS;
 
-        this.refs.folderInput.getDOMNode().setAttribute('webkitdirectory');
-
         // All bottom btns
         let bottomBtns = [
             <Button key="cancel" onClick={this.hideModal}>{LANG__SETTINGS.BOTTOM_BTNS.CANCEL}</Button>,

@@ -12,7 +12,7 @@ export default class OMSLanguage {
     data: object; // Content of package
 
     // Basic constructor
-    constructor(_abbr, _name, _isCompleted, _data) {
+    constructor(_abbr: string, _name: string, _isCompleted: boolean, _data: object) {
         if (_abbr != null) {
             if (_name === undefined) {
                 let langPath = paths.appData + paths.langsFolder + "/" + _abbr + ".omslang";
@@ -32,7 +32,7 @@ export default class OMSLanguage {
         }
     }
 
-    static loadInfo(_abbr) { // Loading lang package from file
+    static loadInfo(_abbr: string) { // Loading lang package from file
         let langPath = paths.appData + paths.langsFolder + _abbr + ".json",
         langData = OMSFile.readJSON(langPath),
         langInfo = langData.INFO;

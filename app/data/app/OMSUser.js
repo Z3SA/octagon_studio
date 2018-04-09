@@ -33,13 +33,14 @@ export default class OMSUser {
         let config = {
             user: this.user,
             dev_team: this.devTeam,
-            app_key: this.appKey
+            app_key: this.appKey,
+            platforms: this.platforms
         }
 
         OMSFile.writeJSON(config, paths.appData + paths.user);
     }
 
-    static saveUser(user, devTeam, platforms, appKey) {
+    static saveUser(user: string, devTeam: string, platforms: array, appKey: string) {
         let config = {
             app_key: appKey,
             user: user,

@@ -6,12 +6,12 @@ import OMSFile from '../utils/OMSFile';
 *  This data: position and size of window, last project, version of last launched build
 */
 export default class OMSSession {
-    winWidth;
-    winHeight; // Window size
-    winX;
-    winY; // Window position
-    project; // Last project in program
-    lastProjects; // Last 5 or 10 opened projects
+    winWidth: number;
+    winHeight: number; // Window size
+    winX: number;
+    winY: number; // Window position
+    project: string; // Last project in program
+    lastProjects: array; // Last 5 or 10 opened projects
 
     constructor() {
         this.winWidth = 1200;
@@ -30,7 +30,7 @@ export default class OMSSession {
         }
     }
 
-    static saveSession(winWidth, winHeight, winX, winY) {
+    static saveSession(winWidth: number, winHeight: number, winX: number, winY: number) {
         let saveSession = {
             width: this.winWidth,
             height: this.winHeight,

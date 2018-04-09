@@ -20,7 +20,7 @@ export default class OMS {
         this.user = new OMSUser();
     }
 
-    static saveConfig(version, lang, buildStatus) {
+    static saveConfig(version: string, lang: string, buildStatus: string) {
         let newConfig = {
             version: version,
             lang: lang,

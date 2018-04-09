@@ -4,7 +4,7 @@ import electron from 'electron';
 const electronRemote = electron.remote;
 
 export default class OMSFile {
-    static readJSON(file) { // Read json file and return JS-object
+    static readJSON(file: string) { // Read json file and return JS-object
         var result;
 
         result = fs.readFileSync(file, "utf8", (err, contents) => {    
@@ -26,11 +26,11 @@ export default class OMSFile {
         return JSON.parse(result.trim());
     }
 
-    static writeJSON(content, file) {
+    static writeJSON(content: object, file: string) {
         fs.writeFileSync(file, JSON.stringify(content), "utf8");
     }
 
-    static readDir(path) {
+    static readDir(path: string) {
         var result;
 
         result = fs.readdirSync(path, (err, contents) => {

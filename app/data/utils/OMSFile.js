@@ -55,4 +55,8 @@ export default class OMSFile {
 
         return (path === undefined) ? false : path[0];
     }
+
+    static exists(path) {
+        return fs.existsSync(path);
+    }
 }

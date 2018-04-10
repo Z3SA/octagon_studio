@@ -6,22 +6,19 @@ import { Modal, Layout, Icon, Divider, Select, Button, Tabs, Input, message, Too
 // Importing other components
 import TabLabel from '../../components/TabLabel';
 import SettingsParameter from '../../components/SettingsParameter';
+import Platforms from './Platforms';
 // Importing Octagon classes and data
 import { octagon, LANG } from '../../index';
 import OMSFile from '../../data/utils/OMSFile';
 import OMS from '../../data/app/OMS';
 import OMSUser from '../../data/app/OMSUser';
 import { paths } from '../../data/paths';
+import OMSPlatform from '../../data/content/OMSPlatform';
 // Importing Font Awesome
 import FAIcon from '@fortawesome/react-fontawesome';
-import faPlus from '@fortawesome/fontawesome-free-solid/faPlus';
-import faDownload from '@fortawesome/fontawesome-free-solid/faDownload';
-import faRefresh from '@fortawesome/fontawesome-free-solid/faRedo';
 import faPlatforms from '@fortawesome/fontawesome-free-solid/faInbox';
 import faAuthority from '@fortawesome/fontawesome-free-solid/faAddressCard';
 import faInterface from '@fortawesome/fontawesome-free-solid/faWindowRestore';
-import faOk from '@fortawesome/fontawesome-free-solid/faCheck';
-import faNone from '@fortawesome/fontawesome-free-solid/faMinus';
 
 const { Sider, Content } = Layout;
 const TabPane = Tabs.TabPane;
@@ -62,10 +59,6 @@ export default class Settings extends Component {
     handleOk = () => {
         this.saveSettings();
         this.hideModal();
-    }
-
-    chooseFolder = () => {
-        console.log(OMSFile.chooseDir());
     }
 
     render() {
@@ -203,19 +196,7 @@ export default class Settings extends Component {
                         <h2>{LANG__SETTINGS.PLATFORMS.TITLE}</h2>
                         {settingsDivider}
 
-                        <ButtonGroup className="settings-win__platforms-btn">
-                            <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.ADD_NEW}>
-                                <Button><FAIcon icon={faPlus} /></Button>
-                            </Tooltip>
-                            <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.ADD_FROM_FOLDER}>
-                                <Button onClick={this.chooseFolder}><FAIcon icon={faDownload} /></Button>
-                            </Tooltip>
-                            <Tooltip placement="top" title={LANG__SETTINGS.PLATFORMS.MENU.REFRESH}>
-                                <Button><FAIcon icon={faRefresh} /></Button>
-                            </Tooltip>
-                        </ButtonGroup>
-
-                        <Table columns={platformsDataColumns} dataSource={this.state.platforms} />
+                        <Platforms />
                     </TabPane>
                 </Tabs>
             </Modal>

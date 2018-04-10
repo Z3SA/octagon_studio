@@ -12,7 +12,7 @@ export default class OMSLanguage {
     data: object; // Content of package
 
     // Basic constructor
-    constructor(_abbr: string, _name: string, _isCompleted: boolean, _data: object) {
+    constructor(_abbr, _name, _isCompleted, _data) {
         if (_abbr != null) {
             if (_name === undefined) {
                 let langPath = paths.appData + paths.langsFolder + "/" + _abbr + ".omslang";

@@ -9,7 +9,6 @@ export default class OMSPlatform {
     desc: boolean;
     debug: boolean;
     sdk: boolean;
-    tags: array;
 
     constructor(path: string) {
         this.path = path;
@@ -25,23 +24,28 @@ export default class OMSPlatform {
         this.sdk = config.sdk;
     }
 
-    createTags() {
-        let tags = [];
+    // get tags() {
+    //     let tags = [];
 
-        if (debug) tags.push("Debug");
-        if (sdk) tags.push("SDK");
+    //     if (debug) tags.push("Debug");
+    //     if (sdk) tags.push("SDK");
 
-        this.tags = tags;
-    }
+    //     return tags;
+    // }
 
     formToMin() {
-        this.createTags();
+        let tags = [];
+
+        if (this.debug) tags.push("Debug");
+        if (!this.sdk.is_default_sdk) tags.push("SDK");
 
         let config = {
+            key: this.platformId,
             path: this.path,
             name: this.name,
             version: this.version,
-            tags: this.tags
+            tags: tags,
+            isValid: true
         };
 
         return config;

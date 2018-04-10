@@ -2,13 +2,15 @@
 // Import React
 import React, { Component } from 'react';
 // Import Ant D components
-import { Button, Tooltip, Table, message } from 'antd';
+import { Button, Tooltip, Table, message, Tag } from 'antd';
 // Import Octagon data
-import { octagon, LANG } from '../../index';
+import { octagon, LANG } from '../../../index';
+import OMSFile from '../../../data/utils/OMSFile';
+import OMSPlatform from '../../../data/content/OMSPlatform';
 // Import Font Awesome
 import FAIcon from '@fortawesome/react-fontawesome';
-import faAdd from '@fortawesome/fontawesome-free-solid/faAdd';
-import faDownload from '@fortawesome/fontawesome-free-solid/faDownload';
+import faAdd from '@fortawesome/fontawesome-free-solid/faPlus';
+import faLoad from '@fortawesome/fontawesome-free-solid/faDownload';
 import faRefresh from '@fortawesome/fontawesome-free-solid/faRedo';
 
 // Language package of window
@@ -31,10 +33,18 @@ export default class Platforms extends Component {
                 if ( !OMSFile.exists(path + '/.oms/main.omsplatform') ) {
                     throw LANG__PLATFORMS.ERROR.FOLDER_HAS_NOT_CFG;
                 }
-
+                
                 let newPlatform = new OMSPlatform(path + '/.oms/main.omsplatform');
-            } catch(e) {
-                message.error(e.message);
+                octagon.user.platforms.map((item) => {
+                    if (item.key === newPlatform.platformId)
+                        throw LANG__PLATFORMS.ERROR.PLATFORM_IS_DEFINED;
+                });
+
+                octagon.user.platforms.push( newPlatform.formToMin() );
+
+                this.setState({ platforms: octagon.user.platforms });
+            } catch(ex) {
+                message.error(ex);
             }
         }
     }
@@ -42,27 +52,35 @@ export default class Platforms extends Component {
     render() {
         LANG__PLATFORMS = LANG.SETTINGS.PLATFORMS;
 
+        console.log(octagon.user.platforms);
+
         let columns = [
             {
                 title: LANG__PLATFORMS.TABLE_HEADER.NAME,
-                dataIndex: "name",
-                key: "name"    
+                dataIndex: "name", key: "name"    
             },
             {
                 title: LANG__PLATFORMS.TABLE_HEADER.VERSION,
-                dataIndex: "version",
-                key: "version"
+                dataIndex: "version", key: "version"
             },
             {
                 title: "",
-                dataIndex: "tags",
-                key: "tags"
-                render: (text, record) => {
-                    console.log(text);
-                    console.log(record);
-                }
+                dataIndex: "tags", key: "tags",
+                render: (text) => (
+                    <span>
+                    {
+                        text.map((item, index) => {
+                            return <Tag key={index}>{item}</Tag>;
+                        })
+                    }
+                    </span>
+                )
+            },
+            {
+                title: "",
+                dataIndex: "isValid", key: "isValid"
             }
-        ]
+        ];
 
         return (
             <div>
@@ -71,7 +89,7 @@ export default class Platforms extends Component {
                         <Button><FAIcon icon={faAdd} /></Button>
                     </Tooltip>
                     <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_FROM_FOLDER}>
-                        <Button onClick={this.chooseFolder}><FAIcon icon={faDownload} /></Button>
+                        <Button onClick={this.chooseFolder}><FAIcon icon={faLoad} /></Button>
                     </Tooltip>
                     <Tooltip placement="top" title={LANG__PLATFORMS.MENU.REFRESH}>
                         <Button><FAIcon icon={faRefresh} /></Button>

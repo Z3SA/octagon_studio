@@ -7,6 +7,8 @@ import { Button, Tooltip, Table, message, Tag } from 'antd';
 import { octagon, LANG } from '../../../index';
 import OMSFile from '../../../data/utils/OMSFile';
 import OMSPlatform from '../../../data/content/OMSPlatform';
+// Import other components
+import AnalyzePlatform from '../AnalyzePlatform';
 // Import Font Awesome
 import FAIcon from '@fortawesome/react-fontawesome';
 import faAdd from '@fortawesome/fontawesome-free-solid/faPlus';
@@ -19,6 +21,10 @@ let LANG__PLATFORMS;
 export default class Platforms extends Component {
     state = {
         platforms: octagon.user.platforms
+    }
+
+    openAnalyze = () => {
+        this.refs.analyze.showModal();
     }
 
     chooseFolder = () => {
@@ -86,7 +92,7 @@ export default class Platforms extends Component {
             <div>
                 <Button.Group className="settings-win__platforms-btn">
                     <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_NEW}>
-                        <Button><FAIcon icon={faAdd} /></Button>
+                        <Button onClick={this.openAnalyze}><FAIcon icon={faAdd} /></Button>
                     </Tooltip>
                     <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_FROM_FOLDER}>
                         <Button onClick={this.chooseFolder}><FAIcon icon={faLoad} /></Button>
@@ -97,6 +103,8 @@ export default class Platforms extends Component {
                 </Button.Group>
 
                 <Table columns={columns} dataSource={this.state.platforms} />
+
+                <AnalyzePlatform ref="analyze" />
             </div>
         );
     }

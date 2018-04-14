@@ -16,7 +16,7 @@ export default class MainMenu extends Component {
                         let subItems = [];
                         item.items.map((item) => {
                             subItems.push(
-                                <Menu.Item key={item.key} event={item.event} disabled={item.disabled}>
+                                <Menu.Item key={item.key} event={item.event} disabled={item.inWorkDev && this.props.workDevDisabled}>
                                     <span className="top-nav__item-name">{item.name}</span>
                                     {(item.hotkey) ? <span className="top-nav__hotkey">{item.hotkey}</span> : ""}
                                 </Menu.Item>

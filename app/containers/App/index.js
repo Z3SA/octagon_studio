@@ -9,7 +9,7 @@ import { octagon, LANG } from '../../index';
 // Settings window
 import Settings from '../Settings';
 // Main top menu
-import MainMenu from '../MainMenu';
+import MainMenu from './MainMenu';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -17,6 +17,9 @@ const { SubMenu } = Menu;
 let LANG__MAIN_WIN;
 
 export default class App extends Component {
+    state = {
+        workMenuDisabled: true
+    }
     // Show modal window - Settings
     showSettings = () => {
         this.refs.modalSettings.showModal();
@@ -39,7 +42,7 @@ export default class App extends Component {
                     },
                     {
                         name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_OPEN,
-                        hotkey: "Ctrl+O", key: "file__open", event: null, disabled: true
+                        hotkey: "Ctrl+O", key: "file__open", event: null, inWorkDev: true
                     }
                 ]
             },
@@ -60,7 +63,11 @@ export default class App extends Component {
                 <Layout className="main-win">
                     <Header className="main-win__header">
                         <span className="main-win__logo" />
-                        <MainMenu eventHandler={(e) => { e.item.props.event() }} items={topMenu} />
+                        <MainMenu 
+                            eventHandler={(e) => { e.item.props.event() }} 
+                            items={topMenu} 
+                            workDevDisabled={this.state.workMenuDisabled} 
+                        />
                     </Header>
 
                     <Layout>

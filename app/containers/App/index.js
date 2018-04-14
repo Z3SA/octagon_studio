@@ -39,7 +39,7 @@ export default class App extends Component {
                     },
                     {
                         name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_OPEN,
-                        hotkey: "Ctrl+O", key: "file__open", event: null
+                        hotkey: "Ctrl+O", key: "file__open", event: null, disabled: true
                     }
                 ]
             },

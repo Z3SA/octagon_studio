@@ -15,16 +15,10 @@ export default class MainMenu extends Component {
                     this.props.items.map((item) => {
                         let subItems = [];
                         item.items.map((item) => {
-                            let hotkeyRender = "";
-            
-                            if (item.hotkey) {
-                                hotkeyRender = <span className="top-nav__hotkey">{item.hotkey}</span>;
-                            }
-            
                             subItems.push(
-                                <Menu.Item key={item.key} event={item.event}>
+                                <Menu.Item key={item.key} event={item.event} disabled={item.disabled}>
                                     <span className="top-nav__item-name">{item.name}</span>
-                                    {hotkeyRender}
+                                    {(item.hotkey) ? <span className="top-nav__hotkey">{item.hotkey}</span> : ""}
                                 </Menu.Item>
                             );
                         });

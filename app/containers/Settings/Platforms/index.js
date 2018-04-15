@@ -58,8 +58,6 @@ export default class Platforms extends Component {
     render() {
         LANG__PLATFORMS = LANG.SETTINGS.PLATFORMS;
 
-        console.log(octagon.user.platforms);
-
         let columns = [
             {
                 title: LANG__PLATFORMS.TABLE_HEADER.NAME,

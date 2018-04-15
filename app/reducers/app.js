@@ -4,15 +4,15 @@ import { TOGGLE_WORK_ENV, TOGGLE_SETTINGS_WIN } from "../actions/app";
 
 // Initial state of app
 const initialState = {
-    workDevEnabled: false,
+    workDevDisabled: true,
     settingsWinVisible: false
 }
 
-export default const appMain = (state = initialState, action) => {
+export default function appMain(state = initialState, action) {
     switch (action.type) {
         case TOGGLE_WORK_ENV:
             return Object.assign({}, state, {
-                workDevEnabled: action.state
+                workDevDisabled: action.state
             })
         case TOGGLE_SETTINGS_WIN:
             return Object.assign({}, state, {

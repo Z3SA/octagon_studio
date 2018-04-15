@@ -13,12 +13,22 @@ import OMS from './data/app/OMS';
 // Importing styles
 import './.global.css';
 import './.global.less';
+import { toggleWorkEnv, toggleSettings } from './actions/app';
 
 // Settings of program in octagon.omsdata
 export const octagon = new OMS();
 export const LANG = octagon.lang.data;
 
 const store = configureStore();
+
+console.log( store.getState() );
+
+let unsubscribe = store.subscribe( () => console.log(store.getState()) );
+
+store.dispatch(toggleWorkEnv(false));
+store.dispatch(toggleSettings(true));
+
+unsubscribe();
 
 render(
     <AppContainer>

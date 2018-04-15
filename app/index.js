@@ -21,15 +21,6 @@ export const LANG = octagon.lang.data;
 
 const store = configureStore();
 
-console.log( store.getState() );
-
-let unsubscribe = store.subscribe( () => console.log(store.getState()) );
-
-store.dispatch(toggleWorkEnv(false));
-store.dispatch(toggleSettings(true));
-
-unsubscribe();
-
 render(
     <AppContainer>
         <Root store={store} history={history} />

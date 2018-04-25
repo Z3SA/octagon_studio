@@ -7,7 +7,7 @@ import { Layout, Menu } from 'antd';
 // Octagon data
 import { octagon, LANG } from '../../index';
 // Settings window
-import Settings from '../Settings';
+import SettingsConnect from '../Settings/SettingsConnect';
 // Main top menu
 import MainMenu from './MainMenu';
 
@@ -16,18 +16,18 @@ const { SubMenu } = Menu;
 
 let LANG__MAIN_WIN;
 
-export default class App extends Component {
-    state = {
-        workMenuDisabled: true
-    }
-    // Show modal window - Settings
-    showSettings = () => {
-        this.refs.modalSettings.showModal();
-    }
+type Props = {
+    toggleSettings: (state) => void
+};
+
+export default class App extends Component<Props> {
+    props: Props;
 
     render() {
         // Choose lang package of window
         LANG__MAIN_WIN = LANG.MAIN_WINDOW;
+
+        const { toggleSettings } = this.props;
 
         // Content of top menu
         let topMenu = [
@@ -52,7 +52,7 @@ export default class App extends Component {
                 items: [
                     {
                         name: LANG__MAIN_WIN.TOP_MENU.EDIT_LIST.SETTINGS,
-                        hotkey: "F12", key: "edit__settings", event: this.showSettings
+                        hotkey: "F12", key: "edit__settings", event: () => { toggleSettings(true) }
                     }
                 ]
             }
@@ -66,7 +66,7 @@ export default class App extends Component {
                         <MainMenu 
                             eventHandler={(e) => { e.item.props.event() }} 
                             items={topMenu} 
-                            workDevDisabled={this.state.workMenuDisabled} 
+                            workDevDisabled={true} 
                         />
                     </Header>
 
@@ -78,7 +78,7 @@ export default class App extends Component {
                     
                     <Footer></Footer>
                 </Layout>
-                <Settings ref="modalSettings" />
+                <SettingsConnect />
             </div>
         );
     }

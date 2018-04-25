@@ -13,7 +13,6 @@ import OMS from './data/app/OMS';
 // Importing styles
 import './.global.css';
 import './.global.less';
-import { toggleWorkEnv, toggleSettings } from './actions/app';
 
 // Settings of program in octagon.omsdata
 export const octagon = new OMS();

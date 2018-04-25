@@ -28,10 +28,20 @@ const ButtonGroup = Button.Group;
 // Language package of window
 let LANG__SETTINGS;
 
-export default class Settings extends Component {
+type Props = {
+    winVisible: boolean
+}
+
+type State = {
+    winVisible: boolean
+}
+
+export default class Settings extends Component<Props> {
+    props: Props;
+
     // States of window
     state = {
-        visible: false,
+        visible: this.props.winVisible,
         language: octagon.lang.abbr,
         author: octagon.user.user,
         devTeam: octagon.user.devTeam,
@@ -61,7 +71,14 @@ export default class Settings extends Component {
         this.hideModal();
     }
 
+    componentWillReceiveProps = (nextProps) => {
+        this.setState({
+            visible: nextProps.winVisible
+        });
+    }
+
     render() {
+        console.log(this.props.winVisible);
         // Link on language pack of window
         LANG__SETTINGS = LANG.SETTINGS;
 
@@ -124,7 +141,7 @@ export default class Settings extends Component {
 
         return(
             <Modal 
-                title={LANG__SETTINGS.TITLE}
+                title={LANG__SETTINGS.TITLE + ' ' + this.props.winVisible}
                 visible={this.state.visible}
                 onCancel={this.hideModal}
                 footer={bottomBtns}

@@ -6,8 +6,6 @@ import { Switch, Route } from 'react-router';
 import { Layout, Menu } from 'antd';
 // Octagon data
 import { octagon, LANG } from '../../index';
-// Settings window
-import SettingsConnect from '../Settings/SettingsConnect';
 // Main top menu
 import MainMenu from './MainMenu';
 
@@ -16,18 +14,10 @@ const { SubMenu } = Menu;
 
 let LANG__MAIN_WIN;
 
-type Props = {
-    toggleSettings: (state) => void
-};
-
 export default class App extends Component<Props> {
-    props: Props;
-
     render() {
         // Choose lang package of window
         LANG__MAIN_WIN = LANG.MAIN_WINDOW;
-
-        const { toggleSettings } = this.props;
 
         // Content of top menu
         let topMenu = [
@@ -64,7 +54,7 @@ export default class App extends Component<Props> {
                     <Header className="main-win__header">
                         <span className="main-win__logo" />
                         <MainMenu 
-                            eventHandler={(e) => { e.item.props.event() }} 
+                            // eventHandler={(e) => { e.item.props.event() }} 
                             items={topMenu} 
                             workDevDisabled={true} 
                         />
@@ -78,7 +68,6 @@ export default class App extends Component<Props> {
                     
                     <Footer></Footer>
                 </Layout>
-                <SettingsConnect />
             </div>
         );
     }

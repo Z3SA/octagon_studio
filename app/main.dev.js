@@ -68,7 +68,7 @@ app.on('ready', async () => {
     }
 
     // Intro will be shown only in production mode
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'development') {
         // Creating intro splash screen (preloader)
         intro = new BrowserWindow({
             width: 499,
@@ -109,7 +109,7 @@ app.on('ready', async () => {
             throw new Error('"mainWindow" is not defined');
         }
         
-        if (process.env.NODE_ENV === 'production') {
+        if (process.env.NODE_ENV === 'development') {
             // 2,5 sec then main window'll show and splash'll hide
             setTimeout(() => {
                 intro.hide();

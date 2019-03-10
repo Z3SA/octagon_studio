@@ -15,10 +15,14 @@ import OMSUser from '../../data/app/OMSUser';
 import { paths } from '../../data/paths';
 import OMSPlatform from '../../data/content/OMSPlatform';
 // Importing Font Awesome
-import FAIcon from '@fortawesome/react-fontawesome';
 import faPlatforms from '@fortawesome/fontawesome-free-solid/faInbox';
 import faAuthority from '@fortawesome/fontawesome-free-solid/faAddressCard';
 import faInterface from '@fortawesome/fontawesome-free-solid/faWindowRestore';
+
+import FAIcon from '@fortawesome/react-fontawesome';
+import faAdd from '@fortawesome/fontawesome-free-solid/faPlus';
+import faLoad from '@fortawesome/fontawesome-free-solid/faDownload';
+import faRefresh from '@fortawesome/fontawesome-free-solid/faRedo';
 
 const { Sider, Content } = Layout;
 const TabPane = Tabs.TabPane;
@@ -85,8 +89,7 @@ export default class Settings extends Component<Props> {
         // All bottom btns
         let bottomBtns = [
             <Button key="cancel" onClick={this.hideModal}>{LANG__SETTINGS.BOTTOM_BTNS.CANCEL}</Button>,
-            <Button key="apply" onClick={this.handleApply}>{LANG__SETTINGS.BOTTOM_BTNS.APPLY}</Button>,
-            <Button key="OK" type="primary" onClick={this.handleOk}>OK</Button>
+            <Button key="OK" type="primary" onClick={this.handleOk}>Создать</Button>
         ];
 
         // Getting data about all languages for choosing other languages
@@ -141,81 +144,34 @@ export default class Settings extends Component<Props> {
 
         return(
             <Modal 
-                title={LANG__SETTINGS.TITLE + ' ' + this.props.winVisible}
-                visible={this.state.visible}
+                title="Создать проект"
+                visible={true}
                 onCancel={this.hideModal}
                 footer={bottomBtns}
-                width={800}
+                width={600}
             >
-                {/* All tabs */}
-                <Tabs
-                    defaultActiveKey="interface"
-                    tabPosition="left"
-                >
-                    {/* Tab "Interface" */}
-                    <TabPane 
-                        tab={<TabLabel icon={faInterface} title={LANG__SETTINGS.MENU.INTERFACE} />} 
-                        key="interface"
-                    >
-                        <h2>{LANG__SETTINGS.INTERFACE.TITLE}</h2>
+                <SettingsParameter title="Название проекта">
+                    <Input 
+                        style={{ width: 250 }}
+                        onChange={(e) => { this.setState({ author: e.target.value }) }}
+                    />
+                </SettingsParameter>
 
-                        <SettingsParameter 
-                            title={LANG__SETTINGS.INTERFACE.LANGUAGE.TITLE} 
-                            desc={LANG__SETTINGS.INTERFACE.LANGUAGE.DESC}
-                        >
-                            <Select 
-                                style={{ width: 250 }} 
-                                defaultValue={this.state.language} 
-                                onChange={(value) => { this.setState({ language: value }) }}
-                            >
-                                {langsOptions}
-                            </Select>
-                        </SettingsParameter>
-                    </TabPane>
-            
-                    {/* Tab "Authority" */}
-                    <TabPane 
-                        tab={<TabLabel icon={faAuthority} title={LANG__SETTINGS.MENU.AUTHORITY} />} 
-                        key="authority"
-                    >
-                        <h2>{LANG__SETTINGS.AUTHORITY.TITLE}</h2>
+                <SettingsParameter title="Описание проекта">
+                    <Input 
+                        style={{ width: 250 }}
+                        onChange={(e) => { this.setState({ author: e.target.value }) }}
+                    />
+                </SettingsParameter>
 
-                        <SettingsParameter 
-                            title={LANG__SETTINGS.AUTHORITY.USER.TITLE}
-                            desc={LANG__SETTINGS.AUTHORITY.USER.DESC}
-                        >
-                            <Input 
-                                style={{ width: 250 }} 
-                                placeholder={LANG__SETTINGS.AUTHORITY.USER.PLACEHOLDER} 
-                                value={this.state.author}
-                                onChange={(e) => { this.setState({ author: e.target.value }) }}
-                            />
-                        </SettingsParameter>
-
-                        <SettingsParameter
-                            title={LANG__SETTINGS.AUTHORITY.DEV_TEAM.TITLE}
-                            desc={LANG__SETTINGS.AUTHORITY.DEV_TEAM.DESC}
-                        >
-                            <Input
-                                style={{ width: 250 }}
-                                placeholder={LANG__SETTINGS.AUTHORITY.DEV_TEAM.PLACEHOLDER}
-                                value={this.state.devTeam}
-                                onChange={(e) => { this.setState({ devTeam: e.target.value }) }}
-                            />
-                        </SettingsParameter>
-                    </TabPane>
-                    
-                    {/* Tab "Platforms" */}
-                    <TabPane
-                        tab={<TabLabel icon={faPlatforms} title={LANG__SETTINGS.MENU.PLATFORMS} />}
-                        key="platforms"
-                    > 
-                        <h2>{LANG__SETTINGS.PLATFORMS.TITLE}</h2>
-                        {settingsDivider}
-
-                        <Platforms />
-                    </TabPane>
-                </Tabs>
+                <SettingsParameter title="Каталог проекта">
+                    <Input 
+                        style={{ width: 250 }}
+                        onChange={(e) => { this.setState({ author: e.target.value }) }}
+                    />
+                    {"  "}
+                    <Button onClick={this.chooseFolder}><FAIcon icon={faLoad} /></Button>
+                </SettingsParameter>
             </Modal>
         );
     }

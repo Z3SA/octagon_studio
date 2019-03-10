@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import { Switch, Route } from 'react-router';
+import { Switch, Route, Router } from 'react-router';
 // Import locale provider of Ant D
 import { LocaleProvider } from 'antd';
 import ru_RU from 'antd/lib/locale-provider/ru_RU';
@@ -23,9 +23,9 @@ export default class Root extends Component<Props> {
         return (
             <LocaleProvider locale={ru_RU}>
                 <Provider store={store}>
-                    <ConnectedRouter history={history}>
-                        <AppConnect />
-                    </ConnectedRouter>
+                    <Router history={history}>
+                        <Route path="/" component={App} />
+                    </Router>
                 </Provider>
             </LocaleProvider>
         );

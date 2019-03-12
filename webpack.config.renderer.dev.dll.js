@@ -8,16 +8,14 @@ import merge from 'webpack-merge';
 import baseConfig from './webpack.config.base';
 import { dependencies } from './package.json';
 import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
-import { paths } from './app/data/paths';
-import OMSFile from './app/data/utils/OMSFile';
-
-let themePath = paths.appData + paths.theme;
 
 CheckNodeEnv('development');
 
 const dist = path.resolve(process.cwd(), 'dll');
 
 export default merge.smart(baseConfig, {
+    mode: 'development',
+
     context: process.cwd(),
 
     devtool: 'eval',
@@ -101,9 +99,6 @@ export default merge.smart(baseConfig, {
                                 path.resolve(__dirname, "node_modules")
                             ],
                             javascriptEnabled: true,
-                            modifyVars: {
-                                '@theme': OMSFile.readJSON(themePath).theme
-                            }
                         }
                     }
                 ]

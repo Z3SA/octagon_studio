@@ -186,10 +186,10 @@
     "stylelint-config-standard": "^18.0.0",
     "uglifyjs-webpack-plugin": "1.1.8",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-bundle-analyzer": "^2.9.2",
-    "webpack-dev-server": "^2.11.1",
-    "webpack-merge": "^4.1.1"
+    "webpack": "^3.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-dev-server": "^2.11.3",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.5",

@@ -1,7 +1,6 @@
 // Main window
 // React components
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router';
 // Ant D components
 import { Layout, Menu } from 'antd';
 // Octagon data
@@ -62,7 +61,6 @@ export default class App extends Component<Props> {
 
                     <Layout>
                         <Content>
-                            <Switch></Switch>
                         </Content>
                     </Layout>
                     

@@ -22,11 +22,7 @@ export default class Root extends Component<Props> {
         const { store, history } = this.props;
         return (
             <LocaleProvider locale={ru_RU}>
-                <Provider store={store}>
-                    <Router history={history}>
-                        <Route path="/" component={App} />
-                    </Router>
-                </Provider>
+                <App />
             </LocaleProvider>
         );
     }

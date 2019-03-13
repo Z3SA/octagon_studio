@@ -1,32 +1,55 @@
+/* eslint global-require: 0, import/no-dynamic-require: 0 */
+
 /**
- * Builds the DLL for development electron renderer process
+ * Build config for development electron renderer process that uses
+ * Hot-Module-Replacement
+ *
+ * https://webpack.js.org/concepts/hot-module-replacement/
  */
 
-import webpack from 'webpack';
 import path from 'path';
+import fs from 'fs';
+import webpack from 'webpack';
+import chalk from 'chalk';
 import merge from 'webpack-merge';
+import { spawn, execSync } from 'child_process';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import baseConfig from './webpack.config.base';
-import { dependencies } from './package.json';
-import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
-
+import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 CheckNodeEnv('development');
 
-const dist = path.resolve(process.cwd(), 'dll');
+const port = process.env.PORT || 1212;
+const publicPath = `http://localhost:${port}/dist`;
+const dll = path.resolve(process.cwd(), 'dll');
+const manifest = path.resolve(dll, 'renderer.json');
+
+let themePath = paths.appData + paths.theme;
+
+/**
+ * Warn if the DLL is not built
+ */
+if (!(fs.existsSync(dll) && fs.existsSync(manifest))) {
+    console.log(chalk.black.bgYellow.bold('The DLL files are missing. Sit back while we build them for you with "npm run build-dll"'));
+    execSync('npm run build-dll');
+}
 
 export default merge.smart(baseConfig, {
-    mode: 'development',
-
-    context: process.cwd(),
-
-    devtool: 'eval',
+    devtool: 'inline-source-map',
 
     target: 'electron-renderer',
 
-    externals: ['fsevents', 'crypto-browserify'],
+    entry: [
+        'react-hot-loader/patch',
+        `webpack-dev-server/client?http://localhost:${port}/`,
+        'webpack/hot/only-dev-server',
+        path.join(__dirname, 'app/index.js')
+    ],
 
-    /**
-     * Use `module` from `webpack.config.renderer.dev.js`
-     */
+    output: {
+        publicPath: `http://localhost:${port}/dist/`,
+        filename: 'renderer.dev.js'
+    },
+
     module: {
         rules: [
             {
@@ -43,7 +66,7 @@ export default merge.smart(baseConfig, {
                             'transform-class-properties',
                             'transform-es2015-classes',
                             'react-hot-loader/babel'
-                        ],
+                        ]
                     }
                 }
             },
@@ -98,7 +121,7 @@ export default merge.smart(baseConfig, {
                             paths: [
                                 path.resolve(__dirname, "node_modules")
                             ],
-                            javascriptEnabled: true,
+                            javascriptEnabled: true
                         }
                     }
                 ]
@@ -110,9 +133,9 @@ export default merge.smart(baseConfig, {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        mimetype: 'application/font-woff',
+                        mimetype: 'application/font-woff'
                     }
-                },
+                }
             },
             // WOFF2 Font
             {
@@ -121,7 +144,7 @@ export default merge.smart(baseConfig, {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        mimetype: 'application/font-woff',
+                        mimetype: 'application/font-woff'
                     }
                 }
             },
@@ -139,69 +162,101 @@ export default merge.smart(baseConfig, {
             // EOT Font
             {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                use: 'file-loader',
+                use: 'file-loader'
             },
             // SVG Font
             {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 use: {
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    mimetype: 'image/svg+xml',
-                }
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        mimetype: 'image/svg+xml'
+                    }
                 }
             },
             // Common Image Formats
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
-                use: 'url-loader',
+                use: 'url-loader'
             }
         ]
     },
 
-    entry: {
-        renderer: (
-            Object
-            .keys(dependencies || {})
-            .filter(dependency => dependency !== 'font-awesome')
-        )
-    },
-
-    output: {
-        library: 'renderer',
-        path: dist,
-        filename: '[name].dev.dll.js',
-        libraryTarget: 'var'
-    },
-
     plugins: [
-        new webpack.DllPlugin({
-            path: path.join(dist, '[name].json'),
-            name: '[name]',
-        }),
+    new webpack.DllReferencePlugin({
+        context: process.cwd(),
+        manifest: require(manifest),
+        sourceType: 'var'
+    }),
 
-        /**
-         * Create global constants which can be configured at compile time.
-         *
-         * Useful for allowing different behaviour between development builds and
-         * release builds
-         *
-         * NODE_ENV should be production so that modules do not perform certain
-         * development checks
-         */
-        new webpack.EnvironmentPlugin({
-            NODE_ENV: 'development'
-        }),
+    new webpack.HotModuleReplacementPlugin({
+        multiStep: true
+    }),
 
-        new webpack.LoaderOptionsPlugin({
-            debug: true,
-            options: {
-                context: path.resolve(process.cwd(), 'app'),
-                output: {
-                    path: path.resolve(process.cwd(), 'dll'),
-                },
+    new webpack.NoEmitOnErrorsPlugin(),
+
+    /**
+     * Create global constants which can be configured at compile time.
+     *
+     * Useful for allowing different behaviour between development builds and
+     * release builds
+     *
+     * NODE_ENV should be production so that modules do not perform certain
+     * development checks
+     *
+     * By default, use 'development' as NODE_ENV. This can be overriden with
+     * 'staging', for example, by changing the ENV variables in the npm scripts
+     */
+    new webpack.EnvironmentPlugin({
+        NODE_ENV: 'development'
+    }),
+
+    new webpack.LoaderOptionsPlugin({
+        debug: true
+    }),
+
+    new ExtractTextPlugin({
+        filename: '[name].css'
+    }),
+    ],
+
+    node: {
+        __dirname: false,
+        __filename: false
+    },
+
+    devServer: {
+        port,
+        publicPath,
+        compress: true,
+        noInfo: true,
+        stats: 'errors-only',
+        inline: true,
+        lazy: false,
+        hot: true,
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        contentBase: path.join(__dirname, 'dist'),
+        watchOptions: {
+            aggregateTimeout: 300,
+            ignored: /node_modules/,
+            poll: 100
+        },
+        historyApiFallback: {
+            verbose: true,
+            disableDotRule: false,
+        },
+        before() {
+            if (process.env.START_HOT) {
+            console.log('Starting Main Process...');
+            spawn(
+                'npm',
+                ['run', 'start-main-dev'],
+                { shell: true, env: process.env, stdio: 'inherit' }
+            )
+                .on('close', code => process.exit(code))
+                .on('error', spawnError => console.error(spawnError));
             }
-        })
-    ]
+        }
+    },
 });

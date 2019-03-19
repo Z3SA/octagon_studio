@@ -13,6 +13,7 @@ import OMS from './data/app/OMS';
 // Importing styles
 import './.global.css';
 import './.global.less';
+import './app.global.css';
 
 // Settings of program in octagon.omsdata
 export const octagon = new OMS();
@@ -21,20 +22,21 @@ export const LANG = octagon.lang.data;
 const store = configureStore();
 
 render(
-    <AppContainer>
-        <Root store={store} history={history} />
-    </AppContainer>,
-    document.getElementById('root')
+  <AppContainer>
+    <Root store={store} history={history} />
+  </AppContainer>,
+  document.getElementById('root')
 );
 
 if (module.hot) {
-    module.hot.accept('./containers/Root', () => {
-        const NextRoot = require('./containers/Root'); // eslint-disable-line global-require
-        render(
-            <AppContainer>
-                <NextRoot store={store} history={history} />
-            </AppContainer>,
-            document.getElementById('root')
-        );
-    });
+  module.hot.accept('./containers/Root', () => {
+    // eslint-disable-next-line global-require
+    const NextRoot = require('./containers/Root').default;
+    render(
+      <AppContainer>
+        <NextRoot store={store} history={history} />
+      </AppContainer>,
+      document.getElementById('root')
+    );
+  });
 }

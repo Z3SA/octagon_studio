@@ -11,9 +11,7 @@ import { configureStore, history } from './store/configureStore';
 import OMS from './data/app/OMS';
 
 // Importing styles
-import './.global.css';
 import './.global.less';
-import './app.global.css';
 
 // Settings of program in octagon.omsdata
 export const octagon = new OMS();

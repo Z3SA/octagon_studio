@@ -96,7 +96,11 @@
     },
     "directories": {
       "buildResources": "resources",
-      "output": "release"
+      "output": "release",
+      "files": [
+        "**/*",
+        "resources/icon.*"
+      ]
     },
     "publish": {
       "provider": "github",

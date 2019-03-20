@@ -10,6 +10,7 @@
  *
  * @flow
  */
+import path from 'path';
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
@@ -90,7 +91,8 @@ app.on('ready', async () => {
       alwaysOnTop: true,
       webPreferences: {
         nodeIntegration: false
-      }
+      },
+      icon: path.join(__dirname, 'resources/icon.png')
     });
 
     // Load page with splash screen

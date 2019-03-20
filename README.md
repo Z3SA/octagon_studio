@@ -1,184 +1,184 @@
-# Об Octagon Modmaking Studio
+# About Octagon Modmaking Studio
 
-Octagon Modmaking Studio - программный комплекс, предназначенный для упрощённого создания модификаций для игры S.T.A.L.K.E.R.: Call of Pripyat, а также для модификации S.T.A.L.K.E.R.: Call of Chernobyl. На данный момент комплекс находится в начальной стадии разработки.
+Octagon Modmaking Studio is a program complex designed for simplified creation modifications for game S.T.A.L.K.E.R.: Call of Pripyat and for its modification S.T.A.L.K.E.R.: Call of Chernobyl. The complex is on the development stage now.
 
-Скачать релиз-версию можно будет на [сайте ImeSense](http://imesense.ru/octagon/).
-Документация будет распологаться [здесь](http://imesense.ru/octagon_docs/).
+The release version can be downloaded at [site ImeSense](http://imesense.ru/octagon/).
+Documentation will be placed [here](http://imesense.ru/octagon_docs/).
 
-# Текущая версия
+## Current version
 
 Octagon Modmaking Studio Mk 0 (pre-alpha)
 
-# Модули OMS
+## OMS modules
 
-Помимо главного окна, программный комплекс будет состоять из модулей, каждый из который выполняет свою узкую область функций:
+Besides the main window the program complex will consist of modules and each module will do actions in its own area of functions:
 
-- **Changes Manager**: модуль, контролирующий и фиксирующий изменения в модификации, планируется его интеграция с API GitHub.
-- **Редактирование параметров модификации**.
-- **Project Manager**: каждая модификация во время разработки будет представлять собой проект.
-- **Platform Manager**: в проекте модификации также обязательно наличие тестовой платформы для запуска и тестирования билдов модификации.
-- **Component Manager**: некоторые изменения игры в модификацию можно "подключать" посредством использования компонентов, которые создаются отдельно.
-- **Notes**: возможность ведения заметок для себя в программном комплексе, а также в самом проекте для других разработчиков проекта.
-- **Backup Manager**: возможность создания бэкапов модификации, восстановления модификации до определённого состояния с помощью них.
-- **Build Manager**: модуль, предназначенный для сборки файлов Octagon Modmaking Studio в рабочий вариант модификации, запуска модификации на тестовой или релизной версии платформы. Также данный модуль должен позволять пользователю запускать билд на определённой локации или на тестовой локации, которая включается в Octagon Modmaking Studio.
-- **Equipment Editor**: редактор всего снаряжения и используемых предметов в игре, кроме костюмов и вооружения.
-- **Clothes Editor**: редактор костю+мов и комбинезонов и их веток улучшения.
-- **Weapon Editor**: редактор вооружения в игре.
-- **Clans Editor**: редактор, позволяющий управлять группировками в игре.
-- **Artefacts Editor**: редактор для создания, редактирования и удаления артефактов в игре.
-- **Anomalies Editor**: редактор для изменения конфигурации и спауна аномалий.
-- **Locations Manager**: редактор, позволяющий подключать и отключать локации к модификации. 
-- **HUD Editor**: редактор, позволяющий удобно редактировать положение и наличие компонентов HUD.
-- **A-Life Editor**: редактор, позволяющий удобно изменять конфигурацию симуляции жизни в игре.
-- **Quest Editor**: редактор квестов.
-- **Converter Manager**: модуль с графическом редактором, позволяющий конвертировать некоторые файлы в форматы, понятные игре, и наоборот.
-- **Unit Editor**: редактор NPC и сквадов.
-- **Trade Editor**: редактор торговцев и их ассортимента.
-- **Weather Editor**: редактор конфигурации и пресетов погоды.
-- **Logs Analyzer**: анализатор логов при вылетах игры.
+- **Changes Manager**: a module that controls and fixes changes in a modification; an integration with API GitHub is planned.
+- **Modification parameters` editing**
+- **Project Manager**: on the stage of development each modification will be a project.
+- **Platform Manager**: a test platform for launching and testing builds of modification has to be in the project of modification.
+- **Component Manager**: some game changes can be added to the modification with using components that are created separately.
+- **Notes**: there is an opportunity to keep notes for yourself in the program complex and for other project developers in a project.
+- **Backup Manager**: there is an opportunity to make modification backups and to restore modification to the specific stage with their help.
+- **Build Manager**: a module that collects Octagon Modmaking Studio`s files in a working variant of modification and launches modification on a test or release platform version. Also this module has to allow the user running build on a specific or test location that launches in Octagon Modmaking Studio.
+- **Equipment Editor**: an editor of all equipment and things used in the game except for suits and weapon.
+- **Clothes Editor**: an editor of suits and their upgrade tree.
+- **Weapon Editor**: an editor of weapon in the game.
+- **Clans Editor**: an editor that allows the user to rule groupings in the game.
+- **Artefacts Editor**: an editor that allows to create, to edit and to delete artifacts in the game.
+- **Anomalies Editor**: an editor that allows to change configuration and anomalies` spawn.
+- **Locations Manager**: an editor that allows to connect and disconnect locations to the game.
+- **HUD Editor**: an editor that allows to edit HUD`s position and availability easily.
+- **A-Life Editor**: an editor that allows to change configuration of life simulation in game.
+- **Quest Editor**: an editor of visual quests.
+- **Converter Manager**: a module with graphical editor that allows to convert some files in a formats which are clear for the game. This action works conversely too.
+- **Unit Editor**: an editor of NPC and squads.
+- **Trade Editor**: an editor of traders and their assortment.
+- **Weather Editor**: an editor of configuration and presets of weather.
+- **Logs Analyzer**: an analyzer of logs when the game crashes.
 
-# Планируемая функциональность
+## Planning functionality
 
-Ниже будут описаны все функции, наличие которых запланировано в программном комплексе. Галочкой  &#10003; будут помечены те функции, которые уже реализованы. Жирным восклицательным знаком **!** будут отмечены те функции, которые обязательно должны присутствовать в первой релизной версии (Mk 1).
+All the functions that are planned in the program complex will be described below. Realized functions will be marked with a sign &#10003;. The functions which have to be in the first release version (Mk 1) will be marked with a bold exclamation point **!**.
 
-- Модуль "Project Manager":
-  - создание проекта **!** &#10003;
-  - сохранение проекта **!**
-  - возможность загрузки десяти последних открытых проектов или компонентов
-  - автозагрузка последнего проекта
-  - сохранение проекта в новую директорию **!**
-  - автосохранение проекта для предотвращения потери данных
-  - открытие проекта **!** &#10003;
-  - закрытие проекта (выход на стартовый экран) **!**
-  - сравнение проекта с другим для анализа различий и для возможности их последующего слияния **!**
-- Модуль "Platform Manager":
-  - копирование платформы игры при создании проекта или при выборе пользователя в папку проекта **!**
-  - возможность подключения пользовательских платформ **!**
-- Настройка интерфейса:
-  - изменение языка пользовательского интерфейса **!** &#10003;
-  - возможность создания и подлкючения новых языковых интерфейсов **!** &#10003;
-  - изменение цветовой темы оформления интерфейса 
-  - возможность создания цветовых тем оформления интерфейса
-  - сохранение положения и размеров главного окна для загрузки этих параметров при следующем открытии программы **!** &#10003;
-  - сортировка кнопок модулей программного комплекса в левой части **!**
-  - настройка отображения встроенных окон в рабочей области главного окна **!**
-- Модуль "Component Manager":
-  - выделение некоторых изменений модификации в компоненты
-  - экспорт компонентов
-  - импорт компонентов с проверкой на конфликтность с текущими изменениями проекта
-  - вывод списка всех компонентов в текущем проекте
-  - выделение свойств компонента
-  - редактирование свойств компонента
-- Модуль "Changes Manager":
-  - отслеживание изменений с использованием API git **!**
-  - загрузка проекта на GitHub в виде репозитория **!**
-  - просмотр истории изменений **!**
-- Наличие текстового редактора:
-  - редактирование текстовых файлов любых форматов **!**
-  - редактирование файлов формата XML, LTX и SCRIPT с соответствующей подсветкой синтаксиса **!**
-  - поиск и замена участков текста **!**
-  - автозакрытие тегов в XML **!**
-  - автодобавление правых кавычек, обычных, квадратных и фигурных скобок при вводе левой **!**
-  - замена табуляций на пробелы **!**
-  - регулирование количества пробелов в табуляциии
-  - подсказки при вводе
-  - разметка свойств со значениями в LTX файлах **!**
-- Модуль "Notes":
-  - создание, редактирование и удаление заметок в программе
-  - создание, редактирование и удаление заметок в проекте
-- Модуль "Backup Manager":
-  - создание бэкапа
-  - восстановление проекта из бэкапа
-  - просмотр всех бэкапов проекта
-- Модуль "Build Manager":
-  - сборка билда для отладки **!**
-  - сборка релиз-билда **!**
-  - запуск билда для отладки на одном из игровых уровней **!**
-  - запуск билда для отладки на тестовом уровне **!**
-  - запуск релиз-билда на одном из игровых уровней **!**
-  - запуск релиз-билда с новой игрой 
-  - запуск релиз-билда с определённого сохранения
-  - сборка патча **!**
-  - сборка патча и экспорт для публикации в сети **!**
-- Модуль "Equipment Editor":
-  - создание элементов снаряжения следующих категорий: еда, медикаменты, квестовые предметы и пр.
-  - создание элементов снаряжения с использованием конфигурации уже имеющегося элемента
-  - изменение созданных элементов снаряжения
-  - удаление элементов снаряжения
-  - изменение параметров бинокля
-  - изменение параметров болтов
-- Модуль "Weapon Editor":
-  - создание единиц вооружения следующих типов: пистолет, пистолет-пулемёт, автоматическая винтовка, снайперская винтовка, гранатомёт и пр.
-  - возможность создания нового типа оружия
-  - изменение созданных единиц вооружения
-  - удаление единиц вооружения
-  - создание, изменение и удаление веток улучшения оружия
-  - создание, изменение и удаление аддонов для оружия
-  - создание, изменение и удаление боеприпасов
-  - создание, изменение и удаление гранат
-  - изменение параметров холодного оружия
-- Модуль "Clans Editor":
-  - создание, изменение и удаление группировок
-  - настройка отношений между группировками  
-- Модуль "Artefacts Editor":
-  - создание, изменение и удаление артефактов
-  - изменение вероятности выпадения артефакта в аномалиях
-- Модуль "Anomalies Editor":
-  - создание, изменение и удаление аномалий
-  - изменение партиклей аномалий
-- Модуль "Locations Manager":
-  - подключение и отключение локаций
-  - редактирование конфигурации локации
-  - редактирование глобальной карты игры в визуальном редакторе
-  - соединение локаций между собой
-- Модуль "HUD Edtior":
-  - подключение и отключение компонентов HUD
-  - редактирование положения компонентов HUD
-  - редактирование параметров компонентов HUD
-- Модуль "A-Life Editor":
-  - изменение поведения искусственного интеллекта
-  - редактирование онлайн- и оффлайн-зон поведения NPC
-- Модуль "Quest Editor":
-  - добавление и удаление квестов в визуальном редакторе
-  - редактирование квестов в визуальном редакторе
-  - загрузка примеров квестов
-- Модуль "Converter Manager":
-  - распаковка и запаковка игровых ресурсов
-  - декомпиляция игровых уровней
-- Модуль "Unit Editor":
-  - создание, удаление и редактирование NPC
-  - создание, удаление и редактирование сквадов
-  - создание, удаление и редактирование поведения сквадов
-- Модуль "Trade Editor":
-  - создание, удаление и редактирование торговцев
-  - редактирование ассортимента торговцев
-- Модуль "Weather Editor":
-  - редактирование установок погоды
-  - редактирование погодных циклов
-- Модуль "Logs Analyzer":
-  - перехват логов сразу после вылетов одной из платформ во время тестирования
-  - анализ перехваченного лога для определения причины ошибки и её решения
-  - загрузка лога и проделанных изменений для дальнейшего его анализа и изучения в случае отсутствия причины и решения у лога
-  - уведомление пользователя системы, если для его неисследованного лога была обнаружена причина и решение
-- Прочие функции:
-  - просмотр всех файлов проекта в правой части главного окна **!**
-  - открытие директории проекта в Проводнике **!**
-  - изменение путей до платформ **!**
-  - изменение пути до X-Ray SDK **!**
-  - изменение автора и команды-разработчика в текущей версии программы **!**
-  - вывод статистической информации о проект (дата создания, количество изменений, последнее изменение и т.д.)
-  - запуск редакторов X-Ray SDK **!**
-  - показ списка изменений исходного кода движка с приложением файлов, в которых были проделаны изменения
-  - изменение файла fsgame.ltx
-  - изменение файла user.ltx
-  - открытие сайта dn.imesense.ru из программы **!**
-  - вывод списка поддерживаемых горячих клавиш **!**
-  - открытие сайта imesense.ru/octagon_docs из программы **!**
-  - открытие сайта z3sa.ru и imesense.ru из программы **!**
-  - проверка наличия обновлений у программы **!**
-  - вывод всей информации о текущей ревизии программы **!**
-  - возможность отправить сообщение о баге, замечании или предложении **!**
+- The module "Project Manager":
+  - project creating **!** &#10003;
+  - project saving **!**
+  - an opportunity to choose and open ten recent projects or components
+  - an automatic loading of the last project
+  - saving a project in a new directory **!**
+  - an automatic project saving to prevent data loss
+  - project opening **!**
+  - project closing (with an output to the start screen) **!**
+  - comparing one project with another to analyze differences and to combine them after **!**
+- The module "Platform Manager":
+  - copying game platform when a project is created or when the user chooses project`s folder **!**
+  - an oppotunity to connect users` platforms **!**
+- Interfase settings:
+  - language changing of users` interface **!** &#10003;
+  - an opportunity to create and connect new language interfaces **!** &#10003;
+  - changing interface color scheme
+  - an opportunity to create interface color schemes
+  - saving position and main window sizes to open these parameters when the program will be opened next time **!**
+  - sorting program complex modules` buttons at the left side **!**
+  - tuning inbuilt windows` display in the workspace of main window **!**
+- The module "Component Manager":
+  - an assignment of modification`s changes into components
+  - components export
+  - components import and checking for conflict with current project changes
+  - showing the list of all components in a current project
+  - an assignment component`s properties
+  - an editing component`s properties
+- The module "Changes Manager":
+  - tracing changes using API git **!**
+  - uploading project at GitHub as a repository **!**
+  - an opportunity to view change history **!**
+- Text editor availability:
+  - editing text files of all formats **!**
+  - editing XML, LTX and SCRIPT files with an appropriate illumination of syntax **!**
+  - seaching and exchanging text areas **!**
+  - an automatic closing tegs in XML **!**
+  - an automatic adding the right quotes, simple and square brackets and braces when the left one has been used yet **!**
+  - a replacement tabs on spaces **!**
+  - a regulation of spaces quantity in tab
+  - a tips when a text is entered
+  - a layout of properties with values in LTX files **!**
+- The module "Notes":
+  - a creating, an editing and a deleting notes in the program
+  - a creating, an editing and a deleting notes in the project
+- The module "Backup Manager":
+  - backup making
+  - a recovering project from the backup
+  - an opportunity to view all project backups
+- The module "Build Manager":
+  - a build assembling for debugging **!**
+  - a release build assembling **!**
+  - a build launching to debug at one of game levels **!**
+  - a build launching to debug at the test level **!**
+  - a release build launching at one of game levels **!**
+  - a release build launching with a new game
+  - a release build launching from the certain preservation
+  - a patch assembly **!**
+  - a patch assembly and an exporting to publish **!**
+- The module "Equipment Editor":
+  - making equipment elements of meal, meds, quest things, etc.
+  - making equipment elements using available element`s configuration
+  - editing made equipment elements
+  - deleting made equipment elements
+  - changing binoculars` parameters
+  - chaching bolt`s parameters
+- The module "Weapon Editor":
+  - creating weapon such as a pistol, a submachine gun, an automatic rifle, a sniper rifle, a grenade launcher, etc.
+  - an opportunity to create a new type of weapon
+  - editing made weapon elements
+  - the removal of weapon
+  - a creation, an editing and a deleting weapon upgrade trees
+  - a creation, an editing and a deleting weapon additions
+  - a creation, an editing and a deleting an ammunition
+  - a creation, an editing and a deleting grenades
+  - a creation, an editing and a deleting steel arms
+- The module "Clans Editor":
+  - a creation, an editing and a deleting groups
+  - configurating relations between the groups
+- The module "Artifacts Editor":
+  - a creation, an editing and a deleting artifacts
+  - changing likelihood an artifact in anomalies
+- The module "Anomalies Editor":
+  - a creation, an editing and a deleting anomalies
+  - changing anomalies` particles
+- The module "Locations Manager":
+  - connection and disconnection locations
+  - editing location configuration
+  - editing the game global map in a visual editor
+  - connecting locations between each other
+- The module "HUD Edtior":
+  - connection and disconnection HUD components
+  - an editing HUD components position
+  - an editing YUD components parameters
+- The module "A-Life Editor":
+  - changing AI`s behavior
+  - an editing online and offline zones of NPS`s behavior
+- The module "Quest Editor":
+  - an adding and a deleting quests in a visual editor
+  - an editing quests in a visual editor
+  - uploading quests examples
+- The module "Converter Manager":
+  - packing and unpacking game resources
+  - game levels decompilation
+- The module "Unit Editor":
+  - a creation, an editing and a deleting NPC
+  - a creation, an editing and a deleting squads
+  - a creation, an editing and a deleting squads behavior
+- The module "Trade Editor":
+  - a creation, an editing and a deleting traders
+  - an editing traders` assortment
+- The module "Weather Editor":
+  - an editing weather settings
+  - an editing weather cycles
+- The module "Logs Analyzer":
+  - logs interception at once one platform is crashed in the test time
+  - an intercepted log analysis to get error cause and to decide it
+  - log and made changes uploading to analyze and to discover it in the absence of log`s cause and decision
+  - the notification will be sent to system user if his undiscovered log gets a cause and a decision
+- Other functions
+  - an opportunity to view all the project files in the right part of the main window **!**
+  - project directory opening in the Windows Explorer window **!**
+  - changing ways to the platforms **!**
+  - changing way to X-Ray SDK **!**
+  - changing an author and a team-developer in the current program version **!**
+  - an opportunity to view a statistic information about the project such as creation date, changes quantity, last changes, etc.
+  - launching X-Ray SDK editors **!**
+  - showing the engine source code changelog adding files which were changed
+  - changing fsgame.ltx file
+  - changing user.ltx file
+  - opening dn.imesense.ru site from the program **!**
+  - showing the list of available hotkeys **!**
+  - opening imesense.ru/octagon_docs site from the program **!**
+  - opening z3sa.ru and imesense.ru sites from the program **!**
+  - checking program updates availability **!**
+  - showing all the information about the current program revision **!**
+  - an opportunity to send a message about a bug, a remark or an offer **!**
 
-Конфигурация программного комплекса хранится в папке текущего пользователя/Application Data/Roaming/Octagon Studio/. Конфигурация, а также наработки проекта хранятся только в папке проекта/.octagon/. Все данные будут, кроме языковых пакетов, будут храниться в формате XML. Языковые пакеты имеют формат JSON.
+The program complex configuration is placed in a current user folder/Application Data/Roaming/Octagon Studio/. A configuration and a project developments are placed in the project folder/.octagon/. All the data besides language packs will be saved as XML files. Language packs will have JSON format.
 
-Некоторые функции могут быть неточны, переработаны или удалены в связи с "погружением" разработчика в разработку модификаций. К сожалению, опыт в разработке модификаций у разработчика минимальный.
+Some functions can be inaccurate, revorked or deleted because of developer`s dive into the modification development. Unfortunally, the developer has a minimal experience in the modification development.

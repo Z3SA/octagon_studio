@@ -53,7 +53,6 @@ before_install:
 
 install:
   - yarn --ignore-engines
-  # On Linux, initialize "virtual display". See before_script
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       /sbin/start-stop-daemon \
@@ -69,7 +68,6 @@ install:
     fi
 
 before_script:
-  # On Linux, create a "virtual display". This allows browsers to work properly
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sleep 3; fi
@@ -78,7 +76,6 @@ script:
   - yarn package-ci
   - yarn lint
   - yarn flow
-  # HACK: Temporarily ignore `yarn test` on linux
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then yarn test; fi
   - yarn build-e2e
   - yarn test-e2e

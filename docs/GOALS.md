@@ -3,10 +3,11 @@
 ## Dev environment
 
 - [x] Moved from two-package.json structure to one-package.json
-- [ ] Removed all excess code
+- [x] Removed all excess code
 - [ ] Integrated TypeScript
 - [ ] Removed Flow
 - [ ] Updated ES of Babel and ESLint to ECMAScript 9
+- [ ] Updated React to 16.8
 
 ---
 

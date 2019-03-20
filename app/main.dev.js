@@ -14,7 +14,6 @@ import path from 'path';
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
-import MenuBuilder from './menu';
 
 import { paths } from './data/paths';
 import OMSFile from './data/utils/OMSFile';
@@ -109,8 +108,10 @@ app.on('ready', async () => {
     show: false,
     width: session.width,
     height: session.height,
-    menu: false
+    autoHideMenuBar: true
   });
+
+  mainWindow.setMenu(null);
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
@@ -137,9 +138,6 @@ app.on('ready', async () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
-
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

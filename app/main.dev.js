@@ -19,12 +19,13 @@ import { paths } from './data/paths';
 import OMSFile from './data/utils/OMSFile';
 
 // Create main window
-let mainWindow = null,
-    intro = null;
+let mainWindow = null;
+
+let intro = null;
 
 // Loading session val
-let sessionPath = paths.appData + paths.session
-let session = OMSFile.readJSON(sessionPath);
+const sessionPath = paths.appData + paths.session;
+const session = OMSFile.readJSON(sessionPath);
 
 export default class AppUpdater {
   constructor() {
@@ -80,16 +81,16 @@ app.on('ready', async () => {
   if (process.env.NODE_ENV === 'development') {
     // Creating intro splash screen (preloader)
     intro = new BrowserWindow({
-        width: 499,
-        height: 319,
-        center: true,
-        frame: false,
-        backgroundColor: '#1b1b1b',
-        show: false,
-        alwaysOnTop: true,
-        webPreferences: {
-            nodeIntegration: false
-        }
+      width: 499,
+      height: 319,
+      center: true,
+      frame: false,
+      backgroundColor: '#1b1b1b',
+      show: false,
+      alwaysOnTop: true,
+      webPreferences: {
+        nodeIntegration: false
+      }
     });
 
     // Load page with splash screen
@@ -97,9 +98,9 @@ app.on('ready', async () => {
 
     // Show intro
     intro.once('ready-to-show', () => {
-        intro.show();
+      intro.show();
     });
-}
+  }
 
   // Settings of main window
   mainWindow = new BrowserWindow({
@@ -114,20 +115,20 @@ app.on('ready', async () => {
   // Setting main window to visible
   mainWindow.once('ready-to-show', () => {
     if (!mainWindow) {
-        throw new Error('"mainWindow" is not defined');
+      throw new Error('"mainWindow" is not defined');
     }
 
     if (process.env.NODE_ENV === 'development') {
-        // 2,5 sec then main window'll show and splash'll hide
-        setTimeout(() => {
-            intro.hide();
+      // 2,5 sec then main window'll show and splash'll hide
+      setTimeout(() => {
+        intro.hide();
 
-            mainWindow.show();
-            mainWindow.focus();
-        }, 2500);
-    } else {
         mainWindow.show();
         mainWindow.focus();
+      }, 2500);
+    } else {
+      mainWindow.show();
+      mainWindow.focus();
     }
   });
 

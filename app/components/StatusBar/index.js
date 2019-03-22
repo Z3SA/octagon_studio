@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import './StatusBar.scss';
+import ReactPropTypes from 'prop-types';
 
 export default class StatusBar extends Component {
-    render() {
-        // Rendering status bar items
-        var currentClass = "status-bar",
-            items = this.props.items,
-            itemsRender = items.map((item, i) => {
-                return <span key={i} className="status-bar__item">{item}</span>
-            });
+  static propTypes = {
+    items: ReactPropTypes.arrayOf.isRequired,
+    parent: ReactPropTypes.string.isRequired
+  };
 
-        // Parent of status bar
-        if (this.props.parent) {
-            currentClass += " " + this.props.parent + "__status-bar";
-        }
+  render() {
+    // Rendering status bar items
+    let currentClass = 'status-bar';
 
-        return(
-            <footer className={currentClass}>
-                {itemsRender}
-            </footer>
-        );
+    const { items, parent } = this.props;
+
+    const itemsRender = items.map(item => (
+      <span className="status-bar__item">{item}</span>
+    ));
+
+    // Parent of status bar
+    if (parent) {
+      currentClass += ` ${parent}__status-bar`;
     }
+
+    return <footer className={currentClass}>{itemsRender}</footer>;
+  }
 }

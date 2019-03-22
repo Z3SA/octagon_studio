@@ -1,66 +1,51 @@
 import React, { Component } from 'react';
+import * as PropTypes from 'prop-types';
 import './Menu.scss';
+import MenuSeparator from './MenuSeparator';
+import MenuItem from './MenuItem';
 
 export default class Menu extends Component {
-    render() {
-        // Default class
-        let currentClass = "menu";
+  static propTypes = {
+    dir: PropTypes.string.isRequired,
+    parent: PropTypes.string.isRequired,
+    isSub: PropTypes.bool.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+    items: PropTypes.any.isRequired
+  };
 
-        // Direction of menu (vertical or horizontal)
-        if (this.props.dir) {
-            currentClass += " menu--" + this.props.dir;
-        }
+  render() {
+    const { dir, parent, isSub, items } = this.props;
+    // Default class
+    let currentClass = 'menu';
 
-        // Parent of menu
-        if (this.props.parent) {
-            currentClass += " " + this.props.parent + "__menu";
-        }
-
-        // Menu is submenu or not
-        if (this.props.isSub) {
-            currentClass += " menu--sub";
-        }
-
-        // Rendering menu items
-        let items = this.props.items;
-        let itemsRender = items.map((item, i) => {
-            if (item.type === "separator") {
-                return <MenuSeparator />
-            } else {
-                return <MenuItem key={i} name={item.name} items={item.items} rightPart={item.rightPart} />
-            }
-        });
-
-        return (
-            <menu className={currentClass}>
-                {itemsRender}
-            </menu>
-        );
+    // Direction of menu (vertical or horizontal)
+    if (dir) {
+      currentClass += ` menu--${dir}`;
     }
-}
 
-// Separator for menus
-class MenuSeparator extends Component {
-    render() {
-        return <li className="menu__separator"></li>
+    // Parent of menu
+    if (parent) {
+      currentClass += ` ${parent}__menu`;
     }
-}
 
-// 
-class MenuItem extends Component {
-    render() {
-        var subMenu = "",
-            subItems = this.props.items;
-        if (subItems) {
-            subMenu = <Menu dir="vertical" isSub={true} items={subItems} />
-        } 
-
-        return (
-            <li className="menu__item menu-item">
-                <span className="menu-item__name">{this.props.name}</span>
-                <span className="menu-item__right">{this.props.rightPart}</span>
-                {subMenu}
-            </li>
-        );
+    // Menu is submenu or not
+    if (isSub) {
+      currentClass += ' menu--sub';
     }
+
+    // Rendering menu items
+    const itemsRender = items.map(item =>
+      item.type === 'separator' ? (
+        <MenuSeparator />
+      ) : (
+        <MenuItem
+          name={item.name}
+          items={item.items}
+          rightPart={item.rightPart}
+        />
+      )
+    );
+
+    return <menu className={currentClass}>{itemsRender}</menu>;
+  }
 }

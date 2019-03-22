@@ -239,7 +239,7 @@
     "yarn": "^1.12.3"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.6.3",
+    "@fortawesome/fontawesome-free": "^5.8.1",
     "antd": "^3.15.1",
     "connected-react-router": "^5.0.1",
     "devtron": "^1.4.0",

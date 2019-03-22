@@ -3,7 +3,7 @@
   "rules": {
     "indent": [true, "spaces"],
     "ter-indent": [true, 2],
-    "space-before-function-paren": [
+    "space-before-function-parent": [
       "error",
       {
         "anonymous": "always",

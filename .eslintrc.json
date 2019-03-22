@@ -8,6 +8,7 @@
     }
   },
   "rules": {
-    "camelcase": "off"
+    "camelcase": "off",
+    "react/prop-types": "off"
   }
 }

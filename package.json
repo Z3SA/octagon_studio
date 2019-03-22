@@ -240,6 +240,10 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
+    "@types/electron": "^1.6.10",
+    "@types/node": "^11.11.6",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
     "antd": "^3.15.1",
     "connected-react-router": "^5.0.1",
     "devtron": "^1.4.0",

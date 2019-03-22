@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import FAIcon from '@fortawesome/react-fontawesome';
+import ReactPropTypes from 'prop-types';
 
 export default class TabLabel extends Component {
-    render() {
-        return (
-            <span>
-                <FAIcon icon={this.props.icon} />
-                <span className="settings-win__tab-name">{this.props.title}</span>
-            </span>
-        );
-    }
+  static propTypes = {
+    title: ReactPropTypes.string.isRequired
+  };
+
+  render() {
+    const { title } = this.props;
+
+    return (
+      <span>
+        <span className="settings-win__tab-name">{title}</span>
+      </span>
+    );
+  }
 }

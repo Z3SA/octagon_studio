@@ -8,14 +8,13 @@
  * When running `yarn build` or `yarn build-main`, this file is compiled to
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  *
- * @flow
  */
 import path from 'path';
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 
-import { paths } from './data/paths';
+import paths from './data/paths';
 import OMSFile from './data/utils/OMSFile';
 
 // Create main window

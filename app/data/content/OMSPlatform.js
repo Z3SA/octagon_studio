@@ -1,53 +1,51 @@
 import OMSFile from '../utils/OMSFile';
 
 export default class OMSPlatform {
-    key: string;
-    path: string;
-    name: string;
-    version: string;
-    platformId: string;
-    desc: boolean;
-    debug: boolean;
-    sdk: boolean;
+  key;
 
-    constructor(path: string) {
-        this.path = path;
+  path;
 
-        let config = OMSFile.readJSON(this.path);
+  name;
 
-        this.key = config.key;
-        this.name = config.name;
-        this.version = config.version;
-        this.platformId = config.platform_id;
-        this.desc = config.desc;
-        this.debug = config.debug;
-        this.sdk = config.sdk;
-    }
+  version;
 
-    // get tags() {
-    //     let tags = [];
+  platformId;
 
-    //     if (debug) tags.push("Debug");
-    //     if (sdk) tags.push("SDK");
+  desc;
 
-    //     return tags;
-    // }
+  debug;
 
-    formToMin() {
-        let tags = [];
+  sdk;
 
-        if (this.debug) tags.push("Debug");
-        if (!this.sdk.is_default_sdk) tags.push("SDK");
+  constructor(path) {
+    this.path = path;
 
-        let config = {
-            key: this.platformId,
-            path: this.path,
-            name: this.name,
-            version: this.version,
-            tags: tags,
-            isValid: true
-        };
+    const config = OMSFile.readJSON(this.path);
 
-        return config;
-    }
-} 
+    this.key = config.key;
+    this.name = config.name;
+    this.version = config.version;
+    this.platformId = config.platform_id;
+    this.desc = config.desc;
+    this.debug = config.debug;
+    this.sdk = config.sdk;
+  }
+
+  formToMin() {
+    const tags = [];
+
+    if (this.debug) tags.push('Debug');
+    if (!this.sdk.is_default_sdk) tags.push('SDK');
+
+    const config = {
+      key: this.platformId,
+      path: this.path,
+      name: this.name,
+      version: this.version,
+      tags,
+      isValid: true
+    };
+
+    return config;
+  }
+}

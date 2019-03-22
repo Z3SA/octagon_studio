@@ -2,71 +2,71 @@
 // React components
 import React, { Component } from 'react';
 // Ant D components
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 // Octagon data
-import { octagon, LANG } from '../../index';
+import { LANG } from '../../index';
 // Main top menu
 import MainMenu from './MainMenu';
 
-const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu } = Menu;
+const { Header, Footer, Content } = Layout;
 
 let LANG__MAIN_WIN;
 
-export default class App extends Component<Props> {
-    render() {
-        // Choose lang package of window
-        LANG__MAIN_WIN = LANG.MAIN_WINDOW;
+export default class App extends Component {
+  render() {
+    // Choose lang package of window
+    LANG__MAIN_WIN = LANG.MAIN_WINDOW;
 
-        // Content of top menu
-        let topMenu = [
-            // Menu "File"
-            {
-                name: LANG__MAIN_WIN.TOP_MENU.FILE_NAME,
-                key: "file-menu",
-                items: [
-                    {
-                        name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_CREATE,
-                        hotkey: "Ctrl+N", key: "file__create", event: null
-                    },
-                    {
-                        name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_OPEN,
-                        hotkey: "Ctrl+O", key: "file__open", event: null, inWorkDev: true
-                    }
-                ]
-            },
-            {
-                name: LANG__MAIN_WIN.TOP_MENU.EDIT_NAME,
-                key: "edit-menu",
-                items: [
-                    {
-                        name: LANG__MAIN_WIN.TOP_MENU.EDIT_LIST.SETTINGS,
-                        hotkey: "F12", key: "edit__settings", event: () => { toggleSettings(true) }
-                    }
-                ]
-            }
-        ];
+    // Content of top menu
+    const topMenu = [
+      // Menu "File"
+      {
+        name: LANG__MAIN_WIN.TOP_MENU.FILE_NAME,
+        key: 'file-menu',
+        items: [
+          {
+            name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_CREATE,
+            hotkey: 'Ctrl+N',
+            key: 'file__create',
+            event: null
+          },
+          {
+            name: LANG__MAIN_WIN.TOP_MENU.FILE_LIST.FILE_OPEN,
+            hotkey: 'Ctrl+O',
+            key: 'file__open',
+            event: null,
+            inWorkDev: true
+          }
+        ]
+      },
+      {
+        name: LANG__MAIN_WIN.TOP_MENU.EDIT_NAME,
+        key: 'edit-menu',
+        items: [
+          {
+            name: LANG__MAIN_WIN.TOP_MENU.EDIT_LIST.SETTINGS,
+            hotkey: 'F12',
+            key: 'edit__settings'
+          }
+        ]
+      }
+    ];
 
-        return (
-            <div>
-                <Layout className="main-win">
-                    <Header className="main-win__header">
-                        <span className="main-win__logo" />
-                        <MainMenu 
-                            // eventHandler={(e) => { e.item.props.event() }} 
-                            items={topMenu} 
-                            workDevDisabled={true} 
-                        />
-                    </Header>
+    return (
+      <div>
+        <Layout className="main-win">
+          <Header className="main-win__header">
+            <span className="main-win__logo" />
+            <MainMenu items={topMenu} workDevDisabled />
+          </Header>
 
-                    <Layout>
-                        <Content>
-                        </Content>
-                    </Layout>
-                    
-                    <Footer></Footer>
-                </Layout>
-            </div>
-        );
-    }
+          <Layout>
+            <Content />
+          </Layout>
+
+          <Footer />
+        </Layout>
+      </div>
+    );
+  }
 }

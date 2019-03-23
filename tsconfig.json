@@ -6,7 +6,6 @@
     "pretty": true,
     "newLine": "LF",
     "allowSyntheticDefaultImports": true,
-    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
@@ -18,7 +17,12 @@
     "rootDir": "./",
     "module": "es2015",
     "resolveJsonModule": true,
-    "lib": ["es2015", "dom"]
+    "lib": ["es2015", "dom"],
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ]
   },
   "exclude": ["node_modules", "**/node_modules/**"]
 }

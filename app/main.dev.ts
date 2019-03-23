@@ -9,10 +9,10 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  *
  */
-import path from 'path';
 import { app, BrowserWindow } from 'electron';
-import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import { autoUpdater } from 'electron-updater';
+import path from 'path';
 
 import paths from './data/paths';
 import OMSFile from './data/utils/OMSFile';
@@ -39,10 +39,7 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-if (
-  process.env.NODE_ENV === 'development' ||
-  process.env.DEBUG_PROD === 'true'
-) {
+if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
   require('electron-debug')();
 }
 
@@ -51,9 +48,9 @@ const installExtensions = async () => {
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
 
-  return Promise.all(
-    extensions.map(name => installer.default(installer[name], forceDownload))
-  ).catch(console.log);
+  return Promise.all(extensions.map(name => installer.default(installer[name], forceDownload))).catch(
+    console.log
+  );
 };
 
 /**
@@ -69,10 +66,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', async () => {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.DEBUG_PROD === 'true'
-  ) {
+  if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
     await installExtensions();
   }
 
@@ -88,9 +82,9 @@ app.on('ready', async () => {
       show: false,
       alwaysOnTop: true,
       webPreferences: {
-        nodeIntegration: false
+        nodeIntegration: false,
       },
-      icon: path.join(__dirname, 'resources/icon.png')
+      icon: path.join(__dirname, 'resources/icon.png'),
     });
 
     // Load page with splash screen
@@ -107,7 +101,7 @@ app.on('ready', async () => {
     show: false,
     width: session.width,
     height: session.height,
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
   });
 
   mainWindow.setMenu(null);

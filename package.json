@@ -25,7 +25,7 @@
     "preinstall": "node ./internals/scripts/CheckYarn.js",
     "prestart": "yarn build",
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
-    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r @babel/register ./app/main.dev.js",
+    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r @babel/register ./app/main.dev.babel.js",
     "start-renderer-dev": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack.config.renderer.dev.babel.js",
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest",
     "test-all": "yarn lint && yarn build && yarn test && yarn build-e2e && yarn test-e2e",
@@ -139,12 +139,15 @@
     },
     "moduleFileExtensions": [
       "js",
+      "ts",
       "jsx",
+      "tsx",
       "json"
     ],
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.[jt]sx?$": "babel-jest"
     },
+    "testRegex": "test/.*(spec|test).(ts|tsx|js)$",
     "setupFiles": [
       "./internals/scripts/CheckBuiltsExist.js"
     ]
@@ -171,6 +174,7 @@
     "@babel/plugin-transform-react-inline-elements": "^7.2.0",
     "@babel/preset-env": "^7.4.1",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
     "@babel/register": "^7.4.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -230,6 +234,8 @@
     "testcafe-browser-provider-electron": "^0.0.8",
     "testcafe-live": "^0.1.4",
     "testcafe-react-selectors": "^3.0.2",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.4000",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.2",
     "webpack-bundle-analyzer": "^3.0.3",
@@ -239,14 +245,8 @@
     "yarn": "^1.12.3"
   },
   "dependencies": {
-    "@babel/preset-typescript": "^7.3.3",
     "@fortawesome/fontawesome-free": "^5.8.1",
-    "@types/electron": "^1.6.10",
-    "@types/node": "^11.11.6",
-    "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
-    "@types/react-router-dom": "^4.3.1",
-    "@types/webpack-env": "^1.13.9",
     "antd": "^3.15.1",
     "connected-react-router": "^5.0.1",
     "devtron": "^1.4.0",
@@ -269,12 +269,7 @@
     "redux-thunk": "^2.3.0",
     "sha256": "^0.2.0",
     "source-map-loader": "^0.2.4",
-    "source-map-support": "^0.5.9",
-    "ts-loader": "^5.3.3",
-    "tslint": "^5.14.0",
-    "tslint-config-standard": "^8.0.1",
-    "tslint-loader": "^3.5.4",
-    "typescript": "^3.3.4000"
+    "source-map-support": "^0.5.9"
   },
   "devEngines": {
     "node": ">=7.x",

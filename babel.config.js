@@ -28,10 +28,8 @@ module.exports = api => {
           corejs: 3
         }
       ],
-      [
-        require('@babel/preset-react', '@babel/preset-typescript'),
-        { development }
-      ]
+      require('@babel/preset-typescript'),
+      [require('@babel/preset-react'), { development }]
     ],
     plugins: [
       // Stage 0

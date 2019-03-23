@@ -18,9 +18,9 @@ import paths from './data/paths';
 import OMSFile from './data/utils/OMSFile';
 
 // Create main window
-let mainWindow = null;
+let mainWindow: BrowserWindow;
 
-let intro = null;
+let intro: BrowserWindow;
 
 // Loading session val
 const sessionPath = paths.appData + paths.session;
@@ -124,6 +124,7 @@ app.on('ready', async () => {
       // 2,5 sec then main window'll show and splash'll hide
       setTimeout(() => {
         intro.hide();
+        intro.destroy();
 
         mainWindow.show();
         mainWindow.focus();
@@ -135,7 +136,7 @@ app.on('ready', async () => {
   });
 
   mainWindow.on('closed', () => {
-    mainWindow = null;
+    mainWindow.destroy();
   });
 
   // Remove this if your app does not use auto updates

@@ -26,8 +26,8 @@ render(
   document.getElementById('root')
 );
 
-if (module.hot) {
-  module.hot.accept('./containers/Root', () => {
+if ((module as any).hot) {
+  (module as any).hot.accept('./containers/Root', () => {
     // eslint-disable-next-line global-require
     const NextRoot = require('./containers/Root').default;
     render(

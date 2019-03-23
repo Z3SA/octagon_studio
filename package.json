@@ -10,6 +10,8 @@
     "build-main": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.main.prod.babel.js --colors",
     "build-renderer": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.renderer.prod.babel.js --colors",
     "dev": "cross-env START_HOT=1 node -r @babel/register ./internals/scripts/CheckPortInUse.js && cross-env START_HOT=1 yarn start-renderer-dev",
+    "lint-ts": "cross-env NODE_ENV=development tslint --project tsconfig.json",
+    "lint-ts-fix": "cross-env NODE_ENV=development prettier-tslint fix '**/*.ts', '**/*.tsx'",
     "lint": "cross-env NODE_ENV=development eslint --cache --format=pretty .",
     "lint-fix": "yarn --silent lint --fix; exit 0",
     "lint-styles": "stylelint --ignore-path .eslintignore '**/*.*(css|scss)' --syntax scss",
@@ -25,7 +27,7 @@
     "preinstall": "node ./internals/scripts/CheckYarn.js",
     "prestart": "yarn build",
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
-    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r @babel/register ./app/main.dev.js",
+    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r @babel/register ./app/main.dev.babel.js",
     "start-renderer-dev": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack.config.renderer.dev.babel.js",
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 jest",
     "test-all": "yarn lint && yarn build && yarn test && yarn build-e2e && yarn test-e2e",
@@ -34,6 +36,10 @@
     "test-watch": "yarn test --watch"
   },
   "lint-staged": {
+    "*.{ts,tsx}": [
+      "cross-env NODE_ENV=development prettier-tslint fix '**/*.ts', '**/*.tsx'",
+      "git add"
+    ],
     "*.{js,jsx}": [
       "cross-env NODE_ENV=development eslint --cache --format=pretty",
       "git add"
@@ -139,12 +145,15 @@
     },
     "moduleFileExtensions": [
       "js",
+      "ts",
       "jsx",
+      "tsx",
       "json"
     ],
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.[jt]sx?$": "babel-jest"
     },
+    "testRegex": "test/.*(spec|test).(ts|tsx|js)$",
     "setupFiles": [
       "./internals/scripts/CheckBuiltsExist.js"
     ]
@@ -171,6 +180,7 @@
     "@babel/plugin-transform-react-inline-elements": "^7.2.0",
     "@babel/preset-env": "^7.4.1",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
     "@babel/register": "^7.4.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -230,6 +240,8 @@
     "testcafe-browser-provider-electron": "^0.0.8",
     "testcafe-live": "^0.1.4",
     "testcafe-react-selectors": "^3.0.2",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.4000",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.2",
     "webpack-bundle-analyzer": "^3.0.3",
@@ -240,6 +252,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
+    "@types/react-dom": "^16.8.3",
     "antd": "^3.15.1",
     "connected-react-router": "^5.0.1",
     "devtron": "^1.4.0",
@@ -247,10 +260,12 @@
     "electron-log": "^2.2.17",
     "electron-updater": "^4.0.6",
     "eslint-plugin-flowtype": "^3.4.2",
+    "fork-ts-checker-webpack-plugin": "^1.0.0",
     "history": "^4.7.2",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-less": "^1.0.0",
+    "prettier-tslint": "^0.4.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.3",
@@ -260,7 +275,11 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "sha256": "^0.2.0",
-    "source-map-support": "^0.5.9"
+    "source-map-loader": "^0.2.4",
+    "source-map-support": "^0.5.9",
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^3.6.0"
   },
   "devEngines": {
     "node": ">=7.x",

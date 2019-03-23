@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "pretty": true,
+    "newLine": "LF",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "rootDir": "./",
+    "module": "es2015",
+    "resolveJsonModule": true,
+    "lib": ["es2015", "dom"],
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ]
+  },
+  "exclude": ["node_modules", "**/node_modules/**"]
+}

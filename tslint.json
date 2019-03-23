@@ -1,0 +1,18 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "trailing-comma": true,
+    "semicolon": true
+  },
+  "linterOptions": {
+    "exclude": [
+      "configs/*.js",
+      "node_modules/**/*.ts",
+      "/internals",
+      "/dll",
+      "babel.config.js",
+      "**/*.js",
+      "*.js"
+    ]
+  }
+}

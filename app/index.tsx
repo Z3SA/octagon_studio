@@ -1,38 +1,35 @@
-// Import all necessary react modules
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-// Importing Root and config
-import Root from './containers/Root';
-import { configureStore, history } from './store/configureStore';
-
-// Import OMS class
-import OMS from './data/app/OMS';
-
-// Importing styles
 import './.global.less';
+import OMS from './data/module/main/OMS';
+import Root from './modules/Root';
+import { configureStore } from './store/configureStore';
 
-// Settings of program in octagon.omsdata
+/** Last session and data of main window */
 export const octagon = new OMS();
+
+/** Language data */
 export const LANG = octagon.lang.data;
 
+/** Redux Store configuration */
 const store = configureStore();
 
 render(
   <AppContainer>
-    <Root store={store} history={history} />
+    <Root store={store} />
   </AppContainer>,
   document.getElementById('root')
 );
 
 if ((module as any).hot) {
-  (module as any).hot.accept('./containers/Root', () => {
+  (module as any).hot.accept('./modules/Root', () => {
     // eslint-disable-next-line global-require
-    const NextRoot = require('./containers/Root').default;
+    const NextRoot = require('./modules/Root').default;
     render(
       <AppContainer>
-        <NextRoot store={store} history={history} />
+        <NextRoot store={store} />
       </AppContainer>,
       document.getElementById('root')
     );

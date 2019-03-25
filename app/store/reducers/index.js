@@ -5,6 +5,6 @@ import counter from './counter';
 export default function createRootReducer(history) {
   return combineReducers({
     router: connectRouter(history),
-    counter
+    counter,
   });
 }

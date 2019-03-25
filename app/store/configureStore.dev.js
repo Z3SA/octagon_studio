@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import { createHashHistory } from 'history';
 import { routerMiddleware, routerActions } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
-import createRootReducer from '../reducers';
-import * as counterActions from '../actions/counter';
+import createRootReducer from './reducers';
+import * as counterActions from './actions/counter';
 
 const history = createHashHistory();
 
@@ -21,7 +21,7 @@ const configureStore = initialState => {
   // Logging Middleware
   const logger = createLogger({
     level: 'info',
-    collapsed: true
+    collapsed: true,
   });
 
   // Skip redux logs in console during the tests
@@ -36,14 +36,14 @@ const configureStore = initialState => {
   // Redux DevTools Configuration
   const actionCreators = {
     ...counterActions,
-    ...routerActions
+    ...routerActions,
   };
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle */
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         // Options: http://extension.remotedev.io/docs/API/Arguments.html
-        actionCreators
+        actionCreators,
       })
     : compose;
   /* eslint-enable no-underscore-dangle */
@@ -57,9 +57,9 @@ const configureStore = initialState => {
 
   if (module.hot) {
     module.hot.accept(
-      '../reducers',
+      './reducers',
       // eslint-disable-next-line global-require
-      () => store.replaceReducer(require('../reducers').default)
+      () => store.replaceReducer(require('./reducers').default)
     );
   }
 

@@ -11,6 +11,5 @@ export default function CheckNodeEnv(expectedEnv) {
         `"process.env.NODE_ENV" must be "${expectedEnv}" to use this webpack config`
       )
     );
-    process.exit(2);
   }
 }

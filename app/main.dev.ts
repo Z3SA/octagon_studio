@@ -14,7 +14,7 @@ import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import path from 'path';
 
-import paths from './data/paths';
+import paths from './data/common/paths';
 import OMSFile from './data/utils/OMSFile';
 
 // Create main window
@@ -88,7 +88,7 @@ app.on('ready', async () => {
     });
 
     // Load page with splash screen
-    intro.loadURL(`file://${__dirname}/containers/intro/index.html`);
+    intro.loadURL(`file://${__dirname}/modules/intro/index.html`);
 
     // Show intro
     intro.once('ready-to-show', () => {
@@ -106,7 +106,7 @@ app.on('ready', async () => {
 
   mainWindow.setMenu(null);
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/modules/app/index.html`);
 
   // Setting main window to visible
   mainWindow.once('ready-to-show', () => {

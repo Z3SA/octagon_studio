@@ -276,7 +276,7 @@
     "redux-thunk": "^2.3.0",
     "sha256": "^0.2.0",
     "source-map-loader": "^0.2.4",
-    "source-map-support": "^0.5.9",
+    "source-map-support": "^0.5.11",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^3.6.0"

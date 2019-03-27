@@ -261,7 +261,7 @@
     "electron-updater": "^4.0.6",
     "eslint-plugin-flowtype": "^3.4.2",
     "fork-ts-checker-webpack-plugin": "^1.0.0",
-    "history": "^4.7.2",
+    "history": "^4.9.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "node-less": "^1.0.0",

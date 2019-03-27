@@ -239,7 +239,7 @@
     "testcafe": "^0.23.3",
     "testcafe-browser-provider-electron": "^0.0.8",
     "testcafe-live": "^0.1.4",
-    "testcafe-react-selectors": "^3.0.2",
+    "testcafe-react-selectors": "^3.1.0",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.4000",
     "url-loader": "^1.1.2",

@@ -22,7 +22,7 @@ export default class OMSFile {
    */
   public static write(file: string, data: any, cb: function): Promise<string> {
     return new Promise((resolve: any, reject: OMSError) => {
-      fs.writeFile(file, data, { encoding: 'utf8' }, error => {
+      fs.writeFile(file, JSON.stringify(data), { encoding: 'utf8' }, error => {
         if (error) {
           const { errno, code, path, syscall, stack } = error;
           const err: OMSError = {

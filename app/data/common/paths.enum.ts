@@ -4,5 +4,5 @@ export enum paths {
   langsFolder = '/langs',
   session = 'session.oms',
   theme = 'theme.oms',
-  user = '/user.omsdata',
+  user = 'user.omsdata',
 }

@@ -1,4 +1,4 @@
-import paths from 'data/common/paths';
+import paths from 'data/common/paths.enum';
 import OMSFile from 'data/utils/OMSFile';
 
 /*

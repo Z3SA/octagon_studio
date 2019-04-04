@@ -14,7 +14,7 @@ import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import path from 'path';
 
-import paths from './data/common/paths';
+import paths from './data/common/paths.enum';
 import OMSFile from './data/utils/OMSFile';
 
 // Create main window

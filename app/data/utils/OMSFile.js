@@ -1,7 +1,5 @@
 import fs from 'fs';
-import electron from 'electron';
-
-const electronRemote = electron.remote;
+import { remote } from 'electron';
 
 export default class OMSFile {
   static readJSON(file) {
@@ -15,7 +13,7 @@ export default class OMSFile {
         fileResult = {
           type: 'error',
           code: '1',
-          message: err
+          message: err,
         };
       }
 
@@ -37,7 +35,7 @@ export default class OMSFile {
       return {
         type: 'error',
         code: '2',
-        message: err
+        message: err,
       };
     });
 
@@ -45,8 +43,8 @@ export default class OMSFile {
   }
 
   static chooseDir() {
-    const path = electronRemote.dialog.showOpenDialog({
-      properties: ['openDirectory']
+    const path = remote.dialog.showOpenDialog({
+      properties: ['openDirectory'],
     });
 
     return path === undefined ? false : path[0];

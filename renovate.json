@@ -2,8 +2,12 @@
   "extends": ["config:base"],
   "rangeStrategy": "bump",
   "baseBranches": ["master"],
-  "automerge": false,
+  "automerge": true,
   "major": {
     "automerge": false
-  }
+  },
+  "minor": {
+    "automerge": false
+  },
+  "commitMessagePrefix": "[DEP]"
 }

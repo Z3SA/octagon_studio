@@ -4,7 +4,7 @@ import OMS_DEFAULT from './default-state/OMS.default';
 import OMSConfig from './model/OMSConfig.interface';
 import OMSLanguage from './OMSLanguage.class';
 import OMSSession from './OMSSession.class';
-import OMSUser from './OMSUser';
+import OMSUser from './OMSUser.class';
 
 /**
  * Initial state of Studio
@@ -42,7 +42,9 @@ export default class OMS {
     this.version = cfg.version;
 
     OMSLanguage.checkLangsList();
+
     this.lang = new OMSLanguage(cfg.lang);
     this.session = new OMSSession();
+    this.user = new OMSUser();
   }
 }

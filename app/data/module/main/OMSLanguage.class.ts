@@ -35,14 +35,20 @@ export default class OMSLanguage {
     const langFolderPath = `${appData.folder}/${appData.langsFolder}`;
     const langFiles = OMSFile.readDirSync(langFolderPath);
 
-    const langTimings = langFiles.map(val => {
-      const langTiming: OMSLanguageTiming = {
-        name: val,
-        time: OMSFile.getStats(`${langFolderPath}/${val}`, 'mtime')[0].value,
-      };
+    const langTimings = langFiles
+      .map(val => {
+        if (val.split('.')[1] === 'omslang') {
+          const langTiming: OMSLanguageTiming = {
+            name: val,
+            time: OMSFile.getStats(`${langFolderPath}/${val}`, 'mtime')[0].value,
+          };
 
-      return langTiming;
-    });
+          return langTiming;
+        } else {
+          return null;
+        }
+      })
+      .filter(val => val !== null);
 
     const metaPath = `${langFolderPath}/${appData.langsMeta}`;
     if (OMSFile.exists(metaPath)) {

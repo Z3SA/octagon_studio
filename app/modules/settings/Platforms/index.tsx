@@ -1,25 +1,22 @@
 // Tab "Platforms" - Settings window
 // Import React
-import React, { Component } from 'react';
 // Import Ant D components
-import { Button, Tooltip, Table, message, Tag } from 'antd';
-// Import Octagon data
-import { octagon, LANG } from 'index.tsx';
-import OMSFile from 'data/utils/OMSFile';
+import { Button, message, Table, Tooltip } from 'antd';
 import OMSPlatform from 'data/module/platform-manager/OMSPlatform';
-// Import other components
-import AnalyzePlatform from '../AnalyzePlatform';
-// Import Font Awesome
+import OMSFile from 'data/utils/OMSFile.class';
+// Import Octagon data
+import { LANG, octagon } from 'index.tsx';
+import React, { Component } from 'react';
 
 // Language package of window
-let LANG__PLATFORMS;
+let LANG__PLATFORMS: any;
 
 export default class Platforms extends Component {
-  state = {
+  public state = {
     platforms: octagon.user.platforms,
   };
 
-  chooseFolder = () => {
+  public chooseFolder = () => {
     const path = OMSFile.chooseDir();
 
     if (path) {
@@ -46,37 +43,30 @@ export default class Platforms extends Component {
         message.error(ex);
       }
     }
-  };
+  }
 
-  render() {
+  public render() {
     LANG__PLATFORMS = LANG.SETTINGS.PLATFORMS;
 
     const columns = [
       {
-        title: LANG__PLATFORMS.TABLE_HEADER.NAME,
         dataIndex: 'name',
+        title: LANG__PLATFORMS.TABLE_HEADER.NAME,
         key: 'name',
       },
       {
-        title: LANG__PLATFORMS.TABLE_HEADER.VERSION,
         dataIndex: 'version',
+        title: LANG__PLATFORMS.TABLE_HEADER.VERSION,
         key: 'version',
       },
       {
-        title: '',
         dataIndex: 'tags',
+        title: '',
         key: 'tags',
-        render: text => (
-          <span>
-            {text.map(item => (
-              <Tag>{item}</Tag>
-            ))}
-          </span>
-        ),
       },
       {
-        title: '',
         dataIndex: 'isValid',
+        title: '',
         key: 'isValid',
       },
     ];
@@ -87,10 +77,10 @@ export default class Platforms extends Component {
       <div>
         <Button.Group className="settings-win__platforms-btn">
           <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_NEW}>
-            <Button onClick={this.openAnalyze} />
+            <Button />
           </Tooltip>
           <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_FROM_FOLDER}>
-            <Button onClick={this.chooseFolder} />
+            <Button />
           </Tooltip>
           <Tooltip placement="top" title={LANG__PLATFORMS.MENU.REFRESH}>
             <Button />
@@ -98,8 +88,6 @@ export default class Platforms extends Component {
         </Button.Group>
 
         <Table columns={columns} dataSource={platforms} />
-
-        <AnalyzePlatform />
       </div>
     );
   }

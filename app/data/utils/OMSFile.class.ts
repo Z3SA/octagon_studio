@@ -1,7 +1,8 @@
 import { remote } from 'electron';
 import fs from 'fs';
 
-import { OMSError } from 'common/model/OMSError.interface';
+import OMSError from 'data/common/model/OMSError.interface';
+import OMSKVPair from 'data/common/model/OMSKVPair.interface';
 
 /**
  * File worker
@@ -18,67 +19,54 @@ export default class OMSFile {
 
   /**
    * Write JSON file async
-   *
+   * @param file - file path
+   * @param data - JS object or string for write
+   * @returns promise of write process
    */
-  public static write(file: string, data: any, cb: function): Promise<string> {
-    return new Promise((resolve: any, reject: OMSError) => {
-      fs.writeFile(file, JSON.stringify(data), { encoding: 'utf8' }, error => {
-        if (error) {
-          const { errno, code, path, syscall, stack } = error;
-          const err: OMSError = {
-            code: 100,
-            message: 'Error while write file',
-            data: { errno, code, path, syscall, stack },
-          };
+  public static write(file: string, data: any): Promise<string> {
+    return new Promise((resolve: any) => {
+      fs.writeFile(
+        file,
+        typeof data === 'object' ? JSON.stringify(data) : data,
+        { encoding: 'utf8' },
+        error => {
+          if (error) {
+            const { errno, code, path, syscall, stack } = error;
+            const err: OMSError = {
+              code: 100,
+              message: 'Error while write file',
+              data: { errno, code, path, syscall, stack },
+            };
 
-          console.error('In-run error: check log and docs about error.', err);
+            console.error('In-run error: check log and docs about error.', err);
 
-          throw err;
+            throw err;
+          }
+
+          resolve(file);
         }
-
-        resolve(file);
-      });
+      );
     });
   }
 
-  public static readJSON(file) {
-    // Read json file and return JS-object
-    const result = fs.readFileSync(file, 'utf8', (err, contents) => {
-      let fileResult;
+  /**
+   * Write JSON file sync
+   * @param data - JS object or string for write
+   * @param file - file path
+   * @returns string of file path
+   */
+  public static writeSync(data: any, file: string): string {
+    fs.writeFileSync(file, typeof data === 'object' ? JSON.stringify(data) : data, { encoding: 'utf8' });
 
-      if (!err) {
-        fileResult = JSON.stringify(contents.trim());
-      } else {
-        fileResult = {
-          type: 'error',
-          code: '1',
-          message: err,
-        };
-      }
-
-      return fileResult;
-    });
-
-    return JSON.parse(result.trim());
+    return file;
   }
 
-  public static writeJSON(content, file) {
-    fs.writeFileSync(file, JSON.stringify(content), 'utf8');
-  }
-
-  public static readDir(path) {
-    const result = fs.readdirSync(path, (err, contents) => {
-      if (!err) {
-        return contents;
-      }
-      return {
-        type: 'error',
-        code: '2',
-        message: err,
-      };
-    });
-
-    return result;
+  /**
+   * Read content of directory
+   * @param path
+   */
+  public static readDirSync(path: string): string[] {
+    return fs.readdirSync(path, { encoding: 'utf8' });
   }
 
   public static chooseDir() {
@@ -89,7 +77,31 @@ export default class OMSFile {
     return path === undefined ? false : path[0];
   }
 
-  public static exists(path) {
+  /**
+   * Check if directory exists
+   * @param path - directory path
+   */
+  public static exists(path: string): boolean {
     return fs.existsSync(path);
+  }
+
+  /**
+   * Get one or more of stats of file
+   * @param path - file path
+   * @param props - props to scan
+   */
+  public static getStats(path: string, props: string | string[]): any {
+    const output = fs.statSync(path);
+    const result: OMSKVPair[] = [];
+
+    if (typeof props === 'string') {
+      result.push({ key: props, value: output[props] } as OMSKVPair);
+    } else {
+      props.forEach(val => {
+        result.push({ key: val, value: output[props] } as OMSKVPair);
+      });
+    }
+
+    return result;
   }
 }

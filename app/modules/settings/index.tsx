@@ -4,19 +4,18 @@ import React, { Component } from 'react';
 import SettingsParameter from 'components/module/settings/SettingsParameter';
 
 import OMS from 'data/module/main/OMS.class';
-import OMSUser from 'data/module/main/OMSUser';
-import { LANG, octagon } from 'index.tsx';
+import OMSUser from 'data/module/main/OMSUser.class';
+import { LANG, oms } from 'index.tsx';
 
 // Language package of window
-let LANG__SETTINGS;
+let LANG__SETTINGS: any;
 
 export default class Settings extends Component {
   // States of window
   public state = {
-    author: octagon.user.user,
-    devTeam: octagon.user.devTeam,
-    language: octagon.lang.abbr,
-    platforms: octagon.user.platforms,
+    author: oms.user.user,
+    devTeam: oms.user.devTeam,
+    language: oms.lang.abbr,
   };
 
   public render() {
@@ -50,17 +49,12 @@ export default class Settings extends Component {
 
   // Saving settings
   private saveSettings = () => {
-    const { language, author, devTeam, platforms } = this.state;
-
-    OMS.saveConfig(octagon.version, language, octagon.buildStatus);
-    OMSUser.saveUser(author, devTeam, platforms, octagon.user.appKey);
-
+    const { language, author, devTeam } = this.state;
     message.success(LANG__SETTINGS.STATUS.SUCCESS, 3);
   }
 
   // Click on button "OK"
   private handleOk = () => {
     this.saveSettings();
-    this.hideModal();
   }
 }

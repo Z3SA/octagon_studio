@@ -5,17 +5,13 @@ import { Button, message, Table, Tooltip } from 'antd';
 import OMSPlatform from 'data/module/platform-manager/OMSPlatform';
 import OMSFile from 'data/utils/OMSFile.class';
 // Import Octagon data
-import { LANG, octagon } from 'index.tsx';
+import { LANG, oms } from 'index.tsx';
 import React, { Component } from 'react';
 
 // Language package of window
 let LANG__PLATFORMS: any;
 
 export default class Platforms extends Component {
-  public state = {
-    platforms: octagon.user.platforms,
-  };
-
   public chooseFolder = () => {
     const path = OMSFile.chooseDir();
 
@@ -28,17 +24,6 @@ export default class Platforms extends Component {
         if (!OMSFile.exists(`${path}/.oms/main.omsplatform`)) {
           throw LANG__PLATFORMS.ERROR.FOLDER_HAS_NOT_CFG;
         }
-
-        const newPlatform = new OMSPlatform(`${path}/.oms/main.omsplatform`);
-        octagon.user.platforms.forEach(item => {
-          if (item.key === newPlatform.platformId) {
-            throw LANG__PLATFORMS.ERROR.PLATFORM_IS_DEFINED;
-          }
-        });
-
-        octagon.user.platforms.push(newPlatform.formToMin());
-
-        this.setState({ platforms: octagon.user.platforms });
       } catch (ex) {
         message.error(ex);
       }
@@ -71,8 +56,6 @@ export default class Platforms extends Component {
       },
     ];
 
-    const { platforms } = this.state;
-
     return (
       <div>
         <Button.Group className="settings-win__platforms-btn">
@@ -87,7 +70,7 @@ export default class Platforms extends Component {
           </Tooltip>
         </Button.Group>
 
-        <Table columns={columns} dataSource={platforms} />
+        <Table columns={columns} dataSource={} />
       </div>
     );
   }

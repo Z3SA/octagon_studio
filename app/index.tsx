@@ -2,16 +2,13 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
+import { oms } from 'main.dev';
 import './.global.less';
-import OMS from './data/module/main/OMS';
 import Root from './modules/Root';
 import { configureStore } from './store/configureStore';
 
-/** Last session and data of main window */
-export const octagon = new OMS();
-
 /** Language data */
-export const LANG = octagon.lang.data;
+export const LANG = oms.lang.data;
 
 /** Redux Store configuration */
 const store = configureStore();

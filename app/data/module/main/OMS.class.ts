@@ -1,6 +1,6 @@
 import appData from '../../common/appData';
 import OMSFile from '../../utils/OMSFile.class';
-import OMS_DEFAULT from './default-state/oms.default';
+import OMS_DEFAULT from './default-state/OMS.default';
 import OMSConfig from './model/OMSConfig.interface';
 import OMSLanguage from './OMSLanguage.class';
 import OMSSession from './OMSSession.class';

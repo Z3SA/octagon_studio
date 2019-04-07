@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 
 import SettingsParameter from 'components/module/settings/SettingsParameter';
 
-import OMS from 'data/module/main/OMS.class';
-import OMSUser from 'data/module/main/OMSUser.class';
-import { LANG, oms } from 'index.tsx';
+import { LANG } from 'index.tsx';
+import { oms } from 'main.dev.ts';
 
 // Language package of window
 let LANG__SETTINGS: any;
@@ -49,7 +48,6 @@ export default class Settings extends Component {
 
   // Saving settings
   private saveSettings = () => {
-    const { language, author, devTeam } = this.state;
     message.success(LANG__SETTINGS.STATUS.SUCCESS, 3);
   }
 

@@ -56,8 +56,6 @@ export default class OMSLanguage {
       let needRewrite = false;
 
       for (let i = 0; i < meta.length; i++) {
-        let currentFile: string;
-
         for (let j = 0; i < langTimings.length; j++) {
           if (meta[i].filename === langTimings[j].name) {
             if (meta[i].modifyTime !== langTimings[j].time) {
@@ -85,7 +83,7 @@ export default class OMSLanguage {
    * @param files - current data about file (OMSLanguageTiming)
    */
   private static rewriteMeta(files: OMSLanguageTiming[]): void {
-    files = files.map(val => {
+    const filesMeta: OMSLanguageMeta[] = files.map(val => {
       const langInfoFromFile = OMSFile.readSync(`${appData.folder}/${appData.langsFolder}/${val.name}`);
       const langInfo: OMSLanguageMeta = {
         abbr: langInfoFromFile.INFO.ABBR,
@@ -98,7 +96,7 @@ export default class OMSLanguage {
       return langInfo;
     });
 
-    OMSFile.writeSync(files, `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`);
+    OMSFile.writeSync(filesMeta, `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`);
   }
 
   /** Full name of lang package */

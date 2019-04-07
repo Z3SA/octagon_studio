@@ -2,7 +2,7 @@
 export default interface OMSLanguageMeta {
   abbr: string;
   name: string;
-  modifyTime: Date;
+  modifyTime: string;
   filename: string;
   isCompleted: boolean;
 }

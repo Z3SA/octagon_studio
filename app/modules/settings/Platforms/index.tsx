@@ -2,10 +2,9 @@
 // Import React
 // Import Ant D components
 import { Button, message, Table, Tooltip } from 'antd';
-import OMSPlatform from 'data/module/platform-manager/OMSPlatform';
 import OMSFile from 'data/utils/OMSFile.class';
 // Import Octagon data
-import { LANG, oms } from 'index.tsx';
+import { LANG } from 'index.tsx';
 import React, { Component } from 'react';
 
 // Language package of window
@@ -70,7 +69,7 @@ export default class Platforms extends Component {
           </Tooltip>
         </Button.Group>
 
-        <Table columns={columns} dataSource={} />
+        <Table columns={columns} />
       </div>
     );
   }

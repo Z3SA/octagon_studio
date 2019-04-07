@@ -91,14 +91,14 @@ export default class OMSFile {
    * @param props - props to scan
    */
   public static getStats(path: string, props: string | string[]): any {
-    const output = fs.statSync(path);
+    const output: any = fs.statSync(path);
     const result: OMSKVPair[] = [];
 
     if (typeof props === 'string') {
       result.push({ key: props, value: output[props] } as OMSKVPair);
     } else {
       props.forEach(val => {
-        result.push({ key: val, value: output[props] } as OMSKVPair);
+        result.push({ key: val, value: output[val] } as OMSKVPair);
       });
     }
 

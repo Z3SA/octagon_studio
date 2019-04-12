@@ -252,7 +252,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
-    "@types/react-dom": "^16.8.3",
+    "@types/react-dom": "^16.8.4",
     "antd": "^3.16.1",
     "connected-react-router": "^5.0.1",
     "core-js": "^3.0.1",

@@ -10,8 +10,6 @@
  *
  */
 import { app, BrowserWindow } from 'electron';
-import log from 'electron-log';
-import { autoUpdater } from 'electron-updater';
 import path from 'path';
 
 import { oms } from './data/data.init';
@@ -21,14 +19,6 @@ let mainWindow: BrowserWindow;
 
 // Intro splash
 let intro: BrowserWindow;
-
-export default class AppUpdater {
-  constructor() {
-    log.transports.file.level = 'info';
-    autoUpdater.logger = log;
-    autoUpdater.checkForUpdatesAndNotify();
-  }
-}
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -44,9 +34,9 @@ const installExtensions = async () => {
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
 
-  return Promise.all(extensions.map(name => installer.default(installer[name], forceDownload))).catch(
-    console.log
-  );
+  return Promise.all(
+    extensions.map(name => installer.default(installer[name], forceDownload))
+  ).catch(console.log);
 };
 
 app.on('window-all-closed', () => {
@@ -90,7 +80,7 @@ app.on('ready', async () => {
 
   mainWindow.loadURL(`file://${__dirname}/modules/app/index.html`);
 
-  mainWindow.once('ready-to-show', () => {
+  mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
@@ -108,9 +98,5 @@ app.on('ready', async () => {
       mainWindow.show();
       mainWindow.focus();
     }
-  });
-
-  mainWindow.on('closed', () => {
-    mainWindow.destroy();
   });
 });

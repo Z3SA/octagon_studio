@@ -7,3 +7,5 @@ Octagon Modmaking Studio is a program complex designed for simplified creation m
 ## Current version
 
 Octagon Modmaking Studio Mk 0 (pre-alpha)
+
+**Any feedback, suggestions and remarks are welcome!**

@@ -1,7 +1,7 @@
 // Tab "Platforms" - Settings window
 // Import React
 // Import Ant D components
-import { Button, message, Table, Tooltip } from 'antd';
+import { message, Table } from 'antd';
 import OMSFile from 'data/utils/OMSFile.class';
 // Import Octagon data
 import { LANG } from 'index.tsx';
@@ -57,18 +57,6 @@ export default class Platforms extends Component {
 
     return (
       <div>
-        <Button.Group className="settings-win__platforms-btn">
-          <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_NEW}>
-            <Button />
-          </Tooltip>
-          <Tooltip placement="top" title={LANG__PLATFORMS.MENU.ADD_FROM_FOLDER}>
-            <Button />
-          </Tooltip>
-          <Tooltip placement="top" title={LANG__PLATFORMS.MENU.REFRESH}>
-            <Button />
-          </Tooltip>
-        </Button.Group>
-
         <Table columns={columns} />
       </div>
     );

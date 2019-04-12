@@ -31,7 +31,10 @@ export default class OMS {
   /** Loading all configs and data from app data */
   public load(): void {
     let cfg: OMSConfig;
-    if (!OMSFile.exists(appData.folder) || !OMSFile.exists(`${appData.folder}/${appData.cfg}`)) {
+    if (
+      !OMSFile.exists(appData.folder) ||
+      !OMSFile.exists(`${appData.folder}/${appData.cfg}`)
+    ) {
       cfg = OMS_DEFAULT;
       OMSFile.write(`${appData.folder}/${appData.cfg}`, cfg);
     } else {

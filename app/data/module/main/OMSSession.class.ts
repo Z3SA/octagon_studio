@@ -46,6 +46,11 @@ export default class OMSSession {
   public saveSession(): Promise<string> {
     const { winWidth, winHeight, winX, winY } = this;
 
-    return OMSFile.write(`${appData.folder}/${appData.session}`, { winHeight, winWidth, winX, winY });
+    return OMSFile.write(`${appData.folder}/${appData.session}`, {
+      winHeight,
+      winWidth,
+      winX,
+      winY,
+    });
   }
 }

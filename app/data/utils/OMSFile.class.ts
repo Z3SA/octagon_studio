@@ -56,7 +56,9 @@ export default class OMSFile {
    * @returns string of file path
    */
   public static writeSync(data: any, file: string): string {
-    fs.writeFileSync(file, typeof data === 'object' ? JSON.stringify(data) : data, { encoding: 'utf8' });
+    fs.writeFileSync(file, typeof data === 'object' ? JSON.stringify(data) : data, {
+      encoding: 'utf8',
+    });
 
     return file;
   }

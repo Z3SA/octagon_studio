@@ -19,11 +19,19 @@ export default class OMSLanguage {
       const LANG_RU = require('assets/langs/ru.json');
       const LANG_EN = require('assets/langs/en.json');
 
-      OMSFile.writeSync(LANG_RU, `${appData.folder}/${appData.langsFolder}/ru.${OMSLanguage.EXTENSION}`);
-      OMSFile.writeSync(LANG_EN, `${appData.folder}/${appData.langsFolder}/en.${OMSLanguage.EXTENSION}`);
+      OMSFile.writeSync(
+        LANG_RU,
+        `${appData.folder}/${appData.langsFolder}/ru.${OMSLanguage.EXTENSION}`
+      );
+      OMSFile.writeSync(
+        LANG_EN,
+        `${appData.folder}/${appData.langsFolder}/en.${OMSLanguage.EXTENSION}`
+      );
     }
 
-    if (!OMSFile.exists(`${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`)) {
+    if (
+      !OMSFile.exists(`${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`)
+    ) {
       OMSLanguage.checkMeta();
     }
   }
@@ -84,7 +92,9 @@ export default class OMSLanguage {
    */
   private static rewriteMeta(files: OMSLanguageTiming[]): void {
     const filesMeta: OMSLanguageMeta[] = files.map(val => {
-      const langInfoFromFile = OMSFile.readSync(`${appData.folder}/${appData.langsFolder}/${val.name}`);
+      const langInfoFromFile = OMSFile.readSync(
+        `${appData.folder}/${appData.langsFolder}/${val.name}`
+      );
       const langInfo: OMSLanguageMeta = {
         abbr: langInfoFromFile.INFO.ABBR,
         name: langInfoFromFile.INFO.NAME,
@@ -96,7 +106,10 @@ export default class OMSLanguage {
       return langInfo;
     });
 
-    OMSFile.writeSync(filesMeta, `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`);
+    OMSFile.writeSync(
+      filesMeta,
+      `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`
+    );
   }
 
   /** Full name of lang package */

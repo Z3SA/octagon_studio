@@ -14,17 +14,13 @@ import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import path from 'path';
 
-import paths from './data/common/paths';
-import OMSFile from './data/utils/OMSFile';
+import { oms } from './data/data.init';
 
-// Create main window
+// Main window
 let mainWindow: BrowserWindow;
 
+// Intro splash
 let intro: BrowserWindow;
-
-// Loading session val
-const sessionPath = paths.appData + paths.session;
-const session = OMSFile.readJSON(sessionPath);
 
 export default class AppUpdater {
   constructor() {
@@ -53,54 +49,40 @@ const installExtensions = async () => {
   );
 };
 
-/**
- * Add event listeners...
- */
-
 app.on('window-all-closed', () => {
-  // Respect the OSX convention of having the application in memory even
-  // after all windows have been closed
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+  app.quit();
 });
 
 app.on('ready', async () => {
+  // Creating intro splash screen (preloader)
+  intro = new BrowserWindow({
+    width: 499,
+    height: 319,
+    center: true,
+    frame: false,
+    backgroundColor: '#1b1b1b',
+    show: false,
+    alwaysOnTop: true,
+    webPreferences: {
+      nodeIntegration: false,
+    },
+    icon: path.join(__dirname, 'resources/icon.png'),
+  });
+
+  intro.loadURL(`file://${__dirname}/modules/intro/index.html`);
+
+  intro.once('ready-to-show', () => {
+    intro.show();
+  });
+
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
     await installExtensions();
   }
 
-  // Intro will be shown only in production mode
-  if (process.env.NODE_ENV === 'development') {
-    // Creating intro splash screen (preloader)
-    intro = new BrowserWindow({
-      width: 499,
-      height: 319,
-      center: true,
-      frame: false,
-      backgroundColor: '#1b1b1b',
-      show: false,
-      alwaysOnTop: true,
-      webPreferences: {
-        nodeIntegration: false,
-      },
-      icon: path.join(__dirname, 'resources/icon.png'),
-    });
-
-    // Load page with splash screen
-    intro.loadURL(`file://${__dirname}/modules/intro/index.html`);
-
-    // Show intro
-    intro.once('ready-to-show', () => {
-      intro.show();
-    });
-  }
-
-  // Settings of main window
   mainWindow = new BrowserWindow({
     show: false,
-    width: session.width,
-    height: session.height,
+    width: oms.session.winWidth,
+    height: oms.session.winHeight,
     autoHideMenuBar: true,
   });
 
@@ -108,21 +90,20 @@ app.on('ready', async () => {
 
   mainWindow.loadURL(`file://${__dirname}/modules/app/index.html`);
 
-  // Setting main window to visible
   mainWindow.once('ready-to-show', () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
 
     if (process.env.NODE_ENV === 'development') {
-      // 2,5 sec then main window'll show and splash'll hide
+      // Temp decision for develop of splash screen
       setTimeout(() => {
         intro.hide();
         intro.destroy();
 
         mainWindow.show();
         mainWindow.focus();
-      }, 2500);
+      });
     } else {
       mainWindow.show();
       mainWindow.focus();
@@ -132,8 +113,4 @@ app.on('ready', async () => {
   mainWindow.on('closed', () => {
     mainWindow.destroy();
   });
-
-  // Remove this if your app does not use auto updates
-  // eslint-disable-next-line
-  new AppUpdater();
 });

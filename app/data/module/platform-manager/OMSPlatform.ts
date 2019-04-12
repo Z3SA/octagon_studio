@@ -1,4 +1,4 @@
-import OMSFile from 'data/utils/OMSFile';
+import OMSFile from 'data/utils/OMSFile.class';
 
 export default class OMSPlatform {
   public key: string;
@@ -20,7 +20,7 @@ export default class OMSPlatform {
   constructor(path: string) {
     this.path = path;
 
-    const config = OMSFile.readJSON(this.path);
+    const config = OMSFile.readSync(this.path);
 
     this.key = config.key;
     this.name = config.name;

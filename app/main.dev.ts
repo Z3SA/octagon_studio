@@ -14,16 +14,13 @@ import log from 'electron-log';
 import { autoUpdater } from 'electron-updater';
 import path from 'path';
 
-import OMS from './data/module/main/OMS.class';
+import { oms } from './data/data.init';
 
 // Main window
 let mainWindow: BrowserWindow;
 
 // Intro splash
 let intro: BrowserWindow;
-
-// OMS data
-export let oms: OMS;
 
 export default class AppUpdater {
   constructor() {
@@ -81,9 +78,6 @@ app.on('ready', async () => {
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
     await installExtensions();
   }
-
-  oms = new OMS();
-  oms.load();
 
   mainWindow = new BrowserWindow({
     show: false,

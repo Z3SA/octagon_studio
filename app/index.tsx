@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import { oms } from 'main.dev';
 import './.global.less';
+import { oms } from './data/data.init';
 import Root from './modules/Root';
 import { configureStore } from './store/configureStore';
 

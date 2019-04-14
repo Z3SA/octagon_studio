@@ -9,5 +9,8 @@
   "minor": {
     "automerge": false
   },
+  "patch": {
+    "automerge": true
+  },
   "commitMessagePrefix": "[DEP]"
 }

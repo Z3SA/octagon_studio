@@ -3,7 +3,9 @@
   "rules": {
     "trailing-comma": true,
     "semicolon": true,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-console": false
   },
   "linterOptions": {
     "exclude": [

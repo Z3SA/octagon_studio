@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 
 import './.global.less';
 import { oms } from './data/data.init';
@@ -13,22 +12,4 @@ export const LANG = oms.lang.data;
 /** Redux Store configuration */
 const store = configureStore();
 
-render(
-  <AppContainer>
-    <Root store={store} />
-  </AppContainer>,
-  document.getElementById('root')
-);
-
-if ((module as any).hot) {
-  (module as any).hot.accept('./modules/Root', () => {
-    // eslint-disable-next-line global-require
-    const NextRoot = require('./modules/Root').default;
-    render(
-      <AppContainer>
-        <NextRoot store={store} />
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  });
-}
+render(<Root store={store} />, document.getElementById('root'));

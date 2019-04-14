@@ -1,15 +1,30 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
 import './.global.less';
 import { oms } from './data/data.init';
 import Root from './modules/Root';
-import { configureStore } from './store/configureStore';
 
 /** Language data */
 export const LANG = oms.lang.data;
 
-/** Redux Store configuration */
-const store = configureStore();
+render(
+  <AppContainer>
+    <Root />
+  </AppContainer>,
+  document.getElementById('root')
+);
 
-render(<Root store={store} />, document.getElementById('root'));
+if ((module as any).hot) {
+  (module as any).hot.accept('./modules/Root', () => {
+    // eslint-disable-next-line global-require
+    const NextRoot = require('./modules/Root').default;
+    render(
+      <AppContainer>
+        <NextRoot />
+      </AppContainer>,
+      document.getElementById('root')
+    );
+  });
+}

@@ -254,7 +254,7 @@
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@types/react-dom": "^16.8.4",
     "antd": "^3.16.3",
-    "connected-react-router": "^5.0.1",
+    "connected-react-router": "^6.4.0",
     "core-js": "^3.0.1",
     "devtron": "^1.4.0",
     "electron-debug": "^2.1.0",

@@ -11,23 +11,32 @@ import OMSUser from './OMSUser.class';
  * Loading is sync, savings are async
  */
 export default class OMS {
-  // Version Mk *
+  /** Version Mk * */
   public major: number;
 
-  // Full version (for logs and developers)
+  /** Full version (for logs and developers) */
   public version: string;
 
-  // Program version
+  /** Program version */
   public lang: OMSLanguage;
 
-  // Program build status
+  /** Program build status */
   public session: OMSSession;
 
-  // Last session of user
-  public user: OMSUser; // Data of current user
+  /** Last session of user */
+  public user: OMSUser;
+
+  private isLoaded = false;
+
+  constructor() {
+    if (!this.isLoaded) {
+      this.load();
+    }
+  }
 
   /** Loading all configs and data from app data */
   public load(): void {
+    console.log('init loading config');
     let cfg: OMSConfig;
     if (
       !OMSFile.exists(appData.folder) ||
@@ -47,5 +56,7 @@ export default class OMS {
     this.lang = new OMSLanguage(cfg.lang);
     this.session = new OMSSession();
     this.user = new OMSUser();
+
+    this.isLoaded = true;
   }
 }

@@ -26,8 +26,6 @@ export default class OMS {
   // Last session of user
   public user: OMSUser; // Data of current user
 
-  constructor() {}
-
   /** Loading all configs and data from app data */
   public load(): void {
     let cfg: OMSConfig;

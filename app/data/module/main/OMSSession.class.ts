@@ -24,6 +24,7 @@ export default class OMSSession {
   public winY: number;
 
   constructor() {
+    // TODO: On class expanding create simple session load (only window sizes and pos)
     if (!OMSFile.exists(`${appData.folder}/${appData.session}`)) {
       this.winWidth = OMS_SESSION_DEFAULT.winWidth;
       this.winHeight = OMS_SESSION_DEFAULT.winHeight;

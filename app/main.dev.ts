@@ -11,14 +11,15 @@
  */
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
-
-import { oms } from './data/data.init';
+import OMSSession from './data/module/main/OMSSession.class';
 
 // Main window
 let mainWindow: BrowserWindow;
 
 // Intro splash
 let intro: BrowserWindow;
+
+const omsWindowSession = new OMSSession();
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -71,8 +72,8 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: oms.session.winWidth,
-    height: oms.session.winHeight,
+    width: omsWindowSession.winWidth,
+    height: omsWindowSession.winHeight,
     autoHideMenuBar: true,
   });
 

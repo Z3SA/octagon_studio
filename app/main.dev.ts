@@ -105,12 +105,12 @@ app.on('ready', async () => {
   });
 
   mainWindow.on('close', () => {
-    const windowSizes = mainWindow.getBounds();
+    const { width, height, x, y } = mainWindow.getBounds();
 
-    omsWindowSession.winWidth = windowSizes.width;
-    omsWindowSession.winHeight = windowSizes.height;
-    omsWindowSession.winX = windowSizes.x;
-    omsWindowSession.winY = windowSizes.y;
+    omsWindowSession.winWidth = width;
+    omsWindowSession.winHeight = height;
+    omsWindowSession.winX = x;
+    omsWindowSession.winY = y;
     omsWindowSession.saveSession();
   });
 });

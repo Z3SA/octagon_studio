@@ -53,7 +53,6 @@ export default class OMS {
     OMSLanguage.checkLangsList();
 
     this.lang = new OMSLanguage(cfg.lang);
-    this.session = new OMSSession();
     this.user = new OMSUser();
 
     this.isLoaded = true;

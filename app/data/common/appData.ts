@@ -5,6 +5,7 @@ const appData = {
   langsFolder: '/langs',
   langsMeta: 'langsmeta.oms',
   session: 'session.oms',
+  windowSession: 'window_session.oms',
   theme: 'theme.oms',
   user: 'user.oms',
 };

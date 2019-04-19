@@ -11,7 +11,7 @@
  */
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
-import OMSSession from './data/module/main/OMSSession.class';
+import OMSWindowSession from './data/module/main/OMSWindowSession.class';
 
 // Main window
 let mainWindow: BrowserWindow;
@@ -19,7 +19,7 @@ let mainWindow: BrowserWindow;
 // Intro splash
 let intro: BrowserWindow;
 
-const omsWindowSession = new OMSSession();
+const omsWindowSession = new OMSWindowSession();
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');

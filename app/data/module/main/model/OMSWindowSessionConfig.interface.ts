@@ -1,5 +1,5 @@
 /** Config of session in file */
-export default interface OMSSessionConfig {
+export default interface IOMSWindowSessionConfig {
   winX: number;
   winY: number;
   winWidth: number;

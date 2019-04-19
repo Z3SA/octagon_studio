@@ -58,6 +58,7 @@ app.on('ready', async () => {
     alwaysOnTop: false,
     webPreferences: {
       nodeIntegration: false,
+      devTools: false,
     },
     icon: path.join(__dirname, 'resources/icon.png'),
   });

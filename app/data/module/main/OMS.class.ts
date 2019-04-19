@@ -26,6 +26,9 @@ export default class OMS {
   /** Last session of user */
   public user: OMSUser;
 
+  /** Build type of editor */
+  public type: 'pre-alpha' | 'alpha' | 'beta' | 'dev' | 'release';
+
   private isLoaded = false;
 
   constructor() {
@@ -36,6 +39,7 @@ export default class OMS {
 
   /** Loading all configs and data from app data */
   public load(): void {
+    console.log('init loading config');
     let cfg: OMSConfig;
     if (
       !OMSFile.exists(appData.folder) ||
@@ -49,6 +53,7 @@ export default class OMS {
 
     this.major = cfg.major;
     this.version = cfg.version;
+    this.type = cfg.type;
 
     OMSLanguage.checkLangsList();
 

@@ -51,9 +51,9 @@ app.on('ready', async () => {
     height: 319,
     center: true,
     frame: false,
-    backgroundColor: '#1b1b1b',
+    transparent: true,
     show: false,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     webPreferences: {
       nodeIntegration: false,
     },
@@ -64,6 +64,7 @@ app.on('ready', async () => {
 
   intro.once('ready-to-show', () => {
     intro.show();
+    intro.focus();
   });
 
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
@@ -99,5 +100,9 @@ app.on('ready', async () => {
       mainWindow.show();
       mainWindow.focus();
     }
+  });
+
+  mainWindow.on('close', () => {
+    // omsWindowSession.winWidth = mainWindow.getSize();
   });
 });

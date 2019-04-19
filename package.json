@@ -239,7 +239,15 @@
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.1.5",
-    "yarn": "^1.15.2"
+    "yarn": "^1.15.2",
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "typescript-plugin-css-modules": "^1.0.5",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "node-less": "^1.0.0",
+    "prettier-tslint": "^0.4.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
@@ -254,10 +262,6 @@
     "electron-updater": "^4.0.6",
     "fork-ts-checker-webpack-plugin": "^1.0.0",
     "history": "^4.9.0",
-    "less": "^3.9.0",
-    "less-loader": "^4.1.0",
-    "node-less": "^1.0.0",
-    "prettier-tslint": "^0.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.3",
@@ -268,10 +272,7 @@
     "redux-thunk": "^2.3.0",
     "sha256": "^0.2.0",
     "source-map-loader": "^0.2.4",
-    "source-map-support": "^0.5.11",
-    "tslint": "^5.14.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0"
+    "source-map-support": "^0.5.11"
   },
   "devEngines": {
     "node": ">=7.x",

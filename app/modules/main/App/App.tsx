@@ -1,17 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 
 import { Layout } from 'antd';
 
-import AppHeader from '../AppHeader/AppHeader';
 import styles from './App.m.scss';
-
 const { Footer, Content } = Layout;
+const AppHeader = React.lazy(() => import('../AppHeader/AppHeader'));
 
 export default class App extends PureComponent {
   public render() {
     return (
       <Layout className={styles.App}>
-        <AppHeader />
+        <Suspense fallback={null}>
+          <AppHeader />
+        </Suspense>
 
         <Layout>
           <Content />

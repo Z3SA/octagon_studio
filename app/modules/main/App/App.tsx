@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { Layout } from 'antd';
 
@@ -7,7 +7,7 @@ import styles from './App.m.scss';
 
 const { Footer, Content } = Layout;
 
-export default class App extends Component {
+export default class App extends PureComponent {
   public render() {
     return (
       <Layout className={styles.App}>

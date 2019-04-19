@@ -19,8 +19,12 @@
     "resolveJsonModule": true,
     "lib": ["es2015", "dom"],
     "plugins": [
+      { "name": "typescript-tslint-plugin" },
       {
-        "name": "typescript-tslint-plugin"
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.m\\.(sa|sc|c)ss$"
+        }
       }
     ]
   },

@@ -22,11 +22,13 @@ let intro: BrowserWindow;
 const omsWindowSession = new OMSWindowSession();
 
 if (process.env.NODE_ENV === 'production') {
+  // tslint:disable-next-line:no-var-requires
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
 
 if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
+  // tslint:disable-next-line:no-var-requires
   require('electron-debug')();
 }
 
@@ -103,6 +105,12 @@ app.on('ready', async () => {
   });
 
   mainWindow.on('close', () => {
-    // omsWindowSession.winWidth = mainWindow.getSize();
+    const windowSizes = mainWindow.getBounds();
+
+    omsWindowSession.winWidth = windowSizes.width;
+    omsWindowSession.winHeight = windowSizes.height;
+    omsWindowSession.winX = windowSizes.x;
+    omsWindowSession.winY = windowSizes.y;
+    omsWindowSession.saveSession();
   });
 });

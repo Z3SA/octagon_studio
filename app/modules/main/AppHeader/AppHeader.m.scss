@@ -3,4 +3,23 @@
   display: flex;
   align-items: center;
   height: 40px;
+  padding: 0 10px;
+
+  &__logo {
+    margin-right: 15px;
+    width: 55px;
+    height: 30px;
+    background: url('../../../assets/images/logo-dark.svg') left center no-repeat;
+    background-size: contain;
+    text-align: right;
+    display: inline-block;
+    font: {
+      weight: 700;
+      style: italic;
+      size: 20px;
+    }
+
+    line-height: 44px;
+    color: rgba(0, 0, 0, 0.33);
+  }
 }

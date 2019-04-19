@@ -79,6 +79,7 @@ app.on('ready', async () => {
     width: omsWindowSession.winWidth,
     height: omsWindowSession.winHeight,
     autoHideMenuBar: true,
+    frame: false,
   });
 
   mainWindow.setMenu(null);

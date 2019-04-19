@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { LocaleProvider } from 'antd';
 import ru_RU from 'antd/lib/locale-provider/ru_RU';
 
-import App from './main/App/index';
+import App from './main/App/App';
 import { configureStore } from '../store/configureStore';
 
 /** Redux Store configuration */

@@ -39,7 +39,6 @@ export default class OMS {
 
   /** Loading all configs and data from app data */
   public load(): void {
-    console.log('init loading config');
     let cfg: OMSConfig;
     if (
       !OMSFile.exists(appData.folder) ||

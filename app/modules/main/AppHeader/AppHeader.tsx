@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-import { Layout } from 'antd';
+import { Layout, Icon } from 'antd';
 
-import MainMenu from '../MainMenu';
 import styles from './AppHeader.m.scss';
 import { oms } from '../../../data/data.init';
 
 const { Header } = Layout;
 
-export default class AppHeader extends Component {
+export default class AppHeader extends PureComponent {
   public render() {
     let buildTypeLabel;
 
@@ -29,8 +28,13 @@ export default class AppHeader extends Component {
 
     return (
       <Header className={styles.AppHeader}>
-        <span className={styles.AppHeader__logo}>{buildTypeLabel}</span>
-        <MainMenu />
+        <div className={styles.AppHeader__left}>
+          <span className={styles.AppHeader__logo}>{buildTypeLabel}</span>
+        </div>
+
+        <div>
+          <Icon type="setting" />
+        </div>
       </Header>
     );
   }

@@ -92,14 +92,10 @@ app.on('ready', async () => {
     }
 
     if (process.env.NODE_ENV === 'development') {
-      // Temp decision for develop of splash screen
-      setTimeout(() => {
-        intro.hide();
-        intro.destroy();
+      intro.destroy();
 
-        mainWindow.show();
-        mainWindow.focus();
-      });
+      mainWindow.show();
+      mainWindow.focus();
     } else {
       mainWindow.show();
       mainWindow.focus();

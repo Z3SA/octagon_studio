@@ -1,5 +1,5 @@
-import appData from '../../common/appData';
-import OMSFile from '../../utils/OMSFile.class';
+import appData from 'data/common/appData';
+import OMSFile from 'data/utils/OMSFile.class';
 import OMS_USER_DEFAULT from './default-state/OMSUser.default';
 import OMSUserConfig from './model/OMSUserConfig.interface';
 

@@ -1,5 +1,5 @@
-import appData from '../../common/appData';
-import OMSFile from '../../utils/OMSFile.class';
+import appData from 'data/common/appData';
+import OMSFile from 'data/utils/OMSFile.class';
 import OMS_DEFAULT from './default-state/OMS.default';
 import OMSConfig from './model/OMSConfig.interface';
 import OMSLanguage from './OMSLanguage.class';
@@ -39,6 +39,7 @@ export default class OMS {
 
   /** Loading all configs and data from app data */
   public load(): void {
+    console.log('init laoding');
     let cfg: OMSConfig;
     if (
       !OMSFile.exists(appData.folder) ||

@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
 import './.global.less';
-import { oms } from './data/data.init';
-import Root from './modules/Root';
+import { oms } from 'data/data.init';
+import Root from 'modules/Root';
 
 /** Language data */
 export const LANG = oms.lang.data;

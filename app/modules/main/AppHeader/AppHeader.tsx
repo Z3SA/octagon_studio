@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import { Layout, Icon } from 'antd';
 
 import styles from './AppHeader.m.scss';
-import { oms } from '../../../data/data.init';
+import { oms } from 'data/data.init';
 
 const { Header } = Layout;
 

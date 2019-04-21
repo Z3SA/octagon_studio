@@ -1,5 +1,5 @@
-import appData from '../../common/appData';
-import OMSFile from '../../utils/OMSFile.class';
+import appData from 'data/common/appData';
+import OMSFile from 'data/utils/OMSFile.class';
 import OMSLanguageMeta from './model/OMSLanguageMeta.interface';
 import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
 

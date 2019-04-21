@@ -1,5 +1,5 @@
-import OMSFile from 'data/utils/OMSFile.class';
-import appData from 'data/common/appData';
+import OMSFile from '../../utils/OMSFile.class';
+import appData from '../../common/appData';
 import OMS_WINDOW_SESSION_DEFAULT from './default-state/OMSWindowSession.default';
 import IOMSWindowSessionConfig from './model/OMSWindowSessionConfig.interface';
 

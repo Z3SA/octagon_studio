@@ -1,25 +1,4 @@
-@mixin icon($name, $isLight: false, $isRegular: false, $isSolid: false) {
-  @if $isLight == true {
-    &--icon-#{$name}-light {
-      mask-image: url('/app/assets/icons/#{$name}--light.svg');
-      -webkit-mask-image: url('/app/assets/icons/#{$name}--light.svg');
-    }
-  }
-
-  @if $isRegular {
-    &--icon-#{$name}-light {
-      mask-image: url('/app/assets/icons/#{$name}--regular.svg');
-      -webkit-mask-image: url('/app/assets/icons/#{$name}--regular.svg');
-    }
-  }
-
-  @if $isSolid {
-    &--icon-#{$name}-light {
-      mask-image: url('/app/assets/icons/#{$name}--solid.svg');
-      -webkit-mask-image: url('/app/assets/icons/#{$name}--solid.svg');
-    }
-  }
-}
+@import './icon.mixin.scss';
 
 .OMSIcon {
   display: inline-block;

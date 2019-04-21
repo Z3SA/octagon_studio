@@ -80,6 +80,10 @@ app.on('ready', async () => {
     height: omsWindowSession.winHeight,
     autoHideMenuBar: true,
     frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true,
+    },
   });
 
   mainWindow.setMenu(null);

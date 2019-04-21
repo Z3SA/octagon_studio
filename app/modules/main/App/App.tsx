@@ -1,6 +1,6 @@
 import React, { PureComponent, Suspense } from 'react';
 
-import { Layout } from 'antd';
+import Layout from 'antd/lib/layout/layout';
 
 import styles from './App.m.scss';
 const { Footer, Content } = Layout;

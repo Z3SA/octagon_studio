@@ -6,4 +6,8 @@
   background-color: currentColor;
 
   @include icon($name: 'settings', $isLight: true);
+  @include icon($name: 'window-close', $isLight: true);
+  @include icon($name: 'window-maximize', $isLight: true);
+  @include icon($name: 'window-minimize', $isLight: true);
+  @include icon($name: 'window-restore', $isLight: true);
 }

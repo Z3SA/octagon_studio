@@ -75,7 +75,7 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
         <div className={styles.AppHeader__nav}>&nbsp;</div>
 
         <div className={styles.AppHeader__right}>
-          <OMSIcon icon={EOmsIconIconName.settings} size={16} weight="light" />
+          <OMSIcon icon={EOmsIconIconName.settings} size={20} weight="light" />
 
           <Divider type="vertical" />
 
@@ -95,7 +95,7 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
             />
           </AppHeaderButton>
 
-          <AppHeaderButton onClick={this.closeWindow}>
+          <AppHeaderButton onClick={this.closeWindow} isClose={true}>
             <OMSIcon icon={EOmsIconIconName.windowClose} size={16} weight="light" />
           </AppHeaderButton>
         </div>

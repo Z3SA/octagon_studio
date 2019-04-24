@@ -19,4 +19,23 @@
   &:hover {
     background: rgba(0, 0, 0, 0.05);
   }
+
+  &:active,
+  &:focus {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+  }
+
+  &--close {
+    &:hover {
+      background: rgb(221, 50, 50);
+      color: #fff;
+    }
+
+    &:active,
+    &:focus {
+      background: rgb(184, 46, 46);
+      color: #fff;
+    }
+  }
 }

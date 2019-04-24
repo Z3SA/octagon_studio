@@ -5,6 +5,7 @@ import styles from './AppHeaderButton.m.scss';
 interface IAppHeaderButtonProps {
   children: any;
   onClick?: any;
+  isClose?: boolean;
 }
 
 /** Window control in main window header */
@@ -20,9 +21,19 @@ export default class AppHeaderButton extends PureComponent<IAppHeaderButtonProps
   }
 
   render() {
+    const { isClose, children } = this.props;
+
     return (
-      <button type="button" onClick={this.emitClick} className={styles.AppHeaderButton}>
-        {this.props.children}
+      <button
+        type="button"
+        onClick={this.emitClick}
+        className={
+          isClose
+            ? `${styles.AppHeaderButton} ${styles['AppHeaderButton--close']}`
+            : styles.AppHeaderButton
+        }
+      >
+        {children}
       </button>
     );
   }

@@ -3,19 +3,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
-  padding: 5px 10px;
+  height: 46px;
+  padding: 2px 5px;
   line-height: 40px;
 
   &__left {
     height: 100%;
     width: 80px;
+    display: flex;
+    align-items: center;
   }
 
   &__logo {
     margin-right: 15px;
-    width: 55px;
-    height: 30px;
+    width: 57px;
+    height: 33px;
     background: url('../../../assets/images/logo-dark.svg') left center no-repeat;
     background-size: contain;
     text-align: right;
@@ -23,20 +25,26 @@
     font: {
       weight: 700;
       style: italic;
-      size: 20px;
+      // size: 20px;
+      size: 0;
     }
 
-    line-height: 44px;
+    line-height: 49px;
     color: rgba(0, 0, 0, 0.33);
   }
 
   &__nav {
     width: calc(100% - 330px);
     -webkit-app-region: drag;
+    height: 100%;
   }
 
   &__right {
     width: 250px;
     text-align: right;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }

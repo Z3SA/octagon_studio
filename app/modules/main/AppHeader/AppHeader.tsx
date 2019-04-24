@@ -1,14 +1,52 @@
 import React, { PureComponent } from 'react';
 
 import Layout from 'antd/lib/layout';
-import Icon from 'antd/lib/icon';
+import Divider from 'antd/lib/divider';
+import electron, { BrowserWindow } from 'electron';
 
 import styles from './AppHeader.m.scss';
 import { oms } from 'data/data.init';
+import OMSIcon from 'components/common/OMSIcon/OMSIcon';
+import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
+import AppHeaderButton from 'components/module/main/AppHeaderButton/AppHeaderButton';
 
 const { Header } = Layout;
 
-export default class AppHeader extends PureComponent {
+interface IAppHeaderState {
+  isWindowMaximized: boolean;
+}
+
+export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
+  /** Link of main window */
+  window: BrowserWindow;
+
+  constructor(props: any) {
+    super(props);
+    this.window = electron.remote.getCurrentWindow();
+    this.state = {
+      isWindowMaximized: this.window.isMaximized(),
+    };
+  }
+
+  /** Close main window */
+  closeWindow = () => {
+    this.window.close();
+  }
+
+  /** Maximize window */
+  maximizeOrRestoreWindow = () => {
+    const windowIsMaximized = this.window.isMaximized();
+    windowIsMaximized ? this.window.restore() : this.window.maximize();
+    this.setState({
+      isWindowMaximized: !windowIsMaximized,
+    });
+  }
+
+  /** Minmize window */
+  minimizeWindow = () => {
+    this.window.minimize();
+  }
+
   public render() {
     let buildTypeLabel;
 
@@ -33,8 +71,32 @@ export default class AppHeader extends PureComponent {
           <span className={styles.AppHeader__logo}>{buildTypeLabel}</span>
         </div>
 
-        <div>
-          <Icon type="setting" />
+        <div className={styles.AppHeader__nav}>&nbsp;</div>
+
+        <div className={styles.AppHeader__right}>
+          <OMSIcon icon={EOmsIconIconName.settings} size={14} weight="light" />
+
+          <Divider type="vertical" />
+
+          <AppHeaderButton onClick={this.minimizeWindow}>
+            <OMSIcon icon={EOmsIconIconName.windowMinimize} size={14} weight="light" />
+          </AppHeaderButton>
+
+          <AppHeaderButton onClick={this.maximizeOrRestoreWindow}>
+            <OMSIcon
+              icon={
+                this.state.isWindowMaximized
+                  ? EOmsIconIconName.windowRestore
+                  : EOmsIconIconName.windowMaximize
+              }
+              size={14}
+              weight="light"
+            />
+          </AppHeaderButton>
+
+          <AppHeaderButton onClick={this.closeWindow}>
+            <OMSIcon icon={EOmsIconIconName.windowClose} size={14} weight="light" />
+          </AppHeaderButton>
         </div>
       </Header>
     );

@@ -2,12 +2,14 @@
   background: rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 40px;
   padding: 5px 10px;
   line-height: 40px;
 
   &__left {
     height: 100%;
+    width: 80px;
   }
 
   &__logo {
@@ -26,5 +28,15 @@
 
     line-height: 44px;
     color: rgba(0, 0, 0, 0.33);
+  }
+
+  &__nav {
+    width: calc(100% - 330px);
+    -webkit-app-region: drag;
+  }
+
+  &__right {
+    width: 250px;
+    text-align: right;
   }
 }

@@ -11,6 +11,7 @@ interface IOMSIconProps {
   weight?: 'light' | 'regular' | 'solid';
 }
 
+/** COmponent of icon */
 export default class OMSIcon extends PureComponent<IOMSIconProps> {
   static defaultProps: IOMSIconProps = {
     icon: null,

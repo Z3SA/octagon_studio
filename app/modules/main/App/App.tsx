@@ -6,6 +6,7 @@ import styles from './App.m.scss';
 const { Footer, Content } = Layout;
 const AppHeader = React.lazy(() => import('modules/main/AppHeader/AppHeader'));
 
+/** Main window */
 export default class App extends PureComponent {
   public render() {
     return (

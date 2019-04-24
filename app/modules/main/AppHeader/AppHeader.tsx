@@ -16,6 +16,7 @@ interface IAppHeaderState {
   isWindowMaximized: boolean;
 }
 
+/** Header of main window */
 export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
   /** Link of main window */
   window: BrowserWindow;

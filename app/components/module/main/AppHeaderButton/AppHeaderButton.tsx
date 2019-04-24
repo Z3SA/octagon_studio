@@ -5,6 +5,7 @@ interface IAppHeaderButtonProps {
   onClick?: any;
 }
 
+/** Window control in main window header */
 export default class AppHeaderButton extends PureComponent<IAppHeaderButtonProps> {
   constructor(props: any) {
     super(props);

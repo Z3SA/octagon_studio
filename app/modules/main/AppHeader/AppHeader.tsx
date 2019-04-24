@@ -75,12 +75,12 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
         <div className={styles.AppHeader__nav}>&nbsp;</div>
 
         <div className={styles.AppHeader__right}>
-          <OMSIcon icon={EOmsIconIconName.settings} size={14} weight="light" />
+          <OMSIcon icon={EOmsIconIconName.settings} size={16} weight="light" />
 
           <Divider type="vertical" />
 
           <AppHeaderButton onClick={this.minimizeWindow}>
-            <OMSIcon icon={EOmsIconIconName.windowMinimize} size={14} weight="light" />
+            <OMSIcon icon={EOmsIconIconName.windowMinimize} size={16} weight="light" />
           </AppHeaderButton>
 
           <AppHeaderButton onClick={this.maximizeOrRestoreWindow}>
@@ -90,13 +90,13 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
                   ? EOmsIconIconName.windowRestore
                   : EOmsIconIconName.windowMaximize
               }
-              size={14}
+              size={16}
               weight="light"
             />
           </AppHeaderButton>
 
           <AppHeaderButton onClick={this.closeWindow}>
-            <OMSIcon icon={EOmsIconIconName.windowClose} size={14} weight="light" />
+            <OMSIcon icon={EOmsIconIconName.windowClose} size={16} weight="light" />
           </AppHeaderButton>
         </div>
       </Header>

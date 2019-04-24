@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 
+import styles from './AppHeaderButton.m.scss';
+
 interface IAppHeaderButtonProps {
   children: any;
   onClick?: any;
@@ -19,7 +21,7 @@ export default class AppHeaderButton extends PureComponent<IAppHeaderButtonProps
 
   render() {
     return (
-      <button type="button" onClick={this.emitClick}>
+      <button type="button" onClick={this.emitClick} className={styles.AppHeaderButton}>
         {this.props.children}
       </button>
     );

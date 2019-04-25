@@ -12,7 +12,9 @@ export default class Logo extends PureComponent {
       <Menu.Item key="about-app" onClick={AboutAppModal}>
         О программе
       </Menu.Item>
-      <Menu.Item key="check-updates">Проверить обновления</Menu.Item>
+      <Menu.Item key="check-updates" disabled={true}>
+        Проверить обновления
+      </Menu.Item>
     </Menu>
   );
   render() {

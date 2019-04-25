@@ -16,21 +16,11 @@
 
   &__logo {
     margin-right: 15px;
-    width: 53px;
+    width: 50px;
     height: 27px;
     background: url('../../../assets/images/logo-dark.svg') left center no-repeat;
     background-size: contain;
-    text-align: right;
     display: inline-block;
-    font: {
-      weight: 700;
-      style: italic;
-      // size: 20px;
-      size: 0;
-    }
-
-    line-height: 49px;
-    color: rgba(0, 0, 0, 0.33);
   }
 
   &__nav {

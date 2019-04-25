@@ -5,7 +5,6 @@ import Divider from 'antd/lib/divider';
 import electron, { BrowserWindow } from 'electron';
 
 import styles from './AppHeader.m.scss';
-import { oms } from 'data/data.init';
 import OMSIcon from 'components/common/OMSIcon/OMSIcon';
 import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
 import AppHeaderButton from 'components/module/main/AppHeaderButton/AppHeaderButton';
@@ -49,27 +48,10 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
   }
 
   public render() {
-    let buildTypeLabel;
-
-    switch (oms.type) {
-      case 'pre-alpha':
-      case 'alpha':
-        buildTypeLabel = <React.Fragment>&alpha;</React.Fragment>;
-        break;
-      case 'beta':
-        buildTypeLabel = <React.Fragment>&beta;</React.Fragment>;
-        break;
-      case 'dev':
-        buildTypeLabel = 'd';
-        break;
-      default:
-        buildTypeLabel = '';
-    }
-
     return (
       <Header className={styles.AppHeader}>
         <div className={styles.AppHeader__left}>
-          <span className={styles.AppHeader__logo}>{buildTypeLabel}</span>
+          <span className={styles.AppHeader__logo} />
         </div>
 
         <div className={styles.AppHeader__nav}>&nbsp;</div>

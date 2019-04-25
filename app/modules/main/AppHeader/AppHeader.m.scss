@@ -14,10 +14,20 @@
     align-items: center;
   }
 
-  &__nav {
+  &__center {
     width: calc(100% - 330px);
-    -webkit-app-region: drag;
     height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: stretch;
+  }
+
+  &__window-title {
+    white-space: nowrap;
+    -webkit-app-region: drag;
+    padding: 0 20px;
+    flex-grow: 1;
+    text-align: center;
   }
 
   &__right {

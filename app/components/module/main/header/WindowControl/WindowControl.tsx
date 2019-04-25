@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 
-import styles from './AppHeaderButton.m.scss';
+import styles from './WindowControl.m.scss';
 
-interface IAppHeaderButtonProps {
+interface IWindowControlProps {
   children: any;
   onClick?: any;
   isClose?: boolean;
 }
 
 /** Window control in main window header */
-export default class AppHeaderButton extends PureComponent<IAppHeaderButtonProps> {
+export default class WindowControl extends PureComponent<IWindowControlProps> {
   constructor(props: any) {
     super(props);
     this.emitClick = this.emitClick.bind(this);
@@ -29,8 +29,8 @@ export default class AppHeaderButton extends PureComponent<IAppHeaderButtonProps
         onClick={this.emitClick}
         className={
           isClose
-            ? `${styles.AppHeaderButton} ${styles['AppHeaderButton--close']}`
-            : styles.AppHeaderButton
+            ? `${styles.WindowControl} ${styles['WindowControl--close']}`
+            : styles.WindowControl
         }
       >
         {children}

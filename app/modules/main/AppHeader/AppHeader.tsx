@@ -7,7 +7,7 @@ import electron, { BrowserWindow } from 'electron';
 import styles from './AppHeader.m.scss';
 import OMSIcon from 'components/common/OMSIcon/OMSIcon';
 import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
-import AppHeaderButton from 'components/module/main/AppHeaderButton/AppHeaderButton';
+import WindowControl from 'components/module/main/header/WindowControl/WindowControl';
 
 const { Header } = Layout;
 
@@ -61,11 +61,11 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
 
           <Divider type="vertical" />
 
-          <AppHeaderButton onClick={this.minimizeWindow}>
+          <WindowControl onClick={this.minimizeWindow}>
             <OMSIcon icon={EOmsIconIconName.windowMinimize} size={16} weight="light" />
-          </AppHeaderButton>
+          </WindowControl>
 
-          <AppHeaderButton onClick={this.maximizeOrRestoreWindow}>
+          <WindowControl onClick={this.maximizeOrRestoreWindow}>
             <OMSIcon
               icon={
                 this.state.isWindowMaximized
@@ -75,11 +75,11 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
               size={16}
               weight="light"
             />
-          </AppHeaderButton>
+          </WindowControl>
 
-          <AppHeaderButton onClick={this.closeWindow} isClose={true}>
+          <WindowControl onClick={this.closeWindow} isClose={true}>
             <OMSIcon icon={EOmsIconIconName.windowClose} size={16} weight="light" />
-          </AppHeaderButton>
+          </WindowControl>
         </div>
       </Header>
     );

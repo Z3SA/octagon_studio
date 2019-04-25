@@ -8,9 +8,9 @@ import styles from './AppHeader.m.scss';
 import OMSIcon from 'components/common/OMSIcon/OMSIcon';
 import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
 import WindowControl from 'components/module/main/header/WindowControl/WindowControl';
-import Logo from 'components/module/main/header/Logo/Logo';
 
 const { Header } = Layout;
+const Logo = React.lazy(() => import('components/module/main/header/Logo/Logo'));
 
 interface IAppHeaderState {
   isWindowMaximized: boolean;

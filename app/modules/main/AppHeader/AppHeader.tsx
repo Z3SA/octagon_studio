@@ -8,6 +8,7 @@ import styles from './AppHeader.m.scss';
 import OMSIcon from 'components/common/OMSIcon/OMSIcon';
 import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
 import WindowControl from 'components/module/main/header/WindowControl/WindowControl';
+import Logo from 'components/module/main/header/Logo/Logo';
 
 const { Header } = Layout;
 
@@ -51,7 +52,7 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
     return (
       <Header className={styles.AppHeader}>
         <div className={styles.AppHeader__left}>
-          <span className={styles.AppHeader__logo} />
+          <Logo />
         </div>
 
         <div className={styles.AppHeader__nav}>&nbsp;</div>

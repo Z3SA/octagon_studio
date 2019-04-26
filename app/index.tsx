@@ -6,9 +6,6 @@ import './.global.less';
 import { oms } from 'data/data.init';
 import Root from 'modules/Root';
 
-/** Language data */
-export const LANG = oms.lang.data;
-
 render(
   <AppContainer>
     <Root />

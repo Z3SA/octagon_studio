@@ -5,7 +5,6 @@ import Menu from 'antd/lib/menu';
 import Dropdown from 'antd/lib/dropdown';
 
 import styles from './Logo.m.scss';
-import AboutAppModal from '../../modals/AboutAppModal/AboutAppModal';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 import { TranslateContext } from 'modules/Root';
 import IOMSLDLogoMenu from 'data/common/model/lang/OMSLDLogoMenu.interface';
@@ -20,9 +19,7 @@ export default class Logo extends PureComponent {
 
   menu = (
     <Menu>
-      <Menu.Item key="about-app" onClick={AboutAppModal}>
-        {this.lang.ABOUT_APP}
-      </Menu.Item>
+      <Menu.Item key="about-app">{this.lang.ABOUT_APP}</Menu.Item>
       <Menu.Item key="check-updates" disabled={true}>
         {this.lang.CHECK_UPDATES}
       </Menu.Item>

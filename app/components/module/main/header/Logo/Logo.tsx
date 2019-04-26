@@ -15,7 +15,7 @@ export default class Logo extends PureComponent {
   static contextType = TranslateContext;
 
   /** Redefenition of translate */
-  lang: IOMSLDLogoMenu = (this.context as IOMSLD).MAIN_WINDOW.LOGO_MENU;
+  lang: IOMSLDLogoMenu = this.context.MAIN_WINDOW.LOGO_MENU;
 
   menu = (
     <Menu>

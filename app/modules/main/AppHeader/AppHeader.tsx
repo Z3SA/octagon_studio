@@ -9,6 +9,7 @@ import OMSIcon from 'components/common/OMSIcon/OMSIcon';
 import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
 import WindowControl from 'components/module/main/header/WindowControl/WindowControl';
 import MainMenu from 'components/module/main/header/MainMenu/MainMenu';
+import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 
 const { Header } = Layout;
 const Logo = React.lazy(() => import('components/module/main/header/Logo/Logo'));
@@ -59,7 +60,7 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
         <div className={styles.AppHeader__center}>
           <MainMenu />
           <div className={styles['AppHeader__window-title']}>
-            Octagon Modmaking Studio
+            {APP_CONSTS.APP_TITLE_NAME}
           </div>
         </div>
 

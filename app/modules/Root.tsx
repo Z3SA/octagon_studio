@@ -12,7 +12,7 @@ import { oms } from 'data/data.init';
 const store = configureStore();
 
 /** Context of translate */
-const TranslateContext = React.createContext({});
+export const TranslateContext = React.createContext({});
 
 /**
  * Root component (entry-point of providers and main window UI)

@@ -7,18 +7,27 @@ import Dropdown from 'antd/lib/dropdown';
 import styles from './Logo.m.scss';
 import AboutAppModal from '../../modals/AboutAppModal/AboutAppModal';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
+import { TranslateContext } from 'modules/Root';
+import IOMSLDLogoMenu from 'data/common/model/lang/OMSLDLogoMenu.interface';
+import IOMSLD from 'data/common/model/lang/OMSLD.interface';
 
 export default class Logo extends PureComponent {
+  /** Apply translate provider */
+  static contextType = TranslateContext;
+
+  /** Redefenition of translate */
+  lang: IOMSLDLogoMenu = (this.context as IOMSLD).MAIN_WINDOW.LOGO_MENU;
+
   menu = (
     <Menu>
       <Menu.Item key="about-app" onClick={AboutAppModal}>
-        О программе
+        {this.lang.ABOUT_APP}
       </Menu.Item>
       <Menu.Item key="check-updates" disabled={true}>
-        Проверить обновления
+        {this.lang.CHECK_UPDATES}
       </Menu.Item>
       <Menu.Item key="open-repo" onClick={this.openRepo}>
-        Открыть репозиторий
+        {this.lang.OPEN_REPO}
       </Menu.Item>
     </Menu>
   );

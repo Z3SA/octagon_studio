@@ -2,13 +2,9 @@
 // Import React
 // Import Ant D components
 import { message, Table } from 'antd';
-import OMSFile from 'data/utils/OMSFile.class';
-// Import Octagon data
-import { LANG } from 'index.tsx';
 import React, { Component } from 'react';
 
-// Language package of window
-let LANG__PLATFORMS: any;
+import OMSFile from 'data/utils/OMSFile.class';
 
 export default class Platforms extends Component {
   public chooseFolder = () => {
@@ -17,11 +13,11 @@ export default class Platforms extends Component {
     if (path) {
       try {
         if (!OMSFile.exists(`${path}/.oms`)) {
-          throw LANG__PLATFORMS.ERROR.FOLDER_IS_NOT_PLATFORM;
+          throw new Error('');
         }
 
         if (!OMSFile.exists(`${path}/.oms/main.omsplatform`)) {
-          throw LANG__PLATFORMS.ERROR.FOLDER_HAS_NOT_CFG;
+          throw new Error('');
         }
       } catch (ex) {
         message.error(ex);
@@ -30,17 +26,15 @@ export default class Platforms extends Component {
   }
 
   public render() {
-    LANG__PLATFORMS = LANG.SETTINGS.PLATFORMS;
-
     const columns = [
       {
         dataIndex: 'name',
-        title: LANG__PLATFORMS.TABLE_HEADER.NAME,
+        title: 'title',
         key: 'name',
       },
       {
         dataIndex: 'version',
-        title: LANG__PLATFORMS.TABLE_HEADER.VERSION,
+        title: 'title',
         key: 'version',
       },
       {

@@ -8,7 +8,6 @@ import styles from './Logo.m.scss';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 import { TranslateContext } from 'modules/Root';
 import IOMSLDLogoMenu from 'data/common/model/lang/OMSLDLogoMenu.interface';
-import IOMSLD from 'data/common/model/lang/OMSLD.interface';
 
 export default class Logo extends PureComponent {
   /** Apply translate provider */

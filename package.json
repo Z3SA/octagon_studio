@@ -4,6 +4,7 @@
   "version": "0.1.1",
   "description": "Octagon Modmaking Studio - visual editor for modification development on S.T.A.L.K.E.R. Call of Pripyat",
   "scripts": {
+    "rebuild": "rm yarn.lock && rm -rf node_modules && yarn",
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.babel.js --colors",
     "build-e2e": "cross-env E2E_BUILD=true yarn build",
@@ -193,7 +194,6 @@
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-erb": "^0.0.2",
     "eslint-config-prettier": "^3.6.0",
     "eslint-formatter-pretty": "^2.1.1",
     "eslint-import-resolver-webpack": "^0.11.0",

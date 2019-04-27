@@ -1,5 +1,6 @@
 import IOMSLDLogoMenu from './OMSLDLogoMenu.interface';
 import IOMSLDAboutAppModal from './OMSLDAboutAppModal.interface';
+import IOMSLDMainMenu from './OMSLDMainMenu.interface';
 
 export default interface IOMSLDMainWindow {
   /** Dropdown of menu in app header */
@@ -7,4 +8,7 @@ export default interface IOMSLDMainWindow {
 
   /** Modal "About app" */
   ABOUT_APP: IOMSLDAboutAppModal;
+
+  /** Main menu */
+  MAIN_MENU: IOMSLDMainMenu;
 }

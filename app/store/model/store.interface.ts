@@ -1,6 +1,6 @@
-import { IStoreMainModals } from './main/modals.interface';
+import { IStoreMain } from './main.interface';
 
 export interface IStore {
   /** State of main window */
-  main: IStoreMainModals;
+  main: IStoreMain;
 }

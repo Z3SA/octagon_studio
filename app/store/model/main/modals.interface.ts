@@ -1,5 +1,3 @@
 export interface IStoreMainModals {
-  modals: {
-    aboutAppVisible: boolean;
-  };
+  aboutAppVisible: boolean;
 }

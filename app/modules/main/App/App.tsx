@@ -3,6 +3,7 @@ import React, { PureComponent, Suspense } from 'react';
 import Layout from 'antd/lib/layout/layout';
 
 import styles from './App.m.scss';
+import AppModalStack from '../AppModalStack/AppModalStack';
 const { Footer, Content } = Layout;
 const AppHeader = React.lazy(() => import('modules/main/AppHeader/AppHeader'));
 
@@ -10,17 +11,20 @@ const AppHeader = React.lazy(() => import('modules/main/AppHeader/AppHeader'));
 export default class App extends PureComponent {
   public render() {
     return (
-      <Layout className={styles.App}>
-        <Suspense fallback={null}>
-          <AppHeader />
-        </Suspense>
+      <React.Fragment>
+        <Layout className={styles.App}>
+          <Suspense fallback={null}>
+            <AppHeader />
+          </Suspense>
 
-        <Layout>
-          <Content />
+          <Layout>
+            <Content />
+          </Layout>
+
+          <Footer />
         </Layout>
-
-        <Footer />
-      </Layout>
+        <AppModalStack appModalVisible={true} />
+      </React.Fragment>
     );
   }
 }

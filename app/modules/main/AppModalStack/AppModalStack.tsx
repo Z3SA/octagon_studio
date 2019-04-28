@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import ConnectedAboutAppModal from 'components/module/main/modals/AboutAppModal/ConnectedAboutAppModal';
+import ConnectedAboutAppModal from 'modules/main/modals/AboutAppModal/ConnectedAboutAppModal';
 
 interface IAppModalStackProps {
   appModalVisible: boolean;

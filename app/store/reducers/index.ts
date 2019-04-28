@@ -1,10 +1,20 @@
 import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
-import counter from './counter';
+import { modalsReducer } from './main/modals';
 
-export default function createRootReducer(history) {
+// export default function createRootReducer(history) {
+//   return combineReducers({
+//     router: connectRouter(history),
+//     counter,
+//     main: {
+//       modals: modalsReducer,
+//     }
+//   });
+// }
+
+export function createRootReducer() {
   return combineReducers({
-    router: connectRouter(history),
-    counter,
+    main: modalsReducer,
   });
 }
+
+export type RootState = ReturnType<typeof createRootReducer>;

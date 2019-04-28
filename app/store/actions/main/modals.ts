@@ -1,15 +1,13 @@
 export const TOGGLE_ABOUT_APP_MODAL = 'TOGGLE_ABOUT_APP_MODAL';
 
-export const hideAboutAppModal = () => {
-  return {
-    type: TOGGLE_ABOUT_APP_MODAL,
-    visible: false,
-  };
-};
+export interface IToggleAboutAppModalAction {
+  readonly type: typeof TOGGLE_ABOUT_APP_MODAL;
+  readonly visible: boolean;
+}
 
-export const showAboutAppModal = () => {
+export function toggleAboutAppModal(visibility: boolean): IToggleAboutAppModalAction {
   return {
     type: TOGGLE_ABOUT_APP_MODAL,
-    visible: true,
+    visible: visibility,
   };
-};
+}

@@ -6,5 +6,3 @@ export function createRootReducer() {
     main: mainReducer(),
   });
 }
-
-export type RootState = ReturnType<typeof createRootReducer>;

@@ -1,10 +1,10 @@
 import { createStore } from 'redux';
 import { createHashHistory } from 'history';
-import createRootReducer from './reducers';
+import { createRootReducer } from './reducers';
 
 const history = createHashHistory();
 
-const rootReducer = createRootReducer(history);
+const rootReducer = createRootReducer();
 
 const configureStore = (initialState?: any) => {
   // Redux Configuration
@@ -51,6 +51,10 @@ const configureStore = (initialState?: any) => {
   // Create Store
   // const store = createStore(rootReducer, initialState, enhancer);
   const store = createStore(rootReducer, initialState);
+
+  store.subscribe(() => {
+    console.log(store.getState());
+  });
 
   if ((module as any).hot) {
     (module as any).hot.accept(

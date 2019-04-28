@@ -5,7 +5,9 @@ import {
 import { IStoreMainModals } from 'store/model/main/modals.interface';
 
 const initialState: IStoreMainModals = {
-  aboutAppVisible: false,
+  modals: {
+    aboutAppVisible: false,
+  },
 };
 
 export function modalsReducer(
@@ -16,7 +18,10 @@ export function modalsReducer(
     case TOGGLE_ABOUT_APP_MODAL:
       return {
         ...state,
-        aboutAppVisible: action.visible,
+        modals: {
+          ...state.modals,
+          aboutAppVisible: action.visible,
+        },
       };
     default:
       return state;

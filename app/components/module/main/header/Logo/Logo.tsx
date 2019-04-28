@@ -6,7 +6,7 @@ import Dropdown from 'antd/lib/dropdown';
 
 import styles from './Logo.m.scss';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
-import { TranslateContext } from 'modules/Root';
+import { TranslateContext } from 'modules/TranslateContext';
 import IOMSLDLogoMenu from 'data/common/model/lang/OMSLDLogoMenu.interface';
 
 export default class Logo extends PureComponent {

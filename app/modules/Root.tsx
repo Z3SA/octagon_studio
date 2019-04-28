@@ -7,12 +7,10 @@ import ru_RU from 'antd/lib/locale-provider/ru_RU';
 import App from 'modules/main/App/App';
 import { configureStore } from 'store/configureStore';
 import { oms } from 'data/data.init';
+import { TranslateContext } from './TranslateContext';
 
 /** Redux Store configuration */
 const store = configureStore();
-
-/** Context of translate */
-export const TranslateContext = React.createContext({});
 
 /**
  * Root component (entry-point of providers and main window UI)

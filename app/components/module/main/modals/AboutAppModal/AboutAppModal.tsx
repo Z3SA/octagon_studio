@@ -4,7 +4,7 @@ import Modal from 'antd/lib/modal';
 import Typography from 'antd/lib/typography';
 
 import { oms } from 'data/data.init';
-import { TranslateContext } from 'modules/Root';
+import { TranslateContext } from 'modules/TranslateContext';
 import IOMSLDAboutAppModal from 'data/common/model/lang/OMSLDAboutAppModal.interface';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 

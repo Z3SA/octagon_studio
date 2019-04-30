@@ -12,7 +12,7 @@ import MainMenu from 'components/module/main/header/MainMenu/MainMenu';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 
 const { Header } = Layout;
-const Logo = React.lazy(() => import('components/module/main/header/Logo/Logo'));
+const Logo = React.lazy(() => import('modules/main/header/Logo/Logo'));
 
 interface IAppHeaderState {
   isWindowMaximized: boolean;

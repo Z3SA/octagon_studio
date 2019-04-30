@@ -5,7 +5,7 @@ import Layout from 'antd/lib/layout/layout';
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
 const { Footer, Content } = Layout;
-const AppHeader = React.lazy(() => import('modules/main/AppHeader/AppHeader'));
+const AppHeader = React.lazy(() => import('modules/main/header/AppHeader/AppHeader'));
 
 /** Main window */
 export default class App extends PureComponent {

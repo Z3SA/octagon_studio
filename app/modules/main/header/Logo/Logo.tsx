@@ -9,19 +9,27 @@ import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 import { TranslateContext } from 'modules/TranslateContext';
 import IOMSLDLogoMenu from 'data/common/model/lang/OMSLDLogoMenu.interface';
 
-export default class Logo extends PureComponent {
+interface ILogoProps {
+  onClickAboutApp?: () => void;
+}
+export default class Logo extends PureComponent<ILogoProps> {
   /** Apply translate provider */
   static contextType = TranslateContext;
 
   /** Redefenition of translate */
   lang: IOMSLDLogoMenu = this.context.MAIN_WINDOW.LOGO_MENU;
 
+  /** Menu in dropdown */
   menu = (
     <Menu>
-      <Menu.Item key="about-app">{this.lang.ABOUT_APP}</Menu.Item>
+      <Menu.Item key="about-app" onClick={this.props.onClickAboutApp}>
+        {this.lang.ABOUT_APP}
+      </Menu.Item>
+
       <Menu.Item key="check-updates" disabled={true}>
         {this.lang.CHECK_UPDATES}
       </Menu.Item>
+
       <Menu.Item key="open-repo" onClick={this.openRepo}>
         {this.lang.OPEN_REPO}
       </Menu.Item>

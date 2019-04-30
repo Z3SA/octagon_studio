@@ -10,9 +10,9 @@ import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
 import WindowControl from 'components/module/main/header/WindowControl/WindowControl';
 import MainMenu from 'components/module/main/header/MainMenu/MainMenu';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
+import ConnectedLogo from '../Logo/ConnectedLogo';
 
 const { Header } = Layout;
-const Logo = React.lazy(() => import('modules/main/header/Logo/Logo'));
 
 interface IAppHeaderState {
   isWindowMaximized: boolean;
@@ -54,7 +54,7 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
     return (
       <Header className={styles.AppHeader}>
         <div className={styles.AppHeader__left}>
-          <Logo />
+          <ConnectedLogo />
         </div>
 
         <div className={styles.AppHeader__center}>

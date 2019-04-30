@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
 import Modal from 'antd/lib/modal';
 import Typography from 'antd/lib/typography';
@@ -14,28 +14,16 @@ interface IAboutAppModalProps {
   visible: boolean;
 }
 
-interface IAboutAppModalState {
-  visible: boolean;
-}
-
-export default class AboutAppModal extends PureComponent<
-  IAboutAppModalProps,
-  IAboutAppModalState
-> {
+export default class AboutAppModal extends Component<IAboutAppModalProps> {
   /** Definition of context type */
   static contextType = TranslateContext;
-
-  /** Default state */
-  state: Readonly<IAboutAppModalState> = {
-    visible: this.props.visible,
-  };
 
   /** Redefenition of language pack */
   lang: IOMSLDAboutAppModal = this.context.MAIN_WINDOW.ABOUT_APP_MODAL;
 
   render() {
     return (
-      <Modal title={this.lang.TITLE} visible={this.state.visible}>
+      <Modal title={this.lang.TITLE} visible={this.props.visible}>
         <Paragraph>{APP_CONSTS.APP_TITLE_NAME}</Paragraph>
         <Paragraph>
           {this.lang.MAJOR_VERSION_LABEL}: {oms.major}

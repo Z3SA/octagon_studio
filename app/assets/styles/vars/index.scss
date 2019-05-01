@@ -1,0 +1,5 @@
+@import './colors/index';
+
+:root {
+  @include define-colors;
+}

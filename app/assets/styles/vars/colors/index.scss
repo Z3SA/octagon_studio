@@ -1,5 +1,5 @@
 @import './blue', './purple', './cyan', './green', './magenta', './red', './orange',
-  './yellow';
+  './yellow', './volcano';
 
 @mixin define-colors {
   @include define-blue;
@@ -10,4 +10,5 @@
   @include define-red;
   @include define-orange;
   @include define-yellow;
+  @include define-volcano;
 }

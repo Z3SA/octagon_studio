@@ -2,7 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import './.global.less';
+/**
+ * This is one implementation of Less cause of Antd styles
+ * Ffter that all overrides are resolved through CSS vars
+ */
+import './assets/styles/global.less';
 import Root from 'modules/Root';
 
 render(

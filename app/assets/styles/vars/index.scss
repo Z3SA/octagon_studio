@@ -1,6 +1,7 @@
-@import './colors/index', './main-colors';
+@import './colors/index', './main-colors', './primary-colors';
 
 :root {
   @include define-colors;
   @include define-main-colors;
+  @include define-primary-colors;
 }

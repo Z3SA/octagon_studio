@@ -1,0 +1,7 @@
+@mixin define-antd-form {
+  --label-required-color: var(--color-highlight, var(--color-red-6, #f5222d));
+  --label-color: var(--color-heading, rgba(0, 0, 0, 0.85));
+  --form-item-margin-bottom: 24px;
+  --form-vertical-label-padding: 0 0 8px;
+  --form-vertical-label-margin: 0;
+}

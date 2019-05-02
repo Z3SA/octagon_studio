@@ -1,0 +1,7 @@
+@mixin define-link {
+  --color-link: var(--color-primary-6, var(--color-blue-6, #1890ff));
+  --color-link-hover: var(--color-primary-5, var(--color-blue-5, #40a9ff));
+  --color-link-active: var(--color-primary-7, var(--color-blue-7, #096dd9));
+  --link-decoration: none;
+  --link-decoration-hover: none;
+}

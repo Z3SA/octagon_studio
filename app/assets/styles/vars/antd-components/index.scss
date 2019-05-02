@@ -1,6 +1,6 @@
 @import './btn', './checkbox', './empty', './radio', './layout', './form', './input',
   './select', './tooltip', './popover', './modal', './progress', './menu', './spin',
-  './table', './tag', './time-picker', './badge', './rate';
+  './table', './tag', './time-picker', './badge', './rate', './card';
 
 @mixin define-antd-components {
   @include define-antd-btn;
@@ -22,4 +22,5 @@
   @include define-antd-time-picker;
   @include define-antd-badge;
   @include define-antd-rate;
+  @include define-antd-card;
 }

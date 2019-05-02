@@ -1,0 +1,11 @@
+@mixin define-antd-card {
+  --card-header-color: var(--color-heading, rgba(0, 0, 0, 0.85));
+  --card-head-background: transparent;
+  --card-head-padding: 16px;
+  --card-inner-head-padding: 12px;
+  --card-padding-base: 24px;
+  --card-actions-background: var(--color-background-light, #f9f9f9);
+  --card-background: #cfd8dc;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  --card-radius: var(--border-radius-sm, 2px);
+}

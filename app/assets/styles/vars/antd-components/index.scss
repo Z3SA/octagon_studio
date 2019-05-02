@@ -2,7 +2,7 @@
   './select', './tooltip', './popover', './modal', './progress', './menu', './spin',
   './table', './tag', './time-picker', './badge', './rate', './card', './tabs',
   './backtop', './avatar', './switch', './pagination', './breadcrumb', './slider',
-  './tree', './collapse';
+  './tree', './collapse', './alert';
 
 @mixin define-antd-components {
   @include define-antd-btn;
@@ -34,4 +34,19 @@
   @include define-antd-slider;
   @include define-antd-tree;
   @include define-antd-collapse;
+
+  // Skeleton
+  // --
+  --skeleton-color: #f2f2f2;
+  // --
+
+  // Transfer
+  // --
+  --transfer-disabled-background: var(
+    --color-background-disabled,
+    var(--color-background-base, #f4f4f4)
+  );
+  // --
+
+  @include define-antd-alert;
 }

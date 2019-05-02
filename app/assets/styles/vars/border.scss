@@ -1,0 +1,7 @@
+@mixin define-border {
+  --color-border-base: #d8d8d8;
+  --color-border-split: #e8e8e8;
+  --color-border-inverse: var(--color-white, #fff);
+  --width-border-base: 1px;
+  --style-border-base: solid;
+}

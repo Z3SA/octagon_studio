@@ -1,0 +1,10 @@
+@mixin define-antd-pagination {
+  --pagination-item-size: 32px;
+  --pagination-item-size-sm: 24px;
+  --pagination-font-family: Arial;
+  --pagination-font-weight-active: 500;
+  --pagination-item-background-active: var(
+    --color-component-background,
+    var(--color-white, #fff)
+  );
+}

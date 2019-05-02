@@ -1,0 +1,8 @@
+@mixin define-antd-switch {
+  --switch-height: 22px;
+  --switch-sm-height: 16px;
+  --switch-sm-checked-margin-left: -13px;
+  --switch-disabled-opacity: 0.4;
+  --switch-color: var(--color-primary, var(--color-blue-6, #1890ff));
+  --switch-shadow-color: rgba(0, 35, 11, 0.2);
+}

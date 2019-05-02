@@ -10,18 +10,27 @@
 @btn-text-shadow: var(--btn-text-shadow, 0 -1px 0 rgba(0, 0, 0, 0.12));
 
 @btn-primary-color: var(--btn-primary-color, var(--color-white, #fff));
-@btn-primary-bg: var(--btn-primary-background, var(--color-primary, var(--color-blue-6, #1890ff)));
+@btn-primary-bg: var(
+  --btn-primary-background,
+  var(--color-primary, var(--color-blue-6, #1890ff))
+);
 
 @btn-default-color: var(--btn-default-color, var(--color-text, rgba(0, 0, 0, 0.65)));
 @btn-default-bg: var(--btn-default-background, var(--color-white, #fff));
 @btn-default-border: var(--btn-default-border-color, var(--color-border-base, #d8d8d8));
 
-@btn-danger-color: var(--btn-danger-color, var(--color-error, var(--color-red-6, #f5222d)));
+@btn-danger-color: var(
+  --btn-danger-color,
+  var(--color-error, var(--color-red-6, #f5222d))
+);
 @btn-danger-bg: var(--btn-danger-background, var(--color-background-base, #f4f4f4));
 @btn-danger-border: var(--btn-danger-border-color, var(--color-border-base, #d8d8d8));
 
 @btn-disable-color: var(--btn-disable-color, var(--color-disabled, rgba(0, 0, 0, 0.25)));
-@btn-disable-bg: var(--btn-disable-background, var(--color-background-disabled, var(--color-background-base, #f4f4f4)));
+@btn-disable-bg: var(
+  --btn-disable-background,
+  var(--color-background-disabled, var(--color-background-base, #f4f4f4))
+);
 @btn-disable-border: var(--btn-disable-border-color, var(--color-border-base, #d8d8d8));
 
 @btn-padding-base: 0 var(--btn-padding-base, 15px);
@@ -38,7 +47,10 @@
 @btn-circle-size-lg: var(--btn-circle-size-lg, var(--btn-height-lg, 40px));
 @btn-circle-size-sm: var(--btn-circle-size-sm, var(--btn-height-sm, 24px));
 
-@btn-group-border: var(--btn-group-border-color, var(--color-primary-5, var(--color-blue-5, #40a9ff)));
+@btn-group-border: var(
+  --btn-group-border-color,
+  var(--color-primary-5, var(--color-blue-5, #40a9ff))
+);
 // --
 
 // Checkbox
@@ -52,3 +64,28 @@
 // Empty
 @empty-font-size: var(--empty-font-size, var(--font-size-base, 14px));
 // --
+
+// Radio
+@radio-size: var(--radio-size, 16px);
+@radio-dot-color: var(--radio-dot-color, var(--color-primary, var(--color-blue-6, #1890ff)));
+
+@radio-button-bg: var(
+  --radio-button-background,
+  var(--btn-default-background, var(--color-white, #fff))
+);
+@radio-button-checked-bg: var(
+  --radio-button-checked-background,
+  var(--btn-default-background, var(--color-white, #fff))
+);
+@radio-button-color: var(
+  --radio-button-color,
+  var(--btn-default-color, var(--color-text, rgba(0, 0, 0, 0.65)))
+);
+@radio-button-hover-color: var(
+  --radio-button-hover-color,
+  var(--color-primary-5, var(--color-blue-5, #40a9ff))
+);
+@radio-button-active-color: var(
+  --radio-button-active-color,
+  var(--color-primary-7, var(--color-blue-7, #096dd9))
+);

@@ -1,0 +1,9 @@
+@mixin define-antd-popover {
+  --popover-background: var(--color-white, #fff);
+  --popover-color: var(--color-text, rgba(0, 0, 0, 0.65));
+  --popover-min-width: 177px;
+  --popover-arrow-width: 6px;
+  --popover-arrow-color: var(--popover-background, var(--color-white, #fff));
+  --popover-arrow-outer-color: var(--popover-background, var(--color-white, #fff));
+  --popover-distance: 10px;
+}

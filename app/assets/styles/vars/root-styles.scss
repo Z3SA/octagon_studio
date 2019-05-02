@@ -1,0 +1,31 @@
+@mixin define-root-styles {
+  --color-body-background: var(--color-white, #fff);
+  --color-component-background: var(--color-white, #fff);
+  --font-base: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  --color-text: rgba(0, 0, 0, 0.65);
+  --color-text-secondary: rgba(0, 0, 0, 0.45);
+  --color-text-warning: var(--color-gold-7, #d48806);
+  --color-text-danger: var(--color-red-7, #cf1322);
+  --color-text-inverse: var(--color-white, #fff);
+  --color-icon: inherit;
+  --color-icon-hover: rgba(0, 0, 0, 0.75);
+  --color-heading: rgba(0, 0, 0, 0.85);
+  --color-heading-dark: rgba(255, 255, 255, 0.85);
+  --color-text-dark: rgba(255, 255, 255, 0.85);
+  --color-text-secondary-dark: rgba(255, 255, 255, 0.65);
+  --color-text-selection-bg: var(--color-primary, var(--color-blue-6, #1890ff));
+  --font-variant-base: tabular-nums;
+  --font-feature-settings-base: 'tnum';
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-sm: 12px;
+  --font-size-heading-1: 38px;
+  --font-size-heading-2: 30px;
+  --font-size-heading-3: 24px;
+  --font-size-heading-4: 20px;
+  --line-height-base: 1.5;
+  --border-radius-base: 4px;
+  --border-radius-sm: 2px;
+}

@@ -136,9 +136,6 @@ export default merge.smart(baseConfig, {
           },
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
           },
           {
             loader: 'less-loader',
@@ -157,16 +154,12 @@ export default merge.smart(baseConfig, {
           },
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-              sourceMap: true,
-              importLoaders: 1,
-              localIdentName: '[name]__[local]__[hash:base64:5]',
-              javascriptEnabled: true,
-            },
           },
           {
             loader: 'less-loader',
+            options: {
+              javascriptEnabled: true,
+            },
           },
         ],
       },

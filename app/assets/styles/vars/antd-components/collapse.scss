@@ -1,0 +1,9 @@
+@mixin define-antd-collapse {
+  --collapse-header-padding: 12px 16px 12px 40px;
+  --collapse-header-background: var(--color-background-light, #f9f9f9);
+  --collapse-content-padding: var(--padding-md, 16px);
+  --collapse-content-background: var(
+    --color-component-background,
+    var(--color-white, #fff)
+  );
+}

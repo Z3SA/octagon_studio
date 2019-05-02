@@ -2,7 +2,7 @@
   './select', './tooltip', './popover', './modal', './progress', './menu', './spin',
   './table', './tag', './time-picker', './badge', './rate', './card', './tabs',
   './backtop', './avatar', './switch', './pagination', './breadcrumb', './slider',
-  './tree';
+  './tree', './collapse';
 
 @mixin define-antd-components {
   @include define-antd-btn;
@@ -33,4 +33,5 @@
   @include define-antd-breadcrumb;
   @include define-antd-slider;
   @include define-antd-tree;
+  @include define-antd-collapse;
 }

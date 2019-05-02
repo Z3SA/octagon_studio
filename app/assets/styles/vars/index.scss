@@ -1,5 +1,5 @@
 @import './colors/index', './main-colors', './primary-colors', './root-styles',
-  './paddings', './item', './link', './animations', './border';
+  './paddings', './item', './link', './animations', './border', './outline';
 
 :root {
   @include define-colors;
@@ -11,4 +11,5 @@
   @include define-link;
   @include define-animations;
   @include define-border;
+  @include define-outline;
 }

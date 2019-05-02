@@ -1,0 +1,10 @@
+@mixin define-antd-table {
+  --table-header-background: var(--color-background-light, #f9f9f9);
+  --table-header-color: var(--color-heading, rgba(0, 0, 0, 0.85));
+  --table-body-sort-background: rgba(0, 0, 0, 0.01);
+  --table-selected-row-background: #fafafa;
+  --table-expanded-row-background: #fbfbfb;
+  --table-padding-vertical: 16px;
+  --table-padding-horizontal: 16px;
+  --table-border-radius-base: var(--border-radius-base, 4px);
+}

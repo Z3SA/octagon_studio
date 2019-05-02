@@ -1,6 +1,6 @@
 @import './colors/index', './main-colors', './primary-colors', './root-styles',
   './paddings', './item', './link', './animations', './border', './outline',
-  './background', './disabled', './shadow';
+  './background', './disabled', './shadow', './antd-components/index';
 
 :root {
   @include define-colors;
@@ -16,4 +16,5 @@
   @include define-background;
   @include define-disabled;
   @include define-shadow;
+  @include define-antd-components;
 }

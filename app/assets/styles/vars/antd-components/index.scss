@@ -1,0 +1,5 @@
+@import './btn';
+
+@mixin define-antd-components {
+  @include define-antd-btn;
+}

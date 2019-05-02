@@ -1,7 +1,7 @@
 @import './btn', './checkbox', './empty', './radio', './layout', './form', './input',
   './select', './tooltip', './popover', './modal', './progress', './menu', './spin',
   './table', './tag', './time-picker', './badge', './rate', './card', './tabs',
-  './backtop', './avatar', './switch', './pagination', './breadcrumb';
+  './backtop', './avatar', './switch', './pagination', './breadcrumb', './slider';
 
 @mixin define-antd-components {
   @include define-antd-btn;
@@ -30,4 +30,5 @@
   @include define-antd-switch;
   @include define-antd-pagination;
   @include define-antd-breadcrumb;
+  @include define-antd-slider;
 }

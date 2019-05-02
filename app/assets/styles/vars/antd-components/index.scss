@@ -1,5 +1,6 @@
-@import './btn';
+@import './btn', './checkbox';
 
 @mixin define-antd-components {
   @include define-antd-btn;
+  @include define-antd-checkbox;
 }

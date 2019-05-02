@@ -1,0 +1,6 @@
+@mixin define-antd-checkbox {
+  --checkbox-size: 16px;
+  --checkbox-color: var(--color-primary, var(--color-blue-6, #1890ff));
+  --checkbox-check-color: var(--color-white, #fff);
+  --checkbox-border-width: var(--width-border-base, 1px);
+}

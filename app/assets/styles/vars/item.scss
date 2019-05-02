@@ -1,0 +1,4 @@
+@mixin define-item {
+  --bg-item-active: var(--color-primary-1, var(--color-blue-1, #e6f7ff));
+  --bg-item-hover: var(--color-primary-1, var(--color-blue-1, #e6f7ff));
+}

@@ -1,6 +1,6 @@
 @import './colors/index', './main-colors', './primary-colors', './root-styles',
   './paddings', './item', './link', './animations', './border', './outline',
-  './background', './disabled';
+  './background', './disabled', './shadow';
 
 :root {
   @include define-colors;
@@ -15,4 +15,5 @@
   @include define-outline;
   @include define-background;
   @include define-disabled;
+  @include define-shadow;
 }

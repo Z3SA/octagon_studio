@@ -1,4 +1,5 @@
-@import './btn', './checkbox', './empty', './radio', './layout', './form', './input';
+@import './btn', './checkbox', './empty', './radio', './layout', './form', './input',
+  './select';
 
 @mixin define-antd-components {
   @include define-antd-btn;
@@ -8,4 +9,5 @@
   @include define-antd-layout;
   @include define-antd-form;
   @include define-antd-input;
+  @include define-antd-select;
 }

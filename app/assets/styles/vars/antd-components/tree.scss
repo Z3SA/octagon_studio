@@ -1,0 +1,9 @@
+@mixin define-antd-tree {
+  --tree-title-height: 24px;
+  --tree-child-padding: 18px;
+  --tree-directory-selected-color: var(--color-white, #fff);
+  --tree-directory-selected-background: var(
+    --color-primary,
+    var(--color-blue-6, #1890ff)
+  );
+}

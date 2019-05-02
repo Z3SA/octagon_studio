@@ -6,7 +6,8 @@ import { AppContainer } from 'react-hot-loader';
  * This is one implementation of Less cause of Antd styles
  * Ffter that all overrides are resolved through CSS vars
  */
-import './.global.less';
+import './assets/styles/global.less';
+import 'assets/styles/vars/index.scss';
 import Root from 'modules/Root';
 
 render(

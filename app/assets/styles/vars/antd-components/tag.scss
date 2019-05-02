@@ -1,0 +1,5 @@
+@mixin define-antd-tag {
+  --tag-default-background: var(--color-background-light, #f9f9f9);
+  --tag-default-color: var(--color-text, rgba(0, 0, 0, 0.65));
+  --tag-font-size: var(--font-size-sm, 12px);
+}

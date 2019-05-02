@@ -1,6 +1,6 @@
 @import './btn', './checkbox', './empty', './radio', './layout', './form', './input',
   './select', './tooltip', './popover', './modal', './progress', './menu', './spin',
-  './table';
+  './table', './tag';
 
 @mixin define-antd-components {
   @include define-antd-btn;
@@ -18,4 +18,5 @@
   @include define-antd-menu;
   @include define-antd-spin;
   @include define-antd-table;
+  @include define-antd-tag;
 }

@@ -253,6 +253,7 @@
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@types/react-dom": "^16.8.4",
     "antd": "^3.16.3",
+    "babel-plugin-import": "^1.11.0",
     "connected-react-router": "^5.0.1",
     "core-js": "2",
     "devtron": "^1.4.0",

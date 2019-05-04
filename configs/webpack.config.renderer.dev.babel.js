@@ -129,25 +129,7 @@ export default merge.smart(baseConfig, {
       },
       // LESS support - compile all .global.scss files and pipe it to style.css
       {
-        test: /\.global\.(less)$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              javascriptEnabled: true,
-            },
-          },
-        ],
-      },
-      // LESS support - compile all other .scss files and pipe it to style.css
-      {
-        test: /^((?!\.global).)*\.(less)$/,
+        test: /.less$/,
         use: [
           {
             loader: 'style-loader',

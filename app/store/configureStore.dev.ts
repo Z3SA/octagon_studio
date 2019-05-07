@@ -1,16 +1,14 @@
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { createHashHistory } from 'history';
+import { routerMiddleware } from 'connected-react-router';
+
 import { createRootReducer } from './reducers';
 
-const history = createHashHistory();
+export const history = createHashHistory();
 
-const rootReducer = createRootReducer();
+const rootReducer = createRootReducer(history);
 
 const configureStore = (initialState?: any) => {
-  // Redux Configuration
-  // const middleware = [];
-  // const enhancers = [];
-
   // Thunk Middleware
   // middleware.push(thunk);
 
@@ -24,10 +22,6 @@ const configureStore = (initialState?: any) => {
   // if (process.env.NODE_ENV !== 'test') {
   //   middleware.push(logger);
   // }
-
-  // Router Middleware
-  // const router = routerMiddleware(history);
-  // middleware.push(router);
 
   // Redux DevTools Configuration
   // const actionCreators = {
@@ -44,13 +38,13 @@ const configureStore = (initialState?: any) => {
   //   : compose;
   /* eslint-enable no-underscore-dangle */
 
-  // Apply Middleware & Compose Enhancers
-  // enhancers.push(applyMiddleware(...middleware));
-  // const enhancer = composeEnhancers(...enhancers);
-
   // Create Store
   // const store = createStore(rootReducer, initialState, enhancer);
-  const store = createStore(rootReducer, initialState);
+  const store = createStore(
+    rootReducer,
+    initialState,
+    compose(applyMiddleware(routerMiddleware(history)))
+  );
 
   store.subscribe(() => {
     console.log(store.getState());

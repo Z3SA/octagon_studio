@@ -1,13 +1,18 @@
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { createHashHistory } from 'history';
+import { routerMiddleware } from 'connected-react-router';
+
 import { createRootReducer } from './reducers';
 
-// const history = createHashHistory();
-const rootReducer = createRootReducer();
-// const router = routerMiddleware(history);
-// const enhancer = applyMiddleware(thunk, router);
+export const history = createHashHistory();
+const rootReducer = createRootReducer(history);
 
 function configureStore(initialState?: any) {
-  return createStore(rootReducer, initialState);
+  return createStore(
+    rootReducer,
+    initialState,
+    compose(applyMiddleware(routerMiddleware(history)))
+  );
 }
 
 export default { configureStore, history };

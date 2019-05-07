@@ -1,9 +1,13 @@
 import React, { PureComponent, Suspense } from 'react';
+import { ConnectedRouter } from 'connected-react-router';
+import { Route, Switch } from 'react-router';
 
 import Layout from 'antd/lib/layout/layout';
 
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
+import { history } from 'store/configureStore';
+
 const { Content } = Layout;
 
 const AppHeader = React.lazy(() => import('modules/main/header/AppHeader/AppHeader'));
@@ -20,7 +24,13 @@ export default class App extends PureComponent {
           </Suspense>
 
           <Layout>
-            <Content />
+            <Content>
+              <ConnectedRouter history={history}>
+                <Switch>
+                  <Route exact={true} path="/" render={() => <div>Start page</div>} />
+                </Switch>
+              </ConnectedRouter>
+            </Content>
           </Layout>
 
           <Suspense fallback={null}>

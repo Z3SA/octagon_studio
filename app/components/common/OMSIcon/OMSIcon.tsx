@@ -9,6 +9,7 @@ interface IOMSIconProps {
   size?: number;
   color?: string;
   weight?: 'light' | 'regular' | 'solid';
+  className?: string;
 }
 
 /**
@@ -17,6 +18,7 @@ interface IOMSIconProps {
  * @attr size (number) - size of icon (default is 24)
  * @attr color (string) - color of icon (default is currentColor)
  * @attr weight ('light' | 'regular' | 'solid') - weight of icon (default is 'solid')
+ * @attr className (string) - additional class for icon
  */
 export default class OMSIcon extends PureComponent<IOMSIconProps> {
   static defaultProps: IOMSIconProps = {
@@ -26,10 +28,14 @@ export default class OMSIcon extends PureComponent<IOMSIconProps> {
   };
 
   render() {
-    const { icon, size, color, weight } = this.props;
+    const { icon, size, color, weight, className } = this.props;
+
+    let mixClass = `${styles.OMSIcon} ${styles[`OMSIcon--icon-${icon}-${weight}`]}`;
+    mixClass = className ? `${mixClass} ${className}` : mixClass;
+
     return (
       <span
-        className={`${styles.OMSIcon} ${styles[`OMSIcon--icon-${icon}-${weight}`]}`}
+        className={mixClass}
         style={{
           width: size,
           height: size,

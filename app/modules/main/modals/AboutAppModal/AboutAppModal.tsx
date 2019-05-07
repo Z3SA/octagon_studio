@@ -12,6 +12,7 @@ const { Paragraph } = Typography;
 
 interface IAboutAppModalProps {
   visible: boolean;
+  onCloseModal: any;
 }
 
 export default class AboutAppModal extends Component<IAboutAppModalProps> {
@@ -22,8 +23,15 @@ export default class AboutAppModal extends Component<IAboutAppModalProps> {
   lang: IOMSLDAboutAppModal = this.context.MAIN_WINDOW.ABOUT_APP_MODAL;
 
   render() {
+    const { visible, onCloseModal } = this.props;
     return (
-      <Modal title={this.lang.TITLE} visible={this.props.visible}>
+      <Modal
+        title={this.lang.TITLE}
+        visible={visible}
+        destroyOnClose={true}
+        onCancel={onCloseModal}
+        onOk={onCloseModal}
+      >
         <Paragraph>{APP_CONSTS.APP_TITLE_NAME}</Paragraph>
         <Paragraph>
           {this.lang.MAJOR_VERSION_LABEL}: {oms.major}

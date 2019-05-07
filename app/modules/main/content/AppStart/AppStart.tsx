@@ -7,6 +7,8 @@ import Typography from 'antd/lib/typography';
 import styles from './AppStart.m.scss';
 import { TranslateContext } from 'modules/TranslateContext';
 import { IOMSLDMainStart } from 'data/common/model/lang/OMSLDMainStart.interface';
+import StartFrameActionLink from 'components/module/main/content/StartFrameActionLink/StartFrameActionLink';
+import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
 
 const { Title } = Typography;
 
@@ -18,11 +20,16 @@ export default class AppStart extends PureComponent {
   lang: IOMSLDMainStart = this.context.MAIN_WINDOW.START_FRAME;
 
   render() {
+    const { lang } = this;
     return (
       <section className={styles.AppStart}>
         <Row>
           <Col span={12}>
-            <Title level={4}>{this.lang.ACTIONS.TITLE}</Title>
+            <Title level={4}>{lang.ACTIONS.TITLE}</Title>
+            <StartFrameActionLink
+              icon={EOmsIconIconName.platformAdd}
+              label={lang.ACTIONS.ADD_OR_IMPORT_PLATFORM}
+            />
           </Col>
         </Row>
       </section>

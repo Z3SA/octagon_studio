@@ -25,9 +25,12 @@
   &__window-title {
     white-space: nowrap;
     -webkit-app-region: drag;
-    padding: 0 20px;
+    padding: 0 20px 4px;
     flex-grow: 1;
     text-align: center;
+    margin-top: 4px;
+    height: calc(100% - 4px);
+    line-height: 200%;
   }
 
   &__right {

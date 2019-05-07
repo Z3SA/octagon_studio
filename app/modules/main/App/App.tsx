@@ -4,8 +4,10 @@ import Layout from 'antd/lib/layout/layout';
 
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
-const { Footer, Content } = Layout;
+const { Content } = Layout;
+
 const AppHeader = React.lazy(() => import('modules/main/header/AppHeader/AppHeader'));
+const StatusBar = React.lazy(() => import('modules/main/StatusBar/StatusBar'));
 
 /** Main window */
 export default class App extends PureComponent {
@@ -21,7 +23,9 @@ export default class App extends PureComponent {
             <Content />
           </Layout>
 
-          <Footer />
+          <Suspense fallback={null}>
+            <StatusBar />
+          </Suspense>
         </Layout>
         <AppModalStack appModalVisible={true} />
       </React.Fragment>

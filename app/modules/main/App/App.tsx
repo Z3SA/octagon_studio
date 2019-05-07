@@ -7,6 +7,7 @@ import Layout from 'antd/lib/layout/layout';
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
 import { history } from 'store/configureStore';
+import AppStart from '../content/AppStart/AppStart';
 
 const { Content } = Layout;
 
@@ -27,7 +28,7 @@ export default class App extends PureComponent {
             <Content>
               <ConnectedRouter history={history}>
                 <Switch>
-                  <Route exact={true} path="/" render={() => <div>Start page</div>} />
+                  <Route exact={true} path="/" component={AppStart} />
                 </Switch>
               </ConnectedRouter>
             </Content>

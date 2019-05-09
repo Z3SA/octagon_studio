@@ -70,8 +70,6 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
             <OMSIcon icon={EOmsIconIconName.settings} size={20} weight="light" />
           </Button>
 
-          <Divider type="vertical" />
-
           <WindowControl onClick={this.minimizeWindow}>
             <OMSIcon icon={EOmsIconIconName.windowMinimize} size={16} weight="light" />
           </WindowControl>

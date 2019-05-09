@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
+import electron, { BrowserWindow } from 'electron';
 
 import Layout from 'antd/lib/layout';
 import Divider from 'antd/lib/divider';
-import electron, { BrowserWindow } from 'electron';
+import Button from 'antd/lib/button';
 
 import styles from './AppHeader.m.scss';
 import OMSIcon from 'components/common/OMSIcon/OMSIcon';
@@ -65,7 +66,9 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
         </div>
 
         <div className={styles.AppHeader__right}>
-          <OMSIcon icon={EOmsIconIconName.settings} size={20} weight="light" />
+          <Button type="link" className={styles['AppHeader__settings-button']}>
+            <OMSIcon icon={EOmsIconIconName.settings} size={20} weight="light" />
+          </Button>
 
           <Divider type="vertical" />
 

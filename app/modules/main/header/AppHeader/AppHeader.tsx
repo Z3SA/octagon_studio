@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import electron, { BrowserWindow } from 'electron';
 
 import Layout from 'antd/lib/layout';
-import Divider from 'antd/lib/divider';
 import Button from 'antd/lib/button';
 
 import styles from './AppHeader.m.scss';

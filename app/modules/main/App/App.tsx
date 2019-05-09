@@ -11,7 +11,9 @@ import AppStart from '../content/AppStart/AppStart';
 
 const { Content } = Layout;
 
-const AppHeader = React.lazy(() => import('modules/main/header/AppHeader/AppHeader'));
+const ConnectedAppHeader = React.lazy(() =>
+  import('modules/main/header/AppHeader/ConnectedAppHeader')
+);
 const StatusBar = React.lazy(() => import('modules/main/StatusBar/StatusBar'));
 
 /** Main window */
@@ -21,7 +23,7 @@ export default class App extends PureComponent {
       <React.Fragment>
         <Layout className={styles.App}>
           <Suspense fallback={null}>
-            <AppHeader />
+            <ConnectedAppHeader />
           </Suspense>
 
           <Layout>

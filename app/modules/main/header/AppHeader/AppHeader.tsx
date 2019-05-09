@@ -14,12 +14,16 @@ import ConnectedLogo from '../Logo/ConnectedLogo';
 
 const { Header } = Layout;
 
+interface IAppHeaderProps {
+  onClickSettingsButton: any;
+}
+
 interface IAppHeaderState {
   isWindowMaximized: boolean;
 }
 
 /** Header of main window */
-export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
+export default class AppHeader extends PureComponent<IAppHeaderProps, IAppHeaderState> {
   /** Link of main window */
   window: BrowserWindow;
 
@@ -65,7 +69,11 @@ export default class AppHeader extends PureComponent<{}, IAppHeaderState> {
         </div>
 
         <div className={styles.AppHeader__right}>
-          <Button type="link" className={styles['AppHeader__settings-button']}>
+          <Button
+            type="link"
+            className={styles['AppHeader__settings-button']}
+            onClick={this.props.onClickSettingsButton}
+          >
             <OMSIcon icon={EOmsIconIconName.settings} size={20} weight="light" />
           </Button>
 

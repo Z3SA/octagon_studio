@@ -1,5 +1,5 @@
 /** Translates of start frame in main window */
-export interface IOMSLDMainStart {
+export default interface IOMSLDMainStart {
   ACTIONS: {
     /** Title of section "Start work" */
     TITLE: string;

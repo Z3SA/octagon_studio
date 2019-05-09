@@ -5,7 +5,7 @@ import Typography from 'antd/lib/typography';
 
 import { oms } from 'data/data.init';
 import { TranslateContext } from 'modules/TranslateContext';
-import IOMSLDAboutAppModal from 'data/common/model/lang/OMSLDAboutAppModal.interface';
+import IOMSLDAboutAppModal from 'data/common/model/lang/main_window/OMSLDAboutAppModal.interface';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 
 const { Paragraph } = Typography;

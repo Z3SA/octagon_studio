@@ -1,22 +1,29 @@
 import {
   TOGGLE_ABOUT_APP_MODAL,
-  IToggleAboutAppModalAction,
+  TOGGLE_SETTINGS_MODAL,
+  IToggleModalAction,
 } from 'store/actions/main/modals';
 import { IStoreMainModals } from 'store/model/main/modals.interface';
 
 const initialState: IStoreMainModals = {
   aboutAppVisible: false,
+  settingsVisible: false,
 };
 
 export function modalsReducer(
   state = initialState,
-  action: IToggleAboutAppModalAction
+  action: IToggleModalAction<typeof TOGGLE_ABOUT_APP_MODAL | typeof TOGGLE_SETTINGS_MODAL>
 ): IStoreMainModals {
   switch (action.type) {
     case TOGGLE_ABOUT_APP_MODAL:
       return {
         ...state,
         aboutAppVisible: action.visible,
+      };
+    case TOGGLE_SETTINGS_MODAL:
+      return {
+        ...state,
+        settingsVisible: action.visible,
       };
     default:
       return state;

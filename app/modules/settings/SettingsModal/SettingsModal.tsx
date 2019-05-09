@@ -16,14 +16,21 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
 
   lang: IOMSLDSettings = this.context.SETTINGS;
 
+  onCancel = (): void => {
+    this.props.onCloseModal();
+  }
+
   render() {
     return (
       <Modal
         visible={this.props.visible}
         title={this.lang.TITLE}
         destroyOnClose={true}
+        onCancel={this.onCancel}
         footer={[
-          <Button key="cancel">{this.lang.BOTTOM_BTNS.CANCEL}</Button>,
+          <Button key="cancel" onClick={this.onCancel}>
+            {this.lang.BOTTOM_BTNS.CANCEL}
+          </Button>,
           <Button key="apply">{this.lang.BOTTOM_BTNS.APPLY}</Button>,
           <Button key="ok" type="primary">
             OK

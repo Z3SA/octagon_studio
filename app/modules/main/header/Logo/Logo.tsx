@@ -10,8 +10,10 @@ import { TranslateContext } from 'modules/TranslateContext';
 import IOMSLDLogoMenu from 'data/common/model/lang/main_window/OMSLDLogoMenu.interface';
 
 interface ILogoProps {
-  onClickAboutApp?: () => void;
+  onClickAboutApp: any;
+  onClickHotkeys: any;
 }
+
 export default class Logo extends PureComponent<ILogoProps> {
   /** Apply translate provider */
   static contextType = TranslateContext;
@@ -32,6 +34,10 @@ export default class Logo extends PureComponent<ILogoProps> {
 
       <Menu.Item key="open-repo" onClick={this.openRepo}>
         {this.lang.OPEN_REPO}
+      </Menu.Item>
+
+      <Menu.Item key="open-hotkeys" onClick={this.props.onClickHotkeys}>
+        {this.lang.HOTKEYS}
       </Menu.Item>
     </Menu>
   );

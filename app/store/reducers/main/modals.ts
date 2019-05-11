@@ -1,6 +1,7 @@
 import {
   TOGGLE_ABOUT_APP_MODAL,
   TOGGLE_SETTINGS_MODAL,
+  TOGGLE_HOTKEYS_MODAL,
   IToggleModalAction,
 } from 'store/actions/main/modals';
 import { IStoreMainModals } from 'store/model/main/modals.interface';
@@ -8,11 +9,16 @@ import { IStoreMainModals } from 'store/model/main/modals.interface';
 const initialState: IStoreMainModals = {
   aboutAppVisible: false,
   settingsVisible: false,
+  hotkeysVisible: false,
 };
 
 export function modalsReducer(
   state = initialState,
-  action: IToggleModalAction<typeof TOGGLE_ABOUT_APP_MODAL | typeof TOGGLE_SETTINGS_MODAL>
+  action: IToggleModalAction<
+    | typeof TOGGLE_ABOUT_APP_MODAL
+    | typeof TOGGLE_SETTINGS_MODAL
+    | typeof TOGGLE_HOTKEYS_MODAL
+  >
 ): IStoreMainModals {
   switch (action.type) {
     case TOGGLE_ABOUT_APP_MODAL:
@@ -24,6 +30,11 @@ export function modalsReducer(
       return {
         ...state,
         settingsVisible: action.visible,
+      };
+    case TOGGLE_HOTKEYS_MODAL:
+      return {
+        ...state,
+        hotkeysVisible: action.visible,
       };
     default:
       return state;

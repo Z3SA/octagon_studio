@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { IStore } from 'store/model/store.interface';
 import AboutAppModal from './AboutAppModal';
 import { toggleAboutAppModal } from 'store/actions/main/modals';

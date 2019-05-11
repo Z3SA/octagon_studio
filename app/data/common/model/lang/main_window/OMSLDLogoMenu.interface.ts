@@ -7,4 +7,6 @@ export default interface IOMSLDLogoMenu {
 
   /** Item "Open repository" */
   OPEN_REPO: string;
+
+  HOTKEYS: string;
 }

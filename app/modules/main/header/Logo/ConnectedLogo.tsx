@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
-import { toggleAboutAppModal } from 'store/actions/main/modals';
+import { toggleAboutAppModal, toggleHotkeysModal } from 'store/actions/main/modals';
 import Logo from './Logo';
 
 const mapDispatchToProps = dispatch => ({
   onClickAboutApp: () => {
     dispatch(toggleAboutAppModal(true));
+  },
+
+  onClickHotkeys: () => {
+    dispatch(toggleHotkeysModal(true));
   },
 });
 

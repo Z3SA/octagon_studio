@@ -16,13 +16,13 @@ const store = configureStore();
  * Root component (entry-point of providers and main window UI)
  */
 const Root = () => (
-  <LocaleProvider locale={ru_RU}>
-    <Provider store={store}>
+  <Provider store={store}>
+    <LocaleProvider locale={ru_RU}>
       <TranslateContext.Provider value={oms.lang.data}>
         <App />
       </TranslateContext.Provider>
-    </Provider>
-  </LocaleProvider>
+    </LocaleProvider>
+  </Provider>
 );
 
 export default Root;

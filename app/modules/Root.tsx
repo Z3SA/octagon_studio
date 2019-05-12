@@ -3,16 +3,16 @@ import { Provider } from 'react-redux';
 
 import App from 'modules/main/App/App';
 import { configureStore } from 'store/configureStore';
-import GlobalProvider from './global/GlobalProvider';
+import ConnectedGlobalProvider from './global/ConnectedGlobalProvider';
 
 /**
  * Root component (entry-point of providers and main window UI)
  */
 const Root = () => (
   <Provider store={configureStore()}>
-    <GlobalProvider>
+    <ConnectedGlobalProvider>
       <App />
-    </GlobalProvider>
+    </ConnectedGlobalProvider>
   </Provider>
 );
 

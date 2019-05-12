@@ -1,12 +1,13 @@
-import { SET_LANGUAGE } from '../../actions/app/language';
-import IStoreApp from 'store/model/app.interface';
+import { SET_LANGUAGE } from 'store/actions/app/language';
 import { ISetLanguageAction } from 'store/actions/app/language';
+import { languages } from 'store/actions/app/languages.enum';
+import IStoreAppUI from 'store/model/app/ui.interface';
 
-const initialState: IStoreApp = {
-  language: 'en',
+const initialState: IStoreAppUI = {
+  language: languages.EN,
 };
 
-export function uiReducer(state = initialState, action: ISetLanguageAction): IStoreApp {
+export function uiReducer(state = initialState, action: ISetLanguageAction): IStoreAppUI {
   switch (action.type) {
     case SET_LANGUAGE:
       return {

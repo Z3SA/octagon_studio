@@ -13,5 +13,5 @@ export interface IGLobalHotkeyResolver extends IDefaultHotKeyHandler {
 }
 
 export const globalHotKeyMap: IGlobalHotkeyMap = {
-  OPEN_SETTINGS: 'f11',
+  OPEN_SETTINGS: 'f10',
 };

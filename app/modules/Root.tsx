@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 
 import App from 'modules/main/App/App';
 import { configureStore } from 'store/configureStore';
-import GlobalProvider from './GlobalProvider';
+import GlobalProvider from './global/GlobalProvider';
 
 /**
  * Root component (entry-point of providers and main window UI)

@@ -8,7 +8,7 @@ import Select from 'antd/lib/select';
 import Radio from 'antd/lib/radio';
 import Input from 'antd/lib/input';
 
-import { TranslateContext } from 'modules/TranslateContext';
+import { TranslateContext } from 'modules/global/TranslateContext';
 import IOMSLDSettings from 'data/common/model/lang/OMSLDSettings.interface';
 import ColorPicker from 'components/module/settings/ColorPicker/ColorPicker';
 

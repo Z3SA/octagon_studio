@@ -6,7 +6,7 @@ import Dropdown from 'antd/lib/dropdown';
 
 import styles from './Logo.m.scss';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';
-import { TranslateContext } from 'modules/TranslateContext';
+import { TranslateContext } from 'modules/global/TranslateContext';
 import IOMSLDLogoMenu from 'data/common/model/lang/main_window/OMSLDLogoMenu.interface';
 
 interface ILogoProps {

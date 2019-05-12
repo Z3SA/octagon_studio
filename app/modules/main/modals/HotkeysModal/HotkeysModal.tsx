@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import Modal from 'antd/lib/modal';
 import Table, { ColumnProps } from 'antd/lib/table';
 
-import { TranslateContext } from 'modules/TranslateContext';
+import { TranslateContext } from 'modules/global/TranslateContext';
 import IOMSLDModalHotkeys from 'data/common/model/lang/main_window/modals/OMSLDModalHotkeys.interface';
 import styles from './HotkeysModal.m.scss';
 

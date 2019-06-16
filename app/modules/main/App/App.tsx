@@ -1,18 +1,19 @@
-import React, { PureComponent, Suspense } from 'react';
+import React, { PureComponent, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router';
 
 import Layout from 'antd/lib/layout/layout';
 
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
-import AppStart from '../content/AppStart/AppStart';
 
 const { Content } = Layout;
 
 const ConnectedAppHeader = React.lazy(() =>
   import('modules/main/header/AppHeader/ConnectedAppHeader')
 );
-const StatusBar = React.lazy(() => import('modules/main/StatusBar/StatusBar'));
+const StatusBar = lazy(() => import('modules/main/StatusBar/StatusBar'));
+const AppStart = lazy(() => import('../content/AppStart/AppStart'));
+const Playground = lazy(() => import('../Playground/Playground'));
 
 /** Main window */
 export default class App extends PureComponent {
@@ -26,11 +27,13 @@ export default class App extends PureComponent {
 
           <Layout>
             <Content>
-              <Switch>
-                <Route exact={true} path="/" component={AppStart} />
-                <Route path="/playground" render={() => <div>kek</div>} />
-                <Route render={() => <p>Error 1001: Missing route position</p>} />
-              </Switch>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                  <Route exact={true} path="/" component={() => <AppStart />} />
+                  <Route path="/playground" component={() => <Playground />} />
+                  <Route render={() => <p>Error 1001: Missing route position</p>} />
+                </Switch>
+              </Suspense>
             </Content>
           </Layout>
 

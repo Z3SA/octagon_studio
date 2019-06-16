@@ -1,12 +1,10 @@
 import React, { PureComponent, Suspense } from 'react';
-import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
 
 import Layout from 'antd/lib/layout/layout';
 
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
-import { history } from 'store/configureStore';
 import AppStart from '../content/AppStart/AppStart';
 
 const { Content } = Layout;
@@ -28,12 +26,11 @@ export default class App extends PureComponent {
 
           <Layout>
             <Content>
-              <ConnectedRouter history={history}>
-                <Switch>
-                  <Route exact={true} path="/" component={AppStart} />
-                  <Route exact={true} path="/playground" render={() => <div>kek</div>} />
-                </Switch>
-              </ConnectedRouter>
+              <Switch>
+                <Route exact={true} path="/" component={AppStart} />
+                <Route path="/playground" render={() => <div>kek</div>} />
+                <Route render={() => <p>Error 1001: Missing route position</p>} />
+              </Switch>
             </Content>
           </Layout>
 

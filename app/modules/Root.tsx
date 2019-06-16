@@ -1,8 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
 import App from 'modules/main/App/App';
-import { configureStore } from 'store/configureStore';
+import { configureStore, history } from 'store/configureStore';
 import ConnectedGlobalProvider from './global/ConnectedGlobalProvider';
 
 /**
@@ -10,9 +11,11 @@ import ConnectedGlobalProvider from './global/ConnectedGlobalProvider';
  */
 const Root = () => (
   <Provider store={configureStore()}>
-    <ConnectedGlobalProvider>
-      <App />
-    </ConnectedGlobalProvider>
+    <ConnectedRouter history={history}>
+      <ConnectedGlobalProvider>
+        <App />
+      </ConnectedGlobalProvider>
+    </ConnectedRouter>
   </Provider>
 );
 

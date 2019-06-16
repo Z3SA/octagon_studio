@@ -2,6 +2,8 @@ import React, { PureComponent, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router';
 
 import Layout from 'antd/lib/layout/layout';
+import Spin from 'antd/lib/spin';
+import Icon from 'antd/lib/icon';
 
 import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
@@ -17,6 +19,13 @@ const Playground = lazy(() => import('../Playground/Playground'));
 
 /** Main window */
 export default class App extends PureComponent {
+  /** Preloader of router */
+  loading = (
+    <div className={styles.App__loading}>
+      <Spin indicator={<Icon type="loading" style={{ fontSize: 36 }} spin={true} />} />
+    </div>
+  );
+
   public render() {
     return (
       <React.Fragment>
@@ -27,7 +36,7 @@ export default class App extends PureComponent {
 
           <Layout>
             <Content>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={this.loading}>
                 <Switch>
                   <Route exact={true} path="/" component={() => <AppStart />} />
                   <Route path="/playground" component={() => <Playground />} />

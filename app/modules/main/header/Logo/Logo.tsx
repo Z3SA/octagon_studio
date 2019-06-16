@@ -12,6 +12,7 @@ import IOMSLDLogoMenu from 'data/common/model/lang/main_window/OMSLDLogoMenu.int
 interface ILogoProps {
   onClickAboutApp: any;
   onClickHotkeys: any;
+  onClickPlayground: any;
 }
 
 export default class Logo extends PureComponent<ILogoProps> {
@@ -39,6 +40,11 @@ export default class Logo extends PureComponent<ILogoProps> {
       <Menu.Item key="open-hotkeys" onClick={this.props.onClickHotkeys}>
         {this.lang.HOTKEYS}
       </Menu.Item>
+      {process.env.NODE_ENV ? (
+        <Menu.Item key="open-plaground" onClick={this.props.onClickPlayground}>
+          Playground
+        </Menu.Item>
+      ) : null}
     </Menu>
   );
 

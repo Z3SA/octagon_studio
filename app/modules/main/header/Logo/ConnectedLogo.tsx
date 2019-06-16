@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+
 import { toggleAboutAppModal, toggleHotkeysModal } from 'store/actions/main/modals';
 import Logo from './Logo';
 
@@ -9,6 +11,11 @@ const mapDispatchToProps = dispatch => ({
 
   onClickHotkeys: () => {
     dispatch(toggleHotkeysModal(true));
+  },
+
+  onClickPlayground: () => {
+    console.log('key');
+    dispatch(push('playground'));
   },
 });
 

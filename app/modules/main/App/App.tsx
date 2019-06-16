@@ -31,6 +31,7 @@ export default class App extends PureComponent {
               <ConnectedRouter history={history}>
                 <Switch>
                   <Route exact={true} path="/" component={AppStart} />
+                  <Route exact={true} path="/playground" render={() => <div>kek</div>} />
                 </Switch>
               </ConnectedRouter>
             </Content>

@@ -1,15 +1,14 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import { createHashHistory } from 'history';
+import { createMemoryHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 
 import createRootReducer from './reducers';
 
-export const history = createHashHistory();
-const rootReducer = createRootReducer(history);
+const history = createMemoryHistory();
 
 function configureStore(initialState?: any) {
   return createStore(
-    rootReducer,
+    createRootReducer(history),
     initialState,
     compose(applyMiddleware(routerMiddleware(history)))
   );

@@ -1,12 +1,10 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import { createHashHistory } from 'history';
+import { createMemoryHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 
 import createRootReducer from './reducers';
 
-export const history = createHashHistory();
-
-const rootReducer = createRootReducer(history);
+const history = createMemoryHistory();
 
 const configureStore = (initialState?: any) => {
   // Thunk Middleware
@@ -41,7 +39,7 @@ const configureStore = (initialState?: any) => {
   // Create Store
   // const store = createStore(rootReducer, initialState, enhancer);
   const store = createStore(
-    rootReducer,
+    createRootReducer(history),
     initialState,
     compose(applyMiddleware(routerMiddleware(history)))
   );
@@ -51,10 +49,8 @@ const configureStore = (initialState?: any) => {
   });
 
   if ((module as any).hot) {
-    (module as any).hot.accept(
-      './reducers',
-      // eslint-disable-next-line global-require
-      () => store.replaceReducer(require('./reducers').default)
+    (module as any).hot.accept('./reducers', () =>
+      store.replaceReducer(createRootReducer(history))
     );
   }
 

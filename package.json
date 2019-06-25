@@ -1,7 +1,7 @@
 {
   "name": "octagon_studio",
   "productName": "Octagon Modmaking Studio",
-  "version": "0.1.1",
+  "version": "0.5.0",
   "description": "Octagon Modmaking Studio - visual editor for modification development on S.T.A.L.K.E.R. Call of Pripyat",
   "scripts": {
     "rebuild": "rm yarn.lock && rm -rf node_modules && yarn",

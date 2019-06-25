@@ -1,5 +1,7 @@
 .App {
   height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 
   &__loading {
     width: 100%;

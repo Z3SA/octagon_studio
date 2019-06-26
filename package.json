@@ -272,7 +272,7 @@
     "redux-thunk": "^2.3.0",
     "sha256": "^0.2.0",
     "source-map-loader": "^0.2.4",
-    "source-map-support": "^0.5.11"
+    "source-map-support": "^0.5.12"
   },
   "devEngines": {
     "node": ">=7.x",

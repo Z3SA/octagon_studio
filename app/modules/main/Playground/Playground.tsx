@@ -621,7 +621,7 @@ export default class Playground extends PureComponent {
           </Col>
 
           <Col span={6}>
-            <TimePicker onChange={onChange} />
+            <TimePicker />
           </Col>
         </Row>
       </div>

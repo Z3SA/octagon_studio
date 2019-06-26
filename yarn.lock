@@ -1543,7 +1543,7 @@ ansi-wrap@0.1.0, ansi-wrap@^0.1.0:
   resolved "https://registry.yarnpkg.com/ansi-wrap/-/ansi-wrap-0.1.0.tgz#a82250ddb0015e9a27ca82e82ea603bbfa45efaf"
   integrity sha1-qCJQ3bABXponyoLoLqYDu/pF768=
 
-antd@^3.17.0:
+antd@^3.19.8:
   version "3.19.8"
   resolved "https://registry.yarnpkg.com/antd/-/antd-3.19.8.tgz#64c4fa7596dbb1fa390bb7da5b3f63e226d84e53"
   integrity sha512-sGBJHuzr/7Vm3VJpzt5vjOWjtth8Ld38FneIQeX5OKHudWYH8j+Xt0j4q2sYwOiV9lYFuh4tlZv7/7NFyCO2vw==

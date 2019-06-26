@@ -13,7 +13,19 @@
           document.getElementsByTagName('head')[0].appendChild(link);
         }
       })();
+      less = {
+        env: 'development',
+        async: false,
+        fileAsync: false,
+        javascriptEnabled: true,
+      };
     </script>
+    <link
+      rel="stylesheet/less"
+      type="text/css"
+      href="../../../node_modules/antd/dist/antd.less"
+    />
+    <script src="less.min.js" type="text/javascript"></script>
   </head>
   <body>
     <div id="root"></div>
@@ -24,17 +36,25 @@
         // Dynamically insert the DLL script in development env in the
         // renderer process
         if (process.env.NODE_ENV === 'development') {
-          scripts.push('../dll/renderer.dev.dll.js');
+          scripts.push('../../../dll/renderer.dev.dll.js');
         }
 
         // Dynamically insert the bundled app script in the renderer process
         const port = process.env.PORT || 1212;
         scripts.push(
-          process.env.HOT ? 'http://localhost:' + port + '/dist/renderer.dev.js' : './dist/renderer.prod.js'
+          process.env.HOT
+            ? 'http://localhost:' + port + '/dist/renderer.dev.js'
+            : './dist/renderer.prod.js'
         );
 
-        document.write(scripts.map(script => `<script defer src="${script}"><\/script>`).join(''));
+        document.write(
+          scripts.map(script => `<script defer src="${script}"><\/script>`).join('')
+        );
       }
+
+      // window.less.modifyVars({
+      //   '@text-color': '#fff',
+      // });
     </script>
   </body>
 </html>

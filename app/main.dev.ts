@@ -10,11 +10,8 @@
  *
  */
 import { app, BrowserWindow } from 'electron';
-import log from 'electron-log';
-import { autoUpdater } from 'electron-updater';
 import path from 'path';
-
-import { oms } from './data/data.init';
+import OMSWindowSession from './data/module/main/OMSWindowSession.class';
 
 // Main window
 let mainWindow: BrowserWindow;
@@ -22,20 +19,16 @@ let mainWindow: BrowserWindow;
 // Intro splash
 let intro: BrowserWindow;
 
-export default class AppUpdater {
-  constructor() {
-    log.transports.file.level = 'info';
-    autoUpdater.logger = log;
-    autoUpdater.checkForUpdatesAndNotify();
-  }
-}
+const omsWindowSession = new OMSWindowSession();
 
 if (process.env.NODE_ENV === 'production') {
+  // tslint:disable-next-line:no-var-requires
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
 
 if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
+  // tslint:disable-next-line:no-var-requires
   require('electron-debug')();
 }
 
@@ -44,9 +37,9 @@ const installExtensions = async () => {
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
 
-  return Promise.all(extensions.map(name => installer.default(installer[name], forceDownload))).catch(
-    console.log
-  );
+  return Promise.all(
+    extensions.map(name => installer.default(installer[name], forceDownload))
+  ).catch(console.log);
 };
 
 app.on('window-all-closed', () => {
@@ -60,11 +53,12 @@ app.on('ready', async () => {
     height: 319,
     center: true,
     frame: false,
-    backgroundColor: '#1b1b1b',
+    transparent: true,
     show: false,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     webPreferences: {
       nodeIntegration: false,
+      devTools: false,
     },
     icon: path.join(__dirname, 'resources/icon.png'),
   });
@@ -73,6 +67,7 @@ app.on('ready', async () => {
 
   intro.once('ready-to-show', () => {
     intro.show();
+    intro.focus();
   });
 
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
@@ -81,36 +76,43 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: oms.session.winWidth,
-    height: oms.session.winHeight,
+    width: omsWindowSession.winWidth,
+    height: omsWindowSession.winHeight,
     autoHideMenuBar: true,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true,
+    },
   });
 
   mainWindow.setMenu(null);
 
   mainWindow.loadURL(`file://${__dirname}/modules/app/index.html`);
 
-  mainWindow.once('ready-to-show', () => {
+  mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
 
     if (process.env.NODE_ENV === 'development') {
-      // Temp decision for develop of splash screen
-      setTimeout(() => {
-        intro.hide();
-        intro.destroy();
+      intro.destroy();
 
-        mainWindow.show();
-        mainWindow.focus();
-      });
+      mainWindow.show();
+      mainWindow.focus();
     } else {
       mainWindow.show();
       mainWindow.focus();
     }
   });
 
-  mainWindow.on('closed', () => {
-    mainWindow.destroy();
+  mainWindow.on('close', () => {
+    const { width, height, x, y } = mainWindow.getBounds();
+
+    omsWindowSession.winWidth = width;
+    omsWindowSession.winHeight = height;
+    omsWindowSession.winX = x;
+    omsWindowSession.winY = y;
+    omsWindowSession.saveSession();
   });
 });

@@ -1,0 +1,6 @@
+@mixin define-antd-modal {
+  --modal-body-padding: 24px;
+  --modal-header-background: var(--color-component-background, var(--color-white, #fff));
+  --modal-footer-background: transparent;
+  --modal-mask-background: rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,52 @@
+@import './btn', './checkbox', './empty', './radio', './layout', './form', './input',
+  './select', './tooltip', './popover', './modal', './progress', './menu', './spin',
+  './table', './tag', './time-picker', './badge', './rate', './card', './tabs',
+  './backtop', './avatar', './switch', './pagination', './breadcrumb', './slider',
+  './tree', './collapse', './alert';
+
+@mixin define-antd-components {
+  @include define-antd-btn;
+  @include define-antd-checkbox;
+  @include define-antd-empty;
+  @include define-antd-radio;
+  @include define-antd-layout;
+  @include define-antd-form;
+  @include define-antd-input;
+  @include define-antd-select;
+  @include define-antd-tooltip;
+  @include define-antd-popover;
+  @include define-antd-modal;
+  @include define-antd-progress;
+  @include define-antd-menu;
+  @include define-antd-spin;
+  @include define-antd-table;
+  @include define-antd-tag;
+  @include define-antd-time-picker;
+  @include define-antd-badge;
+  @include define-antd-rate;
+  @include define-antd-card;
+  @include define-antd-tabs;
+  @include define-antd-backtop;
+  @include define-antd-avatar;
+  @include define-antd-switch;
+  @include define-antd-pagination;
+  @include define-antd-breadcrumb;
+  @include define-antd-slider;
+  @include define-antd-tree;
+  @include define-antd-collapse;
+
+  // Skeleton
+  // --
+  --skeleton-color: #f2f2f2;
+  // --
+
+  // Transfer
+  // --
+  --transfer-disabled-background: var(
+    --color-background-disabled,
+    var(--color-background-base, #f4f4f4)
+  );
+  // --
+
+  @include define-antd-alert;
+}

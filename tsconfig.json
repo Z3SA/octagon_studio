@@ -1,26 +1,30 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "moduleResolution": "node",
     "pretty": true,
     "newLine": "LF",
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "sourceMap": true,
     "skipLibCheck": true,
     "allowJs": true,
     "jsx": "react",
     "baseUrl": "./app",
     "rootDir": "./",
-    "module": "es2015",
+    "module": "esnext",
     "resolveJsonModule": true,
     "lib": ["es2015", "dom"],
     "plugins": [
+      { "name": "typescript-tslint-plugin" },
       {
-        "name": "typescript-tslint-plugin"
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.m\\.(sa|sc|c)ss$"
+        }
       }
     ]
   },

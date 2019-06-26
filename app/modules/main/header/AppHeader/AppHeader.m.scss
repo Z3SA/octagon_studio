@@ -1,0 +1,48 @@
+.AppHeader {
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 2px 5px;
+  line-height: 40px;
+
+  &__left {
+    height: 100%;
+    width: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__center {
+    width: calc(100% - 330px);
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: stretch;
+  }
+
+  &__window-title {
+    white-space: nowrap;
+    -webkit-app-region: drag;
+    padding: 0 20px 4px;
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 4px;
+    height: calc(100% - 4px);
+    line-height: 200%;
+  }
+
+  &__settings-button {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  &__right {
+    width: 250px;
+    text-align: right;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

@@ -1,5 +1,5 @@
-import appData from '../../common/appData';
-import OMSFile from '../../utils/OMSFile.class';
+import appData from 'data/common/appData';
+import OMSFile from 'data/utils/OMSFile.class';
 import OMS_DEFAULT from './default-state/OMS.default';
 import OMSConfig from './model/OMSConfig.interface';
 import OMSLanguage from './OMSLanguage.class';
@@ -11,27 +11,39 @@ import OMSUser from './OMSUser.class';
  * Loading is sync, savings are async
  */
 export default class OMS {
-  // Version Mk *
+  /** Version Mk * */
   public major: number;
 
-  // Full version (for logs and developers)
+  /** Full version (for logs and developers) */
   public version: string;
 
-  // Program version
+  /** Program version */
   public lang: OMSLanguage;
 
-  // Program build status
+  /** Program build status */
   public session: OMSSession;
 
-  // Last session of user
-  public user: OMSUser; // Data of current user
+  /** Last session of user */
+  public user: OMSUser;
 
-  constructor() {}
+  /** Build type of editor */
+  public type: 'pre-alpha' | 'alpha' | 'beta' | 'dev' | 'release';
+
+  private isLoaded = false;
+
+  constructor() {
+    if (!this.isLoaded) {
+      this.load();
+    }
+  }
 
   /** Loading all configs and data from app data */
   public load(): void {
     let cfg: OMSConfig;
-    if (!OMSFile.exists(appData.folder) || !OMSFile.exists(`${appData.folder}/${appData.cfg}`)) {
+    if (
+      !OMSFile.exists(appData.folder) ||
+      !OMSFile.exists(`${appData.folder}/${appData.cfg}`)
+    ) {
       cfg = OMS_DEFAULT;
       OMSFile.write(`${appData.folder}/${appData.cfg}`, cfg);
     } else {
@@ -40,11 +52,13 @@ export default class OMS {
 
     this.major = cfg.major;
     this.version = cfg.version;
+    this.type = cfg.type;
 
     OMSLanguage.checkLangsList();
 
     this.lang = new OMSLanguage(cfg.lang);
-    this.session = new OMSSession();
     this.user = new OMSUser();
+
+    this.isLoaded = true;
   }
 }

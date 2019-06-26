@@ -1,0 +1,17 @@
+@mixin define-antd-layout {
+  --layout-body-background: #f0f2f5;
+  --layout-header-background: #001529;
+  --layout-footer-background: var(--layout-body-background, #f0f2f5);
+  --layout-header-height: 64px;
+  --layout-header-padding: 0 50px;
+  --layout-footer-padding: 24px 50px;
+  --layout-sider-background: var(--layout-header-background, #001529);
+  --layout-trigger-height: 48px;
+  --layout-trigger-background: #002140;
+  --layout-trigger-color: var(--color-white, #fff);
+  --layout-zero-trigger-width: 36px;
+  --layout-zero-trigger-height: 42px;
+  --layout-sider-background-light: var(--color-white, #fff);
+  --layout-trigger-background-light: var(--color-white, #fff);
+  --layout-trigger-color-light: var(--color-text, rgba(0, 0, 0, 0.65));
+}

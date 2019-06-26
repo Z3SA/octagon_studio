@@ -1,0 +1,4 @@
+@mixin define-antd-rate {
+  --rate-star-color: var(--color-yellow-6, #fadb14);
+  --rate-star-background: var(--color-border-split, #e8e8e8);
+}

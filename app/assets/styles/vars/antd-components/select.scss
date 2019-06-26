@@ -1,0 +1,4 @@
+@mixin define-antd-select {
+  --select-border-color: var(--color-border-base, #d8d8d8);
+  --select-item-selected-font-weight: 600;
+}

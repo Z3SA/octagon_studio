@@ -1,5 +1,5 @@
 {
-  "extends": "erb",
+  "parser": "babel-eslint",
   "settings": {
     "import/resolver": {
       "webpack": {

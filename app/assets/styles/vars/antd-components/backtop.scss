@@ -1,0 +1,5 @@
+@mixin define-antd-backtop {
+  --back-top-color: var(--color-white, #fff);
+  --back-top-background: var(--color-text-secondary, rgba(0, 0, 0, 0.45));
+  --back-top-hover-background: var(--color-text, rgba(0, 0, 0, 0.65));
+}

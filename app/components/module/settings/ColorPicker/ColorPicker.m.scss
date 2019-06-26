@@ -1,0 +1,40 @@
+.ColorPicker {
+  display: inline-block;
+  margin-bottom: 6px;
+
+  &__item {
+    width: 24px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    &:first-of-type {
+      border-radius: 4px 0 0 4px;
+    }
+
+    &:last-of-type {
+      border-radius: 0 4px 4px 0;
+    }
+
+    &--with-border {
+      border: 1px solid #595959;
+    }
+
+    &--active {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #1890ff;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

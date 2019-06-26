@@ -1,0 +1,36 @@
+@mixin define-antd-btn {
+  --btn-font-weight: 400;
+  --btn-border-radius-base: var(--border-radius-base, 4px);
+  --btn-border-radius-sm: var(--border-radius-base, 4px);
+  --btn-border-width: var(--width-border-base, 1px);
+  --btn-border-style: var(--style-border-base, solid);
+  --btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  --btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  --btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  --btn-primary-color: var(--color-white, #fff);
+  --btn-primary-background: var(--color-primary, var(--color-blue-6, #1890ff));
+  --btn-default-color: var(--color-text, rgba(0, 0, 0, 0.65));
+  --btn-default-background: var(--color-white, #fff);
+  --btn-default-border-color: var(--color-border-base, #d8d8d8);
+  --btn-danger-color: var(--color-error, var(--color-red-6, #f5222d));
+  --btn-danger-background: var(--color-background-base, #f4f4f4);
+  --btn-danger-border-color: var(--color-border-base, #d8d8d8);
+  --btn-disable-color: var(--color-disabled, rgba(0, 0, 0, 0.25));
+  --btn-disable-background: var(
+    --color-background-disabled,
+    var(--color-background-base, #f4f4f4)
+  );
+  --btn-disable-border-color: var(--color-border-base, #d8d8d8);
+  --btn-padding-base: 15px;
+  --btn-font-size-lg: var(--font-size-lg, 16px);
+  --btn-font-size-sm: var(--font-size-base, 14px);
+  --btn-padding-lg: var(--btn-padding-base, 15px);
+  --btn-padding-sm: 7px;
+  --btn-height-base: 32px;
+  --btn-height-lg: 40px;
+  --btn-height-sm: 24px;
+  --btn-circle-size: var(--btn-height-base, 32px);
+  --btn-circle-size-lg: var(--btn-height-lg, 40px);
+  --btn-circle-size-sm: var(--btn-height-sm, 24px);
+  --btn-group-border-color: var(--color-primary-5, var(--color-blue-5, #40a9ff));
+}

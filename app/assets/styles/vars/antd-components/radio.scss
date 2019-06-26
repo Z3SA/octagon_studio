@@ -1,0 +1,12 @@
+@mixin define-antd-radio {
+  --radio-size: 16px;
+  --radio-dot-color: var(--color-primary, var(--color-blue-6, #1890ff));
+  --radio-button-background: var(--btn-default-background, var(--color-white, #fff));
+  --radio-button-checked-background: var(
+    --btn-default-background,
+    var(--color-white, #fff)
+  );
+  --radio-button-color: var(--btn-default-color, var(--color-text, rgba(0, 0, 0, 0.65)));
+  --radio-button-hover-color: var(--color-primary-5, var(--color-blue-5, #40a9ff));
+  --radio-button-active-color: var(--color-primary-7, var(--color-blue-7, #096dd9));
+}

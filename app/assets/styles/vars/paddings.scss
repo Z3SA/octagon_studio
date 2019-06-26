@@ -1,0 +1,8 @@
+@mixin define-paddings {
+  --padding-lg: 24px;
+  --padding-md: 16px;
+  --padding-sm: 12px;
+  --padding-xs: 8px;
+  --padding-control-horizontal: var(--padding-sm, 12px);
+  --padding-control-horizontal-sm: var(--padding-xs, 8px);
+}

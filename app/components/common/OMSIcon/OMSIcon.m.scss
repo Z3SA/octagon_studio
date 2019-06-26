@@ -1,0 +1,14 @@
+@import './icon.mixin.scss';
+
+.OMSIcon {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: currentColor;
+
+  @include icon($name: 'settings', $isLight: true);
+  @include icon($name: 'window-close', $isLight: true);
+  @include icon($name: 'window-maximize', $isLight: true);
+  @include icon($name: 'window-minimize', $isLight: true);
+  @include icon($name: 'window-restore', $isLight: true);
+  @include icon($name: 'platform-add', $isLight: true);
+}

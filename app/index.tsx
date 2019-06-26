@@ -2,20 +2,17 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import './.global.less';
-import { oms } from './data/data.init';
-import Root from './modules/Root';
-import { configureStore } from './store/configureStore';
-
-/** Language data */
-export const LANG = oms.lang.data;
-
-/** Redux Store configuration */
-const store = configureStore();
+/**
+ * This is one implementation of Less cause of Antd styles
+ * Ffter that all overrides are resolved through CSS vars
+ */
+import 'assets/styles/global.less';
+import 'assets/styles/vars/index.scss';
+import Root from 'modules/Root';
 
 render(
   <AppContainer>
-    <Root store={store} />
+    <Root />
   </AppContainer>,
   document.getElementById('root')
 );
@@ -26,7 +23,7 @@ if ((module as any).hot) {
     const NextRoot = require('./modules/Root').default;
     render(
       <AppContainer>
-        <NextRoot store={store} />
+        <NextRoot />
       </AppContainer>,
       document.getElementById('root')
     );

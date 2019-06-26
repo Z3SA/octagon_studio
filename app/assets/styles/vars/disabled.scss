@@ -1,0 +1,5 @@
+@mixin define-disabled {
+  --color-disabled: rgba(0, 0, 0, 0.25);
+  --color-background-disabled: var(--color-background-base, #f4f4f4);
+  --color-disabled-dark: rgba(255, 255, 255, 0.35);
+}

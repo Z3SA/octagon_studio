@@ -1,0 +1,5 @@
+@mixin define-outline {
+  --outline-blur-size: 0;
+  --width-outline: 2px;
+  --color-outline: var(--color-primary, var(--color-blue-6, #1890ff));
+}

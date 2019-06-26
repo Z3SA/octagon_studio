@@ -1,0 +1,5 @@
+@mixin define-antd-progress {
+  --progress-default-color: var(--color-processing, var(--color-blue-6, #1890ff));
+  --progress-remaining-color: var(--color-background-base, #f4f4f4);
+  --progress-text-color: var(--color-text, rgba(0, 0, 0, 0.65));
+}

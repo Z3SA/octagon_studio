@@ -1,0 +1,18 @@
+@import './blue', './purple', './cyan', './green', './magenta', './red', './orange',
+  './yellow', './volcano', './geekblue', './lime', './gold', './gray';
+
+@mixin define-colors {
+  @include define-blue;
+  @include define-purple;
+  @include define-cyan;
+  @include define-green;
+  @include define-magenta;
+  @include define-red;
+  @include define-orange;
+  @include define-yellow;
+  @include define-volcano;
+  @include define-geekblue;
+  @include define-lime;
+  @include define-gold;
+  @include define-gray;
+}

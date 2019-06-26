@@ -1,0 +1,21 @@
+@mixin define-antd-slider {
+  --slider-margin: 14px 6px 10px;
+  --slider-rail-background-color: var(--color-background-base, #f4f4f4);
+  --slider-rail-background-color-hover: #e1e1e1;
+  --slider-track-background-color: var(--color-primary-3, var(--color-blue-3, #91d5ff));
+  --slider-track-background-color-hover: var(
+    --color-primary-4,
+    var(--color-blue-4, #69c0ff)
+  );
+  --slider-handle-color: var(--color-primary-3, var(--color-blue-3, #91d5ff));
+  --slider-handle-color-hover: var(--color-primary-4, var(--color-blue-4, #69c0ff));
+  --slider-handle-color-focus: var(--color-primary-5, var(--color-blue-5, #40a9ff));
+  --slider-handle-color-focus-shadow: rgba(24, 144, 255, 0.2);
+  --slider-dot-border-color: var(--color-border-split, #e8e8e8);
+  --slider-dot-border-color-active: var(--color-primary-3, var(--color-blue-3, #91d5ff));
+  --slider-disabled-color: var(--color-disabled, rgba(0, 0, 0, 0.25));
+  --slider-disabled-background-color: var(
+    --color-component-background,
+    var(--color-white, #fff)
+  );
+}

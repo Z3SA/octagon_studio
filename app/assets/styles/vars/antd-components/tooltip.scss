@@ -1,0 +1,8 @@
+@mixin define-antd-tooltip {
+  --tooltip-max-width: 250px;
+  --tooltip-color: var(--color-white, #fff);
+  --tooltip-background: rgba(0, 0, 0, 0.75);
+  --tooltip-arrow-width: 5px;
+  --tooltip-distance: 8px;
+  --tooltip-arrow-color: var(--tooltip-background, rgba(0, 0, 0, 0.75));
+}

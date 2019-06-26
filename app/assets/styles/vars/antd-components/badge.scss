@@ -1,0 +1,8 @@
+@mixin define-antd-badge {
+  --badge-height: 20px;
+  --badge-dot-size: 6px;
+  --badge-font-size: var(--font-size-sm, 12px);
+  --badge-font-weight: normal;
+  --badge-status-size: 6px;
+  --badge-text-color: var(--color-component-background, var(--color-white, #fff));
+}

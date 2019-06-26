@@ -1,0 +1,13 @@
+@mixin define-shadow {
+  --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-shadow-inverse: var(--color-component-background, var(--color-white, #fff));
+  --shadow-box-base: var(
+    --shadow-1-down,
+    0 2px 8px var(--color-shadow, rgba(0, 0, 0, 0.15))
+  );
+  --shadow-1-up: 0 -2px 8px var(--color-shadow, rgba(0, 0, 0, 0.15));
+  --shadow-1-down: 0 2px 8px var(--color-shadow, rgba(0, 0, 0, 0.15));
+  --shadow-1-left: -2px 0 8px var(--color-shadow, rgba(0, 0, 0, 0.15));
+  --shadow-1-right: 2px 0 8px var(--color-shadow, rgba(0, 0, 0, 0.15));
+  --shadow-2: 0 4px 12px var(--color-shadow, rgba(0, 0, 0, 0.15));
+}

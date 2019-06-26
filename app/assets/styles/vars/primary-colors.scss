@@ -1,0 +1,12 @@
+@mixin define-primary-colors {
+  --color-primary-1: var(--color-blue-1, #e6f7ff);
+  --color-primary-2: var(--color-blue-2, #bae7ff);
+  --color-primary-3: var(--color-blue-3, #91d5ff);
+  --color-primary-4: var(--color-blue-4, #69c0ff);
+  --color-primary-5: var(--color-blue-5, #40a9ff);
+  --color-primary-6: var(--color-blue-6, #1890ff);
+  --color-primary-7: var(--color-blue-7, #096dd9);
+  --color-primary-8: var(--color-blue-8, #0050b3);
+  --color-primary-9: var(--color-blue-9, #003a8c);
+  --color-primary-10: var(--color-blue-10, #002766);
+}

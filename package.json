@@ -240,7 +240,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.2",
-    "typescript-plugin-css-modules": "^1.0.5",
+    "typescript-plugin-css-modules": "^1.2.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.35.0",
     "webpack-bundle-analyzer": "^3.3.2",

@@ -13954,7 +13954,7 @@ typescript-plugin-css-modules@^1.0.5:
     reserved-words "^0.1.2"
     sass "^1.20.1"
 
-typescript@^3.3.3, typescript@^3.4.3:
+typescript@^3.3.3, typescript@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
   integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==

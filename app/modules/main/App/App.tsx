@@ -35,7 +35,7 @@ export default class App extends PureComponent {
           </Suspense>
 
           <Layout>
-            <Content>
+            <Content className={styles.App__content}>
               <Suspense fallback={this.loading}>
                 <Switch>
                   <Route exact={true} path="/" component={() => <AppStart />} />

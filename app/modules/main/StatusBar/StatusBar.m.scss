@@ -1,0 +1,35 @@
+.StatusBar {
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+
+  &__side {
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  &__cell {
+    padding: 0 6px;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+}

@@ -10,4 +10,9 @@
     align-items: center;
     justify-content: center;
   }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
 }

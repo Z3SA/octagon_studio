@@ -11,6 +11,12 @@ import OMSUser from './OMSUser.class';
  * Loading is sync, savings are async
  */
 export default class OMS {
+  /** Paths of using files and folders */
+  static readonly PATHS = {
+    appData: appData.folder,
+    cfg: `${appData.folder}/${appData.cfg}`,
+  };
+
   /** Version Mk * */
   public major: number;
 
@@ -40,14 +46,11 @@ export default class OMS {
   /** Loading all configs and data from app data */
   public load(): void {
     let cfg: OMSConfig;
-    if (
-      !OMSFile.exists(appData.folder) ||
-      !OMSFile.exists(`${appData.folder}/${appData.cfg}`)
-    ) {
+    if (!OMSFile.exists(OMS.PATHS.appData) || !OMSFile.exists(OMS.PATHS.cfg)) {
       cfg = OMS_DEFAULT;
-      OMSFile.write(`${appData.folder}/${appData.cfg}`, cfg);
+      OMSFile.write(OMS.PATHS.cfg, cfg);
     } else {
-      cfg = OMSFile.readSync(`${appData.folder}/${appData.cfg}`);
+      cfg = OMSFile.readSync(OMS.PATHS.cfg);
     }
 
     this.major = cfg.major;

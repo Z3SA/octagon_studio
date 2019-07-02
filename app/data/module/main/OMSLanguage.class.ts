@@ -21,21 +21,26 @@ export default class OMSLanguage {
       const LANG_RU = require('assets/langs/ru.json');
       const LANG_EN = require('assets/langs/en.json');
 
-      OMSFile.writeSync(LANG_RU, OMSLanguage.PATHS.LANG_PACK_RU);
-      OMSFile.writeSync(LANG_EN, OMSLanguage.PATHS.LANG_PACK_EN);
+      OMSFile.writeSync(LANG_RU, OMSLanguage.getPathToPack('ru'));
+      OMSFile.writeSync(LANG_EN, OMSLanguage.getPathToPack('en'));
     }
 
-    if (!OMSFile.exists(OMSLanguage.PATHS.META)) {
-      OMSLanguage.checkMeta();
-    }
+    OMSLanguage.checkMeta();
   }
 
-  private static readonly PATHS = {
-    LANG_PACK_RU: OMSLanguage.getPathToPack('ru'),
-    LANG_PACK_EN: OMSLanguage.getPathToPack('en'),
-    META: `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`,
+  /** Paths for class */
+  private static PATHS = {
     LANG_FOLDER: `${appData.folder}/${appData.langsFolder}`,
+    META: `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`,
   };
+
+  /**
+   * Get path to language pack with attr
+   * @param abbr - Abbr of language pack
+   */
+  private static getPathToPack(abbr: string): string {
+    return `${OMSLanguage.PATHS.LANG_FOLDER}/${abbr}.${OMSLanguage.EXTENSION}`;
+  }
 
   /**
    * Create or update metadata of languages (async)
@@ -107,14 +112,6 @@ export default class OMSLanguage {
     });
 
     OMSFile.writeSync(filesMeta, OMSLanguage.PATHS.META);
-  }
-
-  /**
-   * Get path to language pack with attr
-   * @param abbr - Abbr of language pack
-   */
-  private static getPathToPack(abbr: string): string {
-    return `${OMSLanguage.PATHS.LANG_FOLDER}/${abbr}.${OMSLanguage.EXTENSION}`;
   }
 
   /** Full name of lang package */

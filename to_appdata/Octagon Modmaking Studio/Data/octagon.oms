@@ -1,1 +1,6 @@
-{"major":0,"version":"0.0.1","lang":"ru"}
+{
+  "major": 0,
+  "version": "0.0.1",
+  "lang": "ru",
+  "type": "pre-alpha"
+}

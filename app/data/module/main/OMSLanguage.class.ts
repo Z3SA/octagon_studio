@@ -1,5 +1,7 @@
 import appData from 'data/common/appData';
 import OMSFile from 'data/utils/OMSFile.class';
+import { fileExtensions } from 'data/common/fileExtensions.enum';
+
 import OMSLanguageMeta from './model/OMSLanguageMeta.interface';
 import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
 
@@ -9,46 +11,45 @@ import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
  */
 export default class OMSLanguage {
   /** File extension of language pack */
-  public static readonly EXTENSION = 'omslang';
+  public static readonly EXTENSION = fileExtensions.LANGUAGE_PACK;
 
   /**
    * Check languages list on start of editor
    */
   public static checkLangsList(): void {
-    if (!OMSFile.exists(`${appData.folder}/${appData.langsFolder}`)) {
+    if (!OMSFile.exists(OMSLanguage.PATHS.LANG_FOLDER)) {
       const LANG_RU = require('assets/langs/ru.json');
       const LANG_EN = require('assets/langs/en.json');
 
-      OMSFile.writeSync(
-        LANG_RU,
-        `${appData.folder}/${appData.langsFolder}/ru.${OMSLanguage.EXTENSION}`
-      );
-      OMSFile.writeSync(
-        LANG_EN,
-        `${appData.folder}/${appData.langsFolder}/en.${OMSLanguage.EXTENSION}`
-      );
+      OMSFile.writeSync(LANG_RU, OMSLanguage.PATHS.LANG_PACK_RU);
+      OMSFile.writeSync(LANG_EN, OMSLanguage.PATHS.LANG_PACK_EN);
     }
 
-    if (
-      !OMSFile.exists(`${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`)
-    ) {
+    if (!OMSFile.exists(OMSLanguage.PATHS.META)) {
       OMSLanguage.checkMeta();
     }
   }
+
+  private static readonly PATHS = {
+    LANG_PACK_RU: OMSLanguage.getPathToPack('ru'),
+    LANG_PACK_EN: OMSLanguage.getPathToPack('en'),
+    META: `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`,
+    LANG_FOLDER: `${appData.folder}/${appData.langsFolder}`,
+  };
 
   /**
    * Create or update metadata of languages (async)
    */
   private static checkMeta(): void {
-    const langFolderPath = `${appData.folder}/${appData.langsFolder}`;
-    const langFiles = OMSFile.readDirSync(langFolderPath);
+    const langFiles = OMSFile.readDirSync(OMSLanguage.PATHS.LANG_FOLDER);
 
     const langTimings = langFiles
       .map(val => {
         if (val.split('.')[1] === 'omslang') {
           const langTiming: OMSLanguageTiming = {
             name: val,
-            time: OMSFile.getStats(`${langFolderPath}/${val}`, 'mtime')[0].value,
+            time: OMSFile.getStats(`${OMSLanguage.PATHS.LANG_FOLDER}/${val}`, 'mtime')[0]
+              .value,
           };
 
           return langTiming;
@@ -58,9 +59,8 @@ export default class OMSLanguage {
       })
       .filter(val => val !== null);
 
-    const metaPath = `${langFolderPath}/${appData.langsMeta}`;
-    if (OMSFile.exists(metaPath)) {
-      const meta: OMSLanguageMeta[] = OMSFile.readSync(metaPath);
+    if (OMSFile.exists(OMSLanguage.PATHS.META)) {
+      const meta: OMSLanguageMeta[] = OMSFile.readSync(OMSLanguage.PATHS.META);
       let needRewrite = false;
 
       for (let i = 0; i < meta.length; i++) {
@@ -93,7 +93,7 @@ export default class OMSLanguage {
   private static rewriteMeta(files: OMSLanguageTiming[]): void {
     const filesMeta: OMSLanguageMeta[] = files.map(val => {
       const langInfoFromFile = OMSFile.readSync(
-        `${appData.folder}/${appData.langsFolder}/${val.name}`
+        `${OMSLanguage.PATHS.LANG_FOLDER}/${val.name}`
       );
       const langInfo: OMSLanguageMeta = {
         abbr: langInfoFromFile.INFO.ABBR,
@@ -106,10 +106,15 @@ export default class OMSLanguage {
       return langInfo;
     });
 
-    OMSFile.writeSync(
-      filesMeta,
-      `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`
-    );
+    OMSFile.writeSync(filesMeta, OMSLanguage.PATHS.META);
+  }
+
+  /**
+   * Get path to language pack with attr
+   * @param abbr - Abbr of language pack
+   */
+  private static getPathToPack(abbr: string): string {
+    return `${OMSLanguage.PATHS.LANG_FOLDER}/${abbr}.${OMSLanguage.EXTENSION}`;
   }
 
   /** Full name of lang package */
@@ -130,9 +135,7 @@ export default class OMSLanguage {
       this.name = name;
       this.isCompleted = isCompleted;
     } else {
-      const langData = OMSFile.readSync(
-        `${appData.folder}/${appData.langsFolder}/${abbr}.${OMSLanguage.EXTENSION}`
-      );
+      const langData = OMSFile.readSync(OMSLanguage.getPathToPack(abbr));
       this.abbr = langData.INFO.ABBR;
       this.name = langData.INFO.NAME;
       this.isCompleted = langData.INFO.IS_COMPLETED;

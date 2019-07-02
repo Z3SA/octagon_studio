@@ -57,8 +57,6 @@ export default class OMS {
     this.version = cfg.version;
     this.type = cfg.type;
 
-    OMSLanguage.checkLangsList();
-
     this.lang = new OMSLanguage(cfg.lang);
     this.user = new OMSUser();
 

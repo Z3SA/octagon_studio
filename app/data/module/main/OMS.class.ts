@@ -12,7 +12,7 @@ import OMSUser from './OMSUser.class';
  */
 export default class OMS {
   /** Paths of using files and folders */
-  static readonly PATHS = {
+  private static readonly PATHS = {
     appData: appData.folder,
     cfg: `${appData.folder}/${appData.cfg}`,
   };

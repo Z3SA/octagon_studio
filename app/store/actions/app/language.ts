@@ -1,13 +1,11 @@
-import { languages } from './languages.enum';
-
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 
 export interface ISetLanguageAction {
   readonly type: typeof SET_LANGUAGE;
-  readonly lang: languages;
+  readonly lang: string;
 }
 
-export function setLanguage(lang: languages): ISetLanguageAction {
+export function setLanguage(lang: string): ISetLanguageAction {
   return {
     type: SET_LANGUAGE,
     lang,

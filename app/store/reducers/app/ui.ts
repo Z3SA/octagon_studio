@@ -1,10 +1,9 @@
 import { SET_LANGUAGE } from 'store/actions/app/language';
 import { ISetLanguageAction } from 'store/actions/app/language';
-import { languages } from 'store/actions/app/languages.enum';
 import IStoreAppUI from 'store/model/app/ui.interface';
 
 const initialState: IStoreAppUI = {
-  language: languages.EN,
+  language: 'en',
 };
 
 export function uiReducer(state = initialState, action: ISetLanguageAction): IStoreAppUI {

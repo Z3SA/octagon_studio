@@ -1,15 +1,15 @@
-import { fileExtensions } from './file-system/fileExtensions.enum';
+import { FileExtensions } from './file-system';
 
 /** Folders and files in App Data folder of editor */
 const appData = {
   folder: `${process.env.APPDATA}/Octagon Modmaking Studio/Data`,
-  cfg: `octagon.${fileExtensions.CFG}`,
+  cfg: `octagon.${FileExtensions.CFG}`,
   langsFolder: '/langs',
-  langsMeta: `langsmeta.${fileExtensions.CFG}`,
-  session: `session.${fileExtensions.CFG}`,
-  windowSession: `window_session.${fileExtensions.CFG}`,
-  theme: `theme.${fileExtensions.CFG}`,
-  user: `user.${fileExtensions.CFG}`,
+  langsMeta: `langsmeta.${FileExtensions.CFG}`,
+  session: `session.${FileExtensions.CFG}`,
+  windowSession: `window_session.${FileExtensions.CFG}`,
+  theme: `theme.${FileExtensions.CFG}`,
+  user: `user.${FileExtensions.CFG}`,
 };
 
 export default appData;

@@ -1,6 +1,6 @@
 import appData from 'data/common/appData';
 import OMSFile from 'data/utils/OMSFile.class';
-import { fileExtensions } from 'data/common/file-system/fileExtensions.enum';
+import { FileExtensions } from 'data/common/file-system';
 
 import OMSLanguageMeta from './model/OMSLanguageMeta.interface';
 import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
@@ -11,7 +11,7 @@ import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
  */
 export default class OMSLanguage {
   /** File extension of language pack */
-  public static readonly EXTENSION = fileExtensions.LANGUAGE_PACK;
+  public static readonly EXTENSION = FileExtensions.LANGUAGE_PACK;
 
   /** Paths for class */
   private static PATHS = {

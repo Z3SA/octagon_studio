@@ -1,5 +1,5 @@
 /** Extension of config files */
-export enum fileExtensions {
+export enum FileExtensions {
   CFG = 'oms',
   LANGUAGE_PACK = 'omslang',
 }

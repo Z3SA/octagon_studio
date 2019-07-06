@@ -1,3 +1,5 @@
+import { IOMSLDAddLangModal } from './settings';
+
 export interface IOMSLDSettings {
   TITLE: string;
 
@@ -18,6 +20,8 @@ export interface IOMSLDSettings {
       TITLE: string;
       NOT_FINALLY: string;
       DESC: string;
+      ADD_LANG: string;
+      ADD_LANG_MODAL: IOMSLDAddLangModal;
     };
 
     THEME: {

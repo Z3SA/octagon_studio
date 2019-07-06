@@ -8,7 +8,7 @@ import styles from './AppStart.m.scss';
 import { TranslateContext } from 'modules/global/TranslateContext';
 import IOMSLDMainStart from 'data/common/model/lang/main_window/OMSLDMainStart.interface';
 import StartFrameActionLink from 'components/module/main/content/StartFrameActionLink/StartFrameActionLink';
-import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon.enum';
+import { EOmsIconIconName } from 'components/common/OMSIcon';
 
 const { Title } = Typography;
 

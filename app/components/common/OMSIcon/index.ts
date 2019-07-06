@@ -1,4 +1,4 @@
-import OMSIcon from 'components/common/OMSIcon/OMSIcon';
+import OMSIcon from './OMSIcon';
 
 export default OMSIcon;
 export { EOmsIconIconName } from './OMSIcon.icon.enum';

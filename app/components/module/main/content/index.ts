@@ -1,3 +1,3 @@
-import StartFrameActionLink from 'components/module/main/content/StartFrameActionLink/StartFrameActionLink';
+import StartFrameActionLink from './StartFrameActionLink/StartFrameActionLink';
 
 export { StartFrameActionLink };

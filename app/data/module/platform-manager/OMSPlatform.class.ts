@@ -1,4 +1,4 @@
-import OMSFile from 'data/utils/OMSFile.class';
+import { OMSFile } from 'data/utils';
 
 export class OMSPlatform {
   public key: string;

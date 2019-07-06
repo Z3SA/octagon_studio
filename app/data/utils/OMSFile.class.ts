@@ -6,7 +6,7 @@ import { OMSError, OMSKVPair } from 'data/common/model';
 /**
  * File worker
  */
-export default class OMSFile {
+export class OMSFile {
   /**
    * Read JSON file sync
    * @param file - file path

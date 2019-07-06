@@ -1,5 +1,5 @@
 import appData from 'data/common/appData';
-import OMSFile from 'data/utils/OMSFile.class';
+import { OMSFile } from 'data/utils';
 import { OMS_DEFAULT } from './default-state';
 import { IOMSConfig } from './model';
 import { OMSLanguage } from './OMSLanguage.class';

@@ -3,10 +3,11 @@ import { createMemoryHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 
 import createRootReducer from './reducers';
+import { IStore } from './model/store.interface';
 
 const history = createMemoryHistory();
 
-const configureStore = (initialState?: any) => {
+const configureStore = (initialState?: IStore) => {
   // Thunk Middleware
   // middleware.push(thunk);
 

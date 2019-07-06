@@ -1,5 +1,5 @@
 /** Modify timing of language for check of cache */
-export default interface OMSLanguageTiming {
+export interface IOMSLanguageTiming {
   name: string;
   time: string;
 }

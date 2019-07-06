@@ -1,7 +1,7 @@
 import appData from 'data/common/appData';
 import OMSFile from 'data/utils/OMSFile.class';
 import { OMS_DEFAULT } from './default-state';
-import OMSConfig from './model/OMSConfig.interface';
+import { IOMSConfig } from './model';
 import OMSLanguage from './OMSLanguage.class';
 import OMSSession from './OMSSession.class';
 import OMSUser from './OMSUser.class';
@@ -45,7 +45,7 @@ export default class OMS {
 
   /** Loading all configs and data from app data */
   public load(): void {
-    let cfg: OMSConfig;
+    let cfg: IOMSConfig;
     if (!OMSFile.exists(OMS.PATHS.appData) || !OMSFile.exists(OMS.PATHS.cfg)) {
       cfg = OMS_DEFAULT;
       OMSFile.write(OMS.PATHS.cfg, cfg);

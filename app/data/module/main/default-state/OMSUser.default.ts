@@ -1,7 +1,7 @@
 import sha256 from 'sha256';
-import OMSUserConfig from '../model/OMSUserConfig.interface';
+import { IOMSUserConfig } from '../model';
 
-export const OMS_USER_DEFAULT: OMSUserConfig = {
+export const OMS_USER_DEFAULT: IOMSUserConfig = {
   user: 'User',
   dev_team: '',
   app_key: sha256(

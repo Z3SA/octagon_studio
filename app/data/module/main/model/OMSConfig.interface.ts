@@ -1,5 +1,5 @@
 /** Schema of OMS config */
-export default interface IOMSConfig {
+export interface IOMSConfig {
   major: number;
   version: string;
   lang: string;

@@ -1,4 +1,4 @@
-import IOMSConfig from '../model/OMSConfig.interface';
+import { IOMSConfig } from '../model';
 
 export const OMS_DEFAULT: IOMSConfig = {
   major: 0,

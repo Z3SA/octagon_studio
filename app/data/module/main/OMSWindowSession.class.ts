@@ -1,7 +1,7 @@
 import OMSFile from '../../utils/OMSFile.class';
 import appData from '../../common/appData';
 import { OMS_WINDOW_SESSION_DEFAULT } from './default-state';
-import IOMSWindowSessionConfig from './model/OMSWindowSessionConfig.interface';
+import { IOMSWindowSessionConfig } from './model';
 
 /**
  * Last saved params of main window (sizes, pos)

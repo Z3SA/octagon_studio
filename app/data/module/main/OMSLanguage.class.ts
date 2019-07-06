@@ -2,8 +2,7 @@ import appData from 'data/common/appData';
 import OMSFile from 'data/utils/OMSFile.class';
 import { FileExtensions } from 'data/common/file-system';
 
-import OMSLanguageMeta from './model/OMSLanguageMeta.interface';
-import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
+import { IOMSLanguageMeta, IOMSLanguageTiming } from './model';
 
 /*
  *  This class created for multi-language support on program.
@@ -47,13 +46,13 @@ export default class OMSLanguage {
   /**
    * Create or update metadata of languages (async)
    */
-  private static checkMeta(): OMSLanguageMeta[] {
+  private static checkMeta(): IOMSLanguageMeta[] {
     const langFiles = OMSFile.readDirSync(OMSLanguage.PATHS.LANG_FOLDER);
 
     const langTimings = langFiles
       .map(val => {
         if (val.split('.')[1] === 'omslang') {
-          const langTiming: OMSLanguageTiming = {
+          const langTiming: IOMSLanguageTiming = {
             name: val,
             time: OMSFile.getStats(`${OMSLanguage.PATHS.LANG_FOLDER}/${val}`, 'mtime')[0]
               .value,
@@ -67,7 +66,7 @@ export default class OMSLanguage {
       .filter(val => val !== null);
 
     if (OMSFile.exists(OMSLanguage.PATHS.META)) {
-      const meta: OMSLanguageMeta[] = OMSFile.readSync(OMSLanguage.PATHS.META);
+      const meta: IOMSLanguageMeta[] = OMSFile.readSync(OMSLanguage.PATHS.META);
       let needRewrite = false;
 
       for (let i = 0; i < meta.length; i++) {
@@ -99,12 +98,12 @@ export default class OMSLanguage {
    * Update file with metadata
    * @param files - current data about file (OMSLanguageTiming)
    */
-  private static rewriteMeta(files: OMSLanguageTiming[]): OMSLanguageMeta[] {
-    const filesMeta: OMSLanguageMeta[] = files.map(val => {
+  private static rewriteMeta(files: IOMSLanguageTiming[]): IOMSLanguageMeta[] {
+    const filesMeta: IOMSLanguageMeta[] = files.map(val => {
       const langInfoFromFile = OMSFile.readSync(
         `${OMSLanguage.PATHS.LANG_FOLDER}/${val.name}`
       );
-      const langInfo: OMSLanguageMeta = {
+      const langInfo: IOMSLanguageMeta = {
         abbr: langInfoFromFile.INFO.ABBR,
         name: langInfoFromFile.INFO.NAME,
         filename: val.name,

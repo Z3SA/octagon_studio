@@ -7,7 +7,7 @@ import Typography from 'antd/lib/typography';
 import styles from './AppStart.m.scss';
 import { TranslateContext } from 'modules/global/TranslateContext';
 import IOMSLDMainStart from 'data/common/model/lang/main_window/OMSLDMainStart.interface';
-import StartFrameActionLink from 'components/module/main/content/StartFrameActionLink/StartFrameActionLink';
+import { StartFrameActionLink } from 'components/module/main/content';
 import { EOmsIconIconName } from 'components/common/OMSIcon';
 
 const { Title } = Typography;

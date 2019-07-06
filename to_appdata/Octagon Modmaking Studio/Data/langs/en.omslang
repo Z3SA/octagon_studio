@@ -33,7 +33,7 @@
         }
       }
     },
-        
+
     "MAIN_MENU": {
       "FILE": {
         "TITLE": "File",
@@ -74,9 +74,24 @@
       "LANGUAGE": {
         "TITLE": "Interface language",
         "NOT_FINALLY": "This language isn't complete. There can be problems with interface.",
-        "DESC": "Language of whole program interface"
+        "DESC": "Language of whole program interface",
+        "ADD_LANG_MODAL": {
+          "TITLE": "Language adding",
+          "STEPS": {
+            "1": "Open dir with languages (you can do this by click on button \"Open folder with languages\").",
+            "2": "Copy one file and rename it with new abbr.",
+            "3": "Open file in any text editor (data format - JSON).",
+            "4": "Change name, abbr and ready status in object \"INFO\".",
+            "5": "Change all translates.",
+            "6": "Save file.",
+            "7": "If editor was open while editing, relaunch OMS.",
+            "8": "Choose new language in settings and test language pack.",
+            "9": "If UI hasn't any errors and mistakes, you can send language pack to repository of project as Pull Request."
+          },
+          "OPEN_LANG_FOLDER": "Open folder with languages"
+        }
       },
-      
+
       "THEME": {
         "TITLE": "Theme",
         "BACKGROUND_COLORS": {
@@ -93,7 +108,7 @@
         "PLACEHOLDER": "Name, nickname, surname",
         "DESC": "Developer name by default used in projects"
       },
-      
+
       "DEV_TEAM": {
         "TITLE": "Dev team",
         "PLACEHOLDER": "Name",
@@ -140,17 +155,17 @@
           "TITLE": "Desc",
           "DESC": "Name, desc, authority"
         },
-                
+
         "FILES": {
           "TITLE": "Files",
           "DESC": "Files structure"
         },
-                
+
         "DEBUG": {
           "TITLE": "Debug",
           "DESC": "Debug options, debug zip"
         },
-               
+
         "SDK": {
           "TITLE": "SDK",
           "DESC": "Selecting of directory with SDK"
@@ -161,7 +176,7 @@
 
   "CREATE_PROJECT": {
     "TITLE": "Create project",
-    
+
     "LABELS": {
       "NAME": "Project name:",
       "NAME_HINT": "Full project name",
@@ -175,7 +190,7 @@
       "AUTHORS": "Authors",
       "AUTHORS_HINT": "Comma separated"
     },
-        
+
     "PROCESS": {
       "ERROR__WRONG_NAME": "Wrong name of project",
       "ERROR__WRONG_ID": "Wrong ID of project",

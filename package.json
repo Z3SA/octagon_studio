@@ -34,7 +34,8 @@
     "test-all": "yarn lint && yarn build && yarn test && yarn build-e2e && yarn test-e2e",
     "test-e2e": "node -r @babel/register ./internals/scripts/CheckBuiltsExist.js && cross-env NODE_ENV=test testcafe electron:./ ./test/e2e/HomePage.e2e.js",
     "test-e2e-live": "node -r @babel/register ./internals/scripts/CheckBuiltsExist.js && cross-env NODE_ENV=test testcafe-live electron:./ ./test/e2e/HomePage.e2e.js",
-    "test-watch": "yarn test --watch"
+    "test-watch": "yarn test --watch",
+    "sync-langs": "./internals/scripts/SyncLangsInAppData.sh"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

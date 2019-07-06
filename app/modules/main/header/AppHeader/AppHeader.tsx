@@ -6,7 +6,7 @@ import Button from 'antd/lib/button';
 
 import styles from './AppHeader.m.scss';
 import OMSIcon from 'components/common/OMSIcon/OMSIcon';
-import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
+import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon.enum';
 import WindowControl from 'components/module/main/header/WindowControl/WindowControl';
 import MainMenu from 'components/module/main/header/MainMenu/MainMenu';
 import { APP_CONSTS } from 'data/utils/AppConsts.enum';

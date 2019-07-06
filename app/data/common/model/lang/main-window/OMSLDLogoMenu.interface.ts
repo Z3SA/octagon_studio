@@ -1,4 +1,4 @@
-export default interface IOMSLDLogoMenu {
+export interface IOMSLDLogoMenu {
   /** Item "About app" */
   ABOUT_APP: string;
 

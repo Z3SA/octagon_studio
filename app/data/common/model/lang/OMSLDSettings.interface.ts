@@ -1,4 +1,4 @@
-export default interface IOMSLDSettings {
+export interface IOMSLDSettings {
   TITLE: string;
 
   /** Actions buttons of modal in footer */

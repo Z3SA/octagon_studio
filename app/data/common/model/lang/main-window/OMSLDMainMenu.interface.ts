@@ -1,4 +1,4 @@
-export default interface IOMSLDMainMenu {
+export interface IOMSLDMainMenu {
   FILE: {
     TITLE: string;
     LIST: {

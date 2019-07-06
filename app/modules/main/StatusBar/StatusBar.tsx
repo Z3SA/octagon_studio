@@ -4,7 +4,7 @@ import Layout from 'antd/lib/layout/layout';
 
 import styles from './StatusBar.m.scss';
 import { generateMixClass } from 'components/utils';
-import IOMSLDStatusbar from 'data/common/model/lang/main_window/OMSLDStatusbar.interface';
+import { IOMSLDStatusbar } from 'data/common/model/lang';
 import { TranslateContext } from 'modules/global/TranslateContext';
 
 const { Footer } = Layout;

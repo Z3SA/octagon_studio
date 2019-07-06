@@ -1,4 +1,4 @@
-export default interface IOMSLDInfo {
+export interface IOMSLDInfo {
   /** Full name of language */
   NAME: string;
   /** Technical name of language (abbreviature) */

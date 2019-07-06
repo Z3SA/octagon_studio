@@ -1,4 +1,4 @@
-export default interface IOMSLDAboutAppModal {
+export interface IOMSLDAboutAppModal {
   /** Title of modal */
   TITLE: string;
 

@@ -11,7 +11,7 @@ import Input from 'antd/lib/input';
 import { TranslateContext } from 'modules/global/TranslateContext';
 import { IOMSLDSettings } from 'data/common/model/lang';
 import { ColorPicker } from 'components/module/settings';
-import OMSLanguage from 'data/module/main/OMSLanguage.class';
+import { OMSLanguage } from 'data/module/main';
 
 interface ISettingsModalProps {
   visible: boolean;

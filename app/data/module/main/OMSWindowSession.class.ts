@@ -6,7 +6,7 @@ import { IOMSWindowSessionConfig } from './model';
 /**
  * Last saved params of main window (sizes, pos)
  */
-export default class OMSWindowSession {
+export class OMSWindowSession {
   /** Read last session from file */
   public static readSession(): IOMSWindowSessionConfig {
     return OMSFile.readSync(`${appData.folder}/${appData.windowSession}`);

@@ -2,15 +2,15 @@ import appData from 'data/common/appData';
 import OMSFile from 'data/utils/OMSFile.class';
 import { OMS_DEFAULT } from './default-state';
 import { IOMSConfig } from './model';
-import OMSLanguage from './OMSLanguage.class';
-import OMSSession from './OMSSession.class';
-import OMSUser from './OMSUser.class';
+import { OMSLanguage } from './OMSLanguage.class';
+import { OMSSession } from './OMSSession.class';
+import { OMSUser } from './OMSUser.class';
 
 /**
  * Initial state of Studio
  * Loading is sync, savings are async
  */
-export default class OMS {
+export class OMS {
   /** Paths of using files and folders */
   private static readonly PATHS = {
     appData: appData.folder,

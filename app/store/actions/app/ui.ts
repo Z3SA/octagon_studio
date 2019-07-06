@@ -1,4 +1,4 @@
-import OMSLanguage from 'data/module/main/OMSLanguage.class';
+import { OMSLanguage } from 'data/module/main';
 
 /** Set language of app */
 export const SET_LANGUAGE = 'SET_LANGUAGE';

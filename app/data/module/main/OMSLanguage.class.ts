@@ -8,7 +8,7 @@ import { IOMSLanguageMeta, IOMSLanguageTiming } from './model';
  *  This class created for multi-language support on program.
  *  Each language package is in %APPDATA% folder of app.
  */
-export default class OMSLanguage {
+export class OMSLanguage {
   /** File extension of language pack */
   public static readonly EXTENSION = FileExtensions.LANGUAGE_PACK;
 

@@ -1,7 +1,7 @@
 /**
  * Error description in while-run of editor
  */
-export default interface OMSError {
+export interface OMSError {
   /** Error code (will be describe in docs) */
   code: number;
 

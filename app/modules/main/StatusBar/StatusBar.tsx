@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import Layout from 'antd/lib/layout/layout';
 
 import styles from './StatusBar.m.scss';
-import generateMixClass from 'components/utils/mixClass';
+import { generateMixClass } from 'components/utils';
 import IOMSLDStatusbar from 'data/common/model/lang/main_window/OMSLDStatusbar.interface';
 import { TranslateContext } from 'modules/global/TranslateContext';
 

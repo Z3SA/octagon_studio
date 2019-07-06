@@ -1,6 +1,6 @@
 import IMixClass from './MixClass.interface';
 
-const generateMixClass = (classes: IMixClass[]): string => {
+export const generateMixClass = (classes: IMixClass[]): string => {
   let finalClass = '';
 
   classes
@@ -11,5 +11,3 @@ const generateMixClass = (classes: IMixClass[]): string => {
 
   return finalClass.trim();
 };
-
-export default generateMixClass;

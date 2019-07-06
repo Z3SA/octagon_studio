@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import styles from './ColorPicker.m.scss';
-import generateMixClass from 'components/utils/mixClass';
+import { generateMixClass } from 'components/utils';
 
 interface IColorPickerProps {
   colors: Array<{

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { shell } from 'electron';
 
 import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
@@ -7,11 +8,13 @@ import Form from 'antd/lib/form';
 import Select from 'antd/lib/select';
 import Radio from 'antd/lib/radio';
 import Input from 'antd/lib/input';
+import Divider from 'antd/lib/divider';
 
 import { TranslateContext } from 'modules/global/TranslateContext';
 import { IOMSLDSettings } from 'data/common/model/lang';
 import { ColorPicker } from 'components/module/settings';
 import { OMSLanguage } from 'data/module/main';
+import appData from 'data/common/appData';
 
 interface ISettingsModalProps {
   visible: boolean;
@@ -43,6 +46,26 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
 
   onCancel = (): void => {
     this.props.onCloseModal();
+  }
+
+  showAddLanguageModal = () => {
+    Modal.info({
+      title: this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL.TITLE,
+      content: (
+        <ol>
+          {Object.values(this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL.STEPS).map(
+            (item, index) => (
+              <li key={index}>{item}</li>
+            )
+          )}
+        </ol>
+      ),
+      okText: this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL.OPEN_LANG_FOLDER,
+      width: 600,
+      onOk: () => {
+        shell.openItem(`${appData.folder}/${appData.langsFolder}`);
+      },
+    });
   }
 
   render() {
@@ -81,6 +104,10 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
                 extra={this.lang.INTERFACE.LANGUAGE.DESC}
               >
                 <Select defaultValue={currentLanguage}>{languageOptions}</Select>
+                <Divider type="vertical" />
+                <Button onClick={this.showAddLanguageModal}>
+                  {this.lang.INTERFACE.LANGUAGE.ADD_LANG}
+                </Button>
               </Form.Item>
 
               <Form.Item label={this.lang.INTERFACE.THEME.TITLE}>

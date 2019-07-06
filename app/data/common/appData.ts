@@ -1,4 +1,4 @@
-import { fileExtensions } from './fileExtensions.enum';
+import { fileExtensions } from './file-system/fileExtensions.enum';
 
 /** Folders and files in App Data folder of editor */
 const appData = {

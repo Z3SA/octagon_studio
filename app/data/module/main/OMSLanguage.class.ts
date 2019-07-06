@@ -1,6 +1,6 @@
 import appData from 'data/common/appData';
 import OMSFile from 'data/utils/OMSFile.class';
-import { fileExtensions } from 'data/common/fileExtensions.enum';
+import { fileExtensions } from 'data/common/file-system/fileExtensions.enum';
 
 import OMSLanguageMeta from './model/OMSLanguageMeta.interface';
 import OMSLanguageTiming from './model/OMSLanguageTiming.interface';

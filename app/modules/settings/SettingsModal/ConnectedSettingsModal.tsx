@@ -6,6 +6,8 @@ import SettingsModal from './SettingsModal';
 
 const mapStateToProps = (state: IStore) => ({
   visible: state.main.modals.settingsVisible,
+  langList: state.app.ui.langList,
+  currentLanguage: state.app.ui.language,
 });
 
 const mapDispatchToProps = dispatch => ({

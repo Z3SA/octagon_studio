@@ -147,4 +147,10 @@ export class OMSLanguage {
       this.data = langData;
     }
   }
+
+  /** Reload lang list for "Settings" */
+  public reloadLangList = (): OMSLanguage[] => {
+    this.langList = OMSLanguage.checkLangsList();
+    return this.langList;
+  }
 }

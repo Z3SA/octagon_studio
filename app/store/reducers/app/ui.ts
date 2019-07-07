@@ -20,12 +20,7 @@ export function uiReducer(
     case SET_LANG_LIST:
       return {
         ...state,
-        langList: [
-          ...state.langList,
-          ...action.langList.filter(
-            i => state.langList.map(({ abbr }) => abbr).indexOf(i.abbr) === -1
-          ),
-        ],
+        langList: action.langList,
       };
     default:
       return state;

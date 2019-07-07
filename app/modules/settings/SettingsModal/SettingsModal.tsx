@@ -9,12 +9,14 @@ import Select from 'antd/lib/select';
 import Radio from 'antd/lib/radio';
 import Input from 'antd/lib/input';
 import Divider from 'antd/lib/divider';
+import Tooltip from 'antd/lib/tooltip';
 
 import { TranslateContext } from 'modules/global/TranslateContext';
 import { IOMSLDSettings } from 'data/common/model/lang';
 import { ColorPicker } from 'components/module/settings';
 import { OMSLanguage } from 'data/module/main';
 import appData from 'data/common/appData';
+import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
 
 interface ISettingsModalProps {
   visible: boolean;
@@ -108,6 +110,12 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
                 <Button onClick={this.showAddLanguageModal}>
                   {this.lang.INTERFACE.LANGUAGE.ADD_LANG}
                 </Button>
+                <Divider type="vertical" />
+                <Tooltip title={this.lang.INTERFACE.LANGUAGE.REFRESH_LANGS}>
+                  <Button>
+                    <OMSIcon icon={EOmsIconIconName.sync} size={14} weight="light" />
+                  </Button>
+                </Tooltip>
               </Form.Item>
 
               <Form.Item label={this.lang.INTERFACE.THEME.TITLE}>

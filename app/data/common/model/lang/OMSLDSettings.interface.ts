@@ -21,6 +21,7 @@ export interface IOMSLDSettings {
       NOT_FINALLY: string;
       DESC: string;
       ADD_LANG: string;
+      REFRESH_LANGS: string;
       ADD_LANG_MODAL: IOMSLDAddLangModal;
     };
 

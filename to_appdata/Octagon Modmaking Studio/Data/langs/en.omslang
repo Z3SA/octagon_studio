@@ -76,6 +76,7 @@
         "NOT_FINALLY": "This language isn't complete. There can be problems with interface.",
         "DESC": "Language of whole program interface",
         "ADD_LANG": "Add language",
+        "REFRESH_LANGS": "Refresh language list",
         "ADD_LANG_MODAL": {
           "TITLE": "Language adding",
           "STEPS": {

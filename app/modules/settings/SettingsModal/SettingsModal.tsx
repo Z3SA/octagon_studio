@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { shell } from 'electron';
 
 import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
@@ -15,8 +14,9 @@ import { TranslateContext } from 'modules/global/TranslateContext';
 import { IOMSLDSettings } from 'data/common/model/lang';
 import { ColorPicker } from 'components/module/settings';
 import { OMSLanguage } from 'data/module/main';
-import appData from 'data/common/appData';
 import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
+
+import { AddLanguageModal } from './AddLanguageModal';
 
 interface ISettingsModalProps {
   visible: boolean;
@@ -51,23 +51,7 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
   }
 
   showAddLanguageModal = () => {
-    Modal.info({
-      title: this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL.TITLE,
-      content: (
-        <ol>
-          {Object.values(this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL.STEPS).map(
-            (item, index) => (
-              <li key={index}>{item}</li>
-            )
-          )}
-        </ol>
-      ),
-      okText: this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL.OPEN_LANG_FOLDER,
-      width: 600,
-      onOk: () => {
-        shell.openItem(`${appData.folder}/${appData.langsFolder}`);
-      },
-    });
+    AddLanguageModal(this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL);
   }
 
   render() {

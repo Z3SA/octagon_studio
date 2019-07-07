@@ -9,6 +9,7 @@ import Radio from 'antd/lib/radio';
 import Input from 'antd/lib/input';
 import Divider from 'antd/lib/divider';
 import Tooltip from 'antd/lib/tooltip';
+import message from 'antd/lib/message';
 
 import { TranslateContext } from 'modules/global/TranslateContext';
 import { IOMSLDSettings } from 'data/common/model/lang';
@@ -17,10 +18,12 @@ import { OMSLanguage } from 'data/module/main';
 import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
 
 import { AddLanguageModal } from './AddLanguageModal';
+import { oms } from 'data/data.init';
 
 interface ISettingsModalProps {
   visible: boolean;
   onCloseModal: any;
+  setLangList: any;
   langList: OMSLanguage[];
   currentLanguage: string;
 }
@@ -52,6 +55,15 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
 
   showAddLanguageModal = () => {
     AddLanguageModal(this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL);
+  }
+
+  reloadLangList = (): void => {
+    new Promise((resolve: (value: OMSLanguage[]) => void) => {
+      resolve(oms.lang.reloadLangList());
+    }).then(langList => {
+      this.props.setLangList(langList);
+      message.success('Список языков обновлён');
+    });
   }
 
   render() {
@@ -96,7 +108,7 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
                 </Button>
                 <Divider type="vertical" />
                 <Tooltip title={this.lang.INTERFACE.LANGUAGE.REFRESH_LANGS}>
-                  <Button>
+                  <Button onClick={this.reloadLangList}>
                     <OMSIcon icon={EOmsIconIconName.sync} size={14} weight="light" />
                   </Button>
                 </Tooltip>

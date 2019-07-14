@@ -28,5 +28,5 @@
       }
     ]
   },
-  "exclude": ["node_modules", "**/node_modules/**", "tsconfig.json"]
+  "exclude": ["node_modules", "**/node_modules/**", "tsconfig.json", "*.js"]
 }

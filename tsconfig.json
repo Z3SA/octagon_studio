@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "noEmit": true,
     "target": "esnext",
     "moduleResolution": "node",
     "pretty": true,
@@ -28,5 +29,16 @@
       }
     ]
   },
-  "exclude": ["node_modules", "**/node_modules/**", "tsconfig.json", "*.js"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules/**",
+    "tsconfig.json",
+    "**/dist/**",
+    "**/main.dev.babel.js",
+    "**/main.prod.js",
+    "./babel.config.js",
+    "**/configs/**",
+    "**/dll/**",
+    "**/internals/**"
+  ]
 }

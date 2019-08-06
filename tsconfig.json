@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "noEmit": true,
     "target": "esnext",
     "moduleResolution": "node",
     "pretty": true,

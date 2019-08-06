@@ -9,7 +9,6 @@
     ".dockerignore": "ignore",
     ".eslintignore": "ignore"
   },
-
   "javascript.validate.enable": false,
   "javascript.format.enable": false,
   "typescript.validate.enable": false,

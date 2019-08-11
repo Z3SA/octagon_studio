@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { modalsReducer } from './modals';
 import { environmentReducer } from './environment';
+import { modalsReducer } from './modals';
 
 export function mainReducer() {
   return combineReducers({

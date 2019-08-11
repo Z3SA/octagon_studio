@@ -1,24 +1,26 @@
 import React, { PureComponent } from 'react';
 
-import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
-import Tabs from 'antd/lib/tabs';
-import Form from 'antd/lib/form';
-import Select from 'antd/lib/select';
-import Radio from 'antd/lib/radio';
-import Input from 'antd/lib/input';
 import Divider from 'antd/lib/divider';
-import Tooltip from 'antd/lib/tooltip';
+import Form from 'antd/lib/form';
+import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
+import Modal from 'antd/lib/modal';
+import Radio from 'antd/lib/radio';
+import Select from 'antd/lib/select';
+import Tabs from 'antd/lib/tabs';
+import Tooltip from 'antd/lib/tooltip';
+
+import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
+import { ColorPicker } from 'components/module/settings';
+
+import { IOMSLDSettings } from 'data/common/model/lang';
+import { oms } from 'data/data.init';
+import { OMSLanguage } from 'data/module/main';
 
 import { TranslateContext } from 'modules/global/TranslateContext';
-import { IOMSLDSettings } from 'data/common/model/lang';
-import { ColorPicker } from 'components/module/settings';
-import { OMSLanguage } from 'data/module/main';
-import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
 
 import { AddLanguageModal } from './AddLanguageModal';
-import { oms } from 'data/data.init';
 
 interface ISettingsModalProps {
   visible: boolean;

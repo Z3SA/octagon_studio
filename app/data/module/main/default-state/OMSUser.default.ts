@@ -1,4 +1,5 @@
 import sha256 from 'sha256';
+
 import { IOMSUserConfig } from '../model';
 
 export const OMS_USER_DEFAULT: IOMSUserConfig = {

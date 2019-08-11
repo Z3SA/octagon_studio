@@ -1,9 +1,10 @@
-import { createStore, compose, applyMiddleware } from 'redux';
-import { createMemoryHistory } from 'history';
-import { routerMiddleware } from 'connected-react-router';
+import { applyMiddleware, compose, createStore } from 'redux';
 
-import createRootReducer from './reducers';
+import { routerMiddleware } from 'connected-react-router';
+import { createMemoryHistory } from 'history';
+
 import { IStore } from './model/store.interface';
+import createRootReducer from './reducers';
 
 const history = createMemoryHistory();
 

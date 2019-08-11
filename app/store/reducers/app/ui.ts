@@ -1,4 +1,4 @@
-import { SET_LANGUAGE, SET_LANG_LIST, ISetLangListAction } from 'store/actions/app/ui';
+import { ISetLangListAction, SET_LANG_LIST, SET_LANGUAGE } from 'store/actions/app/ui';
 import { ISetLanguageAction } from 'store/actions/app/ui';
 import IStoreAppUI from 'store/model/app/ui.interface';
 

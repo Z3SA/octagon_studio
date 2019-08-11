@@ -1,8 +1,8 @@
 import {
-  TOGGLE_ABOUT_APP_MODAL,
-  TOGGLE_SETTINGS_MODAL,
-  TOGGLE_HOTKEYS_MODAL,
   IToggleModalAction,
+  TOGGLE_ABOUT_APP_MODAL,
+  TOGGLE_HOTKEYS_MODAL,
+  TOGGLE_SETTINGS_MODAL,
 } from 'store/actions/main/modals';
 import { IStoreMainModals } from 'store/model/main/modals.interface';
 

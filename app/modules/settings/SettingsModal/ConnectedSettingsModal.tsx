@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 
-import { IStore } from 'store/model/store.interface';
-import { toggleSettingsModal } from 'store/actions/main/modals';
-import SettingsModal from './SettingsModal';
-import { setLangList } from 'store/actions/app/ui';
 import { OMSLanguage } from 'data/module/main';
+
+import { setLangList } from 'store/actions/app/ui';
+import { toggleSettingsModal } from 'store/actions/main/modals';
+import { IStore } from 'store/model/store.interface';
+
+import SettingsModal from './SettingsModal';
 
 const mapStateToProps = (state: IStore) => ({
   visible: state.main.modals.settingsVisible,

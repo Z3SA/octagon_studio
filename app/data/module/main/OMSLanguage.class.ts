@@ -1,6 +1,6 @@
 import appData from 'data/common/appData';
-import { OMSFile } from 'data/utils';
 import { FileExtensions } from 'data/common/file-system';
+import { OMSFile } from 'data/utils';
 
 import { IOMSLanguageMeta, IOMSLanguageTiming } from './model';
 

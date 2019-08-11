@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { HotKeys } from 'react-hotkeys';
 
 import LocaleProvider from 'antd/lib/locale-provider';
 import ru_RU from 'antd/lib/locale-provider/ru_RU';
-import { HotKeys } from 'react-hotkeys';
 
-import { TranslateContext } from './TranslateContext';
 import { oms } from 'data/data.init';
+
 import { globalHotKeyMap, IGLobalHotkeyResolver } from './hotkeys';
+import { TranslateContext } from './TranslateContext';
 
 interface IGlobalProviderProps {
   openSettings?: any;

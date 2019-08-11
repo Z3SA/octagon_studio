@@ -1,9 +1,9 @@
 import {
-  IOMSLDLogoMenu,
   IOMSLDAboutAppModal,
+  IOMSLDLogoMenu,
   IOMSLDMainMenu,
-  IOMSLDMainStart,
   IOMSLDMainModals,
+  IOMSLDMainStart,
   IOMSLDStatusbar,
 } from './main-window';
 

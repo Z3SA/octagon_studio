@@ -9,8 +9,8 @@
         "grouped-imports": true,
         "groups": [
           {
-            "name": "react and redux",
-            "match": "^(react|redux)",
+            "name": "react and redux and electron",
+            "match": "^(react|redux|electron)",
             "order": 10
           },
           {

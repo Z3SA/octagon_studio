@@ -1,5 +1,6 @@
-import { primaryColors } from './primaryColors.enum';
 import { OMSLanguage } from 'data/module/main';
+
+import { primaryColors } from './primaryColors.enum';
 
 export default interface IStoreAppUI {
   language?: string;

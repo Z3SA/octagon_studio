@@ -3,8 +3,10 @@ import React, { PureComponent } from 'react';
 import Modal from 'antd/lib/modal';
 import Table, { ColumnProps } from 'antd/lib/table';
 
-import { TranslateContext } from 'modules/global/TranslateContext';
 import { IOMSLDModalHotkeys } from 'data/common/model/lang';
+
+import { TranslateContext } from 'modules/global/TranslateContext';
+
 import styles from './HotkeysModal.m.scss';
 
 interface IHotkeysModalProps {

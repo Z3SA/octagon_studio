@@ -2,13 +2,15 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-/**
- * This is one implementation of Less cause of Antd styles
- * Ffter that all overrides are resolved through CSS vars
- */
 import 'assets/styles/global.less';
 import 'assets/styles/vars/index.scss';
+
 import Root from 'modules/Root';
+
+/**
+ * Implementation of Less files (imports that higher of comment) cause of Antd styles
+ * After that all overrides are resolved through CSS vars
+ */
 
 render(
   <AppContainer>

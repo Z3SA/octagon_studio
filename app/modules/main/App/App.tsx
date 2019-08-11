@@ -1,12 +1,12 @@
-import React, { PureComponent, Suspense, lazy } from 'react';
+import React, { lazy, PureComponent, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 
+import Icon from 'antd/lib/icon';
 import Layout from 'antd/lib/layout/layout';
 import Spin from 'antd/lib/spin';
-import Icon from 'antd/lib/icon';
 
-import styles from './App.m.scss';
 import AppModalStack from '../AppModalStack/AppModalStack';
+import styles from './App.m.scss';
 
 const { Content } = Layout;
 

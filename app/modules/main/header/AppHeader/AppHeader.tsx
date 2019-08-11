@@ -1,14 +1,16 @@
-import React, { PureComponent } from 'react';
 import electron, { BrowserWindow } from 'electron';
+import React, { PureComponent } from 'react';
 
-import Layout from 'antd/lib/layout';
 import Button from 'antd/lib/button';
+import Layout from 'antd/lib/layout';
 
-import styles from './AppHeader.m.scss';
 import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
-import { WindowControl, MainMenu } from 'components/module/main/header';
+import { MainMenu, WindowControl } from 'components/module/main/header';
+
 import { APP_CONSTS } from 'data/utils';
+
 import ConnectedLogo from '../Logo/ConnectedLogo';
+import styles from './AppHeader.m.scss';
 
 const { Header } = Layout;
 

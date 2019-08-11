@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 
-import { IStore } from 'store/model/store.interface';
-import AboutAppModal from './AboutAppModal';
 import { toggleAboutAppModal } from 'store/actions/main/modals';
+import { IStore } from 'store/model/store.interface';
+
+import AboutAppModal from './AboutAppModal';
 
 const mapStateToProps = (state: IStore) => ({
   visible: state.main.modals.aboutAppVisible,

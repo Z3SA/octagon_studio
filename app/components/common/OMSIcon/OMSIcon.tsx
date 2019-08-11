@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
-import styles from './OMSIcon.m.scss';
 import { EOmsIconIconName } from './OMSIcon.icon.enum';
+import styles from './OMSIcon.m.scss';
 
 interface IOMSIconProps {
   icon: EOmsIconIconName;

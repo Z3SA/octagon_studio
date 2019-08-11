@@ -1,4 +1,5 @@
 import { remote } from 'electron';
+
 import fs from 'fs';
 
 import { OMSError, OMSKVPair } from 'data/common/model';

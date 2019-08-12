@@ -1,26 +1,20 @@
 import React, { PureComponent } from 'react';
 
 import Button from 'antd/lib/button';
-import Divider from 'antd/lib/divider';
 import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
-import message from 'antd/lib/message';
 import Modal from 'antd/lib/modal';
 import Radio from 'antd/lib/radio';
-import Select from 'antd/lib/select';
 import Tabs from 'antd/lib/tabs';
-import Tooltip from 'antd/lib/tooltip';
 
-import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
 import { ColorPicker } from 'components/module/settings';
 
 import { IOMSLDSettings } from 'data/common/model/lang';
-import { oms } from 'data/data.init';
 import { OMSLanguage } from 'data/module/main';
 
 import { TranslateContext } from 'modules/global/TranslateContext';
 
-import { AddLanguageModal } from './AddLanguageModal';
+import LanguageSelect from './controls/LanguageSelect';
 
 interface ISettingsModalProps {
   visible: boolean;
@@ -55,27 +49,8 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
     this.props.onCloseModal();
   }
 
-  showAddLanguageModal = () => {
-    AddLanguageModal(this.lang.INTERFACE.LANGUAGE.ADD_LANG_MODAL);
-  }
-
-  reloadLangList = (): void => {
-    new Promise((resolve: (value: OMSLanguage[]) => void) => {
-      resolve(oms.lang.reloadLangList());
-    }).then(langList => {
-      this.props.setLangList(langList);
-      message.success('Список языков обновлён');
-    });
-  }
-
   render() {
-    const { visible, langList, currentLanguage } = this.props;
-
-    const languageOptions = langList.map(lang => (
-      <Select.Option value={lang.abbr} key={lang.abbr}>
-        {lang.name} ({lang.abbr.toLocaleUpperCase()})
-      </Select.Option>
-    ));
+    const { visible } = this.props;
 
     const modalFooter = [
       <Button key="cancel" onClick={this.onCancel}>
@@ -103,17 +78,7 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
                 label={this.lang.INTERFACE.LANGUAGE.TITLE}
                 extra={this.lang.INTERFACE.LANGUAGE.DESC}
               >
-                <Select defaultValue={currentLanguage}>{languageOptions}</Select>
-                <Divider type="vertical" />
-                <Button onClick={this.showAddLanguageModal}>
-                  {this.lang.INTERFACE.LANGUAGE.ADD_LANG}
-                </Button>
-                <Divider type="vertical" />
-                <Tooltip title={this.lang.INTERFACE.LANGUAGE.REFRESH_LANGS}>
-                  <Button onClick={this.reloadLangList}>
-                    <OMSIcon icon={EOmsIconIconName.sync} size={14} weight="light" />
-                  </Button>
-                </Tooltip>
+                <LanguageSelect />
               </Form.Item>
 
               <Form.Item label={this.lang.INTERFACE.THEME.TITLE}>

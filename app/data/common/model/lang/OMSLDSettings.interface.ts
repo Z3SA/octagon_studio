@@ -1,4 +1,4 @@
-import { IOMSLDAddLangModal } from './settings';
+import { IOMSLDSettingsLanguage } from './settings';
 
 export interface IOMSLDSettings {
   TITLE: string;
@@ -16,14 +16,7 @@ export interface IOMSLDSettings {
   };
 
   INTERFACE: {
-    LANGUAGE: {
-      TITLE: string;
-      NOT_FINALLY: string;
-      DESC: string;
-      ADD_LANG: string;
-      REFRESH_LANGS: string;
-      ADD_LANG_MODAL: IOMSLDAddLangModal;
-    };
+    LANGUAGE: IOMSLDSettingsLanguage;
 
     THEME: {
       TITLE: string;

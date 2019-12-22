@@ -10,9 +10,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const ConnectedAppHeader = connect(
-  null,
-  mapDispatchToProps
-)(AppHeader);
+const ConnectedAppHeader = connect(null, mapDispatchToProps)(AppHeader);
 
 export default ConnectedAppHeader;

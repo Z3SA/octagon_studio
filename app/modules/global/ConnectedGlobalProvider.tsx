@@ -12,9 +12,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const ConnectedGlobalProvider = withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(GlobalProvider)
+  connect(null, mapDispatchToProps)(GlobalProvider)
 );
 export default ConnectedGlobalProvider;

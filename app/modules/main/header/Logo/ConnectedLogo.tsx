@@ -21,9 +21,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const ConnectedLogo = connect(
-  null,
-  mapDispatchToProps
-)(Logo);
+const ConnectedLogo = connect(null, mapDispatchToProps)(Logo);
 
 export default ConnectedLogo;

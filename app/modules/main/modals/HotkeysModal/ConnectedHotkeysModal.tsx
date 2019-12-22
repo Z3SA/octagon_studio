@@ -15,9 +15,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const ConnectedHotkeysModal = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HotkeysModal);
+const ConnectedHotkeysModal = connect(mapStateToProps, mapDispatchToProps)(HotkeysModal);
 
 export default ConnectedHotkeysModal;

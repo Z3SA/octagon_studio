@@ -78,7 +78,7 @@ export default class SettingsModal extends PureComponent<ISettingsModalProps> {
                 label={this.lang.INTERFACE.LANGUAGE.TITLE}
                 extra={this.lang.INTERFACE.LANGUAGE.DESC}
               >
-                <LanguageSelect />
+                <LanguageSelect langList={[]} />
               </Form.Item>
 
               <Form.Item label={this.lang.INTERFACE.THEME.TITLE}>

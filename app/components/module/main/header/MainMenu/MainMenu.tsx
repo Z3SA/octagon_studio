@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 
 import Menu from 'antd/lib/menu';
+
+import { IOMSLDMainMenu } from 'data/common/model/lang';
+
 import { TranslateContext } from 'modules/global/TranslateContext';
-import IOMSLDMainMenu from 'data/common/model/lang/main_window/OMSLDMainMenu.interface';
 
 export default class MainMenu extends PureComponent {
   static contextType = TranslateContext;

@@ -1,13 +1,13 @@
 import { remote } from 'electron';
+
 import fs from 'fs';
 
-import OMSError from 'data/common/model/OMSError.interface';
-import OMSKVPair from 'data/common/model/OMSKVPair.interface';
+import { OMSError, OMSKVPair } from 'data/common/model';
 
 /**
  * File worker
  */
-export default class OMSFile {
+export class OMSFile {
   /**
    * Read JSON file sync
    * @param file - file path

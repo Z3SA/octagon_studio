@@ -1,11 +1,13 @@
-import IOMSLDLogoMenu from './main_window/OMSLDLogoMenu.interface';
-import IOMSLDAboutAppModal from './main_window/OMSLDAboutAppModal.interface';
-import IOMSLDMainMenu from './main_window/OMSLDMainMenu.interface';
-import IOMSLDMainStart from './main_window/OMSLDMainStart.interface';
-import IOMSLDMainModals from './main_window/OMSLDMainModals.interface';
-import IOMSLDStatusbar from './main_window/OMSLDStatusbar.interface';
+import {
+  IOMSLDAboutAppModal,
+  IOMSLDLogoMenu,
+  IOMSLDMainMenu,
+  IOMSLDMainModals,
+  IOMSLDMainStart,
+  IOMSLDStatusbar,
+} from './main-window';
 
-export default interface IOMSLDMainWindow {
+export interface IOMSLDMainWindow {
   /** Dropdown of menu in app header */
   LOGO_MENU: IOMSLDLogoMenu;
 

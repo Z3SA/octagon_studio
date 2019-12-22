@@ -1,5 +1,5 @@
 /** Config of user file */
-export default interface OMSUserConfig {
+export interface IOMSUserConfig {
   user: string;
   dev_team: string;
   app_key: string;

@@ -1,108 +1,213 @@
 ﻿{
   "INFO": {
-  	"NAME": "English",
-  	"ABBR": "en",
-  	"IS_COMPLETED": "false"
+    "NAME": "English",
+    "ABBR": "en",
+    "IS_COMPLETED": "true"
   },
-  
+
   "MAIN_WINDOW": {
-    "TOP_MENU": {
-      "FILE_NAME": "File",
-      "FILE_LIST": {
-        "FILE_CREATE": "Create...",
-        "FILE_OPEN": "Open...",
-        "FILE_LOAD_FROM": "Open from...",
-        "CLOSE_PROJECT": "Close project",
-        "FILE_SAVE": "Save",
-        "FILE_SAVE_AS": "Save as...",
-        "FILE_SAVE_ALL": "Save all"
-      },
-      "VIEW_NAME": "View",
-      "EDIT_NAME": "Edit",
-      "EDIT_LIST": {
-        "EDIT_PROG_PARAMS": "Program parameters"
+    "LOGO_MENU": {
+      "ABOUT_APP": "About app",
+      "CHECK_UPDATES": "Check updates",
+      "OPEN_REPO": "Open repository",
+      "HOTKEYS": "Hotkeys"
+    },
+
+    "ABOUT_APP_MODAL": {
+      "TITLE": "About app",
+      "MAJOR_VERSION_LABEL": "Major version",
+      "NUM_AND_TYPE_OF_BUILD": "Num and type of build",
+      "INSTANCE_ID": "Instance ID",
+      "USERNAME": "Username",
+      "CLOSE": "Close",
+      "COPY_SUM": "Copy info"
+    },
+
+    "MODALS": {
+      "HOTKEYS": {
+        "TITLE": "Hotkeys",
+        "ACTION_LABEL": "Action",
+        "HOTKEY_LABEL": "Key",
+        "ACTIONS": {
+          "OPEN_SETTINGS": "Open settings"
+        }
       }
     },
 
-    "TOP_CONTROLLERS": {
-      "MINIMIZE": "Minimize",
-      "FULLSCREEN": "Maximize",
-      "CLOSE": "Close"
-    },
-
-    "LEFT_MENU": {
-      "COMPONENT_STRUCTURE": "Component structure"
-    },
-
-    "NAVIGATOR": {
-      "BUTTONS": {
-        "FILES": "Files",
-        "COMPS": "Components",
-        "ATTRS": "Attributes"
-      }
-    },
-
-    "STATUS_BAR": {
-      "BUILD_STATUS": {
-        "PRE_ALPHA": "Pre-alpha build",
-        "ALPHA": "Alpha build",
-        "BETA": "Beta build",
-        "OPEN_BETA": "Open beta build",
-        "RELEASE": "Release build",
-        "DEBUG": "Debug build"
-      },
-      "CURRENT_FOCUS": {
-        "START_FRAME": "Start frame"
-      },
-      "PROG_STATUS": {
-        "READY": "Ready",
-        "DEBUG_BUILDING": "Building debug build of mod",
-        "RELEASE_BUILDING": "Building release build of mod",
-        "FATAL": "Fatal error",
-        "PROJECT_LOADING": "Project loading...",
-        "PROJECT_SAVING": "Project save...",
-        "COMP_OPENING": "Component opening..."
+    "MAIN_MENU": {
+      "FILE": {
+        "TITLE": "File",
+        "LIST": {
+          "CREATE_PROJECT": "Create project"
+        }
       }
     },
 
     "START_FRAME": {
-      "START_TITLE": "Start",
-      "CREATE_NEW_PROJECT": "Create new project"
+      "ACTIONS": {
+        "TITLE": "Start work",
+        "ADD_OR_IMPORT_PLATFORM": "Add or import platform"
+      }
+    },
+
+    "STATUSBAR": {
+      "PROGRAM_STATUS": {
+        "START": "Project not selected"
+      }
+    }
+  },
+
+  "SETTINGS": {
+    "TITLE": "Settings",
+
+    "BOTTOM_BTNS": {
+      "CANCEL": "Cancel",
+      "APPLY": "Apply"
+    },
+
+    "MENU": {
+      "INTERFACE": "Interface",
+      "AUTHORITY": "Authority"
+    },
+
+    "INTERFACE": {
+      "LANGUAGE": {
+        "TITLE": "Interface language",
+        "NOT_FINALLY": "This language isn't complete. There can be problems with interface.",
+        "DESC": "Language of whole program interface",
+        "ADD_LANG": "Add language",
+        "REFRESH_LANGS": "Refresh language list",
+        "ADD_LANG_MODAL": {
+          "TITLE": "Language adding",
+          "STEPS": {
+            "1": "Open dir with languages (you can do this by click on button \"Open folder with languages\").",
+            "2": "Copy one file and rename it with new abbr.",
+            "3": "Open file in any text editor (data format - JSON).",
+            "4": "Change name, abbr and ready status in object \"INFO\".",
+            "5": "Change all translates.",
+            "6": "Save file.",
+            "7": "If editor was open while editing, relaunch OMS.",
+            "8": "Choose new language in settings and test language pack.",
+            "9": "If UI hasn't any errors and mistakes, you can send language pack to repository of project as Pull Request."
+          },
+          "OPEN_LANG_FOLDER": "Open folder with languages"
+        }
+      },
+
+      "THEME": {
+        "TITLE": "Theme",
+        "BACKGROUND_COLORS": {
+          "LIGHT": "Light",
+          "DARK": "Dark",
+          "ADAPTIVE": "Adaptive"
+        }
+      }
+    },
+
+    "AUTHORITY": {
+      "USER": {
+        "TITLE": "Current user",
+        "PLACEHOLDER": "Name, nickname, surname",
+        "DESC": "Developer name by default used in projects"
+      },
+
+      "DEV_TEAM": {
+        "TITLE": "Dev team",
+        "PLACEHOLDER": "Name",
+        "DESC": "Name of team in which you are developing mod (if solo, leave it blank)"
+      }
+    },
+
+    "STATUS": {
+      "SUCCESS": "Settings successfully saved"
+    },
+
+    "PLATFORMS": {
+      "TITLE": "Platforms",
+
+      "MENU": {
+        "ADD_NEW": "Add new",
+        "ADD_FROM_FOLDER": "Add from folder",
+        "REFRESH": "Refresh"
+      },
+
+      "TABLE_HEADER": {
+        "NAME": "Name",
+        "VERSION": "Version",
+        "DEBUG": "Debug",
+        "SDK": "SDK"
+      },
+
+      "ERROR": {
+        "FOLDER_IS_NOT_PLATFORM": "Selected directory isn't platform.",
+        "FOLDER_HAS_NOT_CFG": "Missing main config file of platform (main.omsplatform).",
+        "PLATFORM_IS_DEFINED": "This platform is already defined."
+      }
+    },
+
+    "ANALYZE_PLATFORM": {
+      "TITLE": "Analyze platform",
+
+      "STEPS": {
+        "AUTOFILL": {
+          "TITLE": "Auoanalyze"
+        },
+
+        "DESC": {
+          "TITLE": "Desc",
+          "DESC": "Name, desc, authority"
+        },
+
+        "FILES": {
+          "TITLE": "Files",
+          "DESC": "Files structure"
+        },
+
+        "DEBUG": {
+          "TITLE": "Debug",
+          "DESC": "Debug options, debug zip"
+        },
+
+        "SDK": {
+          "TITLE": "SDK",
+          "DESC": "Selecting of directory with SDK"
+        }
+      }
     }
   },
 
   "CREATE_PROJECT": {
     "TITLE": "Create project",
+
     "LABELS": {
       "NAME": "Project name:",
-      "NAME_HINT": "Full name of project",
-      "WORK_ID": "Project work ID:",
-      "WORK_ID_HINT": "Identificator of project in OMS. Allowed only latin symbols, numbers, '_' and '-'. Case sensetive.",
-      "FOLDER": "Project folder:",
-      "FOLDER_HINT": "Need 9 gb of free space",
+      "NAME_HINT": "Full project name",
+      "WORK_ID": "Work ID of project:",
+      "WORK_ID_HINT": "Project ID inside OMS. Only latin characters, numbers, '_' and '-' are allowed. Case-sensitive.",
+      "FOLDER": "Folder of project:",
+      "FOLDER_HINT": "Requires at least 9 Gb of free space",
       "PLATFORM_TYPE": "Platform type:",
       "PLATFORM_VERSION": "Platform version",
       "KEEP_MULTIPLAYER": "Keep multiplayer?",
       "AUTHORS": "Authors",
-      "AUTHORS_HINT": "separate each by comma"
+      "AUTHORS_HINT": "Comma separated"
     },
+
     "PROCESS": {
-      "ERROR__WRONG_NAME": "Wrong project name",
-      "ERROR__WRONG_ID": "Wrong project work ID",
-      "ERROR__WRONG_DIR": "Wrong project catalog",
-      "ERROR__DISK_NOT_READY": "Disk is not ready or access isn't allowed",
-      "ERROR__NOT_ENOUGH_SPACE": "Not enough space on current partition for test platform",
-      "ERROR__ALREADY_EXISTS": "Project already exist in current catalog"
+      "ERROR__WRONG_NAME": "Wrong name of project",
+      "ERROR__WRONG_ID": "Wrong ID of project",
+      "ERROR__WRONG_DIR": "Wrong folder of project",
+      "ERROR__DISK_NOT_READY": "Disk isn't ready for work or access denied",
+      "ERROR__NOT_ENOUGH_SPACE": "There isn't enough space for the platform",
+      "ERROR__ALREADY_EXISTS": "Folder already has existing project"
     }
   },
 
-  "PROG_PARAMS": {
-    "TITLE": "Program parameters",
+  "PROJECT_PARAMS": {
+    "TITLE": "Project parameters",
 
     "MENU": {
-      "MAIN": "Main settings",
-      "LAUNCH_N_DEBUG": "Launch and debug",
-      "PLATFORMS": "Platforms",
+      "MAIN": "Main parameters",
       "AUTHORITY": "Authority"
     },
 
@@ -112,24 +217,9 @@
     },
 
     "MAIN": {
-      "INTERFACE": {
-        "TITLE": "Interface",
-        "LANGUAGE": "Language:",
-        "LANGUAGE_WARNING": "Language is not finalized. The program can be unstable."
-      },
-      "AUTHOR": {
-        "TITLE": "Authorship",
-        "AUTHOR": "Name or nickname:",
-        "TEAM": "Dev team:"
-      }
-    },
-
-    "PLATFORMS": {
-    	"TITLE": "Платформы"
-    },
-
-    "AUTHORITY": {
-    	"TITLE": "Authority"
+      "TITLE": "Main",
+      "PROJECT_NAME": "Project name",
+      "PROJECT_ID": "Project ID"
     }
   }
 }

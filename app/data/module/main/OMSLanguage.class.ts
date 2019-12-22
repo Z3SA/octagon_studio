@@ -1,54 +1,61 @@
 import appData from 'data/common/appData';
-import OMSFile from 'data/utils/OMSFile.class';
-import OMSLanguageMeta from './model/OMSLanguageMeta.interface';
-import OMSLanguageTiming from './model/OMSLanguageTiming.interface';
+import { FileExtensions } from 'data/common/file-system';
+import { OMSFile } from 'data/utils';
+
+import { IOMSLanguageMeta, IOMSLanguageTiming } from './model';
 
 /*
  *  This class created for multi-language support on program.
  *  Each language package is in %APPDATA% folder of app.
  */
-export default class OMSLanguage {
+export class OMSLanguage {
   /** File extension of language pack */
-  public static readonly EXTENSION = 'omslang';
+  public static readonly EXTENSION = FileExtensions.LANGUAGE_PACK;
+
+  /** Paths for class */
+  private static PATHS = {
+    LANG_FOLDER: `${appData.folder}/${appData.langsFolder}`,
+    META: `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`,
+  };
 
   /**
    * Check languages list on start of editor
    */
-  public static checkLangsList(): void {
-    if (!OMSFile.exists(`${appData.folder}/${appData.langsFolder}`)) {
+  private static checkLangsList(): OMSLanguage[] {
+    if (!OMSFile.exists(OMSLanguage.PATHS.LANG_FOLDER)) {
       const LANG_RU = require('assets/langs/ru.json');
       const LANG_EN = require('assets/langs/en.json');
 
-      OMSFile.writeSync(
-        LANG_RU,
-        `${appData.folder}/${appData.langsFolder}/ru.${OMSLanguage.EXTENSION}`
-      );
-      OMSFile.writeSync(
-        LANG_EN,
-        `${appData.folder}/${appData.langsFolder}/en.${OMSLanguage.EXTENSION}`
-      );
+      OMSFile.writeSync(LANG_RU, OMSLanguage.getPathToPack('ru'));
+      OMSFile.writeSync(LANG_EN, OMSLanguage.getPathToPack('en'));
     }
 
-    if (
-      !OMSFile.exists(`${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`)
-    ) {
-      OMSLanguage.checkMeta();
-    }
+    return OMSLanguage.checkMeta().map(
+      ({ abbr, name, isCompleted }) => new OMSLanguage(abbr, name, isCompleted)
+    );
+  }
+
+  /**
+   * Get path to language pack with attr
+   * @param abbr - Abbr of language pack
+   */
+  private static getPathToPack(abbr: string): string {
+    return `${OMSLanguage.PATHS.LANG_FOLDER}/${abbr}.${OMSLanguage.EXTENSION}`;
   }
 
   /**
    * Create or update metadata of languages (async)
    */
-  private static checkMeta(): void {
-    const langFolderPath = `${appData.folder}/${appData.langsFolder}`;
-    const langFiles = OMSFile.readDirSync(langFolderPath);
+  private static checkMeta(): IOMSLanguageMeta[] {
+    const langFiles = OMSFile.readDirSync(OMSLanguage.PATHS.LANG_FOLDER);
 
     const langTimings = langFiles
       .map(val => {
         if (val.split('.')[1] === 'omslang') {
-          const langTiming: OMSLanguageTiming = {
+          const langTiming: IOMSLanguageTiming = {
             name: val,
-            time: OMSFile.getStats(`${langFolderPath}/${val}`, 'mtime')[0].value,
+            time: OMSFile.getStats(`${OMSLanguage.PATHS.LANG_FOLDER}/${val}`, 'mtime')[0]
+              .value,
           };
 
           return langTiming;
@@ -58,9 +65,8 @@ export default class OMSLanguage {
       })
       .filter(val => val !== null);
 
-    const metaPath = `${langFolderPath}/${appData.langsMeta}`;
-    if (OMSFile.exists(metaPath)) {
-      const meta: OMSLanguageMeta[] = OMSFile.readSync(metaPath);
+    if (OMSFile.exists(OMSLanguage.PATHS.META)) {
+      const meta: IOMSLanguageMeta[] = OMSFile.readSync(OMSLanguage.PATHS.META);
       let needRewrite = false;
 
       for (let i = 0; i < meta.length; i++) {
@@ -79,10 +85,12 @@ export default class OMSLanguage {
       }
 
       if (needRewrite) {
-        OMSLanguage.rewriteMeta(langTimings);
+        return OMSLanguage.rewriteMeta(langTimings);
+      } else {
+        return meta;
       }
     } else {
-      OMSLanguage.rewriteMeta(langTimings);
+      return OMSLanguage.rewriteMeta(langTimings);
     }
   }
 
@@ -90,12 +98,12 @@ export default class OMSLanguage {
    * Update file with metadata
    * @param files - current data about file (OMSLanguageTiming)
    */
-  private static rewriteMeta(files: OMSLanguageTiming[]): void {
-    const filesMeta: OMSLanguageMeta[] = files.map(val => {
+  private static rewriteMeta(files: IOMSLanguageTiming[]): IOMSLanguageMeta[] {
+    const filesMeta: IOMSLanguageMeta[] = files.map(val => {
       const langInfoFromFile = OMSFile.readSync(
-        `${appData.folder}/${appData.langsFolder}/${val.name}`
+        `${OMSLanguage.PATHS.LANG_FOLDER}/${val.name}`
       );
-      const langInfo: OMSLanguageMeta = {
+      const langInfo: IOMSLanguageMeta = {
         abbr: langInfoFromFile.INFO.ABBR,
         name: langInfoFromFile.INFO.NAME,
         filename: val.name,
@@ -106,10 +114,8 @@ export default class OMSLanguage {
       return langInfo;
     });
 
-    OMSFile.writeSync(
-      filesMeta,
-      `${appData.folder}/${appData.langsFolder}/${appData.langsMeta}`
-    );
+    OMSFile.writeSync(filesMeta, OMSLanguage.PATHS.META);
+    return filesMeta;
   }
 
   /** Full name of lang package */
@@ -124,19 +130,27 @@ export default class OMSLanguage {
   /** Content of package */
   public data: any;
 
+  /** List of languages */
+  public langList: OMSLanguage[];
+
   constructor(abbr: string, name?: string, isCompleted?: boolean) {
     if (name || isCompleted !== undefined) {
       this.abbr = abbr;
       this.name = name;
       this.isCompleted = isCompleted;
     } else {
-      const langData = OMSFile.readSync(
-        `${appData.folder}/${appData.langsFolder}/${abbr}.${OMSLanguage.EXTENSION}`
-      );
+      this.langList = OMSLanguage.checkLangsList();
+      const langData = OMSFile.readSync(OMSLanguage.getPathToPack(abbr));
       this.abbr = langData.INFO.ABBR;
       this.name = langData.INFO.NAME;
       this.isCompleted = langData.INFO.IS_COMPLETED;
       this.data = langData;
     }
+  }
+
+  /** Reload lang list for "Settings" */
+  public reloadLangList = (): OMSLanguage[] => {
+    this.langList = OMSLanguage.checkLangsList();
+    return this.langList;
   }
 }

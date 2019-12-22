@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
+
 import { push } from 'connected-react-router';
 
 import { toggleAboutAppModal, toggleHotkeysModal } from 'store/actions/main/modals';
+
 import Logo from './Logo';
 
 const mapDispatchToProps = dispatch => ({
@@ -19,9 +21,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const ConnectedLogo = connect(
-  null,
-  mapDispatchToProps
-)(Logo);
+const ConnectedLogo = connect(null, mapDispatchToProps)(Logo);
 
 export default ConnectedLogo;

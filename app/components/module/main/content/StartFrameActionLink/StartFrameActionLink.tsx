@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 
 import Button from 'antd/lib/button';
 
-import OMSIcon from 'components/common/OMSIcon/OMSIcon';
-import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
+import OMSIcon, { EOmsIconIconName } from 'components/common/OMSIcon';
+
 import styles from './StartFrameActionLink.m.scss';
 
 interface IStartFrameActionLinkProps {

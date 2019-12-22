@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import { toggleSettingsModal } from 'store/actions/main/modals';
+
 import AppHeader from './AppHeader';
 
 const mapDispatchToProps = dispatch => ({
@@ -9,9 +10,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const ConnectedAppHeader = connect(
-  null,
-  mapDispatchToProps
-)(AppHeader);
+const ConnectedAppHeader = connect(null, mapDispatchToProps)(AppHeader);
 
 export default ConnectedAppHeader;

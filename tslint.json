@@ -3,7 +3,58 @@
   "rules": {
     "trailing-comma": true,
     "semicolon": true,
-    "ordered-imports": false,
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "groups": [
+          {
+            "name": "react and redux and electron",
+            "match": "^(react|redux|electron)",
+            "order": 10
+          },
+          {
+            "name": "components and devkits",
+            "match": "^(antd)",
+            "order": 20
+          },
+          {
+            "name": "assets",
+            "match": "^assets",
+            "order": 40
+          },
+          {
+            "name": "components",
+            "match": "^components",
+            "order": 59
+          },
+          {
+            "name": "data",
+            "match": "^data",
+            "order": 60
+          },
+          {
+            "name": "modules",
+            "match": "^modules",
+            "order": 70
+          },
+          {
+            "name": "redux store",
+            "match": "^store",
+            "order": 80
+          },
+          {
+            "name": "local",
+            "match": "^\\.+/",
+            "order": 90
+          },
+          {
+            "name": "unmatched",
+            "order": 30
+          }
+        ]
+      }
+    ],
     "object-literal-sort-keys": false,
     "no-console": false,
     "member-access": false

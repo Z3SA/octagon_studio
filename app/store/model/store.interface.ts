@@ -1,13 +1,13 @@
-import { IStoreMain } from './main.interface';
 import IStoreApp from './app.interface';
+import { IStoreMain } from './main.interface';
 
 export interface IStore {
   /** State of main window */
-  main: IStoreMain;
+  main?: IStoreMain;
 
   /** Router state */
-  router: any;
+  router?: any;
 
   /** State of whole app */
-  app: IStoreApp;
+  app?: IStoreApp;
 }

@@ -1,4 +1,6 @@
-export default interface IOMSLDSettings {
+import { IOMSLDSettingsLanguage } from './settings';
+
+export interface IOMSLDSettings {
   TITLE: string;
 
   /** Actions buttons of modal in footer */
@@ -14,11 +16,7 @@ export default interface IOMSLDSettings {
   };
 
   INTERFACE: {
-    LANGUAGE: {
-      TITLE: string;
-      NOT_FINALLY: string;
-      DESC: string;
-    };
+    LANGUAGE: IOMSLDSettingsLanguage;
 
     THEME: {
       TITLE: string;

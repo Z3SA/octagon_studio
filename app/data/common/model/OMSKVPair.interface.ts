@@ -1,5 +1,5 @@
 /** Key-value pair */
-export default interface OMSKVPair {
+export interface OMSKVPair {
   key: string;
   value: string;
 }

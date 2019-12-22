@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import Modal from 'antd/lib/modal';
 import Typography from 'antd/lib/typography';
 
+import { IOMSLDAboutAppModal } from 'data/common/model/lang';
 import { oms } from 'data/data.init';
+import { APP_CONSTS } from 'data/utils';
+
 import { TranslateContext } from 'modules/global/TranslateContext';
-import IOMSLDAboutAppModal from 'data/common/model/lang/main_window/OMSLDAboutAppModal.interface';
-import { APP_CONSTS } from 'data/utils/AppConsts.enum';
 
 const { Paragraph } = Typography;
 

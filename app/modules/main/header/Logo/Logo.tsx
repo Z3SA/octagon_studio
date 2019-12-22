@@ -1,13 +1,15 @@
-import React, { PureComponent } from 'react';
 import { shell } from 'electron';
+import React, { PureComponent } from 'react';
 
-import Menu from 'antd/lib/menu';
 import Dropdown from 'antd/lib/dropdown';
+import Menu from 'antd/lib/menu';
+
+import { IOMSLDLogoMenu } from 'data/common/model/lang';
+import { APP_CONSTS } from 'data/utils';
+
+import { TranslateContext } from 'modules/global/TranslateContext';
 
 import styles from './Logo.m.scss';
-import { APP_CONSTS } from 'data/utils/AppConsts.enum';
-import { TranslateContext } from 'modules/global/TranslateContext';
-import IOMSLDLogoMenu from 'data/common/model/lang/main_window/OMSLDLogoMenu.interface';
 
 interface ILogoProps {
   onClickAboutApp: any;

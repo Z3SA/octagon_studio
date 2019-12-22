@@ -1,18 +1,26 @@
-import { SET_LANGUAGE } from 'store/actions/app/language';
-import { ISetLanguageAction } from 'store/actions/app/language';
-import { languages } from 'store/actions/app/languages.enum';
+import { ISetLangListAction, SET_LANG_LIST, SET_LANGUAGE } from 'store/actions/app/ui';
+import { ISetLanguageAction } from 'store/actions/app/ui';
 import IStoreAppUI from 'store/model/app/ui.interface';
 
 const initialState: IStoreAppUI = {
-  language: languages.EN,
+  language: 'en',
+  langList: [],
 };
 
-export function uiReducer(state = initialState, action: ISetLanguageAction): IStoreAppUI {
+export function uiReducer(
+  state = initialState,
+  action: ISetLanguageAction | ISetLangListAction
+): IStoreAppUI {
   switch (action.type) {
     case SET_LANGUAGE:
       return {
         ...state,
         language: action.lang,
+      };
+    case SET_LANG_LIST:
+      return {
+        ...state,
+        langList: action.langList,
       };
     default:
       return state;

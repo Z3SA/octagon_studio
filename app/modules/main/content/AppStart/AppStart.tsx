@@ -1,14 +1,17 @@
 import React, { PureComponent } from 'react';
 
-import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
+import Row from 'antd/lib/row';
 import Typography from 'antd/lib/typography';
 
-import styles from './AppStart.m.scss';
+import { EOmsIconIconName } from 'components/common/OMSIcon';
+import { StartFrameActionLink } from 'components/module/main/content';
+
+import { IOMSLDMainStart } from 'data/common/model/lang';
+
 import { TranslateContext } from 'modules/global/TranslateContext';
-import IOMSLDMainStart from 'data/common/model/lang/main_window/OMSLDMainStart.interface';
-import StartFrameActionLink from 'components/module/main/content/StartFrameActionLink/StartFrameActionLink';
-import { EOmsIconIconName } from 'components/common/OMSIcon/OMSIcon.icon-enum';
+
+import styles from './AppStart.m.scss';
 
 const { Title } = Typography;
 

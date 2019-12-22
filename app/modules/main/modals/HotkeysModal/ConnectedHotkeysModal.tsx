@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 
-import { IStore } from 'store/model/store.interface';
 import { toggleHotkeysModal } from 'store/actions/main/modals';
+import { IStore } from 'store/model/store.interface';
+
 import HotkeysModal from './HotkeysModal';
 
 const mapStateToProps = (state: IStore) => ({
@@ -14,9 +15,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const ConnectedHotkeysModal = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HotkeysModal);
+const ConnectedHotkeysModal = connect(mapStateToProps, mapDispatchToProps)(HotkeysModal);
 
 export default ConnectedHotkeysModal;

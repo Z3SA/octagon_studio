@@ -1,12 +1,12 @@
-import OMSFile from '../../utils/OMSFile.class';
 import appData from '../../common/appData';
-import OMS_WINDOW_SESSION_DEFAULT from './default-state/OMSWindowSession.default';
-import IOMSWindowSessionConfig from './model/OMSWindowSessionConfig.interface';
+import { OMSFile } from '../../utils/OMSFile.class';
+import { OMS_WINDOW_SESSION_DEFAULT } from './default-state';
+import { IOMSWindowSessionConfig } from './model';
 
 /**
  * Last saved params of main window (sizes, pos)
  */
-export default class OMSWindowSession {
+export class OMSWindowSession {
   /** Read last session from file */
   public static readSession(): IOMSWindowSessionConfig {
     return OMSFile.readSync(`${appData.folder}/${appData.windowSession}`);

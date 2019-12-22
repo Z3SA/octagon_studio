@@ -1,6 +1,6 @@
-import OMSFile from 'data/utils/OMSFile.class';
+import { OMSFile } from 'data/utils';
 
-export default class OMSPlatform {
+export class OMSPlatform {
   public key: string;
 
   public path: string;

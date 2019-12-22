@@ -1,16 +1,23 @@
 import appData from 'data/common/appData';
-import OMSFile from 'data/utils/OMSFile.class';
-import OMS_DEFAULT from './default-state/OMS.default';
-import OMSConfig from './model/OMSConfig.interface';
-import OMSLanguage from './OMSLanguage.class';
-import OMSSession from './OMSSession.class';
-import OMSUser from './OMSUser.class';
+import { OMSFile } from 'data/utils';
+
+import { OMS_DEFAULT } from './default-state';
+import { IOMSConfig } from './model';
+import { OMSLanguage } from './OMSLanguage.class';
+import { OMSSession } from './OMSSession.class';
+import { OMSUser } from './OMSUser.class';
 
 /**
  * Initial state of Studio
  * Loading is sync, savings are async
  */
-export default class OMS {
+export class OMS {
+  /** Paths of using files and folders */
+  private static readonly PATHS = {
+    appData: appData.folder,
+    cfg: `${appData.folder}/${appData.cfg}`,
+  };
+
   /** Version Mk * */
   public major: number;
 
@@ -39,22 +46,17 @@ export default class OMS {
 
   /** Loading all configs and data from app data */
   public load(): void {
-    let cfg: OMSConfig;
-    if (
-      !OMSFile.exists(appData.folder) ||
-      !OMSFile.exists(`${appData.folder}/${appData.cfg}`)
-    ) {
+    let cfg: IOMSConfig;
+    if (!OMSFile.exists(OMS.PATHS.appData) || !OMSFile.exists(OMS.PATHS.cfg)) {
       cfg = OMS_DEFAULT;
-      OMSFile.write(`${appData.folder}/${appData.cfg}`, cfg);
+      OMSFile.write(OMS.PATHS.cfg, cfg);
     } else {
-      cfg = OMSFile.readSync(`${appData.folder}/${appData.cfg}`);
+      cfg = OMSFile.readSync(OMS.PATHS.cfg);
     }
 
     this.major = cfg.major;
     this.version = cfg.version;
     this.type = cfg.type;
-
-    OMSLanguage.checkLangsList();
 
     this.lang = new OMSLanguage(cfg.lang);
     this.user = new OMSUser();

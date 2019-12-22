@@ -1,4 +1,4 @@
-export default interface IOMSLDModalHotkeys {
+export interface IOMSLDModalHotkeys {
   TITLE: string;
   ACTION_LABEL: string;
   HOTKEY_LABEL: string;

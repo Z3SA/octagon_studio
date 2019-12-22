@@ -1,10 +1,8 @@
-import IOMSConfig from '../model/OMSConfig.interface';
+import { IOMSConfig } from '../model';
 
-const OMS_DEFAULT: IOMSConfig = {
+export const OMS_DEFAULT: IOMSConfig = {
   major: 0,
   version: '0.0.1',
   lang: 'en',
   type: 'pre-alpha',
 };
-
-export default OMS_DEFAULT;

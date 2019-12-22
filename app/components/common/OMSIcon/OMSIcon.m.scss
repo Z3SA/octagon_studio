@@ -11,4 +11,5 @@
   @include icon($name: 'window-minimize', $isLight: true);
   @include icon($name: 'window-restore', $isLight: true);
   @include icon($name: 'platform-add', $isLight: true);
+  @include icon($name: 'sync', $isLight: true);
 }

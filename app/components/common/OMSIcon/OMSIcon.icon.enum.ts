@@ -5,4 +5,5 @@ export enum EOmsIconIconName {
   windowMinimize = 'window-minimize',
   windowRestore = 'window-restore',
   platformAdd = 'platform-add',
+  sync = 'sync',
 }

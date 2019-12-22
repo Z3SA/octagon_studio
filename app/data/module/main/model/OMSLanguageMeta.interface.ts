@@ -1,5 +1,5 @@
 /** Meta info about language */
-export default interface OMSLanguageMeta {
+export interface IOMSLanguageMeta {
   abbr: string;
   name: string;
   modifyTime: string;

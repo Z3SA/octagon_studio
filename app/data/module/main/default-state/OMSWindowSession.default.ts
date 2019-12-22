@@ -1,10 +1,8 @@
-import IOMSWindowSessionConfg from '../model/OMSWindowSessionConfig.interface';
+import { IOMSWindowSessionConfig } from '../model';
 
-const OMS_WINDOW_SESSION_DEFAULT: IOMSWindowSessionConfg = {
+export const OMS_WINDOW_SESSION_DEFAULT: IOMSWindowSessionConfig = {
   winX: 300,
   winY: 300,
   winWidth: 1200,
   winHeight: 700,
 };
-
-export default OMS_WINDOW_SESSION_DEFAULT;

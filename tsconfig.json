@@ -28,5 +28,16 @@
       }
     ]
   },
-  "exclude": ["node_modules", "**/node_modules/**", "tsconfig.json"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules/**",
+    "tsconfig.json",
+    "**/dist/**",
+    "**/main.dev.babel.js",
+    "**/main.prod.js",
+    "./babel.config.js",
+    "**/configs/**",
+    "**/dll/**",
+    "**/internals/**"
+  ]
 }

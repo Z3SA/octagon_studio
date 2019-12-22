@@ -10,8 +10,10 @@
  *
  */
 import { app, BrowserWindow } from 'electron';
+
 import path from 'path';
-import OMSWindowSession from './data/module/main/OMSWindowSession.class';
+
+import { OMSWindowSession } from './data/module/main/OMSWindowSession.class';
 
 // Main window
 let mainWindow: BrowserWindow;

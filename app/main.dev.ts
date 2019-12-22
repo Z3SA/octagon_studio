@@ -11,8 +11,6 @@
  */
 import { app, BrowserWindow } from 'electron';
 
-import path from 'path';
-
 import { OMSWindowSession } from './data/module/main/OMSWindowSession.class';
 
 // Main window
@@ -62,7 +60,6 @@ app.on('ready', async () => {
       nodeIntegration: false,
       devTools: false,
     },
-    icon: path.join(__dirname, 'resources/icon.png'),
   });
 
   intro.loadURL(`file://${__dirname}/modules/intro/index.html`);

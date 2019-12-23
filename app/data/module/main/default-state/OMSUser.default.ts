@@ -1,5 +1,4 @@
-import { Utils } from 'components/utils';
-
+import { Utils } from '../../../../components/utils';
 import { IOMSUserConfig } from '../model';
 
 export const OMS_USER_DEFAULT: IOMSUserConfig = {

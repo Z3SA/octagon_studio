@@ -177,7 +177,7 @@
     "prettier": "^1.18.2",
     "prettier-tslint": "^0.4.2",
     "redux-logger": "^3.0.6",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
     "stylelint": "^9.10.1",
     "stylelint-config-prettier": "^5.2.0",

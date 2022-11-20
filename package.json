@@ -197,7 +197,7 @@
     "yarn": "^1.15.2"
   },
   "dependencies": {
-    "@types/react-dom": "^16.8.4",
+    "@types/react-dom": "^16.9.17",
     "antd": "^3.26.3",
     "connected-react-router": "^6.4.0",
     "core-js": "^2.6.11",

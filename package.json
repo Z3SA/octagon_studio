@@ -198,7 +198,7 @@
   },
   "dependencies": {
     "@types/react-dom": "^16.8.4",
-    "antd": "^3.26.3",
+    "antd": "^3.26.20",
     "connected-react-router": "^6.4.0",
     "core-js": "^2.6.11",
     "history": "^4.9.0",

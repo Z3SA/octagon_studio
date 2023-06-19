@@ -174,7 +174,7 @@
     "node-less": "^1.0.0",
     "node-sass": "^4.11.0",
     "opencollective-postinstall": "^2.0.2",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "prettier-tslint": "^0.4.2",
     "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",

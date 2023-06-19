@@ -154,7 +154,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.5",
-    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-dev-expression": "^0.2.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chalk": "^2.4.1",
     "concurrently": "^4.1.0",
